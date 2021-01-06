@@ -70,7 +70,7 @@ return (
       <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul className="navbar-nav mr-auto">
         <li className="nav-item ">
-        <Link className="nav-link" to={`/`}>
+        <Link className="nav-link" to={`/consultants/`}>
             SenPro Consultants
           </Link>
           </li>
@@ -137,7 +137,7 @@ return (
         <ul className="navbar-nav mr-auto">
           
         <li className="nav-item animate__animated animate__fadeInLeft">
-        <Link className="nav-link" to={`/consultants`}>
+        <Link className="nav-link" to={`/consultants/`}>
             SenPro Consultants
           </Link>
           </li>
