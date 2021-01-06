@@ -12,8 +12,8 @@ import { getChilds} from "../store/actions/assignments";
 import { getResults} from "../store/actions/assignments";
 import * as auth from "../store/actions/auth";
 import { useAlert } from 'react-alert'
-import {Pay} from './paystack';
-
+// import {Pay} from './paystack';
+import {Pay} from './flutterwave';
 export const ResultDashboard = (props) => {
 
     const {resstate, resdispatch} = useContext(ResContext);
