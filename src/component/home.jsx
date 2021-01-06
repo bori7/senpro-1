@@ -280,7 +280,6 @@ return(
     <h3 className="primary-header ">Degrees</h3>
     <ul  className="">
         <li>BSc Biological Sciences (University of West Georgia, USA)</li>
-        <li>BSc Biological Sciences (University of West Georgia, USA)</li>
         <li>Master of Arts in Education (University of Bath, UK)</li>
         <li>M.A.T. Special Education Concentration for Children with High Incidences (University of West Georgia, USA)</li>
         <li>Ed. D: Leadership in Special Populations (University of Houston, USA)</li>

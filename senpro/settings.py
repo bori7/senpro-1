@@ -121,7 +121,7 @@ USE_TZ = True
 REST_USE_JWT = True
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'build/static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'build/static'), os.path.join(BASE_DIR, 'src/static')  ]
 
 STATIC_ROOT = os.path.join(BASE_DIR,'build', "static")
 

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
-# from main.views import Home, Forum, QT1, QT2
+from main.views import Consultant
 from django.views.generic import TemplateView
 from client.views import UploadFiles
 from django.conf import settings
@@ -29,6 +29,7 @@ urlpatterns = [
     path('clients/', include('client.urls')),
     path('uploadFiles', UploadFiles.as_view()),
     path('community/', include('forum.urls')),
+     path('consultants', Consultant.as_view()),
    
 ]
 

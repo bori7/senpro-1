@@ -96,10 +96,11 @@ return (
             Forum
             </Link>
             </li>
+            {/*
           <li className="nav-item ">
             <a className="nav-link" href="#">Contact Us</a>
           </li>
-         
+            */}
         
           
         
@@ -136,7 +137,7 @@ return (
         <ul className="navbar-nav mr-auto">
           
         <li className="nav-item animate__animated animate__fadeInLeft">
-        <Link className="nav-link" to={`/`}>
+        <Link className="nav-link" to={`/consultants`}>
             SenPro Consultants
           </Link>
           </li>
@@ -160,9 +161,6 @@ return (
           <Link className="nav-link" to={`/forum/`}>
             Forum
           </Link>
-          </li>
-          <li className="nav-item animate__animated animate__fadeInLeft">
-            <a className="nav-link" href="#">Contact Us</a>
           </li>
          
           

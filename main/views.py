@@ -19,4 +19,6 @@ class QT1(TemplateView):
 class QT2(TemplateView):
     template_name = 'q2.html'
 
+class Consultant(TemplateView):
+    template_name = 'consultant.html'
 
