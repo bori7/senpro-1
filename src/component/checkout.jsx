@@ -7,8 +7,8 @@ import {MyContext} from '../store/context/myContext';
 import {ResContext} from '../store/context/resultContext';
 // import CheckoutItem from './checkout-item/checkout-item.component';
 // import StripeCheckoutButton from './stripe-button/stripe-button.component';
-import {PayAppoint} from './payappoint';
-
+// import {PayAppoint} from './payappoint';
+import {PayAppoint} from './flutterappoint';
 import * as auth from "../store/actions/auth";
 
 import './checkout.styles.scss';
