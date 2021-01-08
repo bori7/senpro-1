@@ -120,7 +120,7 @@ export const authCheckState = (dispatch, props) => {
   
     const user = JSON.parse(localStorage.getItem("user"));
     if (user === undefined || user === null) {
-      if (props.location.pathname == '/'){
+      if (props.location.pathname == '/' || props.location.pathname == '/consultants/'){
 
       }else{
       logout(dispatch);
