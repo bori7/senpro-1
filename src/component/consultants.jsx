@@ -8,6 +8,11 @@ import * as auth from "../store/actions/auth";
 import {createResult}from "../store/actions/assignments";
 import { getChilds} from "../store/actions/assignments";
 import { updateChild} from "../store/actions/assignments";
+import emma from "../static/assets/emma.png";
+import tosin from "../static/assets/tosin.png";
+import isa from "../static/assets/isa.png";
+import bolanle from "../static/assets/bolanle.png";
+
 
 export const  Consultants= (props) => {
 
@@ -105,7 +110,7 @@ window.onscroll = ()=>  {scrollFunction()};
 						<div className="col-md-4">
 							<a href="#"  data-toggle="modal" data-target="#tosin">
 								<div className="profile-box profile-box-red">
-									<img src="/static/assets/tosin.png"/>
+									<img src={tosin}/>
 									<h3>Mrs Tosin Babalola</h3>
 								</div>
 							</a>
@@ -113,15 +118,15 @@ window.onscroll = ()=>  {scrollFunction()};
 						<div className="col-md-4">
 							<a href="#"  data-toggle="modal" data-target="#bolanle">
 								<div className="profile-box profile-box-blue">
-									<img src="/static/assets/bolanle.png" style={{borderRadius: '50%'}} />
-									<h3>Mrs. BOLANLE ADEWOLE</h3>
+									<img src={bolanle} style={{borderRadius: '50%'}} />
+									<h3 style={{textAlign: 'center'}}>Mrs. BOLANLE ADEWOLE</h3>
 								</div>
 							</a>
 						</div>
 						<div className="col-md-4">
 								<a href="#"  data-toggle="modal" data-target="#emma">
 									<div className="profile-box profile-box-blue">
-										<img src="/static/assets/emma.png" style={{borderRadius: '50%'}}/>
+										<img src={emma} style={{borderRadius: '50%'}}/>
 										<h3>Mr Emmanuel Olajitan</h3>
 									</div>
 								</a>
@@ -136,7 +141,7 @@ window.onscroll = ()=>  {scrollFunction()};
 							<div className="col-md-4">
 							<a href="#"  data-toggle="modal" data-target="#isa">
 								<div className="profile-box profile-box-skyblue">
-									<img src="/static/assets/isa.png" style={{borderRadius: '50%'}}/>
+									<img src={isa} style={{borderRadius: '50%'}}/>
 									<h3>Mrs Joy Isa</h3>
 								</div>
 							</a>

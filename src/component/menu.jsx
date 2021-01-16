@@ -87,7 +87,7 @@ return (
           </li>
           <li className="nav-item ">
           <Link className="nav-link" to={`/childresult/`}>
-            Test Results
+           Access Test Results
           </Link>
           </li>
       
@@ -149,7 +149,7 @@ return (
           </li>
           <li className="nav-item animate__animated animate__fadeInLeft">
           <Link className="nav-link" to={`/childresult/`}>
-            Test Results
+           Access Test Results
           </Link>
           </li>
          
