@@ -93,21 +93,17 @@ return (
       
           <li className="nav-item ">
           <Link className="nav-link" to={`/forum/`}>
-            Forum
-            </Link>
-            </li>
-            {/*
-          <li className="nav-item ">
-            <a className="nav-link" href="#">Contact Us</a>
+          Forum
+          </Link>
           </li>
-            */}
-        
-          
-        
+
           <li className="nav-item ">
-          
+          <Link className="nav-link" to={`/about/`}>
+          About Us
+          </Link>
           </li>
-          
+
+        
           
         </ul>
         {state.token?
@@ -163,7 +159,12 @@ return (
           </Link>
           </li>
          
-          
+          <li className="nav-item animate__animated animate__fadeInLeft">
+          <Link className="nav-link" to={`/about/`}>
+            About Us
+          </Link>
+          </li>
+         
           
           
         </ul>

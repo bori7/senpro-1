@@ -11,6 +11,10 @@
 }
 
 
+.profile-box h3 {
+	text-align: center;
+	}
+
 .home-slide{
 	overflow: hidden;
   	position: relative;

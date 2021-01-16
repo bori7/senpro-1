@@ -10,6 +10,10 @@
 	background: url(./assets/loading_anim.gif) center no-repeat #fff;
 }
 
+.profile-box h3 {
+	text-align: center;
+	}
+
 
 .home-slide{
 	overflow: hidden;

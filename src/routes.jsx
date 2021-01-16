@@ -2,6 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 
 import {Home} from './component/home';
+import {About} from './component/about';
 import {Consultants} from './component/consultants';
 import {Question1} from './component/q1';
 import {InitialForm} from './component/initialForm';
@@ -31,6 +32,7 @@ const BaseRouter = () => (
     
     <Route exact path="/" component={Home} />
     <Route exact path="/consultants/" component={Consultants} />
+    <Route exact path="/about/" component={About} />
     <Route exact path="/q1/" component={Question1} />
     <Route exact path="/initial/" component={InitialForm} />
     
