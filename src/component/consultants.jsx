@@ -119,7 +119,7 @@ window.onscroll = ()=>  {scrollFunction()};
 							<a href="#"  data-toggle="modal" data-target="#bolanle">
 								<div className="profile-box profile-box-blue">
 									<img src={bolanle} style={{borderRadius: '50%', width: '200px', height: '200px'}}/>
-									<h3 style={{textAlign: 'center'}}>Mrs. BOLANLE ADEWOLE</h3>
+									<h3 style={{textAlign: 'center'}}>Mrs. Bolanle Adewole</h3>
 								</div>
 							</a>
 						</div>

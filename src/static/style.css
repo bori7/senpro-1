@@ -243,7 +243,7 @@ body{
 
 
 .header{
-	font-size: 50px;
+	font-size: 40px;
 	
 	font-weight: 600;
 }
@@ -293,7 +293,9 @@ body{
 	width: 200px;
 }
 
-
+p{
+	font-size: 15px;
+}
 
 .profile-box.profile-box-red{
 	background-color: #d63c78;
@@ -309,7 +311,14 @@ body{
 }
 
 
+.core .card-header{
+	background-color: #24a9b3;
+}
 
+.core-body{
+	color: #fff !important;
+	font-size: 17px !important;
+}
 
 
 .blueimage{
@@ -375,7 +384,7 @@ ul.body-list li::before {
 }
 
 .forum-header h1{
-	font-size: 70px;
+	font-size: 50px;
 	font-weight: 700;
 	color: #fff;
 	margin-bottom: 50px;
