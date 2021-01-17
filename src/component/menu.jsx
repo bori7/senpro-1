@@ -91,11 +91,7 @@ return (
           </Link>
           </li>
 
-          <li className="nav-item ">
-          <Link className="nav-link" to={`/checkout/`}>
-            Bookings
-          </Link>
-          </li>
+         
           <li className="nav-item ">
           <Link className="nav-link" to={`/childresult/`}>
            Access Test Results
@@ -105,6 +101,12 @@ return (
           <li className="nav-item ">
           <Link className="nav-link" to={`/forum/`}>
           Forum
+          </Link>
+          </li>
+
+          <li className="nav-item ">
+          <Link className="nav-link" to={`/resources/`}>
+         Resources
           </Link>
           </li>
 
@@ -159,20 +161,28 @@ return (
             Start Here
           </Link>
           </li>
+          {/**
           <li className="nav-item animate__animated animate__fadeInLeft">
           <Link className="nav-link" to={`/checkout/`}>
             Bookings
           </Link>
           </li>
+           */}
           <li className="nav-item animate__animated animate__fadeInLeft">
           <Link className="nav-link" to={`/childresult/`}>
-           Access Test Results
+          Test Results
           </Link>
           </li>
          
           <li className="nav-item animate__animated animate__fadeInLeft">
           <Link className="nav-link" to={`/forum/`}>
             Forum
+          </Link>
+          </li>
+
+          <li className="nav-item animate__animated animate__fadeInLeft">
+          <Link className="nav-link" to={`/resources/`}>
+          Resources
           </Link>
           </li>
          

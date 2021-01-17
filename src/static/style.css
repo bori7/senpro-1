@@ -91,6 +91,21 @@
   animation-delay: 20s;
 }
 
+.home-slide > .home-slide-item:nth-child(6) {
+	animation-delay: 25s;
+  }
+
+  .home-slide > .home-slide-item:nth-child(7) {
+	animation-delay: 30s;
+  }
+  .home-slide > .home-slide-item:nth-child(8) {
+	animation-delay: 35s;
+  }
+
+  .nav-link{
+	  font-size: 15px;
+  }
+  
 .navright{
 	 animation-delay: 4.9s;
 }
