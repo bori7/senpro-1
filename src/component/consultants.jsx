@@ -8,9 +8,9 @@ import * as auth from "../store/actions/auth";
 import {createResult}from "../store/actions/assignments";
 import { getChilds} from "../store/actions/assignments";
 import { updateChild} from "../store/actions/assignments";
-import emma from "../static/assets/emma.png";
+import emma from "../static/assets/emma.jpeg";
 import tosin from "../static/assets/tosin.png";
-import isa from "../static/assets/isa.png";
+import isa from "../static/assets/isa.jpeg";
 import bolanle from "../static/assets/bolanle.png";
 
 
@@ -118,7 +118,7 @@ window.onscroll = ()=>  {scrollFunction()};
 						<div className="col-md-4">
 							<a href="#"  data-toggle="modal" data-target="#bolanle">
 								<div className="profile-box profile-box-blue">
-									<img src={bolanle} style={{borderRadius: '50%'}} />
+									<img src={bolanle} style={{borderRadius: '50%', width: '200px', height: '200px'}}/>
 									<h3 style={{textAlign: 'center'}}>Mrs. BOLANLE ADEWOLE</h3>
 								</div>
 							</a>
@@ -126,7 +126,7 @@ window.onscroll = ()=>  {scrollFunction()};
 						<div className="col-md-4">
 								<a href="#"  data-toggle="modal" data-target="#emma">
 									<div className="profile-box profile-box-blue">
-										<img src={emma} style={{borderRadius: '50%'}}/>
+										<img src={emma} style={{borderRadius: '50%', width: '200px', height: '200px'}}/>
 										<h3>Mr Emmanuel Olajitan</h3>
 									</div>
 								</a>
@@ -141,7 +141,7 @@ window.onscroll = ()=>  {scrollFunction()};
 							<div className="col-md-4">
 							<a href="#"  data-toggle="modal" data-target="#isa">
 								<div className="profile-box profile-box-skyblue">
-									<img src={isa} style={{borderRadius: '50%'}}/>
+									<img src={isa} style={{borderRadius: '50%', width: '200px', height: '200px'}}/>
 									<h3>Mrs Joy Isa</h3>
 								</div>
 							</a>

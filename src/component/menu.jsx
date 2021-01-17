@@ -69,6 +69,12 @@ return (
 
       <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul className="navbar-nav mr-auto">
+          
+        <li className="nav-item ">
+          <Link className="nav-link" to={`/about/`}>
+          About Us
+          </Link>
+          </li>
         <li className="nav-item ">
         <Link className="nav-link" to={`/consultants/`}>
             SenPro Consultants
@@ -97,11 +103,6 @@ return (
           </Link>
           </li>
 
-          <li className="nav-item ">
-          <Link className="nav-link" to={`/about/`}>
-          About Us
-          </Link>
-          </li>
 
         
           
@@ -132,7 +133,13 @@ return (
       <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul className="navbar-nav mr-auto">
           
+        
         <li className="nav-item animate__animated animate__fadeInLeft">
+          <Link className="nav-link" to={`/about/`}>
+            About Us
+          </Link>
+          </li>
+          <li className="nav-item animate__animated animate__fadeInLeft">
         <Link className="nav-link" to={`/consultants/`}>
             SenPro Consultants
           </Link>
@@ -159,11 +166,7 @@ return (
           </Link>
           </li>
          
-          <li className="nav-item animate__animated animate__fadeInLeft">
-          <Link className="nav-link" to={`/about/`}>
-            About Us
-          </Link>
-          </li>
+         
          
           
           

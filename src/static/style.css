@@ -915,3 +915,19 @@ p.question{
 	
 }
 
+.ser-col{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	column-gap: 10px; 
+}
+
+.ser-col h2{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.bold{
+	font-weight: bold
+}
