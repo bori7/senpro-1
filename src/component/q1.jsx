@@ -1,4 +1,4 @@
-import React ,{useEffect, useState, useCallback, useRef}from "react";
+import React ,{useEffect, useState, useContext, useRef}from "react";
 import {MenuLayout} from './menu';
 import mini_header_2 from '../static/assets/mini_header_2.png';
 // import  '../static/style.css';
@@ -12,7 +12,6 @@ export const Question1 = (props) => {
 
     const node = useRef();
    
-
     const [initia, setInitia] = useState({});
     const {state, dispatch} = useContext(MyContext)
     const {resstate, resdispatch} = useContext(ResContext)

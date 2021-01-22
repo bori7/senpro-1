@@ -8,7 +8,7 @@ import * as auth from "../store/actions/auth";
 import {createResult}from "../store/actions/assignments";
 import { getChilds} from "../store/actions/assignments";
 import { updateChild} from "../store/actions/assignments";
-import * as auth from "../store/actions/auth";
+// import * as auth from "../store/actions/auth";
 
 export const  Academics= (props) => {
 
