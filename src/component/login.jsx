@@ -3,7 +3,7 @@ import {MenuLayout} from './menu';
 import mini_header_2 from '../static/assets/mini_header_2.png';
 // import { Link } from "react-router-dom";
 import {MyContext} from '../store/context/myContext';
-import { Divider, Card } from '@material-ui/core'; 
+import { Container } from '@material-ui/core'; 
 import * as actions from "../store/actions/auth";
 
 
@@ -132,6 +132,7 @@ export const Login = (props) => {
                     <div className="col-md-8" style={{marginTop: '10px'}}>
                     
                     <form onSubmit={handleSubmit}>
+                    
                     <p className="questions text-danger col-md-9">{error}</p>
                         <div className="row questions" style={{justifyContent: 'center'}}>
                             

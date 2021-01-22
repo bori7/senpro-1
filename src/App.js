@@ -1,4 +1,4 @@
-// import  './static/style.css';
+import React  from "react";
 // import {MenuLayout } from './component/menu';
 import {Footer } from './component/footer';
 import {MyContextProvider} from './store/context/myContext';
@@ -27,4 +27,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default React.memo(App);
