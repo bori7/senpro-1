@@ -1,6 +1,6 @@
 import React ,{useEffect, useState,useContext, useCallback, useRef}from "react";
 // import logo from './logo.svg';
-// import { usePaystackPayment, PaystackButton, PaystackConsumer } from 'react-paystack';
+import { usePaystackPayment, PaystackButton, PaystackConsumer } from 'react-paystack';
 import * as auth from "../store/actions/auth";
 import {ResContext} from '../store/context/resultContext';
 import { updateChild} from "../store/actions/assignments";
