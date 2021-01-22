@@ -21,9 +21,9 @@ export const Question1 = (props) => {
         if (state.token === undefined || state.token === null) {
             props.history.push('/login/');
             }
-            if (resstate.child.id === undefined || resstate.child.id === null) {
-            props.history.push('/initial/');
-            }
+            // if (resstate.child.id === undefined || resstate.child.id === null) {
+            // props.history.push('/initial/');
+            // }
         node.current.addEventListener('click', (e)=>  {
             for (const select of node.current.querySelectorAll('.custom-select')) {
                 if (!select.contains(e.target)) {
