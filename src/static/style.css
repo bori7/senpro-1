@@ -955,3 +955,8 @@ p.question{
 .bold{
 	font-weight: bold
 }
+
+.header-text{
+	color: #fff;
+	font-size: 20px;
+}

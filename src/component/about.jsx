@@ -112,40 +112,28 @@ This is a deficit the SENPRO Initiative intends to close this deficit by bringin
 				</p>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row d-flex justify-content-between align-items-center">
 				<div class="col-md-6">
-					<h2 class="bold">Our Mission</h2>
-					<p>
-					To provide globally accessible professional SEN expertise and guidance for early intervention and care for the Special Educational Needs Community
-						</p>
+					<div>
+						<h2 class="bold">Our Mission</h2>
+						<p>
+						To provide globally accessible professional SEN expertise and guidance for early intervention and care for the Special Educational Needs Community
+							</p>
+						</div>
+					<div>
+						<h2 class="bold">Our Vision</h2>
+							<p>
+							 Professionals aims to provide hope and help to members of the SEN community by offering guidance and quality care. SEN Professionals will provide help to the SEN community by affordable and easily accessible expertise via consultations, training, and support. Showcasing the strengths and talents of individuals living with exceptional abilities; making them functional and self-sufficient
+							</p>
+						</div>
 				</div>
 				<div class="col-md-6">
-					<h2 class="bold">Our Vision</h2>
-					<p>
-					SEN Professionals aims to provide hope and help to members of the SEN community by offering guidance and quality care. SEN Professionals will provide help to the SEN community by affordable and easily accessible expertise via consultations, training, and support. Showcasing the strengths and talents of individuals living with exceptional abilities; making them functional and self-sufficient
-						</p>
+				<div class="row  ">
+					<div class="col-12 text-center" style={{marginBottom: '20px'}}>
+						{/**<h2 class="header primary-header" style={{color: '#000'}}>Our Core Values</h2>**/}
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-12 text-center" style={{marginBottom: '20px'}}>
-					<h2 class="header primary-header" style={{color: '#000'}}>Our Core Values</h2>
-				</div>
-			</div>
-			
-
-		
-
-			
-
-			
-			
-			
-			
-
-
-			<div class="row">
-				<div class="col-12">
-					<div class="accordion" id="accordionExample">
+				<div class="accordion" id="accordionExample">
 						<div class="card core">
 							<div class="card-header" id="headingOne">
 							<h2 class="mb-0">
@@ -155,7 +143,7 @@ This is a deficit the SENPRO Initiative intends to close this deficit by bringin
 							</h2>
 							</div>
 
-							<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+							<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
 							<div class="card-body ">
 							Our consultants are some of the best in their individual areas of specialty in the various fields of special education. They go through a rigorous vetting process to ensure that they are qualified and knowledgeable experts in their field with many years of experience. Our consultants are engaged after going through a training and onboarding process that ensures that they are aligned with our values. 
 							</div>
@@ -229,6 +217,11 @@ This is a deficit the SENPRO Initiative intends to close this deficit by bringin
 					</div>
 				</div>
 			</div>
+			
+			
+
+
+		
 		</div>
 		
 

@@ -68,12 +68,12 @@ export const CheckOut = (props) => {
 
 
 const professionals = [ {name:"Counsellor 1",price:'$75/hr',amount:75},
-                        {name:"Behavioral Analyst",price:'$100',amount:100},
-                        {name:"Education Counsellor",price:'$75',amount:75},
-                        {name:"Clinical Psychologist",price:'$200',amount:200},
+                        {name:"Behavioral Analyst",price:'$100/hr',amount:100},
+                        {name:"Technical Psychologist",price:'$75/hr',amount:75},
+                        {name:"Clinical Psychologist",price:'$200/hr',amount:200},
                         {name:"Advocate",price:'$75/hr',amount:75},
                         {name:"Paediatrician",price:'$150/hr',amount:150},
-                        {name:"Speech Therapist",price:'$200',amount:200}
+                        {name:"Speech Therapist",price:'$200/hr',amount:200}
                         ]
 // var total = tot
 
