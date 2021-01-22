@@ -41,7 +41,7 @@ export const MyDropzone = (props) => {
     const [errorState, setError] = useState('')
     const onDrop = useCallback(acceptedFiles => {
         function onDrop(acceptedFiles) {
-            console.log('yes')
+            
             const req = request.post('/upload')
             acceptedFiles.forEach(file => {
               req.attach(file.name, file)
@@ -77,7 +77,7 @@ export const MyDropzone = (props) => {
 
   const handleSubmit = ()=>{
     console.log('yes')
-    console.log(resstate.child.id);
+    console.log(resstate.child_id);
     if (acceptedFiles.length > 0){
       let formData = new FormData();
         axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
@@ -96,8 +96,8 @@ export const MyDropzone = (props) => {
 
           .then(res => {
             //console.log(res)
-            //props.history.push('/book-appointment');
-            alert('files submitted successfully, working on book appoitnment page as discussed');
+            props.history.push('/checkout/');
+            //alert('files submitted successfully, working on book appoitnment page as discussed');
 
           })
         
@@ -183,7 +183,8 @@ window.onscroll = ()=>  {scrollFunction()};
                 <div className="col-md-12">
                     <div className="row">
                         <div className="col-12">	
-                            <h1>Let Us Help</h1>
+                            <h1>Upload Documents</h1>
+                            <p className="header-text">Please upload documentation to provide evidence of your child's existing diagnosis.</p>
                         </div>
                     </div>
                     

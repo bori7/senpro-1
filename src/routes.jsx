@@ -24,6 +24,8 @@ import {SignUp} from './component/signup';
 import {CheckOut} from './component/checkout';
 import {Pay} from './component/paystack';
 import {ResultDashboard} from './component/resultdashboard';
+import {Services} from './component/services';
+import {Resources} from './component/resources';
 // import {ResContextProvider} from '../src/store/context/resultContext'
 
 
@@ -56,10 +58,8 @@ const BaseRouter = () => (
     <Route exact path="/childresult/" component={ResultDashboard} />
     <Route exact path="/pay/" component={Pay} />
     <Route exact path="/files/" component={MyDropzone} />
-    
-   
-
-  
+    <Route exact path="/services/" component={Services} />
+    <Route exact path="/resources/" component={Resources} />
   </div>
 );
 

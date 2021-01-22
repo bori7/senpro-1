@@ -69,6 +69,17 @@ return (
 
       <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul className="navbar-nav mr-auto">
+          
+        <li className="nav-item ">
+          <Link className="nav-link" to={`/about/`}>
+          About Us
+          </Link>
+          </li>
+          <li className="nav-item animate__animated animate__fadeInLeft">
+          <Link className="nav-link" to={`/services/`}>
+            Services
+          </Link>
+          </li>
         <li className="nav-item ">
         <Link className="nav-link" to={`/consultants/`}>
             SenPro Consultants
@@ -80,11 +91,7 @@ return (
           </Link>
           </li>
 
-          <li className="nav-item ">
-          <Link className="nav-link" to={`/checkout/`}>
-            Bookings
-          </Link>
-          </li>
+         
           <li className="nav-item ">
           <Link className="nav-link" to={`/childresult/`}>
            Access Test Results
@@ -98,10 +105,11 @@ return (
           </li>
 
           <li className="nav-item ">
-          <Link className="nav-link" to={`/about/`}>
-          About Us
+          <Link className="nav-link" to={`/resources/`}>
+         Resources
           </Link>
           </li>
+
 
         
           
@@ -132,7 +140,18 @@ return (
       <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul className="navbar-nav mr-auto">
           
+        
         <li className="nav-item animate__animated animate__fadeInLeft">
+          <Link className="nav-link" to={`/about/`}>
+            About Us
+          </Link>
+          </li>
+          <li className="nav-item animate__animated animate__fadeInLeft">
+          <Link className="nav-link" to={`/services/`}>
+            Services
+          </Link>
+          </li>
+          <li className="nav-item animate__animated animate__fadeInLeft">
         <Link className="nav-link" to={`/consultants/`}>
             SenPro Consultants
           </Link>
@@ -142,14 +161,16 @@ return (
             Start Here
           </Link>
           </li>
+          {/**
           <li className="nav-item animate__animated animate__fadeInLeft">
           <Link className="nav-link" to={`/checkout/`}>
             Bookings
           </Link>
           </li>
+           */}
           <li className="nav-item animate__animated animate__fadeInLeft">
           <Link className="nav-link" to={`/childresult/`}>
-           Access Test Results
+          Test Results
           </Link>
           </li>
          
@@ -158,12 +179,14 @@ return (
             Forum
           </Link>
           </li>
-         
+
           <li className="nav-item animate__animated animate__fadeInLeft">
-          <Link className="nav-link" to={`/about/`}>
-            About Us
+          <Link className="nav-link" to={`/resources/`}>
+          Resources
           </Link>
           </li>
+         
+         
          
           
           

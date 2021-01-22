@@ -84,7 +84,7 @@ const onSuccess =  () => {
 
   const fwConfig = {
     ...config,
-    text: 'Pay with Flutterwave!',
+    text: 'Book Now!',
     className:"btn btn-warning deepblue curvebtn my-2 my-sm-0 margin-right colorf",
     callback: (response) => {
        console.log(response);

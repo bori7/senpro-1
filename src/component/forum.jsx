@@ -129,6 +129,10 @@ const handleAdd = (id,e) => {
 
 }
 
+
+const getId = id => {
+    return '#'+id
+}
 const fom = {}
 const handleSubmit = e => {
     e.preventDefault();
@@ -147,6 +151,8 @@ const handleSubmit = e => {
   const filteredForumsho = forumsho.filter(forum =>
     forum.title.toLowerCase().includes(searchField.toLowerCase())
   );
+
+
 
 //   var forumshow = forumstate.forums
  
@@ -217,22 +223,25 @@ return (
                 </div>
             </div>
         </div>
+         {/** 
         <div className="thread jumbotron tabsec">
             <div className="container-fluid">
+               
                 <div className="row">
                     <div className="col-md-6">
                         
                             <nav className="nav nav-pills nav-justified mytab">
-                              {/* <a class="nav-item nav-link active" data-toggle="tab" href="#expert" role="tab" aria-controls="home" aria-selected="true" >Sendpro Experts</a>
-                              <a class="nav-item nav-link" data-toggle="tab" role="tab" aria-controls="home" aria-selected="false" href="#community">Community</a> */}
+                             
                               <a className="nav-item nav-link " data-toggle="tab" role="tab" aria-controls="home" aria-selected="false" href="#all">All</a>
                             </nav>
                             
                         
                     </div>
                 </div>
+               
             </div>
         </div>
+         */}
         <div className="tab-content" id="myTabContent">
              <div className="tab-pane fade show active" id="expert" role="tabpanel" aria-labelledby="home-tab">
                 <div id="accordion">
@@ -256,13 +265,45 @@ return (
                                       <p><i className="fa fa-heart heart-active"></i> {forum.likes} hearts</p>
                                       <p><i className="fa fa-comment"></i> {forumstate.comments.length} Comments</p>
                                       
-                                    <button onClick = {(e) => handleClick(forum.id, e)} className="btn btn-primary post-toggler" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapseOne">
-                                         {toggle ? <i className="fa fa-minus toggler"></i> :<i class="fa fa-plus toggler"></i>}
+                                    <button className="btn btn-primary post-toggler" data-toggle="collapse" data-target={`#collapse${forum.id}`} aria-expanded="true" aria-controls="collapseOne">
+                                         <i className="fa fa-plus toggler"></i>
                                     </button>
                                   </div>
                               </div>
                           </div>
                         </div>
+
+                        <div id={`collapse${forum.id}`} class="collapse greybg " aria-labelledby="headingOne" data-parent="#accordion">
+						  	 	<div class="jumbotron comment">
+							  	 	<div class="container-fluid">
+							  	 		<div class="row">
+							  	 			<div class="col-12">
+										      <div class="card-body">
+										      	<div class="">
+										      		<p>
+										        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+										        <div class="topic-meta">
+											  		<div class="leftmeta">
+											  			<p>Ada Adamu</p>
+											  			<p class="post-type regular">Regular</p>
+											  			<p>Added Jan 22. 2020, 10:23pm</p>
+											  		</div>
+											  		<div class="leftmeta">
+											  			<p><i class="fa fa-eye"></i> 10 views</p>
+											  			<p><i class="fa fa-heart heart-active"></i> 45 hearts</p>
+											  			<p><i class="fa fa-comment"></i> 5 Comments</p>
+											  			
+											  			
+											  		</div>
+											  	</div>
+										    	</div>
+										      </div>
+										     </div>
+										 </div>
+								  </div>
+							</div>
+                            </div>
+                        {/**
                         {forumstate.comments.map(comment => ((toggle && forum.id==comment.forum) ?
                         
                         (<div id={forumstate.comments.indexOf(comment)} className="collapse greybg show" aria-labelledby="headingOne" data-parent="#accordion">
@@ -282,9 +323,9 @@ return (
                                                           <p>{comment.created_at}</p>
                                                       </div>
                                                       <div className="leftmeta">
-                                                          {/* <p><i class="fa fa-eye"></i> 10 views</p> */}
+                                                          
                                                           <p><i className="fa fa-heart heart-active"></i> {comment.likes}hearts</p>
-                                                          {/* <p><i class="fa fa-comment"></i> 5 Comments</p> */}      
+                                                               
                                                       </div>
                                                   </div>
                                                 </div>
@@ -295,7 +336,7 @@ return (
                                     </div>
  
                         </div>)	:null
-                         )) }
+                         )) }**/}
                         {(toggle ) ? <div id="collapse2" className="collapse show greybg " aria-labelledby="headingOne" data-parent="#accordion">
                             <div className=" jumbotron comment">
                                     <div className="container">
@@ -326,33 +367,36 @@ return (
                 
                 </div>
             </div>
-            <div className="tab-pane fade" id="all" role="tabpanel" aria-labelledby="contact-tab">maybe</div>
-            <div className="topic jumbotron">
-                            <div className="container-fluid">
+            <div className="container">
+          
+            <div className="row">
+                            <div className="col-12">
                               <h4>Create a Topic</h4>
                               {/* <p>{forum.desc}</p> */}
                               <form onSubmit={handleSubmit}>
-                              <div className="container">
+                              
                             
-                              <div className="col-md-7">
-                              <p>Title</p>
+                              <div className="form-group">
+                              <label>Title</label>
                             <textarea input className="question-input form-control" type="text" id = "option2" name = "option2" required />
                             </div>   
-                            <div className="col-md-10">
-                            <p>Description</p>
-                            <textarea input className="question-input form-control" type="text" id = "option3" name = "option3" required />
+                            <div className="form-group">
+                            <label>Description</label>
+                            <textarea input className="question-input form-control" type="text" rows="10" id = "option3" name = "option3" required />
                             </div> 
                             <br/>
-                            <div className="col-md-10 margin-right" >
-                            <button type="submit" value="Submit" className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">Create
+                            <div className="form-group" >
+                            <button type="submit" value="Submit" className="btn btn-primary skyblue form-control curvebtn my-2 my-sm-0 colorf">Create
                                 </button>
                                 </div>
-                        </div>
+                       
 
                               
                             </form>
                           </div>
                         </div>
+                        </div>
+                       
           
         </div>
     </div>

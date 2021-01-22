@@ -91,6 +91,21 @@
   animation-delay: 20s;
 }
 
+.home-slide > .home-slide-item:nth-child(6) {
+	animation-delay: 25s;
+  }
+
+  .home-slide > .home-slide-item:nth-child(7) {
+	animation-delay: 30s;
+  }
+  .home-slide > .home-slide-item:nth-child(8) {
+	animation-delay: 35s;
+  }
+
+  .nav-link{
+	  font-size: 15px;
+  }
+  
 .navright{
 	 animation-delay: 4.9s;
 }
@@ -243,7 +258,7 @@ body{
 
 
 .header{
-	font-size: 50px;
+	font-size: 40px;
 	
 	font-weight: 600;
 }
@@ -293,7 +308,9 @@ body{
 	width: 200px;
 }
 
-
+p{
+	font-size: 15px;
+}
 
 .profile-box.profile-box-red{
 	background-color: #d63c78;
@@ -309,7 +326,14 @@ body{
 }
 
 
+.core .card-header{
+	background-color: #24a9b3;
+}
 
+.core-body{
+	color: #fff !important;
+	font-size: 17px !important;
+}
 
 
 .blueimage{
@@ -375,7 +399,7 @@ ul.body-list li::before {
 }
 
 .forum-header h1{
-	font-size: 70px;
+	font-size: 50px;
 	font-weight: 700;
 	color: #fff;
 	margin-bottom: 50px;
@@ -915,3 +939,24 @@ p.question{
 	
 }
 
+.ser-col{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	column-gap: 10px; 
+}
+
+.ser-col h2{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.bold{
+	font-weight: bold
+}
+
+.header-text{
+	color: #fff;
+	font-size: 20px;
+}
