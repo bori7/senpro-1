@@ -3,7 +3,9 @@ import {MenuLayout} from './menu';
 import mini_header_2 from '../static/assets/mini_header_2.png';
 // import  '../static/style.css';
 // import {q1script} from './q1j.js';
-
+import * as auth from "../store/actions/auth";
+import {MyContext} from '../store/context/myContext';
+import {ResContext} from '../store/context/resultContext';
 
 
 export const Question1 = (props) => {
@@ -12,7 +14,8 @@ export const Question1 = (props) => {
    
 
     const [initia, setInitia] = useState({});
- 
+    const {state, dispatch} = useContext(MyContext)
+    const {resstate, resdispatch} = useContext(ResContext)
   
     useEffect(() => {
         auth.authCheckState(dispatch, props)
