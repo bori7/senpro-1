@@ -9,30 +9,19 @@ import mini_header_2 from '../static/assets/mini_header_2.png';
 export const Question1 = (props) => {
 
     const node = useRef();
-    // const node2 = useRef(0);
-    // const node3 = useRef();
+   
 
     const [initia, setInitia] = useState({});
-    // const [alert, setAlert] = useState(false);
-
-    // const fadeOutEffect= useCallback(( )=> {
-    //     var fadeTarget = node2.current.querySelector('.se-pre-con');
-    //     var fadeEffect = setInterval(function () {
-    //         setAlert(false)
-    //         if (!fadeTarget.style.opacity) {
-    //             fadeTarget.style.opacity = 1;
-    //         }
-    //         if (fadeTarget.style.opacity > 0) {
-    //             fadeTarget.style.opacity -= 0.1;
-    //         } else {
-    //             clearInterval(fadeEffect);
-    //             setAlert(false)
-    //             // document.removeEventListener('load', fadeOutEffect);
-    //         }
-    //     }, 180);
-    // },[]);
+ 
   
     useEffect(() => {
+        auth.authCheckState(dispatch, props)
+        if (state.token === undefined || state.token === null) {
+            props.history.push('/login/');
+            }
+            if (resstate.child.id === undefined || resstate.child.id === null) {
+            props.history.push('/initial/');
+            }
         node.current.addEventListener('click', (e)=>  {
             for (const select of node.current.querySelectorAll('.custom-select')) {
                 if (!select.contains(e.target)) {

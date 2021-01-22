@@ -109,22 +109,20 @@ return (
          Resources
           </Link>
           </li>
-
-
-        
-          
+      
         </ul>
         {state.token?
-        (<form className="form-inline my-2 my-lg-0 navright animate__animated animate__fadeInLeft">
+        (<ol className="nav-item ">
         <Link to={`/logout/`}>
               <button onClick = {handleSignout} className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf" >Logout</button>
               </Link> 
-        </form>) :  (<form className="form-inline my-2 my-lg-0 navright animate__animated animate__fadeInLeft">
+        </ol>) :  (<ol className="nav-item ">
         <Link to={`/login/`}>
               <button className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf" >Login</button>
               </Link>
-        </form>)
+        </ol>)
         }
+        <br/>
         
       </div>
     </nav>
@@ -185,24 +183,20 @@ return (
           Resources
           </Link>
           </li>
-         
-         
-         
-          
-          
+      
         </ul>
         {token ?
-        (<form className="form-inline my-2 my-lg-0 navright animate__animated animate__fadeInLeft">
+        (<li className="form-inline my-2 my-lg-0 navright animate__animated animate__fadeInLeft">
         <Link to={`/logout/`}>
               <button onClick = {handleSignout}  className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf" >Logout</button>
               </Link>
-        </form>) :  (<form className="form-inline my-2 my-lg-0 navright animate__animated animate__fadeInLeft">
+        </li>) :  (<li className="form-inline my-2 my-lg-0 navright animate__animated animate__fadeInLeft">
         <Link to={`/login/`}>
               <button className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf" >Login</button>
               </Link>
-        </form>)
+        </li>)
         }
-        
+        <br/>
       </div>
       
     </nav>

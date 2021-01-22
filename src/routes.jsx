@@ -6,7 +6,7 @@ import {About} from './component/about';
 import {Consultants} from './component/consultants';
 import {Question1} from './component/q1';
 import {InitialForm} from './component/initialForm';
-import {Forum} from './component/forum';
+import Forum from './component/forum';
 import {GenDev2} from './component/gd2';
 import {GenDev3} from './component/gd3';
 import {GenDev4} from './component/gd4';

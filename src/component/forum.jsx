@@ -7,7 +7,7 @@ import {MenuLayout} from './menu';
 import {ForumContext} from '../store/context/forumContext';
 import { useAlert } from 'react-alert'
 
-export const Forum = (props)=> {
+const Forum = (props)=> {
 
     const node = useRef();
 
@@ -66,19 +66,6 @@ export const Forum = (props)=> {
                 })
             }
 
-    //         node.current.querySelector(node.current).ready(function(){
-    // // Add minus icon for collapse element which is open by default
-    // node.current.querySelector(".collapse.show").each(function(){
-    //     node.current.querySelector(this).prev(".topic").querySelector(".toggler").classList.add("fa-minus").removeClass("fa-plus");
-    //             });
-                
-    //             // Toggle plus minus icon on show hide of collapse element
-    //             node.current.querySelector(".collapse").addEventListener('show.bs.collapse', function(){
-    //                 node.current.querySelector(this).prev(".topic").querySelector(".toggler").removeClass("fa-plus").classList.add("fa-minus");
-    //             }).addEventListener('hide.bs.collapse', function(){
-    //                 node.current.querySelector(this).prev(".topic").querySelector(".toggler").removeClass("fa-minus").classList.add("fa-plus");
-    //             });
-    //         });
             console.log(state.token)
             
             console.log(forumstate.forums)
@@ -389,9 +376,6 @@ return (
                             <button type="submit" value="Submit" className="btn btn-primary skyblue form-control curvebtn my-2 my-sm-0 colorf">Create
                                 </button>
                                 </div>
-                       
-
-                              
                             </form>
                           </div>
                         </div>
@@ -401,3 +385,5 @@ return (
         </div>
     </div>
 )}
+
+export default React.memo(Forum);

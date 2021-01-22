@@ -204,4 +204,4 @@ CORS_ORIGIN_ALLOW_ALL = True
 # )
 
 
-from .settings_local import *
+# from .settings_local import *

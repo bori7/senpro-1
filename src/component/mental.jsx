@@ -20,9 +20,13 @@ export const  Mental= (props) => {
  
   
     useEffect(() => {
-        // if (state.token === undefined || state.token === null) {
-        //     props.history.push('/login/');
-        //  }
+        auth.authCheckState(dispatch, props)
+        if (state.token === undefined || state.token === null) {
+            props.history.push('/login/');
+            }
+            if (resstate.child.id === undefined || resstate.child.id === null) {
+            props.history.push('/initial/');
+            }
         node.current.addEventListener('click', (e)=>  {
         for (const select of node.current.querySelectorAll('.custom-select')) {
         if (!select.contains(e.target)) {
@@ -616,9 +620,9 @@ getChilds(state.userId.pk,state.token,resdispatch)
         </div>
         </div>
         
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        {/* <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha512-3n19xznO0ubPpSwYCRRBgHh63DrV+bdZfHK52b1esvId4GsfwStQNPJFjeQos2h3JwCmZl0/LgLxSKMAI55hgw==" crossorigin="anonymous"></script>
-		
+		 */}
         </div>
 )}

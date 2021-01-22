@@ -1,6 +1,8 @@
 import axios from "axios";
 import * as actionTypes from "./actionTypes";
 import  {HOST_URL} from '../clientResult';
+import { init } from 'emailjs-com';
+init("user_jDFiteMUy9NWNFehWpWQR");
 
 export const authStart = () => {
   return {
@@ -75,7 +77,8 @@ export const authSignup = (
   email,
   password1,
   password2,
- dispatch
+ dispatch,
+ templateParams
 ) => {
   
     dispatch(authStart());
@@ -98,6 +101,17 @@ export const authSignup = (
         console.log(user)
         dispatch(authSuccess(user));
         checkAuthTimeout(360000,dispatch);
+
+        window.emailjs.send(
+          'gmail',
+          'template_fkturqn',
+           templateParams,
+           "user_jDFiteMUy9NWNFehWpWQR"
+         ).then(res => {
+          console.log('Email successfully sent!',res)
+      })
+      .catch(err => console.error('There has been an error.  Here some thoughts on the error that occured:', err))
+  
       })
       .catch(err => {
         console.log(err.response.data)

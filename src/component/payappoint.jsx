@@ -1,12 +1,12 @@
 import React ,{useEffect, useState,useContext, useCallback, useRef}from "react";
 // import logo from './logo.svg';
-import { usePaystackPayment, PaystackButton, PaystackConsumer } from 'react-paystack';
+// import { usePaystackPayment, PaystackButton, PaystackConsumer } from 'react-paystack';
 // import * as auth from "../store/actions/auth";
 // import {ResContext} from '../store/context/resultContext';
 // import { updateChild} from "../store/actions/assignments";
 import {MyContext} from '../store/context/myContext';
 // import { getResults} from "../store/actions/assignments";
-import * as emailjs from 'emailjs-com';
+// import * as emailjs from 'emailjs-com';
 import { useAlert } from 'react-alert';
 import { init } from 'emailjs-com';
 init("user_jDFiteMUy9NWNFehWpWQR");
@@ -51,7 +51,6 @@ export const PayAppoint = (props) => {
 
             var message = "You have been scheduled to meet with the "+props.name
            
-
             let templateParams = {
             from_name: 'SENPRO',
             to_name: state.username,

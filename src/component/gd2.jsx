@@ -26,11 +26,14 @@ export const GenDev2= (props) => {
     
   
     useEffect(() => {
-        console.log(resstate.child)
-        //auth.authCheckState(dispatch, props);
+        // console.log(resstate.child)
+        auth.authCheckState(dispatch, props);
         if (state.token === undefined || state.token === null) {
             props.history.push('/login/');
-         }
+            }
+            if (resstate.child.id === undefined || resstate.child.id === null) {
+            props.history.push('/initial/');
+            }
         node.current.addEventListener('click', (e)=>  {
             for (const select of node.current.querySelectorAll('.custom-select')) {
                 if (!select.contains(e.target)) {
