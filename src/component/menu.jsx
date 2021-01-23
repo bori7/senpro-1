@@ -10,7 +10,7 @@ import {Link } from "react-router-dom";
 import { useAlert } from 'react-alert';
 import {ResContext} from '../store/context/resultContext';
 import {ForumContext} from '../store/context/forumContext';
-import * as action from "../store/actions/results";
+// import * as action from "../store/actions/results";
 
   export const MenuLayout = (props) => {
     const alert = useAlert()
@@ -82,9 +82,9 @@ import * as action from "../store/actions/results";
     
       const handleClick = (e) => {
         e.preventDefault();
-        action.getComments(state.token, forumdispatch)
-        action.getForum(state.token, forumdispatch)
-        // console.log(forumstate.comments)
+        // action.getComments(state.token, forumdispatch)
+        // action.getForum(state.token, forumdispatch)
+        // // console.log(forumstate.comments)
     
     }
     const scrollFunction = ()=> {
