@@ -142,13 +142,13 @@ export const authCheckState = (dispatch, props) => {
       }
     } else {
       const expirationDate = new Date(user.expirationDate);
-      console.log('here')
+      // console.log('here')
       if (expirationDate <= new Date()) {
         logout(dispatch);
         props.history.push('/login/');
       } else {
         dispatch(authSuccess(user));
-          console.log(props.location)
+          // console.log(props.location)
           if (props.location.pathname == '/login/'){
             props.history.push('/initial/');
           }

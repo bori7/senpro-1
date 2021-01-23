@@ -11,15 +11,15 @@ class StringSerializer(serializers.StringRelatedField):
 
 
 class ForumSerializer(serializers.ModelSerializer):
-    user = serializers.StringRelatedField(many=False)
- 
+    # user = serializers.StringRelatedField(many=False)
+    # user = StringSerializer(many=False)
     class Meta:
         model = Forum
         fields = ('__all__')
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    user = serializers.StringRelatedField(many=False)
+    # user = serializers.StringRelatedField(many=False)
     # questions = serializers.SerializerMethodField()
     # parent = StringSerializer(many=False)
 

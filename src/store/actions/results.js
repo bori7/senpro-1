@@ -147,7 +147,7 @@ const createGradedASNTListFail = error => {
 export const getForum = (token,dispatch) => {
  
     dispatch(getForumListStart());
-    console.log(token)
+    // console.log(token)
     axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
     axios.defaults.xsrfCookieName = "csrftoken";
     axios.defaults.headers = {
@@ -159,19 +159,19 @@ export const getForum = (token,dispatch) => {
       .then(res => {
         const forums = res.data;
         dispatch(getForumListSuccess(forums));
-        console.log(forums, res)
+        // console.log(forums, res)
       })
       .catch(err => {
         console.log(err)
-        dispatch(getForumListFail(err.response.data.message));
+        dispatch(getForumListFail(err.response));
       });
   };
 
   
-export const getComments = (id,token,dispatch) => {
+export const getComments = (token,dispatch) => {
  
   dispatch(getCommentsStart());
-  console.log(token)
+  // console.log(token)
   axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
   axios.defaults.xsrfCookieName = "csrftoken";
   axios.defaults.headers = {
@@ -179,15 +179,15 @@ export const getComments = (id,token,dispatch) => {
     Authorization: `Token ${token}`
   };
   axios
-    .get(`${HOST_URL}/community/comments/?forum=${id}`)
+    .get(`${HOST_URL}/community/comments/`)
     .then(res => {
       const comments = res.data;
       dispatch(getCommentsSuccess( comments ));
-      console.log( comments , res)
+      // console.log( comments , res)
     })
     .catch(err => {
-      console.log(err)
-      dispatch(getCommentsFail(err.response.data.message));
+      console.log(JSON.stringify(err))
+      dispatch(getCommentsFail(JSON.stringify(err.response)));
     });
 };
 
@@ -205,19 +205,19 @@ export const postComments = (comm,token,dispatch) => {
     .post(`${HOST_URL}/community/comments/`, comm)
     .then(res => {
       const postcomment = res.data;
-      dispatch(postCommentsSuccess( 'Submiited'));
-      console.log( postcomment, res)
+      dispatch(postCommentsSuccess( 'Comment Added '));
+      // console.log( postcomment, res)
     })
     .catch(err => {
-      console.log(err)
-      dispatch(postCommentsFail(err.response.data.message));
+      console.log(JSON.stringify(err))
+      dispatch(postCommentsFail(JSON.stringify(err.response)));
     });
 };
 
 export const postForum = (fom,token,dispatch) => {
  
   dispatch(postForumStart());
-  console.log(token)
+  console.log(fom)
   axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
   axios.defaults.xsrfCookieName = "csrftoken";
   axios.defaults.headers = {
@@ -228,7 +228,7 @@ export const postForum = (fom,token,dispatch) => {
     .post(`${HOST_URL}/community/forums/`, fom)
     .then(res => {
       const postfom = res.data;
-      dispatch(postForumSuccess( 'Submiited'));
+      dispatch(postForumSuccess('Topic Created'));
       console.log( postfom, res)
     })
     .catch(err => {
@@ -294,7 +294,7 @@ export const createGradedASNT = (asnt, dispatch) => {
       // res['tips'] = asnt.tips
 
       dispatch(createGradedASNTListSuccess('Submitted', asnt));
-    console.log(asnt)
+    // console.log(asnt)
       // dispatch(createGradedASNTListFail(err));
   
 };

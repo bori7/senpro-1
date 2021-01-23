@@ -9,6 +9,8 @@ import {errorSuccess, messageSuccess} from "../store/actions/results";
 import {Link } from "react-router-dom";
 import { useAlert } from 'react-alert';
 import {ResContext} from '../store/context/resultContext';
+import {ForumContext} from '../store/context/forumContext';
+import * as action from "../store/actions/results";
 
   export const MenuLayout = (props) => {
     const alert = useAlert()
@@ -17,8 +19,9 @@ import {ResContext} from '../store/context/resultContext';
     const {token, loading} = state
     const [load, setLoad] = useState(true);
     const {resstate, resdispatch} = useContext(ResContext);
+    const {forumstate, forumdispatch} = useContext(ForumContext);
     
-    var errorMessage = null;
+    // var errorMessage = null;
     // var loader = null
     useEffect(() => {
       
@@ -29,20 +32,47 @@ import {ResContext} from '../store/context/resultContext';
 
      
       if (state.error)
-       { errorMessage = alert.show(state.error,{ type: 'error',});
+       { alert.show(state.error,{ type: 'error',});
        console.log(state.error)
         errorSuccess(dispatch)
-        errorSuccess(resdispatch)
-      };
     
+      };
+      if (resstate.error)
+       { alert.show(resstate.error,{ type: 'error',});
+       console.log(resstate.error)
+       
+        errorSuccess(resdispatch)
+     
+      };
+      if ( forumstate.error)
+       { alert.show(forumstate.error,{ type: 'error',});
+       console.log(forumstate.error)
+        
+        errorSuccess(forumdispatch)
+      };
+
       if (state.message) { 
-        errorMessage = alert.show(state.message,{ type: 'info',})
+         alert.show(state.message,{ type: 'info',})
         messageSuccess(dispatch)
+      
+      };
+
+      if ( resstate.message ) { 
+        alert.show(resstate.message,{ type: 'info',})
+        
         messageSuccess(resdispatch)
+     
+      };
+      if (forumstate.message) { 
+       alert.show(forumstate.message,{ type: 'info',})
+       
+        messageSuccess(forumdispatch)
       };
   
       return () => clearTimeout(timer);
-      }, [state.token, state.error, state.message]) 
+      }, [state.token, state.error, state.message,
+         resstate.error, resstate.message,
+         forumstate.error, forumstate.message,]) 
 
       const handleSignout= e => {
         e.preventDefault();
@@ -50,12 +80,27 @@ import {ResContext} from '../store/context/resultContext';
         // props.history.push('/login/');
       }
     
-
+      const handleClick = (e) => {
+        e.preventDefault();
+        action.getComments(state.token, forumdispatch)
+        action.getForum(state.token, forumdispatch)
+        // console.log(forumstate.comments)
+    
+    }
+    const scrollFunction = ()=> {
+      if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
+      document.getElementById("scrollnav").style.top = "0";
+      } else {
+      document.getElementById("scrollnav").style.top = "-150px";
+      }
+  }
+  
+  window.onscroll = ()=>  {scrollFunction()};
 return (
     <div className="container-fluid">
     {load? <div class="se-pre-con"></div>:""}
     
-  {(loading || resdispatch.loading)? <div class="se-pre-con"></div> : ''}
+  {(loading || resdispatch.loading|| forumdispatch.loading)? <div class="se-pre-con"></div> : ''}
   
     <div className="row">
         <div className="col-12">
@@ -98,7 +143,7 @@ return (
           </Link>
           </li>
       
-          <li className="nav-item ">
+          <li className="nav-item " onClick={handleClick}>
           <Link className="nav-link" to={`/forum/`}>
           Forum
           </Link>
@@ -178,7 +223,7 @@ return (
           </Link>
           </li>
 
-          <li className="nav-item animate__animated animate__fadeInLeft">
+          <li className="nav-item animate__animated animate__fadeInLeft"  onClick={handleClick}>
           <Link className="nav-link" to={`/resources/`}>
           Resources
           </Link>
@@ -207,7 +252,7 @@ return (
     
         </div>
     </div>
-        {errorMessage}
+        {/* {errorMessage} */}
 
 </div>
 

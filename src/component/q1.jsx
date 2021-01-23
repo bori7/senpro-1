@@ -118,33 +118,6 @@ const scrollFunction = ()=> {
 window.onscroll = ()=>  {scrollFunction()};
 
 
-// for (const dropdown of document.querySelectorAll(".custom-select-wrapper")) {
-//     dropdown.addEventListener('click', ()=> {
-//         dropdown.querySelector('.my-custom-select').classList.toggle('open');
-//     })
-    
-// }
-
-// for (const option of document.querySelectorAll(".custom-option")) {
-//     option.addEventListener('click', () =>  {
-//         if (!option.classList.contains('selected')) {
-//             option.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
-//             option.classList.add('selected');
-//             option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent;
-//         }
-//     })
-    
-// }
-
-// window.addEventListener('click', (e)=>  {
-//     for (const select of document.querySelectorAll('.custom-select')) {
-//         if (!select.contains(e.target)) {
-//             select.classList.remove('open');
-//         }
-//     }
-// });
-    
-
 
     const initial=  {}
     const handleSubmit = e => {
