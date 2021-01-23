@@ -162,7 +162,7 @@ export const getForum = (token,dispatch) => {
         // console.log(forums, res)
       })
       .catch(err => {
-        console.log(err)
+        // console.log(err)
         dispatch(getForumListFail(err.response));
       });
   };
@@ -186,7 +186,7 @@ export const getComments = (token,dispatch) => {
       // console.log( comments , res)
     })
     .catch(err => {
-      console.log(JSON.stringify(err))
+      // console.log(JSON.stringify(err))
       dispatch(getCommentsFail(JSON.stringify(err.response)));
     });
 };
@@ -194,7 +194,7 @@ export const getComments = (token,dispatch) => {
 export const postComments = (comm,token,dispatch) => {
  
   dispatch(postCommentsStart());
-  console.log(token)
+  // console.log(token)
   axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
   axios.defaults.xsrfCookieName = "csrftoken";
   axios.defaults.headers = {
@@ -205,11 +205,11 @@ export const postComments = (comm,token,dispatch) => {
     .post(`${HOST_URL}/community/comments/`, comm)
     .then(res => {
       const postcomment = res.data;
-      dispatch(postCommentsSuccess( 'Comment Added '));
+      dispatch(postCommentsSuccess( 'Comment added '));
       // console.log( postcomment, res)
     })
     .catch(err => {
-      console.log(JSON.stringify(err))
+      // console.log(JSON.stringify(err))
       dispatch(postCommentsFail(JSON.stringify(err.response)));
     });
 };
@@ -217,7 +217,7 @@ export const postComments = (comm,token,dispatch) => {
 export const postForum = (fom,token,dispatch) => {
  
   dispatch(postForumStart());
-  console.log(fom)
+  // console.log(fom)
   axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
   axios.defaults.xsrfCookieName = "csrftoken";
   axios.defaults.headers = {
@@ -229,10 +229,10 @@ export const postForum = (fom,token,dispatch) => {
     .then(res => {
       const postfom = res.data;
       dispatch(postForumSuccess('Topic Created'));
-      console.log( postfom, res)
+      // console.log( postfom, res)
     })
     .catch(err => {
-      console.log(err)
+      // console.log(err)
       dispatch(postForumFail(err.response.request.responseText));
     });
 };

@@ -245,7 +245,9 @@ return (
                               <div className="topic-meta">
                                   <div className="leftmeta">
                                       <p style={{fontWeight: "500",fontStyle:"italic"}} >{capitalizeFirstLetter(forum.sender)}</p>
-                                      <p className="post-type new">New</p>
+                                      { Math.abs(new Date() - new Date(forum.created_at))<= 1.2e+6 ? <p className="post-type new">New</p>:
+                                                            <p className="post-type regular">Regular</p>
+                                                          }
                                       <p style={{fontWeight: "500",fontStyle:"italic"}}>{(new Date(forum.created_at)).toLocaleDateString()} 
                                      _{(new Date(forum.created_at)).toLocaleTimeString()}</p>
                                   </div>
@@ -317,7 +319,11 @@ return (
                                                 <div className="topic-meta">
                                                       <div className="leftmeta">
                                                           <p style={{fontWeight: "500",fontStyle:"italic"}}>{capitalizeFirstLetter(comment.sender)}</p>
-                                                          <p className="post-type regular">Regular</p>
+
+                                                          { Math.abs(new Date() - new Date(comment.created_at))<= 1.2e+6 ? <p className="post-type new">New</p>:
+                                                            <p className="post-type regular">Regular</p>
+                                                          }
+                                                          
                                                           <p style={{fontWeight: "500",fontStyle:"italic"}}>{(new Date(comment.created_at)).toLocaleDateString()} 
                                                         _{(new Date(comment.created_at)).toLocaleTimeString()}</p>
                                                       </div>
@@ -358,8 +364,8 @@ return (
             </div>
 
             <br/> <br/>     
-            <div className="modal" tabIndex="-1" role="form" id="create" >
-                <div className="modal-dialog" role="form">
+            <div className="modal" tabIndex="-1" role="document" id="create" >
+                <div className="modal-dialog" >
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" style={{fontWeight: "700"}}>
@@ -398,8 +404,8 @@ return (
     </div>
 )}
 
-export default React.memo(Forum);
-
+// export default React.memo(Forum);
+export default Forum;
 
 
  

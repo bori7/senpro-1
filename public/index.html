@@ -66,8 +66,8 @@
 			        });
 			        
               {% comment %} $('#createsub').submit(function() {
-              $('#create').modal('hide');
-              }); {% endcomment %}
+              $('#create').modal().toggle();
+              });  {% endcomment %}
 			        // Toggle plus minus icon on show hide of collapse element
 			        $(".collapse").on('show.bs.collapse', function(){
 			        	$(this).prev(".topic").find(".toggler").removeClass("fa-plus").addClass("fa-minus");
