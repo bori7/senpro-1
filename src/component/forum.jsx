@@ -69,7 +69,7 @@ const Forum = (props)=> {
             }
             // console.log(state.token)
             
-            console.log(forumstate.forums)
+            // console.log(forumstate.forums)
     }, [forumsho, come,forumstate.forums]);
 
 
