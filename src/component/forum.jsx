@@ -88,7 +88,7 @@ const getForum = (token,forumdispatch) => {
         
         // setForumsho(forumstate.forums)
         // setCome(forumstate.comments)
-        
+       
        
         node.current.addEventListener('click', (e)=>  {
             for (const select of node.current.querySelectorAll('.custom-select')) {
@@ -133,7 +133,9 @@ const getForum = (token,forumdispatch) => {
 
     
 
-
+    // node.current.querySelector('#createsub').submit(function() {
+    //     node.current.querySelector('#create').modal().toggle();
+    //     });  
 // const setcoment = (comment) =>setCome(comment)
 
 const onSearchChange = event => {
