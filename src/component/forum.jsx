@@ -84,10 +84,14 @@ const getForum = (token,forumdispatch) => {
         auth.authCheckState(dispatch, props);
         getForum(state.token, forumdispatch)
         getComments(state.token, forumdispatch)
-        const interval = setInterval(function(){ 
+        const foruminterval = setInterval(function(){ 
             getForum(state.token, forumdispatch)
+             }, 
+            1000*20);
+        const commentinterval = setInterval(function(){ 
+            
             getComments(state.token, forumdispatch); }, 
-            1000*30);
+            1000*10);
         
         // setForumsho(forumstate.forums)
         // setCome(forumstate.comments)
@@ -130,7 +134,9 @@ const getForum = (token,forumdispatch) => {
             // console.log(state.token)
             
             // console.log(forumsho)
-            return () => clearInterval(interval);
+            return () => {clearInterval(foruminterval);
+                        clearInterval(commentinterval)}
+          
     }, []);
 
 
