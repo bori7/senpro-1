@@ -212,25 +212,8 @@ return (
                 </div>
             </div>
         </div>
-         {/** 
-        <div className="thread jumbotron tabsec">
-            <div className="container-fluid">
-               
-                <div className="row">
-                    <div className="col-md-6">
-                        
-                            <nav className="nav nav-pills nav-justified mytab">
-                             
-                              <a className="nav-item nav-link " data-toggle="tab" role="tab" aria-controls="home" aria-selected="false" href="#all">All</a>
-                            </nav>
-                            
-                        
-                    </div>
-                </div>
-               
-            </div>
-        </div>
-         */}
+       
+       
         <div className="tab-content" id="myTabContent">
              <div className="tab-pane fade show active" id="expert" role="tabpanel" aria-labelledby="home-tab">
                 <div id="accordion">

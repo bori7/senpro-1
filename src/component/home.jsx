@@ -113,7 +113,7 @@ return(
         <div className="row">
             <div className="col-md-5">
                 <h1 className="animate__animated animate__fadeInLeft">Every child deserves to learn.</h1>
-                <p className="animate__animated animate__fadeInLeft"> </p>
+                <p className="animate__animated animate__fadeInLeft">Early intervention makes a difference in predicting a child’s success irrespective of their challenges. Let's help </p>
                 <br/>
                 <Link to={`/initial/`}>
                 <a  className="btn btn-primary btn-lg skyblue curvebtn animate__animated animate__fadeInLeft my-2 my-sm-0 colorf" >Let us help.</a>

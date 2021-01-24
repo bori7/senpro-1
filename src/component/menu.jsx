@@ -131,7 +131,7 @@ return (
           </Link>
           </li>
         <li className="nav-item ">
-        <Link className="nav-link" to={`/initial/`}>
+        <Link className="nav-link" to={`/start-here/`}>
             Start Here
           </Link>
           </li>
@@ -139,7 +139,7 @@ return (
          
           <li className="nav-item ">
           <Link className="nav-link" to={`/childresult/`}>
-           Access Test Results
+         Test Results
           </Link>
           </li>
       
@@ -200,7 +200,7 @@ return (
           </Link>
           </li>
           <li className="nav-item animate__animated animate__fadeInLeft">
-          <Link className="nav-link" to={`/initial/`}>
+          <Link className="nav-link" to={`/start-here/`}>
             Start Here
           </Link>
           </li>
@@ -223,7 +223,7 @@ return (
           </Link>
           </li>
 
-          <li className="nav-item animate__animated animate__fadeInLeft"  onClick={handleClick}>
+          <li className="nav-item animate__animated animate__fadeInLeft">
           <Link className="nav-link" to={`/resources/`}>
           Resources
           </Link>
