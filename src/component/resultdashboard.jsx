@@ -24,14 +24,12 @@ export const ResultDashboard = (props) => {
   
   
     useEffect(() => {
-        if (!state.userId){
-            
-            // auth.authCheckState(dispatch, props);
-            props.history.push('/login/');
-            // alert.show('you are not logged in',{ type: 'info',})
-            
-        }else{
-        getChilds(state.userId.pk,state.token,resdispatch)}
+        
+        auth.authCheckState(dispatch, props);
+        let user = JSON.parse(localStorage.getItem('user'));
+        console.log(user['userId'])
+        getChilds(user.userId.pk,user.token,resdispatch)
+   
         // console.log(state.userId.pk,state.token)
         
         node.current.addEventListener('click', (e)=>  {
@@ -98,13 +96,13 @@ const handleClick = (id,e) => {
  
       
         <div className="jumbotron forum-header mini_header bgimg" style={{backgroundImage: {mini_header_2}}}>
-            <MenuLayout/>
+           
             
             
             {/* <a className="navbar-brand animate__animated animate__fadeInLeft" href="/"><img className="banner_logo" src={banner_logo} alt = {"banner_logo_1"}/></a>
        */}
         <div className="container-fluid">
-        
+        <MenuLayout/>
             <div className="row">
                 <div className="col-md-12">
                     <div className="row">

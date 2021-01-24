@@ -26,6 +26,7 @@ import {Pay} from './component/paystack';
 import {ResultDashboard} from './component/resultdashboard';
 import {Services} from './component/services';
 import {Resources} from './component/resources';
+import {Process} from './component/start-here';
 // import {ResContextProvider} from '../src/store/context/resultContext'
 
 
@@ -60,6 +61,7 @@ const BaseRouter = () => (
     <Route exact path="/files/" component={MyDropzone} />
     <Route exact path="/services/" component={Services} />
     <Route exact path="/resources/" component={Resources} />
+    <Route exact path="/start-here/" component={Process} />
   </div>
 );
 

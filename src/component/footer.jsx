@@ -8,8 +8,8 @@ export const Footer= () => (
         <div className="row">
             <div className="col-md-6">
                 <h3>Talk to Us</h3>
-                <p>info@senpro.org</p>
-                <p >contact@sendpro.org</p>
+                <p>info@senproinitiative.org</p>
+                <p >contact@sendproinitiative.org</p>
                 <p style={{marginBttom: '30px'}}>+234 909 000 2364</p>
                 <h3>Visit Us</h3>
                 <p>Address : H163, Road 48, Victoria Garden City, Lekki-Epe Expressway, Lagos.</p>
@@ -17,7 +17,7 @@ export const Footer= () => (
             </div>
             <div className="col-md-6" style={{textAlign: 'right'}}>
                 <img style={{width: '200px'}} className="banner_logo" src={banner_logo} alt = {"banner_logo"}/>
-                <p>@ 2020  SendPro. All rights reserved.</p>
+                <p>@ 2021  SendPro. All rights reserved.</p>
             </div>
         </div>
     </div>

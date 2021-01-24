@@ -8,12 +8,15 @@ import {ForumContext} from '../store/context/forumContext';
 import { useAlert } from 'react-alert'
 import {capitalizeFirstLetter} from '../store/utility';
 import  {HOST_URL} from '../store/clientResult';
+import { findDOMNode } from "react-dom";
+
 
 
 
 const Forum = (props)=> {
 
     const node = useRef();
+    
 
     const alert = useAlert()
     const [forumsho, setForumsho] = useState([]);
@@ -145,7 +148,7 @@ const onSearchChange = event => {
   };
 
 const handleClick = (id,e) => {
-    e.preventDefault();
+    
     setToggle(!toggle)
     setCommentshow(id)
     getComments(state.token, forumdispatch)
@@ -165,7 +168,12 @@ const handleAdd = (id,e) => {
         actions.postComments(comm,state.token, forumdispatch)
         getComments(state.token, forumdispatch)
         getForum(state.token, forumdispatch)
-        // props.history.push('/forum/');
+       
+        const $ = window.$;
+        
+        $('.forummodal').modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
     }
     else{
         alert.show('You are not LoggedIn',{ type: 'error',})}
@@ -192,6 +200,10 @@ const handleSubmit = e => {
         actions.postForum(fom,state.token,forumdispatch)
         getComments(state.token, forumdispatch)
         getForum(state.token, forumdispatch)
+        const $ = window.$;
+        $('.forummodal').modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
     }
     else{
         alert.show('You are not LoggedIn',{ type: 'error',})}  
@@ -273,25 +285,8 @@ return (
                 </div>
             </div>
         </div>
-         {/** 
-        <div className="thread jumbotron tabsec">
-            <div className="container-fluid">
-               
-                <div className="row">
-                    <div className="col-md-6">
-                        
-                            <nav className="nav nav-pills nav-justified mytab">
-                             
-                              <a className="nav-item nav-link " data-toggle="tab" role="tab" aria-controls="home" aria-selected="false" href="#all">All</a>
-                            </nav>
-                            
-                        
-                    </div>
-                </div>
-               
-            </div>
-        </div>
-         */}
+       
+       
         <div className="tab-content" id="myTabContent">
              <div className="tab-pane fade show active" id="expert" role="tabpanel" aria-labelledby="home-tab">
                 <div id="accordion">
@@ -313,18 +308,13 @@ return (
                                      _{(new Date(forum.created_at)).toLocaleTimeString()}</p>
                                   </div>
                                   <div className="leftmeta">
-                                      {/* <p><i class="fa fa-eye"></i> 10 views</p> */}
-                                      {/* <p><i className="fa fa-heart heart-active"></i> {forum.likes} hearts</p> */}
+                                      
                                       <p>
-                                        <i key ={forum.id} className="btn btn-black fa fa-comment" onClick={(e) => handleClick(forum.id, e)}></i> 
+                                        <i key ={forum.id} className="btn btn-black fa fa-comment" style={{fontSize:'18px'}} onClick={(e) => handleClick(forum.id, e)}></i> 
                                       {come.filter(x=> x.forum==forum.id).length} Comments
                                       </p>
                                       
-                                    {/* <button className="btn btn-info" data-toggle="collapse" 
-                                    data-target={`#collapse${forum.id}`} aria-expanded="true" 
-                                    aria-controls="collapseOne">
-                                         <i className="fa fa-plus toggler"></i>
-                                    </button> */}
+                                   
                                     <button className="btn btn-info" 
                                     data-toggle="modal" data-target={`#mod${forum.id}`}>
                                          <i className="fa fa-plus toggler"></i>
@@ -336,12 +326,12 @@ return (
 
                         
 
-            <div className="modal" tabIndex="-1" role="dialog" id={`mod${forum.id}`}>
+            <div className="modal forummodal" tabIndex="-1"  role="dialog" id={`mod${forum.id}`}>
                 <div className="modal-dialog" role="form">
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" style={{fontWeight: "700"}}>
-                            add Comment on {forum.title}</h5>
+                            Add Comment</h5>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
@@ -417,15 +407,15 @@ return (
                 <br/> <br/>
                     <button className="btn btn-info skyblue  curvebtn my-2 my-sm-0 colorf"
                     data-toggle="modal" data-target="#create">
-                       <h4 class="info">Create a Topic</h4>
+                       Create a Topic
                     </button>
-                    {/* <p>{forum.desc}</p> */}
+                    
                 </div>
                 
             </div>
 
             <br/> <br/>     
-            <div className="modal" tabIndex="-1" role="document" id="create" >
+            <div className="modal forummodal" tabIndex="-1" role="document" id="create" >
                 <div className="modal-dialog" >
                     <div className="modal-content">
                         <div className="modal-header">
@@ -469,33 +459,4 @@ return (
 export default Forum;
 
 
- 
-// <div id="collapse2" className="collapse show greybg " 
-
-// aria-labelledby="headingOne" data-parent="#accordion">
-//     <div className=" jumbotron comment">
-//         <div className="container">
-//             <div className="row">
-//             <div className="col-12">
-
-//                 <p>Add your comment</p>
-//                 <form onSubmit={(e) => handleAdd(forum.id, e)}>         
-//                     <div className="topic-meta">
-
-//                         <div className="col-md-9">
-//                             <textarea  input className=" form-control" type="text" id = "option1" name = "option1" required />
-//                         </div>
-//                         <button type='submit' value='Submit' className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">Add
-//                         </button>
-
-//                     </div>
-//                 </form>
-
-//             </div>
-//             </div>
-//         </div>
-//     </div>
-
-
-// </div>
 

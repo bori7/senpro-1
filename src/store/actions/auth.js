@@ -138,7 +138,10 @@ export const authCheckState = (dispatch, props) => {
 
       }else{
       logout(dispatch);
-      props.history.push('/login/');
+      if (props.location.pathname != '/login/'){
+        localStorage.setItem('next', props.location.pathname)
+        props.history.push('/login/');
+      }
       }
     } else {
       const expirationDate = new Date(user.expirationDate);
@@ -150,7 +153,12 @@ export const authCheckState = (dispatch, props) => {
         dispatch(authSuccess(user));
           // console.log(props.location)
           if (props.location.pathname == '/login/'){
+            if (localStorage.getItem('next')){
+              props.history.push(localStorage.getItem('next'));
+              localStorage.setItem('next',false)
+            }else{
             props.history.push('/initial/');
+            }
           }
           checkAuthTimeout(
             (expirationDate.getTime() - new Date().getTime()) / 1000
