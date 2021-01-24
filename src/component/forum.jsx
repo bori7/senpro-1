@@ -136,6 +136,7 @@ const getForum = (token,forumdispatch) => {
     // node.current.querySelector('#createsub').submit(function() {
     //     node.current.querySelector('#create').modal().toggle();
     //     });  
+    
 // const setcoment = (comment) =>setCome(comment)
 
 const onSearchChange = event => {
