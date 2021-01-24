@@ -8,12 +8,15 @@ import {ForumContext} from '../store/context/forumContext';
 import { useAlert } from 'react-alert'
 import {capitalizeFirstLetter} from '../store/utility';
 import  {HOST_URL} from '../store/clientResult';
+import { findDOMNode } from "react-dom";
+
 
 
 
 const Forum = (props)=> {
 
     const node = useRef();
+    
 
     const alert = useAlert()
     const [forumsho, setForumsho] = useState([]);
@@ -164,7 +167,12 @@ const handleAdd = (id,e) => {
         actions.postComments(comm,state.token, forumdispatch)
         getComments(state.token, forumdispatch)
         getForum(state.token, forumdispatch)
-        // props.history.push('/forum/');
+       
+        const $ = window.$;
+        
+        $('.forummodal').modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
     }
     else{
         alert.show('You are not LoggedIn',{ type: 'error',})}
@@ -191,6 +199,10 @@ const handleSubmit = e => {
         actions.postForum(fom,state.token,forumdispatch)
         getComments(state.token, forumdispatch)
         getForum(state.token, forumdispatch)
+        const $ = window.$;
+        $('.forummodal').modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
     }
     else{
         alert.show('You are not LoggedIn',{ type: 'error',})}  
@@ -318,7 +330,7 @@ return (
 
                         
 
-            <div className="modal" tabIndex="-1" role="dialog" id={`mod${forum.id}`}>
+            <div className="modal forummodal" tabIndex="-1"  role="dialog" id={`mod${forum.id}`}>
                 <div className="modal-dialog" role="form">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -407,7 +419,7 @@ return (
             </div>
 
             <br/> <br/>     
-            <div className="modal" tabIndex="-1" role="document" id="create" >
+            <div className="modal forummodal" tabIndex="-1" role="document" id="create" >
                 <div className="modal-dialog" >
                     <div className="modal-content">
                         <div className="modal-header">
