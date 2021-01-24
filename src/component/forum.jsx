@@ -1,4 +1,4 @@
-
+import axios from "axios";
 import * as auth from "../store/actions/auth";
 import React ,{useEffect, useState, useContext, useRef} from "react";
 import {MyContext} from '../store/context/myContext';
@@ -7,6 +7,9 @@ import {MenuLayout} from './menu';
 import {ForumContext} from '../store/context/forumContext';
 import { useAlert } from 'react-alert'
 import {capitalizeFirstLetter} from '../store/utility';
+import  {HOST_URL} from '../store/clientResult';
+
+
 
 const Forum = (props)=> {
 
@@ -17,21 +20,75 @@ const Forum = (props)=> {
     const [searchField, setSearchField] = useState('');
 
     const [toggle, setToggle] = useState(false);
-    const [come, setCome] = useState({});
+    const [come, setCome] = useState([]);
     const [commentshow, setCommentshow] = useState(null);
     const {state, dispatch} = useContext(MyContext)
     const {forumstate, forumdispatch} = useContext(ForumContext)
 
     
+const getForum = (token,forumdispatch) => {
+ 
+    // forumdispatch(actions.getForumListStart());
+    // console.log(token)
+    axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+    axios.defaults.xsrfCookieName = "csrftoken";
+    axios.defaults.headers = {
+      "Content-Type": "application/json",
+      Authorization: `Token ${token}`
+    };
+    axios
+      .get(`${HOST_URL}/community/forums/?ordering=-id`)
+      .then(res => {
+        const forums = res.data;
+        setForumsho(forums)
+        // forumdispatch(actions.getForumListSuccess(forums));
+        console.log(forums, res)
+      })
+      .catch(err => {
+        console.log(err)
+        // forumdispatch(actions.getForumListFail(err.response));
+      });
+  };
+
+  const getComments = (token,forumdispatch) => {
+ 
+    // forumdispatch(actions.getCommentsStart());
+    // console.log(token)
+    axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+    axios.defaults.xsrfCookieName = "csrftoken";
+    axios.defaults.headers = {
+      "Content-Type": "application/json",
+      Authorization: `Token ${token}`
+    };
+    axios
+      .get(`${HOST_URL}/community/comments/`)
+      .then(res => {
+        const comments = res.data;
+        setCome(comments)
+        // forumdispatch(actions.getCommentsSuccess( comments ));
+        console.log( comments , res)
+      })
+      .catch(err => {
+        console.log(JSON.stringify(err))
+        console.log(err)
+        // forumdispatch(actions.getCommentsFail(JSON.stringify(err.response)));
+      });
+  };
+    
 
     useEffect(() => {
         
         auth.authCheckState(dispatch, props);
-        actions.getForum(state.token, forumdispatch)
-        actions.getComments(state.token, forumdispatch)
-        setForumsho(forumstate.forums)
-        setCome(forumstate.comments)
+        getForum(state.token, forumdispatch)
+        getComments(state.token, forumdispatch)
+        const interval = setInterval(function(){ 
+            getForum(state.token, forumdispatch)
+            getComments(state.token, forumdispatch); }, 
+            1000*30);
         
+        // setForumsho(forumstate.forums)
+        // setCome(forumstate.comments)
+       
        
         node.current.addEventListener('click', (e)=>  {
             for (const select of node.current.querySelectorAll('.custom-select')) {
@@ -69,13 +126,16 @@ const Forum = (props)=> {
             }
             // console.log(state.token)
             
-            // console.log(forumstate.forums)
-    }, [forumsho, come,forumstate.forums]);
+            // console.log(forumsho)
+            return () => clearInterval(interval);
+    }, []);
 
 
     
 
-
+    // node.current.querySelector('#createsub').submit(function() {
+    //     node.current.querySelector('#create').modal().toggle();
+    //     });  
 // const setcoment = (comment) =>setCome(comment)
 
 const onSearchChange = event => {
@@ -87,7 +147,7 @@ const handleClick = (id,e) => {
     e.preventDefault();
     setToggle(!toggle)
     setCommentshow(id)
-    // actions.getComments(state.token, forumdispatch)
+    getComments(state.token, forumdispatch)
     // console.log(forumstate.comments)
 
 }
@@ -102,8 +162,8 @@ const handleAdd = (id,e) => {
         comm["forum"] = id
         comm["sender"] = state.userId.username
         actions.postComments(comm,state.token, forumdispatch)
-        actions.getComments(state.token, forumdispatch)
-        actions.getForum(state.token, forumdispatch)
+        getComments(state.token, forumdispatch)
+        getForum(state.token, forumdispatch)
         // props.history.push('/forum/');
     }
     else{
@@ -114,9 +174,9 @@ const handleAdd = (id,e) => {
 }
 
 
-const getId = id => {
-    return '#'+id
-}
+// const getId = id => {
+//     return '#'+id
+// }
 
 const handleSubmit = e => {
     const fom = {}
@@ -129,8 +189,8 @@ const handleSubmit = e => {
         fom["sender"] = state.userId.username
         
         actions.postForum(fom,state.token,forumdispatch)
-        actions.getComments(state.token, forumdispatch)
-        actions.getForum(state.token, forumdispatch)
+        getComments(state.token, forumdispatch)
+        getForum(state.token, forumdispatch)
     }
     else{
         alert.show('You are not LoggedIn',{ type: 'error',})}  
@@ -171,7 +231,7 @@ return (
                             <div className="col-md-6">
                                 <div className="stat">
                                     <div className="stat-item red">
-                                        <h2>{forumstate.forums.length}</h2>
+                                        <h2>{forumsho.length}</h2>
                                         <p>Threads</p>
                                     </div>
                                     {/* <div className="stat-item red">
@@ -239,7 +299,7 @@ return (
                                       {/* <p><i className="fa fa-heart heart-active"></i> {forum.likes} hearts</p> */}
                                       <p>
                                         <i key ={forum.id} className="btn btn-black fa fa-comment" onClick={(e) => handleClick(forum.id, e)}></i> 
-                                      {forumstate.comments.filter(x=> x.forum==forum.id).length} Comments
+                                      {come.filter(x=> x.forum==forum.id).length} Comments
                                       </p>
                                       
                                     {/* <button className="btn btn-info" data-toggle="collapse" 
