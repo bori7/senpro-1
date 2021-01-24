@@ -118,6 +118,9 @@ export const MyDropzone = (props) => {
 
   useEffect(() => {
     auth.authCheckState(dispatch, props);
+    if (resstate.child_id === undefined ||resstate.child_id === null) {
+      props.history.push('/initial/');
+      }
     
     node.current.addEventListener('click', (e)=>  {
         for (const select of node.current.querySelectorAll('.custom-select')) {
