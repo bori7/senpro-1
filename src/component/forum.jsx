@@ -147,7 +147,7 @@ const onSearchChange = event => {
   };
 
 const handleClick = (id,e) => {
-    e.preventDefault();
+    
     setToggle(!toggle)
     setCommentshow(id)
     getComments(state.token, forumdispatch)
@@ -307,18 +307,13 @@ return (
                                      _{(new Date(forum.created_at)).toLocaleTimeString()}</p>
                                   </div>
                                   <div className="leftmeta">
-                                      {/* <p><i class="fa fa-eye"></i> 10 views</p> */}
-                                      {/* <p><i className="fa fa-heart heart-active"></i> {forum.likes} hearts</p> */}
+                                      
                                       <p>
-                                        <i key ={forum.id} className="btn btn-black fa fa-comment" onClick={(e) => handleClick(forum.id, e)}></i> 
+                                        <i key ={forum.id} className="btn btn-black fa fa-comment" style={{fontSize:'18px'}} onClick={(e) => handleClick(forum.id, e)}></i> 
                                       {come.filter(x=> x.forum==forum.id).length} Comments
                                       </p>
                                       
-                                    {/* <button className="btn btn-info" data-toggle="collapse" 
-                                    data-target={`#collapse${forum.id}`} aria-expanded="true" 
-                                    aria-controls="collapseOne">
-                                         <i className="fa fa-plus toggler"></i>
-                                    </button> */}
+                                   
                                     <button className="btn btn-info" 
                                     data-toggle="modal" data-target={`#mod${forum.id}`}>
                                          <i className="fa fa-plus toggler"></i>
@@ -335,7 +330,7 @@ return (
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" style={{fontWeight: "700"}}>
-                            add Comment on {forum.title}</h5>
+                            Add Comment</h5>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
@@ -411,9 +406,9 @@ return (
                 <br/> <br/>
                     <button className="btn btn-info skyblue  curvebtn my-2 my-sm-0 colorf"
                     data-toggle="modal" data-target="#create">
-                       <h4 class="info">Create a Topic</h4>
+                       Create a Topic
                     </button>
-                    {/* <p>{forum.desc}</p> */}
+                    
                 </div>
                 
             </div>
@@ -463,33 +458,4 @@ return (
 export default Forum;
 
 
- 
-// <div id="collapse2" className="collapse show greybg " 
-
-// aria-labelledby="headingOne" data-parent="#accordion">
-//     <div className=" jumbotron comment">
-//         <div className="container">
-//             <div className="row">
-//             <div className="col-12">
-
-//                 <p>Add your comment</p>
-//                 <form onSubmit={(e) => handleAdd(forum.id, e)}>         
-//                     <div className="topic-meta">
-
-//                         <div className="col-md-9">
-//                             <textarea  input className=" form-control" type="text" id = "option1" name = "option1" required />
-//                         </div>
-//                         <button type='submit' value='Submit' className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">Add
-//                         </button>
-
-//                     </div>
-//                 </form>
-
-//             </div>
-//             </div>
-//         </div>
-//     </div>
-
-
-// </div>
 
