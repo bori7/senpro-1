@@ -92,11 +92,11 @@ const getForum = (token,forumdispatch) => {
         const foruminterval = setInterval(function(){ 
             getForum(state.token, forumdispatch)
              }, 
-            1000*20);
+            1000*60);
         const commentinterval = setInterval(function(){ 
             
             getComments(state.token, forumdispatch); }, 
-            1000*10);
+            1000*18);
         
         // setForumsho(forumstate.forums)
         // setCome(forumstate.comments)
