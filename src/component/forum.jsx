@@ -19,12 +19,12 @@ const Forum = (props)=> {
 
     const node = useRef();
     
-    const todosPerPage = 4;
+    const todosPerPage = 10;
     const [ activePage, setCurrentPage ] = useState( 1 );
     const alert = useAlert()
     const [forumsho, setForumsho] = useState([]);
     const [searchField, setSearchField] = useState('');
-    const [editorcontent, setEditorContent] = useState('');
+    const [editorcontent, setEditorContent] = useState(' ');
     
 
     const [toggle, setToggle] = useState(false);
@@ -196,7 +196,7 @@ const handleAdd = (id,e) => {
 
         getComments(state.token, forumdispatch)
         getForum(state.token, forumdispatch)
-        setEditorContent('')
+        setEditorContent(' ')
     }
     else{
         alert.show('You are not LoggedIn',{ type: 'error',})}
@@ -248,7 +248,7 @@ const handleSubmit = e => {
         getComments(state.token, forumdispatch)
         getForum(state.token, forumdispatch)
 
-        setEditorContent('')
+        setEditorContent(' ')
     }
     else{
         alert.show('You are not LoggedIn',{ type: 'error',})}  
@@ -415,7 +415,7 @@ return (
                          aria-labelledby="headingOne" data-parent="#accordion">
                                    
                                    <div className="jumbotron comment">
-                                       <div className="container">
+                                       <div className="container-fluid">
                                            <div className="row">
                                                <div className="col-12">
                                             <div className="card-body">
@@ -529,7 +529,7 @@ return (
                         activePage={ activePage }
                         itemsCountPerPage={ todosPerPage }
                         totalItemsCount={filteredForumsho.length }
-                        pageRangeDisplayed={ 3 }
+                        pageRangeDisplayed={ 2 }
                         onChange={ handlePageChange }
                         />
                 </div> 
