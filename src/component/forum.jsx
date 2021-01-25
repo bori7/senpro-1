@@ -11,7 +11,7 @@ import  {HOST_URL} from '../store/clientResult';
 // import { findDOMNode } from "react-dom";
 import Pagination from "react-js-pagination";
 import { Editor } from "@tinymce/tinymce-react";
-
+import ReactHtmlParser from 'react-html-parser';
 
 
 
@@ -187,14 +187,16 @@ const handleAdd = (id,e) => {
         comm["forum"] = id
         comm["sender"] = state.userId.username
         actions.postComments(comm,state.token, forumdispatch)
-        getComments(state.token, forumdispatch)
-        getForum(state.token, forumdispatch)
+       
        
         const $ = window.$;
-        
         $('.forummodal').modal('hide');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
+
+        getComments(state.token, forumdispatch)
+        getForum(state.token, forumdispatch)
+        setEditorContent('')
     }
     else{
         alert.show('You are not LoggedIn',{ type: 'error',})}
@@ -238,12 +240,15 @@ const handleSubmit = e => {
         fom["sender"] = state.userId.username
         
         actions.postForum(fom,state.token,forumdispatch)
-        getComments(state.token, forumdispatch)
-        getForum(state.token, forumdispatch)
+       
         const $ = window.$;
         $('.forummodal').modal('hide');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
+        getComments(state.token, forumdispatch)
+        getForum(state.token, forumdispatch)
+
+        setEditorContent('')
     }
     else{
         alert.show('You are not LoggedIn',{ type: 'error',})}  
@@ -331,9 +336,9 @@ return (
         { currentForumsho.map(forum => (
                     <div className="" key ={forum.id}>
                         <div className="topic jumbotron">
-                            <div className="container-fluid">
+                            <div className="container">
                               <h4>{capitalizeFirstLetter(forum.title)}</h4>
-                              <p style={{fontSize: "20px"}}>{forum.desc}</p>
+                              <p  style={{fontSize: "17px"}}>{ReactHtmlParser(forum.desc)}</p>
         
                               <div className="topic-meta">
                                   <div className="leftmeta">
@@ -353,8 +358,8 @@ return (
                                       
                                    
                                     <button className="btn btn-info" 
-                                    data-toggle="modal" data-target={`#mod${forum.id}`}>
-                                         <i className="fa fa-plus toggler"></i>
+                                            data-toggle="modal" data-target={`#mod${forum.id}`}>
+                                        <i className="fa fa-plus toggler"></i>
                                     </button>
                                   </div>
                               </div>
@@ -375,27 +380,27 @@ return (
                         </div>
                         <div className="modal-body">
                         <form onSubmit={(e) => handleAdd(forum.id, e)}>         
-                            <div className="topic-meta">
+                          
 
-                                <div className="col-md-9">
+                                <div className="form-group">
                                     {/* <textarea  input className=" form-control" type="text" id = "option1" name = "option1" required /> */}
                                     <Editor
                                         apiKey='r5162qzwgi9cfe8kl1v4nlkwpqb9y1y15sncpe4tt0vdv3jl'
                                         initialValue={editorcontent}
                                         init={{
-                                            plugins: 'link image code',
-                                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
+                                            plugins: 'link image',
+                                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | lists'
                                         }}
                                         onEditorChange={handleEditorChange}
                                         // onSelectionChange={handlerFunction}
-                                        outputFormat='text'
+                                        // outputFormat='text'
                                     />
                                 </div>
                                 <div className="form-group" >
                                 <button type='submit' value='Submit' className="btn btn-info deepblue curvebtn my-2  colorf">Add
                                 </button>
                                 </div>               
-                            </div>
+                            
                         </form>
                         </div>
 
@@ -413,27 +418,27 @@ return (
                                        <div className="container">
                                            <div className="row">
                                                <div className="col-12">
-                                              <div className="card-body">
-                                                  <div className="">
-                                                      <p style={{fontSize: "20px"}} >{comment.desc}</p>
-                                                <div className="topic-meta">
-                                                      <div className="leftmeta">
+                                            <div className="card-body">
+                                                  <div className="container">
+                                                      <p className="prestuff" >
+                                                      {ReactHtmlParser(comment.desc)}
+                                                      </p>
+                                             
+                                               
+                                                    <div className="leftmeta">
                                                           <p style={{fontSize: "12px",fontStyle:"italic"}}>{capitalizeFirstLetter(comment.sender)}</p>
 
-                                                          { Math.abs(new Date() - new Date(comment.created_at))<= 1.2e+6 ? <p className="post-type new">New</p>:
+                                                          { (Math.abs(new Date() - new Date(comment.created_at)) <= 1.2e+6) ? <p className="post-type new">New</p>:
                                                             <p className="post-type regular">Regular</p>
                                                           }
                                                           
                                                           <p style={{fontSize: "12px",fontStyle:"italic"}}>{(new Date(comment.created_at)).toLocaleDateString()} 
                                                         _{(new Date(comment.created_at)).toLocaleTimeString()}</p>
                                                       </div>
-                                                      <div className="leftmeta">
-                                                          
                                                       
-                                                      </div>
-                                                  </div>
+                                                  
+                                                    </div>
                                                 </div>
-                                              </div>
                                              </div>
                                          </div>
                                         </div>
@@ -491,12 +496,12 @@ return (
                                         apiKey='r5162qzwgi9cfe8kl1v4nlkwpqb9y1y15sncpe4tt0vdv3jl'
                                         initialValue={editorcontent}
                                         init={{
-                                            plugins: 'link image code',
-                                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
+                                            plugins: 'link image ',
+                                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | lists'
                                         }}
                                         onEditorChange={handleEditorChange}
                                         // onSelectionChange={handlerFunction}
-                                        outputFormat='text'
+                                        // outputFormat='text'
                                     />
 
                                     </div> 
