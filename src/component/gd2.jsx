@@ -7,7 +7,7 @@ import {ResContext} from '../store/context/resultContext';
 import {createResult}from "../store/actions/assignments";
 import { getChilds} from "../store/actions/assignments";
 import { updateChild} from "../store/actions/assignments";
-// import Pagination from "react-js-pagination";
+
 import * as auth from "../store/actions/auth";
 
 export const GenDev2= (props) => {
@@ -458,10 +458,10 @@ const todos =
     const tip = []
     const tit = []
 
-    const handlePageChange = ( pageNumber ) => {
-        console.log( `active page is ${ pageNumber }` );
-        setCurrentPage( pageNumber )
-        };
+    // const handlePageChange = ( pageNumber ) => {
+    //     console.log( `active page is ${ pageNumber }` );
+    //     setCurrentPage( pageNumber )
+    //     };
     
     const handleSubmit = e => {
         e.preventDefault();
@@ -605,20 +605,7 @@ const todos =
                         {todos[activePage-1]}
  
                         <br/><br/>
-                            {/* <div className=" row float-center summary">
-                                    <Pagination 
-                                    hideDisabled
-                                    itemClass="page-item"
-                                    linkClass="page-link"
-                                    //  prevPageText={<i className='glyphicon glyphicon-menu-left'/>}
-                                    //  nextPageText={<i className='glyphicon glyphicon-menu-right'/>}
-                                    activePage={ activePage }
-                                    itemsCountPerPage={ 1 }
-                                    totalItemsCount={ todos.length }
-                                    pageRangeDisplayed={ 3 }
-                                    onChange={ handlePageChange }
-                                    />
-                            </div>  */}
+                           
                             <br/><br/>
                         <div className="col-12 step-control">
                                 <button onClick = {handleReturn} className="btn btn-secondary deepblue curvebtn my-2 my-sm-0 colorf">Change Age
@@ -629,9 +616,7 @@ const todos =
                                 
                         </div>
 
-                    </form>
-                  
-                                 
+                    </form>          
                 </div>
             
                 
@@ -641,10 +626,10 @@ const todos =
         
         </div>
         
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        {/* <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha512-3n19xznO0ubPpSwYCRRBgHh63DrV+bdZfHK52b1esvId4GsfwStQNPJFjeQos2h3JwCmZl0/LgLxSKMAI55hgw==" crossorigin="anonymous"></script>
-		
+		 */}
         </div>
 )}
 

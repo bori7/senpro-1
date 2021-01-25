@@ -10,7 +10,7 @@ import reportWebVitals from './reportWebVitals';
 
 const options = {
   // you can also just use 'bottom center'
-  position: positions.MIDDLE,
+  position: positions.MIDDLE_RIGHT,
   timeout: 6000,
   offset: '10px',
   // you can also just use 'scale'

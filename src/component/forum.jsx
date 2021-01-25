@@ -9,7 +9,7 @@ import { useAlert } from 'react-alert'
 import {capitalizeFirstLetter} from '../store/utility';
 import  {HOST_URL} from '../store/clientResult';
 import { findDOMNode } from "react-dom";
-
+import Pagination from "react-js-pagination";
 
 
 
@@ -17,10 +17,12 @@ const Forum = (props)=> {
 
     const node = useRef();
     
-
+    const todosPerPage = 4;
+    const [ activePage, setCurrentPage ] = useState( 1 );
     const alert = useAlert()
     const [forumsho, setForumsho] = useState([]);
     const [searchField, setSearchField] = useState('');
+    
 
     const [toggle, setToggle] = useState(false);
     const [come, setCome] = useState([]);
@@ -187,12 +189,31 @@ const handleAdd = (id,e) => {
     // console.log(forumstate.comments)
 
 }
+const filteredForumsho = forumsho.filter(forum =>
+    forum.title.toLowerCase().includes(searchField.toLowerCase())
+  );
 
 
-// const getId = id => {
-//     return '#'+id
-// }
+              // Logic for displaying current todos
+    const indexOfLastTodo  = activePage * todosPerPage;
+    const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+    var currentForumsho     = filteredForumsho.slice( indexOfFirstTodo, indexOfLastTodo );
 
+    // const renderTodos = currentTodos.map( ( todo, index ) => {
+    // return <li key={ index }>{ todo }</li>;
+    // } );
+
+
+const handlePageChange= (pageNumber)=> {
+    // console.log(`active page is ${pageNumber}`);
+    setCurrentPage( pageNumber);
+  }
+ 
+ // const handlePageChange = ( pageNumber ) => {
+    //     console.log( `active page is ${ pageNumber }` );
+    //     setCurrentPage( pageNumber )
+    //     };
+    
 const handleSubmit = e => {
     const fom = {}
     e.preventDefault();
@@ -215,9 +236,6 @@ const handleSubmit = e => {
         alert.show('You are not LoggedIn',{ type: 'error',})}  
     }
 
-  const filteredForumsho = forumsho.filter(forum =>
-    forum.title.toLowerCase().includes(searchField.toLowerCase())
-  );
 
 
 
@@ -250,7 +268,7 @@ return (
                             <div className="col-md-6">
                                 <div className="stat">
                                     <div className="stat-item red">
-                                        <h2>{forumsho.length}</h2>
+                                        <h2>{filteredForumsho.length}</h2>
                                         <p>Threads</p>
                                     </div>
                                     {/* <div className="stat-item red">
@@ -297,20 +315,20 @@ return (
              <div className="tab-pane fade show active" id="expert" role="tabpanel" aria-labelledby="home-tab">
                 <div id="accordion">
                  		
-        { filteredForumsho.map(forum => (
+        { currentForumsho.map(forum => (
                     <div className="" key ={forum.id}>
                         <div className="topic jumbotron">
                             <div className="container-fluid">
                               <h4>{capitalizeFirstLetter(forum.title)}</h4>
-                              <p >{forum.desc}</p>
+                              <p style={{fontSize: "20px"}}>{forum.desc}</p>
         
                               <div className="topic-meta">
                                   <div className="leftmeta">
-                                      <p style={{fontWeight: "500",fontStyle:"italic"}} >{capitalizeFirstLetter(forum.sender)}</p>
+                                      <p style={{fontSize: "12px",fontStyle:"italic"}} >{capitalizeFirstLetter(forum.sender)}</p>
                                       { Math.abs(new Date() - new Date(forum.created_at))<= 1.2e+6 ? <p className="post-type new">New</p>:
                                                             <p className="post-type regular">Regular</p>
                                                           }
-                                      <p style={{fontWeight: "500",fontStyle:"italic"}}>{(new Date(forum.created_at)).toLocaleDateString()} 
+                                      <p style={{fontSize: "12px",fontStyle:"italic"}}>{(new Date(forum.created_at)).toLocaleDateString()} 
                                      _{(new Date(forum.created_at)).toLocaleTimeString()}</p>
                                   </div>
                                   <div className="leftmeta">
@@ -372,16 +390,16 @@ return (
                                                <div className="col-12">
                                               <div className="card-body">
                                                   <div className="">
-                                                      <p>{comment.desc}</p>
+                                                      <p style={{fontSize: "20px"}} >{comment.desc}</p>
                                                 <div className="topic-meta">
                                                       <div className="leftmeta">
-                                                          <p style={{fontWeight: "500",fontStyle:"italic"}}>{capitalizeFirstLetter(comment.sender)}</p>
+                                                          <p style={{fontSize: "12px",fontStyle:"italic"}}>{capitalizeFirstLetter(comment.sender)}</p>
 
                                                           { Math.abs(new Date() - new Date(comment.created_at))<= 1.2e+6 ? <p className="post-type new">New</p>:
                                                             <p className="post-type regular">Regular</p>
                                                           }
                                                           
-                                                          <p style={{fontWeight: "500",fontStyle:"italic"}}>{(new Date(comment.created_at)).toLocaleDateString()} 
+                                                          <p style={{fontSize: "12px",fontStyle:"italic"}}>{(new Date(comment.created_at)).toLocaleDateString()} 
                                                         _{(new Date(comment.created_at)).toLocaleTimeString()}</p>
                                                       </div>
                                                       <div className="leftmeta">
@@ -456,7 +474,20 @@ return (
             </div>
 </div>
                        
-          
+                <div className="col-10 summary step-control question " style={{justifyContent: 'center'}}>
+                        <Pagination 
+                        hideDisabled
+                        itemClass="page-item"
+                        linkClass="page-link"
+                        //  prevPageText={<i className='glyphicon glyphicon-menu-left'/>}
+                        //  nextPageText={<i className='glyphicon glyphicon-menu-right'/>}
+                        activePage={ activePage }
+                        itemsCountPerPage={ todosPerPage }
+                        totalItemsCount={filteredForumsho.length }
+                        pageRangeDisplayed={ 3 }
+                        onChange={ handlePageChange }
+                        />
+                </div> 
         </div>
     </div>
 )}
