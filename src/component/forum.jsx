@@ -8,8 +8,10 @@ import {ForumContext} from '../store/context/forumContext';
 import { useAlert } from 'react-alert'
 import {capitalizeFirstLetter} from '../store/utility';
 import  {HOST_URL} from '../store/clientResult';
-import { findDOMNode } from "react-dom";
+// import { findDOMNode } from "react-dom";
 import Pagination from "react-js-pagination";
+import { Editor } from "@tinymce/tinymce-react";
+
 
 
 
@@ -22,6 +24,7 @@ const Forum = (props)=> {
     const alert = useAlert()
     const [forumsho, setForumsho] = useState([]);
     const [searchField, setSearchField] = useState('');
+    const [editorcontent, setEditorContent] = useState('');
     
 
     const [toggle, setToggle] = useState(false);
@@ -47,10 +50,10 @@ const getForum = (token,forumdispatch) => {
         const forums = res.data;
         setForumsho(forums)
         // forumdispatch(actions.getForumListSuccess(forums));
-        console.log(forums, res)
+        // console.log(forums, res)
       })
       .catch(err => {
-        console.log(err)
+        // console.log(err)
         // forumdispatch(actions.getForumListFail(err.response));
       });
   };
@@ -71,11 +74,11 @@ const getForum = (token,forumdispatch) => {
         const comments = res.data;
         setCome(comments)
         // forumdispatch(actions.getCommentsSuccess( comments ));
-        console.log( comments , res)
+        // console.log( comments , res)
       })
       .catch(err => {
-        console.log(JSON.stringify(err))
-        console.log(err)
+        // console.log(JSON.stringify(err))
+        // console.log(err)
         // forumdispatch(actions.getCommentsFail(JSON.stringify(err.response)));
       });
   };
@@ -149,6 +152,16 @@ const getForum = (token,forumdispatch) => {
     //     });  
     
 // const setcoment = (comment) =>setCome(comment)
+// const handlerFunction = (e,editor) => {
+//     e.preventDefault();
+//     console.log(e.target.value);
+//     }
+
+const handleEditorChange =(content, editor)=>{
+    // console.log(content );
+    setEditorContent(content)
+    // console.log(editorcontent );
+    }    
 
 const onSearchChange = event => {
     event.preventDefault();
@@ -168,7 +181,7 @@ const handleAdd = (id,e) => {
     e.preventDefault();
     
     if(state.token){
-        comm["desc"] = e.target.option1.value
+        comm["desc"] = editorcontent
         comm["likes"] = 0
         comm["user"] = state.userId.pk
         comm["forum"] = id
@@ -219,7 +232,7 @@ const handleSubmit = e => {
     e.preventDefault();
     if(state.token){
         fom["title"] = e.target.option2.value
-        fom["desc"] = e.target.option3.value
+        fom["desc"] = editorcontent
         fom["likes"] = 0
         fom["user"] = state.userId.pk
         fom["sender"] = state.userId.username
@@ -365,11 +378,23 @@ return (
                             <div className="topic-meta">
 
                                 <div className="col-md-9">
-                                    <textarea  input className=" form-control" type="text" id = "option1" name = "option1" required />
+                                    {/* <textarea  input className=" form-control" type="text" id = "option1" name = "option1" required /> */}
+                                    <Editor
+                                        apiKey='r5162qzwgi9cfe8kl1v4nlkwpqb9y1y15sncpe4tt0vdv3jl'
+                                        initialValue={editorcontent}
+                                        init={{
+                                            plugins: 'link image code',
+                                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
+                                        }}
+                                        onEditorChange={handleEditorChange}
+                                        // onSelectionChange={handlerFunction}
+                                        outputFormat='text'
+                                    />
                                 </div>
-                                <button type='submit' value='Submit' className="btn btn-info deepblue curvebtn my-2 my-sm-5 colorf">Add
+                                <div className="form-group" >
+                                <button type='submit' value='Submit' className="btn btn-info deepblue curvebtn my-2  colorf">Add
                                 </button>
-
+                                </div>               
                             </div>
                         </form>
                         </div>
@@ -458,9 +483,24 @@ return (
                                     </div>   
                                     <div className="form-group">
                                         <label>Description</label>
-                                        <textarea input className=" form-control" type="text" rows="10" id = "option3" name = "option3" required />
-                                    </div> 
+                                        {/* <textarea input className=" form-control" type="text" rows="10" id = "option3" name = "option3" required />
+                                     */}
                                     <br/>
+                                    <Editor
+                                        
+                                        apiKey='r5162qzwgi9cfe8kl1v4nlkwpqb9y1y15sncpe4tt0vdv3jl'
+                                        initialValue={editorcontent}
+                                        init={{
+                                            plugins: 'link image code',
+                                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
+                                        }}
+                                        onEditorChange={handleEditorChange}
+                                        // onSelectionChange={handlerFunction}
+                                        outputFormat='text'
+                                    />
+
+                                    </div> 
+                                     <br/>
                                     <div className="form-group" >
                                         <button type="submit" value="Submit" 
                                         className=" btn btn-primary skyblue  curvebtn my-2 my-sm-0 colorf">Create
