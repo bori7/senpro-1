@@ -5,7 +5,7 @@ import mini_header_2 from '../static/assets/mini_header_2.png';
 import * as actions from "../store/actions/auth";
 import { Divider, Card } from '@material-ui/core'; 
 import { useAlert } from 'react-alert'
-
+import {capitalizeFirstLetter} from '../store/utility';
 
 
 export const SignUp = (props) => {
@@ -102,7 +102,7 @@ const handleSubmit = e => {
 
                 let templateParams = {
                     from_name: 'SENPRO',
-                    to_name: initial["option1"],
+                    to_name: capitalizeFirstLetter(initial["option1"]),
                     subject: 'SENPRO ANALYSIS',
                     message: 'Welcome to SENPRO, we offer a qualitative, efficient and effective psychological child analysis',
                     reply_to: initial["option2"] }

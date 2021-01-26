@@ -7,6 +7,7 @@ import { getResults} from "../store/actions/assignments";
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
 import { init } from 'emailjs-com';
 import { useAlert } from 'react-alert'
+import {capitalizeFirstLetter} from '../store/utility';
 init("user_jDFiteMUy9NWNFehWpWQR");
 
 
@@ -61,7 +62,7 @@ const onSuccess =  () => {
 
     let templateParams = {
     from_name: 'SENPRO',
-    to_name: state.username,
+    to_name: capitalizeFirstLetter(state.username),
     subject: 'SENPRO ANALYSIS',
     message: message,
     check:'check the website for your results',

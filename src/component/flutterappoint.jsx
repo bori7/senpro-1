@@ -3,6 +3,8 @@ import {MyContext} from '../store/context/myContext';
 import { useAlert } from 'react-alert';
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
 import { init } from 'emailjs-com';
+import {capitalizeFirstLetter} from '../store/utility';
+
 init("user_jDFiteMUy9NWNFehWpWQR");
 
 export const PayAppoint = (props) => {
@@ -40,7 +42,7 @@ const onSuccess = () => {
     var message = "You have been scheduled to meet with the "+props.name
     let templateParams = {
     from_name: 'SENPRO',
-    to_name: state.username,
+    to_name: capitalizeFirstLetter( state.username) ,
     subject: 'SENPRO ANALYSIS',
     message: message,
     check:'check the website for the contact of the '+props.name,

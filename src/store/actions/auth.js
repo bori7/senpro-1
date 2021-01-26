@@ -2,6 +2,7 @@ import axios from "axios";
 import * as actionTypes from "./actionTypes";
 import  {HOST_URL} from '../clientResult';
 import { init } from 'emailjs-com';
+
 init("user_jDFiteMUy9NWNFehWpWQR");
 
 export const authStart = () => {
@@ -67,8 +68,8 @@ export const authLogin = (username, password, dispatch) => {
           window.location.reload();
         }
         else {
-          if(err.response.data.non_field_errors[0].toString().includes('invalid token')){
-          var seror = 'please reload the page and login again'
+          if(err.response.data.non_field_errors[0].toString().toLowerCase().includes('invalid token')){
+          var seror = 'Please reload the page and login again'
         }else{
           var seror=err.response.data.non_field_errors[0]
           seror+=' \nIncorrect Username or Password'}
