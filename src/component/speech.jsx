@@ -11,9 +11,6 @@ import * as auth from "../store/actions/auth";
 
 export const  Speech= (props) => {
 
-  
-   
-   
     const [ activePage, setCurrentPage ] = useState( 1 );
 
     const {resstate, resdispatch} = useContext(ResContext)
@@ -32,307 +29,85 @@ export const  Speech= (props) => {
  
     }, [state.token]);
 
-
-
-
-const todos = [
-        <div>
-            <div className="col-md-10" >
-            <br/>
-            <br/>
-            <h4 className="form-title"style={{fontSize: '25px'}}>
-            SECTION 1 - ARTICULATION</h4>
-            </div>
-
-            <div key={1} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">1.	Does your child mispronounce or leave off sounds in words?	</p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option1" id="option1" value = 'yes' autoComplete="off" required /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option1" id="option1" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-            <div key={2} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">2.	Can strangers understand your child 90% of the time?</p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option2" id="option2" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option2" id="option2" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-        </div>,
-        <div>
-            <div className="col-md-10" >
-            <br/>
-            <br/>
-            <h4 className="form-title"style={{fontSize: '25px'}}>
-            SECTION 2 - RECEPTIVE SPEECH AND VOICE</h4>
-            </div>
-
-            <div key={3} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">3.	Does your child comprehend age/ grade appropriate vocabulary?</p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option3" id="option3" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option3" id="option3" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-            <div key={4} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">4.	Does your child have difficulty following spoken directions?</p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option4" id="option4" value = 'yes' autoComplete="off"  required /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option4" id="option4" value = 'no' autoComplete="off" required  /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-
-            <div key={5} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">5.	Does your child find processing verbal information difficult 
-            and require frequent repetition of instructions?</p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option5" id="option5" value = 'yes' autoComplete="off"  required /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option5" id="option5" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-            <div key={6} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">6.	Does your child understand 
-            better in one-on-one situations, than in a group? </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option6" id="option6" value = 'yes' autoComplete="off"  required /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option6" id="option6" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-            <div key={7} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">7.	Is your child’s voice unusually loud or soft? </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option7" id="option7" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option7" id="option7" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-            <div key={8} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">8.	Does your child have an unusual quality to his/her voice
-            (for example, hoarseness, nasal, breathy)?  </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option8" id="option8" value = 'yes' autoComplete="off"  required /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option8" id="option8" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-        </div>,
-        <div>                            
-            <div className="col-md-10" >
-            <br/>
-            <br/>
-            <h4 className="form-title"style={{fontSize: '25px'}}>
-            SECTION 3 - SPEECH RATE/FLUENCY AND PRAGMATIC LANGUAGE</h4>
-            </div>
-            <div key={9} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">9.	Does your child stutter frequently when speaking? </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option9" id="option9" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option9" id="option9" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-            <div key={10} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">10.	Does your child use ‘um’, 
-            ‘uh’, ‘you know’, ‘a’, excessively when speaking? </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option10" id="option10" value = 'yes' autoComplete="off"  required /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option10" id="option10" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-            <div key={11} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">11.	Does your child use age-appropriate conversational skills
-            (for example, staying on topic, initiating conversation)?  </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option11" id="option11" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option11" id="option11" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-            <div key={12} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">12.	Does your child’s language skills 
-            or speech skills have a significantly adverse effect on 
-            his/her academics? </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option12" id="option12" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option12" id="option12" value = 'no' autoComplete="off"  required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-        </div>,
-        <div>
-            <div className="col-md-10" >
-            <br/>
-            <br/>
-            <h4 className="form-title"style={{fontSize: '25px'}}>
-            SECTION 4 - EXPRESSIVE LANGUAGE</h4>
-            </div>
-
-            <div key={13} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">13.	Does your child use made-up words which are almost
-            inappropriate, (for example, ‘window worker man’)?</p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option13" id="option13" value = 'yes' autoComplete="off"  required /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option13" id="option13" value = 'no' autoComplete="off" required  /> No
-            </label>
-            </div>
-            </div>
-            </div>
-            <div key={14} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">14.	Does your child have problems 
-            sequencing events and ideas appropriately?</p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option14" id="option14" value = 'yes' autoComplete="off"  required /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option14" id="option14" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-            <div key={15} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">15.	Does your child find it difficult
-            to retell a simple story? </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option15" id="option15" value = 'yes' autoComplete="off"  required /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option15" id="option15" value = 'no' autoComplete="off" required  /> No
-            </label>
-            </div>
-            </div>
-            </div>
-        </div>,
+    const question_list = [ {
+        title:'SECTION 1 - ARTICULATION',
+        questions:[
+           '1.	Does your child mispronounce or leave off sounds in words?	',
+           '2.	Can strangers understand your child 90% of the time? ',
+           
+        ]
+        },
+        {
+       title:'SECTION 2 - RECEPTIVE SPEECH AND VOICE',
+       questions:[
+           '3.	Does your child comprehend age/ grade appropriate vocabulary? ',
+           '4.	Does your child have difficulty following spoken directions? ',
+           '5.	Does your child find processing verbal information difficult and require frequent repetition of instructions? ',
+           '6.	Does your child understand better in one-on-one situations, than in a group? ',
+           "7.	Is your child’s voice unusually loud or soft? ",
+           '8.	Does your child have an unusual quality to his/her voice (for example, hoarseness, nasal, breathy)? ',
+       ]
+       },
+       {
+       title:'SECTION 3 - SPEECH RATE/FLUENCY AND PRAGMATIC LANGUAGE',
+       questions:[
+           '9.	Does your child stutter frequently when speaking? ',
+           "10.	Does your child use ‘um’, ‘uh’, ‘you know’, ‘a’, excessively when speaking? ",
+           '11.	Does your child use age-appropriate conversational skills (for example, staying on topic, initiating conversation)? ',
+           "12.	Does your child’s language skills or speech skills have a significantly adverse effect on his/her academics? ",
+       ]
+       },
+       {
+        title:'SECTION 4 - EXPRESSIVE LANGUAGE',
+        questions:[
+            '13.	Does your child use made-up words which are almost inappropriate, (for example, ‘window worker man’)? ',
+            '14.	Does your child have problems sequencing events and ideas appropriately?',
+            '15.	Does your child find it difficult to retell a simple story? ',
+           
+        ]
+        },
 ]
+
+const todos = [ ]
+var i = 1
+question_list.forEach( x => {
+
+    const todo =
+        <div>
+                <div className="col-md-10" >
+                    <br/>
+                    <br/>
+                    <h4 className="form-title"style={{fontSize: '25px'}}>{x.title} </h4>
+                </div>
+                {x.questions.map(y =>
+
+                    <div key={x.questions.indexOf(y)+i} className="row questions">
+                    <div className="col-md-9 question-box">
+                        <p  className="question">{y}</p>
+                        </div>
+                        <div className="col-md-3">
+                        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+                        <label className="custom-choice btn btn-secondary ">
+                        <input type="radio" name= {`option${x.questions.indexOf(y)+i}`} id={`option${x.questions.indexOf(y)+i}`} value = 'yes' autoComplete="off" required  /> Yes
+                        </label>  
+    
+                        <label className="custom-choice btn btn-secondary">
+                        <input type="radio" name={`option${x.questions.indexOf(y)+i}`} id={`option${x.questions.indexOf(y)+i}`} value = 'no' autoComplete="off" required /> No
+                        </label>
+                        </div>
+                        </div>
+                    </div>
+                )}  
+                        
+        </div>
+    
+    todos.push(todo)
+    i += x.questions.length
+    
+})
+
+
+
 
     var initial=  {}
     const exp = []
@@ -479,3 +254,323 @@ const todos = [
         
         </div>
 )}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const todos = [
+//     <div>
+//         <div className="col-md-10" >
+//         <br/>
+//         <br/>
+//         <h4 className="form-title"style={{fontSize: '25px'}}>
+//         SECTION 1 - ARTICULATION</h4>
+//         </div>
+
+//         <div key={1} className="row questions">
+//         <div className="col-md-9 question-box">
+//         <p className="question">1.	Does your child mispronounce or leave off sounds in words?	</p>
+//         </div>
+//         <div className="col-md-3">
+//         <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+//         <label className="custom-choice btn btn-secondary ">
+//         <input type="radio" name="option1" id="option1" value = 'yes' autoComplete="off" required /> Yes
+//         </label>
+
+//         <label className="custom-choice btn btn-secondary">
+//         <input type="radio" name="option1" id="option1" value = 'no' autoComplete="off" required /> No
+//         </label>
+//         </div>
+//         </div>
+//         </div>
+//         <div key={2} className="row questions">
+//         <div className="col-md-9 question-box">
+//         <p className="question">2.	Can strangers understand your child 90% of the time?</p>
+//         </div>
+//         <div className="col-md-3">
+//         <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+//         <label className="custom-choice btn btn-secondary ">
+//         <input type="radio" name="option2" id="option2" value = 'yes' autoComplete="off" required  /> Yes
+//         </label>
+
+//         <label className="custom-choice btn btn-secondary">
+//         <input type="radio" name="option2" id="option2" value = 'no' autoComplete="off" required /> No
+//         </label>
+//         </div>
+//         </div>
+//         </div>
+
+//     </div>,
+//     <div>
+//         <div className="col-md-10" >
+//         <br/>
+//         <br/>
+//         <h4 className="form-title"style={{fontSize: '25px'}}>
+//         SECTION 2 - RECEPTIVE SPEECH AND VOICE</h4>
+//         </div>
+
+//         <div key={3} className="row questions">
+//         <div className="col-md-9 question-box">
+//         <p className="question">3.	Does your child comprehend age/ grade appropriate vocabulary?</p>
+//         </div>
+//         <div className="col-md-3">
+//         <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+//         <label className="custom-choice btn btn-secondary ">
+//         <input type="radio" name="option3" id="option3" value = 'yes' autoComplete="off" required  /> Yes
+//         </label>
+
+//         <label className="custom-choice btn btn-secondary">
+//         <input type="radio" name="option3" id="option3" value = 'no' autoComplete="off" required /> No
+//         </label>
+//         </div>
+//         </div>
+//         </div>
+//         <div key={4} className="row questions">
+//         <div className="col-md-9 question-box">
+//         <p className="question">4.	Does your child have difficulty following spoken directions?</p>
+//         </div>
+//         <div className="col-md-3">
+//         <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+//         <label className="custom-choice btn btn-secondary ">
+//         <input type="radio" name="option4" id="option4" value = 'yes' autoComplete="off"  required /> Yes
+//         </label>
+
+//         <label className="custom-choice btn btn-secondary">
+//         <input type="radio" name="option4" id="option4" value = 'no' autoComplete="off" required  /> No
+//         </label>
+//         </div>
+//         </div>
+//         </div>
+
+
+//         <div key={5} className="row questions">
+//         <div className="col-md-9 question-box">
+//         <p className="question">5.	Does your child find processing verbal information difficult 
+//         and require frequent repetition of instructions?</p>
+//         </div>
+//         <div className="col-md-3">
+//         <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+//         <label className="custom-choice btn btn-secondary ">
+//         <input type="radio" name="option5" id="option5" value = 'yes' autoComplete="off"  required /> Yes
+//         </label>
+
+//         <label className="custom-choice btn btn-secondary">
+//         <input type="radio" name="option5" id="option5" value = 'no' autoComplete="off" required /> No
+//         </label>
+//         </div>
+//         </div>
+//         </div>
+
+//         <div key={6} className="row questions">
+//         <div className="col-md-9 question-box">
+//         <p className="question">6.	Does your child understand 
+//         better in one-on-one situations, than in a group? </p>
+//         </div>
+//         <div className="col-md-3">
+//         <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+//         <label className="custom-choice btn btn-secondary ">
+//         <input type="radio" name="option6" id="option6" value = 'yes' autoComplete="off"  required /> Yes
+//         </label>
+
+//         <label className="custom-choice btn btn-secondary">
+//         <input type="radio" name="option6" id="option6" value = 'no' autoComplete="off" required /> No
+//         </label>
+//         </div>
+//         </div>
+//         </div>
+
+//         <div key={7} className="row questions">
+//         <div className="col-md-9 question-box">
+//         <p className="question">7.	Is your child’s voice unusually loud or soft? </p>
+//         </div>
+//         <div className="col-md-3">
+//         <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+//         <label className="custom-choice btn btn-secondary ">
+//         <input type="radio" name="option7" id="option7" value = 'yes' autoComplete="off" required  /> Yes
+//         </label>
+
+//         <label className="custom-choice btn btn-secondary">
+//         <input type="radio" name="option7" id="option7" value = 'no' autoComplete="off" required /> No
+//         </label>
+//         </div>
+//         </div>
+//         </div>
+//         <div key={8} className="row questions">
+//         <div className="col-md-9 question-box">
+//         <p className="question">8.	Does your child have an unusual quality to his/her voice
+//         (for example, hoarseness, nasal, breathy)?  </p>
+//         </div>
+//         <div className="col-md-3">
+//         <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+//         <label className="custom-choice btn btn-secondary ">
+//         <input type="radio" name="option8" id="option8" value = 'yes' autoComplete="off"  required /> Yes
+//         </label>
+
+//         <label className="custom-choice btn btn-secondary">
+//         <input type="radio" name="option8" id="option8" value = 'no' autoComplete="off" required /> No
+//         </label>
+//         </div>
+//         </div>
+//         </div>
+
+//     </div>,
+//     <div>                            
+//         <div className="col-md-10" >
+//         <br/>
+//         <br/>
+//         <h4 className="form-title"style={{fontSize: '25px'}}>
+//         SECTION 3 - SPEECH RATE/FLUENCY AND PRAGMATIC LANGUAGE</h4>
+//         </div>
+//         <div key={9} className="row questions">
+//         <div className="col-md-9 question-box">
+//         <p className="question">9.	Does your child stutter frequently when speaking? </p>
+//         </div>
+//         <div className="col-md-3">
+//         <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+//         <label className="custom-choice btn btn-secondary ">
+//         <input type="radio" name="option9" id="option9" value = 'yes' autoComplete="off" required  /> Yes
+//         </label>
+
+//         <label className="custom-choice btn btn-secondary">
+//         <input type="radio" name="option9" id="option9" value = 'no' autoComplete="off" required /> No
+//         </label>
+//         </div>
+//         </div>
+//         </div>
+
+//         <div key={10} className="row questions">
+//         <div className="col-md-9 question-box">
+//         <p className="question">10.	Does your child use ‘um’, 
+//         ‘uh’, ‘you know’, ‘a’, excessively when speaking? </p>
+//         </div>
+//         <div className="col-md-3">
+//         <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+//         <label className="custom-choice btn btn-secondary ">
+//         <input type="radio" name="option10" id="option10" value = 'yes' autoComplete="off"  required /> Yes
+//         </label>
+
+//         <label className="custom-choice btn btn-secondary">
+//         <input type="radio" name="option10" id="option10" value = 'no' autoComplete="off" required /> No
+//         </label>
+//         </div>
+//         </div>
+//         </div>
+
+//         <div key={11} className="row questions">
+//         <div className="col-md-9 question-box">
+//         <p className="question">11.	Does your child use age-appropriate conversational skills
+//         (for example, staying on topic, initiating conversation)?  </p>
+//         </div>
+//         <div className="col-md-3">
+//         <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+//         <label className="custom-choice btn btn-secondary ">
+//         <input type="radio" name="option11" id="option11" value = 'yes' autoComplete="off" required  /> Yes
+//         </label>
+
+//         <label className="custom-choice btn btn-secondary">
+//         <input type="radio" name="option11" id="option11" value = 'no' autoComplete="off" required /> No
+//         </label>
+//         </div>
+//         </div>
+//         </div>
+
+//         <div key={12} className="row questions">
+//         <div className="col-md-9 question-box">
+//         <p className="question">12.	Does your child’s language skills 
+//         or speech skills have a significantly adverse effect on 
+//         his/her academics? </p>
+//         </div>
+//         <div className="col-md-3">
+//         <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+//         <label className="custom-choice btn btn-secondary ">
+//         <input type="radio" name="option12" id="option12" value = 'yes' autoComplete="off" required  /> Yes
+//         </label>
+
+//         <label className="custom-choice btn btn-secondary">
+//         <input type="radio" name="option12" id="option12" value = 'no' autoComplete="off"  required /> No
+//         </label>
+//         </div>
+//         </div>
+//         </div>
+
+//     </div>,
+//     <div>
+//         <div className="col-md-10" >
+//         <br/>
+//         <br/>
+//         <h4 className="form-title"style={{fontSize: '25px'}}>
+//         SECTION 4 - EXPRESSIVE LANGUAGE</h4>
+//         </div>
+
+//         <div key={13} className="row questions">
+//         <div className="col-md-9 question-box">
+//         <p className="question">13.	Does your child use made-up words which are almost
+//         inappropriate, (for example, ‘window worker man’)?</p>
+//         </div>
+//         <div className="col-md-3">
+//         <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+//         <label className="custom-choice btn btn-secondary ">
+//         <input type="radio" name="option13" id="option13" value = 'yes' autoComplete="off"  required /> Yes
+//         </label>
+
+//         <label className="custom-choice btn btn-secondary">
+//         <input type="radio" name="option13" id="option13" value = 'no' autoComplete="off" required  /> No
+//         </label>
+//         </div>
+//         </div>
+//         </div>
+//         <div key={14} className="row questions">
+//         <div className="col-md-9 question-box">
+//         <p className="question">14.	Does your child have problems 
+//         sequencing events and ideas appropriately?</p>
+//         </div>
+//         <div className="col-md-3">
+//         <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+//         <label className="custom-choice btn btn-secondary ">
+//         <input type="radio" name="option14" id="option14" value = 'yes' autoComplete="off"  required /> Yes
+//         </label>
+
+//         <label className="custom-choice btn btn-secondary">
+//         <input type="radio" name="option14" id="option14" value = 'no' autoComplete="off" required /> No
+//         </label>
+//         </div>
+//         </div>
+//         </div>
+
+//         <div key={15} className="row questions">
+//         <div className="col-md-9 question-box">
+//         <p className="question">15.	Does your child find it difficult
+//         to retell a simple story? </p>
+//         </div>
+//         <div className="col-md-3">
+//         <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+//         <label className="custom-choice btn btn-secondary ">
+//         <input type="radio" name="option15" id="option15" value = 'yes' autoComplete="off"  required /> Yes
+//         </label>
+
+//         <label className="custom-choice btn btn-secondary">
+//         <input type="radio" name="option15" id="option15" value = 'no' autoComplete="off" required  /> No
+//         </label>
+//         </div>
+//         </div>
+//         </div>
+//     </div>,
+// ]

@@ -33,360 +33,86 @@ export const  Behavior= (props) => {
     }, [state.token]);
 
 
-const todos = [
-        <div>
-                
-            <div className="col-md-10" >
-            <br/>
-            <br/>
-            <h4 className="form-title"style={{fontSize: '25px'}}>
-            SECTION 1 </h4>
-            </div>
+    const question_list = [ {
+        title:'SECTION 1',
+        questions:[
+           '1.	Does your child participate in social activities? ',
+           '2.	Does your child have friends (who are peers)? ',
+           '3.	Does your child withdraw from or avoid communicating with peer and/ or adult contact?',
+           '4.	Does your child almost always choose solitary activities? ',
+           '5.	Are there constant conflicts and tensions in almost all of your child’s social relationships? ',
+        ]
+        },
+        {
+       title:'SECTION 2',
+       questions:[
+           '6.	Does your child appear not to have control of his/her behavior? ',
+           '7.	Is your child overly aggressive? ',
+           '8.	Does your child have severe mood swings (for example: depression to happiness to rage/anger) for no apparent reason? ',
+           '9.	Does your child have a sense of reality that is distorted without regard to self-interest? ',
+           '10.	Does the student display unexplained ‘rage reactions’ or explosive, unpredictable behavior?  ', 
+           '11.	Is your child impulsively defiant? ',
+           '12.	Does your child engage in extreme self-destructive behavior? ',
 
-            <div key={1} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">1.	Does your child participate in social activities?	</p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option1" id="option1" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
+       ]
+       },
+       {
+       title:'SECTION 3',
+       questions:[
+           '13.	Does your child have regular temper tantrums? ',
+           '14.	Does your child often have a blank expression on their face little response to what is happening around them?',
+           '15.	Does your child over-respond to situations or stimulations?',
+       ]
+       },
+       {
+        title:'SECTION 4',
+        questions:[
+            '16.	Does your child laugh or smile for no apparent reason?  ',
+            '17.	Does your child cry or seem sad for no apparent reason? ',
+            '18.	Does your child’s moods change very quickly, sometimes for no apparent reason?',
+        ]
+        },
 
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option1" id="option1" value = 'no' autoComplete="off" required  /> No
-            </label>
-            </div>
-            </div>
-            </div>
-            <div key={2} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">2.	Does your child have friends (who are peers)?</p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option2" id="option2" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option2" id="option2" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-            <div key={3} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">3.	Does your child withdraw from
-            or avoid communicating with peer and/ or adult contact?</p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option3" id="option3" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option3" id="option3" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-            <div key={4} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">4.	Does your child almost always choose solitary activities? </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option4" id="option4" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option4" id="option4" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-            <div key={5} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">5.	Are there constant conflicts and 
-            tensions in almost all of your child’s social relationships?   </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option5" id="option5" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option5" id="option5" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-  
-        </div>,
-        <div>
-            <div className="col-md-10" >
-            <br/>
-            <br/>
-            <h4 className="form-title"style={{fontSize: '25px'}}>
-            SECTION 2  </h4>
-            </div>
-            <div key={6} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">6.	Does your child appear not to have control of his/her behavior?    </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option6" id="option6" value = 'yes' autoComplete="off"  required /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option6" id="option6" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-
-
-            <div key={7} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">7.	Is your child overly aggressive?  </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option7" id="option7" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option7" id="option7" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-            <div key={8} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">8.	Does your child have severe mood swings (for example: 
-            depression to happiness to rage/anger) for no apparent reason?  </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option8" id="option8" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option8" id="option8" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-            <div key={9} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">9.	Does your child have a sense of 
-            reality that is distorted without regard to self-interest?  </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option9" id="option9" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option9" id="option9" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-            <div key={10} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">10.	Does the student display unexplained 
-            ‘rage reactions’ or explosive, unpredictable behavior?  </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option10" id="option10" value = 'yes' autoComplete="off" required   /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option10" id="option10" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-            <div key={11} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">11.	Is your child impulsively defiant?  </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option11" id="option11" value = 'yes' autoComplete="off" required   /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option11" id="option11" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-
-
-
-            <div key={12} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">12.	Does your child engage in extreme self-destructive behavior?  </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option12" id="option12" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option12" id="option12" value = 'no' autoComplete="off" required  /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-        </div>,
-        <div>
-            <div className="col-md-10" >
-            <br/>
-            <br/>
-            <h4 className="form-title"style={{fontSize: '25px'}}>
-            SECTION 3  </h4>
-            </div>
-            <div key={13} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">13.	Does your child have regular temper tantrums?  </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option13" id="option13" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option13" id="option13" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-            <div key={14} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">14.	Does your child often have a blank expression on their face
-            – little response to what is happening around them? </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option14" id="option14" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option14" id="option14" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-            <div key={15} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">15.	Does your child over-respond to 
-            situations or stimulations? </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option15" id="option15" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option15" id="option15" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-        </div>,
-        <div>
-            <div className="col-md-10" >
-            <br/>
-            <br/>
-            <h4 className="form-title"style={{fontSize: '25px'}}>
-            SECTION 4 - COGNITION</h4>
-            </div>
-
-            <div key={16} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">16.	Does your child laugh or smile
-            for no apparent reason? </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option16" id="option16" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option16" id="option16" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-
-            <div key={17} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">17.	Does your child cry or seem sad for no apparent reason? </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option17" id="option17" value = 'yes' autoComplete="off"  required /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option17" id="option17" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-
-
-            <div key={18} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">18.	Does your child’s moods change very quickly, sometimes for no apparent reason? </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option18" id="option18" value = 'yes' autoComplete="off"  required /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option18" id="option18" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-        </div>,
 ]
+
+const todos = [ ]
+var i = 1
+question_list.forEach( x => {
+
+    const todo =
+        <div>
+                <div className="col-md-10" >
+                    <br/>
+                    <br/>
+                    <h4 className="form-title"style={{fontSize: '25px'}}>{x.title} </h4>
+                </div>
+                {x.questions.map(y =>
+
+                    <div key={x.questions.indexOf(y)+i} className="row questions">
+                    <div className="col-md-9 question-box">
+                        <p  className="question">{y}</p>
+                        </div>
+                        <div className="col-md-3">
+                        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+                        <label className="custom-choice btn btn-secondary ">
+                        <input type="radio" name= {`option${x.questions.indexOf(y)+i}`} id={`option${x.questions.indexOf(y)+i}`} value = 'yes' autoComplete="off" required  /> Yes
+                        </label>  
+    
+                        <label className="custom-choice btn btn-secondary">
+                        <input type="radio" name={`option${x.questions.indexOf(y)+i}`} id={`option${x.questions.indexOf(y)+i}`} value = 'no' autoComplete="off" required /> No
+                        </label>
+                        </div>
+                        </div>
+                    </div>
+                )}  
+                        
+        </div>
+    
+    todos.push(todo)
+    i += x.questions.length
+    
+})
+
 
 
     var initial=  {}

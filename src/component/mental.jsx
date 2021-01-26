@@ -32,405 +32,94 @@ export const  Mental= (props) => {
       
     }, [state.token]);
 
+    const question_list = [ {
+        title:'SECTION 1',
+        questions:[
+           '1.	Does your child worry when he/she thinks he/she has done poorly at something? ',
+           '2.	Does your child feel scared when he/she has to take a test? ',
+           '3.	Does your child feel worried when he/she thinks someone is angry with him/her? ',
+           '4.	Does your child worry that he/she will do badly at his/her school work?',
+           '5 .	Does your child have trouble going to school or crowded places because he/she feels nervous or afraid? (Separation Anxiety)',
+        ]
+        },
+        {
+       title:'SECTION 2',
+       questions:[
+           '6.	Does your child worry excessively about things? ',
+           '7.	Does your child worry that something bad will happen to someone in the family?  ',
+           '8.	Does your child worry that something bad will happen to him/her? ',
+           '9.	Does your child think about death? ',
+       ]
+       },
+       {
+       title:'SECTION 3',
+       questions:[
+           '10.	When your child has a problem, does he/she complain that he/she has a funny feeling in the stomach?  ',
+           "11.	Does your child suddenly feel as if he/she can't breathe or start to tremble or shake when there is no reason for this?",
+           '12.	Does your child all of a sudden feel really scared for no apparent reason? ',
+           "13.	Does your child complain that his/her heart suddenly starts to beat too quickly for no apparent reason? ",
+           
+       ]
+       },
+       {
+        title:'SECTION 4',
+        questions:[
+            '14.	Does your child feel sad or empty or worthless?',
+            '15.	Does your child complain that nothing is much fun anymore? ',
+            '16.	Does your child have trouble sleeping? ',
+            "17.	Does your child have problems with his/her appetite? ",
 
-const todos = [
-    <div>
-        <div className="col-md-10" >
-        <br/>
-        <br/>
-        <h4 className="form-title"style={{fontSize: '25px'}}>
-        SECTION 1</h4>
-        </div>
+        ]
+        },
+        {
+        title:'SECTION 5',
+        questions:[
+            '18.	Does your child keep checking that he/she has done things right (like the switch is off, or the door is locked)?  ',
+            '19.	Does your child have to do some things over and over again (like washing my hands, cleaning or putting things in a certain order)?  ',
+            '20.	Does your child have to do some things in just the right way or think special thoughts to stop bad things from happening? '
+        ]
+        },
 
-        <div key={1}  className="row questions">
-        <div className="col-md-9 question-box">
-        <p className="question">1.	Does your child worry 
-        when he/she thinks he/she has done poorly at something? 	</p>
-        </div>
-        <div className="col-md-3">
-        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-        <label className="custom-choice btn btn-secondary ">
-        <input type="radio" name="option1" id="option1" value = 'yes' autoComplete="off" required  /> Yes
-        </label>
-
-        <label className="custom-choice btn btn-secondary">
-        <input type="radio" name="option1" id="option1" value = 'no' autoComplete="off" required  /> No
-        </label>
-        </div>
-        </div>
-        </div>
-        <div key={2}  className="row questions">
-        <div className="col-md-9 question-box">
-        <p className="question">2.	Does your child feel scared when he/she has to take a test?  </p>
-        </div>
-        <div className="col-md-3">
-        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-        <label className="custom-choice btn btn-secondary ">
-        <input type="radio" name="option2" id="option2" value = 'yes' autoComplete="off" required  /> Yes
-        </label>
-
-        <label className="custom-choice btn btn-secondary">
-        <input type="radio" name="option2" id="option2" value = 'no' autoComplete="off" required /> No
-        </label>
-        </div>
-        </div>
-        </div>
-        <div key={3}  className="row questions">
-        <div className="col-md-9 question-box">
-        <p className="question">3.	Does your child feel worried when 
-        he/she thinks someone is angry with him/her? </p>
-        </div>
-        <div className="col-md-3">
-        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-        <label className="custom-choice btn btn-secondary ">
-        <input type="radio" name="option3" id="option3" value = 'yes' autoComplete="off" required  /> Yes
-        </label>
-
-        <label className="custom-choice btn btn-secondary">
-        <input type="radio" name="option3" id="option3" value = 'no' autoComplete="off" required /> No
-        </label>
-        </div>
-        </div>
-        </div>
-        <div key={4}  className="row questions">
-        <div className="col-md-9 question-box">
-        <p className="question">4.	Does your child worry that 
-        he/she will do badly at his/her school work? </p>
-        </div>
-        <div className="col-md-3">
-        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-        <label className="custom-choice btn btn-secondary ">
-        <input type="radio" name="option4" id="option4" value = 'yes' autoComplete="off" required  /> Yes
-        </label>
-
-        <label className="custom-choice btn btn-secondary">
-        <input type="radio" name="option4" id="option4" value = 'no' autoComplete="off" required /> No
-        </label>
-        </div>
-        </div>
-        </div>
-
-        <div key={5}  className="row questions">
-        <div className="col-md-9 question-box">
-        <p className="question">5.	Does your child have trouble going to school or crowded
-        places because he/she feels nervous or afraid? 
-        (Separation Anxiety) </p>
-        </div>
-        <div className="col-md-3">
-        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-        <label className="custom-choice btn btn-secondary ">
-        <input type="radio" name="option5" id="option5" value = 'yes' autoComplete="off"  required /> Yes
-        </label>
-
-        <label className="custom-choice btn btn-secondary">
-        <input type="radio" name="option5" id="option5" value = 'no' autoComplete="off" required /> No
-        </label>
-        </div>
-        </div>
-        </div>
-    </div>,
-    <div>
-        <div className="col-md-10" >
-        <br/>
-        <br/>
-        <h4 className="form-title"style={{fontSize: '25px'}}>
-        SECTION 2 </h4>
-        </div>
-
-        <div key={6} className="row questions">
-        <div className="col-md-9 question-box">
-        <p className="question">6.	Does your child worry excessively about things?  </p>
-        </div>
-        <div className="col-md-3">
-        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-        <label className="custom-choice btn btn-secondary ">
-        <input type="radio" name="option6" id="option6" value = 'yes' autoComplete="off" required  /> Yes
-        </label>
-
-        <label className="custom-choice btn btn-secondary">
-        <input type="radio" name="option6" id="option6" value = 'no' autoComplete="off" required /> No
-        </label>
-        </div>
-        </div>
-        </div>
-
-        <div key={7}  className="row questions">
-        <div className="col-md-9 question-box">
-        <p className="question">7.	Does your child worry that something 
-        bad will happen to someone in the family?  </p>
-        </div>
-        <div className="col-md-3">
-        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-        <label className="custom-choice btn btn-secondary ">
-        <input type="radio" name="option7" id="option7" value = 'yes' autoComplete="off" required  /> Yes
-        </label>
-
-        <label className="custom-choice btn btn-secondary">
-        <input type="radio" name="option7" id="option7" value = 'no' autoComplete="off" required /> No
-        </label>
-        </div>
-        </div>
-        </div>
-        <div key={8}  className="row questions">
-        <div className="col-md-9 question-box">
-        <p className="question">8.	Does your child worry 
-        that something bad will happen to him/her?  </p>
-        </div>
-        <div className="col-md-3">
-        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-        <label className="custom-choice btn btn-secondary ">
-        <input type="radio" name="option8" id="option8" value = 'yes' autoComplete="off"  required /> Yes
-        </label>
-
-        <label className="custom-choice btn btn-secondary">
-        <input type="radio" name="option8" id="option8" value = 'no' autoComplete="off" required /> No
-        </label>
-        </div>
-        </div>
-        </div>
-        <div key={9}  className="row questions">
-        <div className="col-md-9 question-box">
-        <p className="question">9.	Does your child think about death?  </p>
-        </div>
-        <div className="col-md-3">
-        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-        <label className="custom-choice btn btn-secondary ">
-        <input type="radio" name="option9" id="option9" value = 'yes' autoComplete="off" required  /> Yes
-        </label>
-
-        <label className="custom-choice btn btn-secondary">
-        <input type="radio" name="option9" id="option9" value = 'no' autoComplete="off" required /> No
-        </label>
-        </div>
-        </div>
-        </div>
-
-    </div>,
-        <div>
-        <div className="col-md-10" >
-        <br/>
-        <br/>
-        <h4 className="form-title"style={{fontSize: '25px'}}>
-        SECTION 3 </h4>
-        </div>
-
-        <div key={10}  className="row questions">
-        <div className="col-md-9 question-box">
-        <p className="question">10.	When your child has a problem, does he/she 
-        complain that he/she has a funny feeling in the stomach?   </p>
-        </div>
-        <div className="col-md-3">
-        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-        <label className="custom-choice btn btn-secondary ">
-        <input type="radio" name="option10" id="option10" value = 'yes' autoComplete="off" required  /> Yes
-        </label>
-
-        <label className="custom-choice btn btn-secondary">
-        <input type="radio" name="option10" id="option10" value = 'no' autoComplete="off" required /> No
-        </label>
-        </div>
-        </div>
-        </div>
-
-        <div key={11}  className="row questions">
-        <div className="col-md-9 question-box">
-        <p className="question">11.	Does your child suddenly feel as if he/she can't 
-        breathe or start to tremble or shake when there is no reason for this? </p>
-        </div>
-        <div className="col-md-3">
-        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-        <label className="custom-choice btn btn-secondary ">
-        <input type="radio" name="option11" id="option11" value = 'yes' autoComplete="off" required  /> Yes
-        </label>
-
-        <label className="custom-choice btn btn-secondary">
-        <input type="radio" name="option11" id="option11" value = 'no' autoComplete="off" required  /> No
-        </label>
-        </div>
-        </div>
-        </div>
-
-        <div key={12}  className="row questions">
-        <div className="col-md-9 question-box">
-        <p className="question">12.	Does your child all of a 
-        sudden feel really scared for no apparent reason?  </p>
-        </div>
-        <div className="col-md-3">
-        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-        <label className="custom-choice btn btn-secondary ">
-        <input type="radio" name="option12" id="option12" value = 'yes' autoComplete="off" required  /> Yes
-        </label>
-
-        <label className="custom-choice btn btn-secondary">
-        <input type="radio" name="option12" id="option12" value = 'no' autoComplete="off" required /> No
-        </label>
-        </div>
-        </div>
-        </div>
-        <div key={13}  className="row questions">
-        <div className="col-md-9 question-box">
-        <p className="question">13.	Does your child complain that his/her heart suddenly starts 
-        to beat too quickly for no apparent reason?  </p>
-        </div>
-        <div className="col-md-3">
-        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-        <label className="custom-choice btn btn-secondary ">
-        <input type="radio" name="option13" id="option13" value = 'yes' autoComplete="off"required /> Yes
-        </label>
-
-        <label className="custom-choice btn btn-secondary">
-        <input type="radio" name="option13" id="option13" value = 'no' autoComplete="off" required /> No
-        </label>
-        </div>
-        </div>
-        </div>
-
-        </div>,
-        <div>
-            <div className="col-md-10" >
-        <br/>
-        <br/>
-            <h4 className="form-title"style={{fontSize: '25px'}}>
-            SECTION 4</h4>
-        </div>
-
-        <div key={14}  className="row questions">
-            <div className="col-md-9 question-box">
-                <p className="question">14.	Does your child feel sad or empty or worthless? </p>
-            </div>
-            <div className="col-md-3">
-                <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-                    <label className="custom-choice btn btn-secondary ">
-                    <input type="radio" name="option14" id="option14" value = 'yes' autoComplete="off" required  /> Yes
-                    </label>
-                    
-                    <label className="custom-choice btn btn-secondary">
-                    <input type="radio" name="option14" id="option14" value = 'no' autoComplete="off" required /> No
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div key={15} className="row questions">
-            <div className="col-md-9 question-box">
-                <p className="question">15.	Does your child complain that
-                    nothing is much fun anymore? </p>
-            </div>
-            <div className="col-md-3">
-                <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-                    <label className="custom-choice btn btn-secondary ">
-                    <input type="radio" name="option15" id="option15" value = 'yes' autoComplete="off"  required /> Yes
-                    </label>
-                    
-                    <label className="custom-choice btn btn-secondary">
-                    <input type="radio" name="option15" id="option15" value = 'no' autoComplete="off" required  /> No
-                    </label>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div key={16}  className="row questions">
-            <div className="col-md-9 question-box">
-                <p className="question">16.	Does your child have trouble sleeping?</p>
-            </div>
-            <div className="col-md-3">
-                <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-                    <label className="custom-choice btn btn-secondary ">
-                    <input type="radio" name="option16" id="option16" value = 'yes' autoComplete="off"  required /> Yes
-                    </label>
-                    
-                    <label className="custom-choice btn btn-secondary">
-                    <input type="radio" name="option16" id="option16" value = 'no' autoComplete="off" required  /> No
-                    </label>
-                </div>
-            </div>
-        </div>
-
-
-        <div key={17} className="row questions">
-            <div className="col-md-9 question-box">
-                <p className="question">17.	Does your child have problems with his/her appetite? </p>
-            </div>
-            <div className="col-md-3">
-                <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-                    <label className="custom-choice btn btn-secondary ">
-                    <input type="radio" name="option17" id="option17" value = 'yes' autoComplete="off"  required /> Yes
-                    </label>
-                    
-                    <label className="custom-choice btn btn-secondary">
-                    <input type="radio" name="option17" id="option17" value = 'no' autoComplete="off" required /> No
-                    </label>
-                </div>
-            </div>
-        </div>
-
-    </div>,
-    <div>
-        <div className="col-md-10" >
-        <br/>
-        <br/>
-        <h4 className="form-title"style={{fontSize: '25px'}}>
-        SECTION 5</h4>
-        </div>
-
-        <div key={18}  className="row questions">
-        <div className="col-md-9 question-box">
-        <p className="question">18.	Does your child keep checking that he/she has done things 
-        right (like the switch is off, or the door is locked)?   </p>
-        </div>
-        <div className="col-md-3">
-        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-        <label className="custom-choice btn btn-secondary ">
-        <input type="radio" name="option18" id="option18" value = 'yes' autoComplete="off" required  /> Yes
-        </label>
-
-        <label className="custom-choice btn btn-secondary">
-        <input type="radio" name="option18" id="option18" value = 'no' autoComplete="off" required /> No
-        </label>
-        </div>
-        </div>
-        </div>
-
-
-        <div key={19}  className="row questions">
-        <div className="col-md-9 question-box">
-        <p className="question">19.	Does your child have to do some things over and over again 
-        (like washing my hands, cleaning or putting things in a certain order)?    </p>
-        </div>
-        <div className="col-md-3">
-        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-        <label className="custom-choice btn btn-secondary ">
-        <input type="radio" name="option19" id="option19" value = 'yes' autoComplete="off" required  /> Yes
-        </label>
-
-        <label className="custom-choice btn btn-secondary">
-        <input type="radio" name="option19" id="option19" value = 'no' autoComplete="off" required  /> No
-        </label>
-        </div>
-        </div>
-        </div>
-
-        <div key={20}  className="row questions">
-        <div className="col-md-9 question-box">
-        <p className="question">20.	Does your child have to do some things in just the right way 
-        or think special thoughts to stop bad things from happening? </p>
-        </div>
-        <div className="col-md-3">
-        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-        <label className="custom-choice btn btn-secondary ">
-        <input type="radio" name="option20" id="option20" value = 'yes' autoComplete="off"  required /> Yes
-        </label>
-
-        <label className="custom-choice btn btn-secondary">
-        <input type="radio" name="option20" id="option20" value = 'no' autoComplete="off" required /> No
-        </label>
-        </div>
-        </div>
-        </div>
-
-</div>,
 ]
+
+const todos = [ ]
+var i = 1
+question_list.forEach( x => {
+
+    const todo =
+        <div>
+                <div className="col-md-10" >
+                    <br/>
+                    <br/>
+                    <h4 className="form-title"style={{fontSize: '25px'}}>{x.title} </h4>
+                </div>
+                {x.questions.map(y =>
+
+                    <div key={x.questions.indexOf(y)+i} className="row questions">
+                    <div className="col-md-9 question-box">
+                        <p  className="question">{y}</p>
+                        </div>
+                        <div className="col-md-3">
+                        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+                        <label className="custom-choice btn btn-secondary ">
+                        <input type="radio" name= {`option${x.questions.indexOf(y)+i}`} id={`option${x.questions.indexOf(y)+i}`} value = 'yes' autoComplete="off" required  /> Yes
+                        </label>  
+    
+                        <label className="custom-choice btn btn-secondary">
+                        <input type="radio" name={`option${x.questions.indexOf(y)+i}`} id={`option${x.questions.indexOf(y)+i}`} value = 'no' autoComplete="off" required /> No
+                        </label>
+                        </div>
+                        </div>
+                    </div>
+                )}  
+                        
+        </div>
+    
+    todos.push(todo)
+    i += x.questions.length
+    
+})
+
 
     var initial=  {}
     const exp = []

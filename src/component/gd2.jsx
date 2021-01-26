@@ -65,7 +65,6 @@ const question_list = [ {
            '18. Can your child complete a 3-to-4-piece puzzle? ',
            '19. Can your child memorize simple rhymes and learn a simple song?  ',
            '20.	Can your child follow simple two-step instructions such as ‘pick your books and put them on the table’? ',
-
        ]
        },
 
@@ -107,7 +106,6 @@ question_list.forEach( x => {
     todos.push(todo)
     i += x.questions.length
     
-
 })
 
 

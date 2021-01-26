@@ -12,7 +12,7 @@ import * as auth from "../store/actions/auth";
 export const  GenDev5= (props) => {
 
     
-    const todosPerPage = 1;
+   
     const [ activePage, setCurrentPage ] = useState( 1 );
 
     const {state, dispatch} = useContext(MyContext)
@@ -27,405 +27,93 @@ export const  GenDev5= (props) => {
             if (resstate.child.id === undefined || resstate.child.id === null) {
             props.history.push('/initial/');
             }
-     
-
-   
-
         
     }, [state.token]);
 
 
+    const question_list = [ {
+        title:'SECTION 1',
+        questions:[
+           '1.	Is your child able to follow three-step instructions? ',
+           '2.	Does your child use 4-to-5-word sentences in communicating?  ',
+           '3.	Is your child able to predict the next step when a sequence of events is presented? ',
+           '4.	Does your child know the meaning of through, away, towards, and from? ',
+           '5.	Is your child able to understand and discuss the plot of a story being read to him/her?  ',
+           '6.	Does your child repeat words or phrases in response to questions or statements?  ',
+           
+        ]
+        },
+        {
+       title:'SECTION 2',
+       questions:[
+           '7.	Does your child catch a small ball with both hands?  ',
+           '8.	Is your child able to move in tune with the beat or rhythm of music? ',
+           '9.	Can your child walk on tiptoes for 15 feet?  ',
+           '10.	Can your child skip using alternating feet?  ',
+           '11.	Is your child able to walk across a balance beam without losing his /her balance? ',  
+       ]
+       },
+       {
+       title:'SECTION 3',
+       questions:[
+           '12.	Is your child able to manage buttons and zippers? ',
+           '13.	Is your child a messy eater?  ',
+           '14.	Is your child able to copy shapes like a cross, square, triangle, and circle?  ',
+           '15.	Can your child color neatly within the lines of a given picture? ',
+       ]
+       },
+       {
+        title:'SECTION 4',
+        questions:[
+            '16. Can your child draw a person with at least eight parts in the diagram? ',
+            '17. Is your child able to differentiate between real and unreal (imagined) items, objects, or situations? (For example, can your child tell the difference between a real animal and a stuffed animal?)  ',
+            '18. Can a child complete a 20-to-50-piece puzzle?  ',
+            '19. Is your child able to memorize and follow three complex instructions when they are given simultaneously? ',
+            '20. Can your child recall five random numbers dictated to him/her? ',
 
-const todos = [
-    <div>
-        <div className="col-md-10" >
-                <br/>
-                <br/>
-                <h4 className="form-title"style={{fontSize: '25px'}}>
-                SECTION 1</h4>
+        ]
+        },
+
+]
+
+const todos = [ ]
+var i = 1
+question_list.forEach( x => {
+
+    const todo =
+        <div>
+                <div className="col-md-10" >
+                    <br/>
+                    <br/>
+                    <h4 className="form-title"style={{fontSize: '25px'}}>{x.title} </h4>
                 </div>
+                {x.questions.map(y =>
 
-                <div  key={1} className="row questions">
-                <div className="col-md-9 question-box">
-                <p className="question">1.	Is your child able to follow three-step instructions? 	</p>
-                </div>
-                <div className="col-md-3">
-                <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-                <label className="custom-choice btn btn-secondary ">
-                <input type="radio" name="option1" id="option1" value = 'yes' autoComplete="off" required   /> Yes
-                </label>
+                    <div key={x.questions.indexOf(y)+i} className="row questions">
+                    <div className="col-md-9 question-box">
+                        <p  className="question">{y}</p>
+                        </div>
+                        <div className="col-md-3">
+                        <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
+                        <label className="custom-choice btn btn-secondary ">
+                        <input type="radio" name= {`option${x.questions.indexOf(y)+i}`} id={`option${x.questions.indexOf(y)+i}`} value = 'yes' autoComplete="off" required  /> Yes
+                        </label>  
+    
+                        <label className="custom-choice btn btn-secondary">
+                        <input type="radio" name={`option${x.questions.indexOf(y)+i}`} id={`option${x.questions.indexOf(y)+i}`} value = 'no' autoComplete="off" required /> No
+                        </label>
+                        </div>
+                        </div>
+                    </div>
+                )}  
+                        
+        </div>
+    
+    todos.push(todo)
+    i += x.questions.length
+    
+})
 
-                <label className="custom-choice btn btn-secondary">
-                <input type="radio" name="option1" id="option1" value = 'no' autoComplete="off" required /> No
-                </label>
-                </div>
-                </div>
-                </div>
-                <div  key={2} className="row questions">
-                <div className="col-md-9 question-box">
-                <p className="question">2.	Does your child use 4-to-5-word 
-                sentences in communicating?   </p>
-                </div>
-                <div className="col-md-3">
-                <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-                <label className="custom-choice btn btn-secondary ">
-                <input type="radio" name="option2" id="option2" value = 'yes' autoComplete="off" required  /> Yes
-                </label>
-
-                <label className="custom-choice btn btn-secondary">
-                <input type="radio" name="option2" id="option2" value = 'no' autoComplete="off" required /> No
-                </label>
-                </div>
-                </div>
-                </div>
-                <div  key={3} className="row questions">
-                <div className="col-md-9 question-box">
-                <p className="question">3.	Is your child able to predict the next step when a 
-                sequence of events is presented? </p>
-                </div>
-                <div className="col-md-3">
-                <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-                <label className="custom-choice btn btn-secondary ">
-                <input type="radio" name="option3" id="option3" value = 'yes' autoComplete="off" required  /> Yes
-                </label>
-
-                <label className="custom-choice btn btn-secondary">
-                <input type="radio" name="option3" id="option3" value = 'no' autoComplete="off" required  /> No
-                </label>
-                </div>
-                </div>
-                </div>
-                <div  key={4} className="row questions">
-                <div className="col-md-9 question-box">
-                <p className="question">4.	Does your child know the meaning of through, 
-                away, towards, and from?   </p>
-                </div>
-                <div className="col-md-3">
-                <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-                <label className="custom-choice btn btn-secondary ">
-                <input type="radio" name="option4" id="option4" value = 'yes' autoComplete="off" required  /> Yes
-                </label>
-
-                <label className="custom-choice btn btn-secondary">
-                <input type="radio" name="option4" id="option4" value = 'no' autoComplete="off" required /> No
-                </label>
-                </div>
-                </div>
-                </div>
-
-                <div  key={5} className="row questions">
-                <div className="col-md-9 question-box">
-                <p className="question">5.	Is your child able to understand and discuss the plot of a
-                story being read to him/her?    </p>
-                </div>
-                <div className="col-md-3">
-                <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-                <label className="custom-choice btn btn-secondary ">
-                <input type="radio" name="option5" id="option5" value = 'yes' autoComplete="off" required  /> Yes
-                </label>
-
-                <label className="custom-choice btn btn-secondary">
-                <input type="radio" name="option5" id="option5" value = 'no' autoComplete="off" required /> No
-                </label>
-                </div>
-                </div>
-                </div>
-
-                <div  key={6} className="row questions">
-                <div className="col-md-9 question-box">
-                <p className="question">6.	Does your child repeat words or phrases in 
-                response to questions or statements?    </p>
-                </div>
-                <div className="col-md-3">
-                <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-                <label className="custom-choice btn btn-secondary ">
-                <input type="radio" name="option6" id="option6" value = 'yes' autoComplete="off" required  /> Yes
-                </label>
-
-                <label className="custom-choice btn btn-secondary">
-                <input type="radio" name="option6" id="option6" value = 'no' autoComplete="off" required /> No
-                </label>
-                </div>
-                </div>
-                </div>
-    </div>,
-    <div>
-            <div className="col-md-10" >
-            <br/>
-            <br/>
-            <h4 className="form-title"style={{fontSize: '25px'}}>
-            SECTION 2</h4>
-            </div>
-
-            <div  key={7} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">7.	Does your child catch a small ball with both hands?  </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option7" id="option7" value = 'yes' autoComplete="off" required   /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option7" id="option7" value = 'no' autoComplete="off" required  /> No
-            </label>
-            </div>
-            </div>
-            </div>
-            <div  key={8} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">8.	Is your child able to move in tune
-            with the beat or rhythm of music?   </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option8" id="option8" value = 'yes' autoComplete="off"  required /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option8" id="option8" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-            <div  key={9} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">9.	Can your child walk on tiptoes for 15 feet?   </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option9" id="option9" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option9" id="option9" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-            <div  key={10} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">10.	Can your child skip using alternating feet?   </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option10" id="option10" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option10" id="option10" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-            <div key={11} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">11.	Is your child able to walk across a balance beam without
-            losing his /her balance?   </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option11" id="option11" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option11" id="option11" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-    </div>,
-    <div>
-            <div className="col-md-10" >
-            <br/>
-            <br/>
-            <h4 className="form-title"style={{fontSize: '25px'}}>
-            SECTION 3</h4>
-            </div>
-
-            <div  key={12} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">12.	Is your child able to manage buttons and zippers?  </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option12" id="option12" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option12" id="option12" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-            <div  key={13} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">13.	Is your child a messy eater?  </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option13" id="option13" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option13" id="option13" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-            <div  key={14} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">14.	Is your child able to copy shapes like a cross,
-            square, triangle, and circle?  </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option14" id="option14" value = 'yes' autoComplete="off" required   /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option14" id="option14" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-
-
-
-            <div  key={15} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">15.	Can your child color neatly 
-            within the lines of a given picture? </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option15" id="option15" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option15" id="option15" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-    </div>,
-    <div>
-         
-            <div className="col-md-10" >
-            <br/>
-            <br/>
-            <h4 className="form-title"style={{fontSize: '25px'}}>
-            SECTION 4</h4>
-            </div>
-
-            <div  key={16} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">16.	Can your child draw a person with at 
-            least eight parts in the diagram?   </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option16" id="option16" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option16" id="option16" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-
-            <div  key={17} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">17.	Is your child able to differentiate between real and
-            unreal (imagined) items, objects, or situations?
-            (For example, can your child tell the difference between a real 
-            animal and a stuffed animal?)   </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option17" id="option17" value = 'yes' autoComplete="off" required   /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option17" id="option17" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-
-            <div  key={18} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">18.	Can a child complete a 20-to-50-piece puzzle?    </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option18" id="option18" value = 'yes' autoComplete="off" required   /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option18" id="option18" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-
-            <div  key={19} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">19.	Is your child able to memorize and follow three complex instructions when they are given simultaneously?    </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option19" id="option19" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option19" id="option19" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-            <div  key={20} className="row questions">
-            <div className="col-md-9 question-box">
-            <p className="question">20.	Can your child recall five random numbers dictated to him/her?   </p>
-            </div>
-            <div className="col-md-3">
-            <div className="btn-group btn-group-toggle space-radio" data-toggle="buttons">
-            <label className="custom-choice btn btn-secondary ">
-            <input type="radio" name="option20" id="option20" value = 'yes' autoComplete="off" required  /> Yes
-            </label>
-
-            <label className="custom-choice btn btn-secondary">
-            <input type="radio" name="option20" id="option20" value = 'no' autoComplete="off" required /> No
-            </label>
-            </div>
-            </div>
-            </div>
-
-    </div>,
-            ]
 
 
 
