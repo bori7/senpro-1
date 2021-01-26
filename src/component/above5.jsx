@@ -4,17 +4,20 @@ import mini_header_2 from '../static/assets/mini_header_2.png';
 import { Link } from "react-router-dom";
 import * as auth from "../store/actions/auth";
 import {MyContext} from '../store/context/myContext';
+import {ResContext} from '../store/context/resultContext';
 
 
 export const Above5 = (props) => {
 
    
     const {state, dispatch } = useContext(MyContext);
-    
+    const {resstate, resdispatch} = useContext(ResContext)
   
     useEffect(() => {
         auth.authCheckState(dispatch, props);
-      
+        if (resstate.child.id === undefined || resstate.child.id === null) {
+            props.history.push('/initial/');
+            }
 
     }, []);
 

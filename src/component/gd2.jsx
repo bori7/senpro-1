@@ -1,4 +1,4 @@
-import React ,{useEffect, useState, useContext,useCallback, useRef}from "react";
+import React ,{useEffect, useState, useContext}from "react";
 import {MenuLayout} from './menu';
 import mini_header_2 from '../static/assets/mini_header_2.png';
 import { createGradedASNT } from "../store/actions/results";
@@ -7,17 +7,11 @@ import {ResContext} from '../store/context/resultContext';
 import {createResult}from "../store/actions/assignments";
 import { getChilds} from "../store/actions/assignments";
 import { updateChild} from "../store/actions/assignments";
-
 import * as auth from "../store/actions/auth";
 
 export const GenDev2= (props) => {
 
-
-    const todosPerPage = 1;
     const [ activePage, setCurrentPage ] = useState( 1 );
-
-    const node = useRef();
-    
     const {state, dispatch} = useContext(MyContext)
     const {resstate, resdispatch} = useContext(ResContext)
     const [initia, setInitia] = useState({});
