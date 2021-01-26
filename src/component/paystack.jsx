@@ -67,9 +67,10 @@ export const Pay = (props) => {
           
           updateChild(id,child,state.token, resdispatch)
           getResults(id,state.token, resdispatch)
-          console.log(resstate.title, id, resstate.child_id)
+          // console.log(resstate.title, id, resstate.child_id)
 
-          setTimeout(function(){console.log('hello')},5000)
+          // setTimeout(function(){
+            // console.log('hello')},5000)
 
             var message = ''
             var u
@@ -93,7 +94,7 @@ export const Pay = (props) => {
              templateParams,
              "user_jDFiteMUy9NWNFehWpWQR"
            ).then(res => {
-            console.log('Email successfully sent!',res)
+            // console.log('Email successfully sent!',res)
         })
         .catch(err => console.error('There has been an error.  Here some thoughts on the error that occured:', err))
     

@@ -55,7 +55,7 @@ const onSuccess = () => {
     templateParams,
     "user_jDFiteMUy9NWNFehWpWQR"
     ).then(res => {
-    console.log('Email successfully sent!',res)
+    // console.log('Email successfully sent!',res)
     alert.show('Check your e-mail for your Appointemt schedule',{type: 'success',});
     })
     .catch(err => {console.error('There has been an error.  Here some thoughts on the error that occured:', err);
@@ -70,7 +70,7 @@ const fwConfig = {
     text: 'Book Now!',
     className:"btn btn-warning deepblue curvebtn my-2 my-sm-0 margin-right colorf",
     callback: (response) => {
-       console.log(response);
+      //  console.log(response);
        onSuccess();
       closePaymentModal() // this will close the modal programmatically
     },

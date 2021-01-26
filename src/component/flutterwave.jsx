@@ -7,6 +7,7 @@ import {MyContext} from '../store/context/myContext';
 import { getResults} from "../store/actions/assignments";
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
 import { init } from 'emailjs-com';
+import { useAlert } from 'react-alert';
 init("user_jDFiteMUy9NWNFehWpWQR");
 
 
@@ -16,6 +17,7 @@ export const Pay = (props) => {
     const {title} = resstate;
     const {state, dispatch} = useContext(MyContext)
     const id = props.chill.id
+    const alert = useAlert()
   
    const config = {
     public_key: 'FLWPUBK_TEST-aa04e2b8c50a2d3dfce7742398f14203-X',
@@ -47,7 +49,7 @@ const onSuccess =  () => {
     // console.log(child)
     updateChild(id,child,state.token, resdispatch)
     getResults(id,state.token, resdispatch)
-    console.log(resstate.title, id, resstate.child_id)
+    // console.log(resstate.title, id, resstate.child_id)
 
     setTimeout(function(){console.log('hello')},5000)
 
@@ -72,7 +74,7 @@ const onSuccess =  () => {
     templateParams,
     "user_jDFiteMUy9NWNFehWpWQR"
     ).then(res => {
-    console.log('Email successfully sent!',res)
+    // console.log('Email successfully sent!',res)
     alert.show('Check your e-mail for your Results',{type: 'success',});
     })
     .catch(err => {console.error('There has been an error.  Here some thoughts on the error that occured:', err);
@@ -86,7 +88,7 @@ const onSuccess =  () => {
     text: 'Book Now!',
     className:"btn btn-warning deepblue curvebtn my-2 my-sm-0 margin-right colorf",
     callback: (response) => {
-       console.log(response);
+      //  console.log(response);
        onSuccess();
       closePaymentModal() // this will close the modal programmatically
     },

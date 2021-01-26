@@ -63,7 +63,7 @@ export const authLogin = (username, password, dispatch) => {
         checkAuthTimeout(3600,dispatch);
       })
       .catch(err => {
-        console.log(err.response.data)
+        // console.log(err.response.data)
         if(err.response.data.non_field_errors[0].toString().includes('invalid token')){
           var seror = 'please reload the page and login again'
         }else{var seror=err.response.data.non_field_errors[0]}
@@ -98,7 +98,7 @@ export const authSignup = (
           expirationDate: new Date(new Date().getTime() + 360000 * 1000)
         };
         localStorage.setItem("user", JSON.stringify(user));
-        console.log(user)
+        // console.log(user)
         dispatch(authSuccess(user));
         checkAuthTimeout(360000,dispatch);
 
@@ -108,13 +108,13 @@ export const authSignup = (
            templateParams,
            "user_jDFiteMUy9NWNFehWpWQR"
          ).then(res => {
-          console.log('Email successfully sent!',res)
+          // console.log('Email successfully sent!',res)
       })
       .catch(err => console.error('There has been an error.  Here some thoughts on the error that occured:', err))
   
       })
       .catch(err => {
-        console.log(err.response.data)
+        // console.log(err.response.data)
         var errd=""
         if(err.response.data){
         Object.entries(err.response.data).forEach(
@@ -123,7 +123,7 @@ export const authSignup = (
           errd = 'Unable to signup, please try again.'
         }
 
-          console.log(errd)
+          // console.log(errd)
         dispatch(authFail(errd));
         
         

@@ -132,7 +132,7 @@ const updateChildSuccess = (res) => {
   return {
     type: actionTypes.UPDATE_CHILD_SUCCESS,
     child_id:res.id,
-    message :'Payment Successful'
+    message :'Successful'
   };
 };
 
@@ -226,7 +226,7 @@ export const createASNT = (cart,dispatch) => {
   dispatch(createASNTStart());
   // cart_item['cartitem'] = cart
       dispatch(createASNTSuccess('Submitted', cart));
-    console.log(cart)
+    // console.log(cart)
 
 };
 
@@ -245,10 +245,10 @@ export const getChilds = (parent,token,dispatch) => {
     .then(res => {
       const childs = res.data;
       dispatch(getChildsSuccess( childs));
-      console.log( childs , res)
+      // console.log( childs , res)
     })
     .catch(err => {
-      console.log(err)
+      // console.log(err)
       dispatch(getChildsFail(err.response.data));
     });
 };
@@ -256,7 +256,7 @@ export const getChilds = (parent,token,dispatch) => {
 export const createChild = (token, child, dispatch,dispatch2) => {
  
     dispatch(createChildStart());
-    console.log(token,child)
+    // console.log(token,child)
     axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
     axios.defaults.xsrfCookieName = "csrftoken";
     axios.defaults.headers = {
@@ -266,13 +266,13 @@ export const createChild = (token, child, dispatch,dispatch2) => {
   axios
       .post(`${HOST_URL}/clients/childs/`, child)
       .then(res => {
-        console.log(res)
-        console.log(res.data)
+        // console.log(res)
+        // console.log(res.data)
         dispatch2(createChildSuccess(res.data));
 
       })
       .catch(err => {
-        console.log(err.response.request.responseText)
+        // console.log(err.response.request.responseText)
         // dispatch(createChildFail(err.response.request.responseText));
       });
   
@@ -282,7 +282,7 @@ export const createChild = (token, child, dispatch,dispatch2) => {
 export const updateChild = (id,child, token, dispatch) => {
   
   dispatch(updateChildStart());
-  console.log(token,child)
+  // console.log(token,child)
   axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
   axios.defaults.xsrfCookieName = "csrftoken";
   axios.defaults.headers = {
@@ -293,13 +293,13 @@ axios
     .put(`${HOST_URL}/clients/childs/${id}/`, child)
     .then(res => {
       // console.log(res)
-      console.log(res.data)
+      // console.log(res.data)
       dispatch(updateChildSuccess(res.data));
       // props.history.push("/result/");
 
     })
     .catch(err => {
-      console.log(err)
+      // console.log(err)
       dispatch(updateChildFail(err.response));
       
     });
@@ -310,7 +310,7 @@ axios
 export const createResult = (token, result, dispatch) => {
  
     dispatch(createResultStart());
-    console.log(token,result)
+    // console.log(token,result)
     axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
     axios.defaults.xsrfCookieName = "csrftoken";
     axios.defaults.headers = {
@@ -328,12 +328,12 @@ export const createResult = (token, result, dispatch) => {
       axios
       .post(`${HOST_URL}/clients/results/`, reso)
       .then(res => {
-        console.log(res)
+        // console.log(res)
         dispatch(createResultSuccess(res.data));
         
       })
       .catch(err => {
-        console.log(err.response.request.responseText)
+        // console.log(err.response.request.responseText)
         dispatch(createResultFail(err.response.request.responseText));
       });
     }
@@ -344,7 +344,7 @@ export const createResult = (token, result, dispatch) => {
 export const getResults = (child,token,dispatch) => {
  
   dispatch(getResultsStart());
-  console.log(token)
+  // console.log(token)
   axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
   axios.defaults.xsrfCookieName = "csrftoken";
   axios.defaults.headers = {
@@ -365,10 +365,10 @@ export const getResults = (child,token,dispatch) => {
         result.tip.push(x.tip)
       }              
       dispatch(getResultsSuccess(result,child));
-      console.log( results , res, result)
+      // console.log( results , res, result)
     })
     .catch(err => {
-      console.log(err)
+      // console.log(err)
       dispatch(getResultsFail(err.response.data));
     });
 };

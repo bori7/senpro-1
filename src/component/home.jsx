@@ -36,47 +36,47 @@ export const Home = (props) => {
     // const node2 = useRef(0);
     // const node3 = useRef();
 
-    const [initia, setInitia] = useState({});
-    const [error, setError] = useState(false);
+    // const [initia, setInitia] = useState({});
+    // const [error, setError] = useState(false);
     const {state, dispatch} = useContext(MyContext)
     // const [alert, setAlert] = useState(false);
 
     useEffect(() => {
         auth.authCheckState(dispatch, props);
-        node.current.addEventListener('click', (e)=>  {
-            for (const select of node.current.querySelectorAll('.custom-select')) {
-                if (!select.contains(e.target)) {
-                    select.classList.remove('open');
-                }
-            }
-        });
+        // node.current.addEventListener('click', (e)=>  {
+        //     for (const select of node.current.querySelectorAll('.custom-select')) {
+        //         if (!select.contains(e.target)) {
+        //             select.classList.remove('open');
+        //         }
+        //     }
+        // });
 
-        for (const option of node.current.querySelectorAll(".custom-option")) {
-            option.addEventListener('click', () =>  {
-                if (!option.classList.contains('selected')) {
-                    option.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
-                    option.classList.add('selected');
-                    option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent;
-                }
-            })   }
+        // for (const option of node.current.querySelectorAll(".custom-option")) {
+        //     option.addEventListener('click', () =>  {
+        //         if (!option.classList.contains('selected')) {
+        //             option.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
+        //             option.classList.add('selected');
+        //             option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent;
+        //         }
+        //     })   }
       
-            for (const dropdown of node.current.querySelectorAll(".custom-select-wrapper")) {
-                dropdown.addEventListener('click', ()=> {
-                    dropdown.querySelector('.my-custom-select').classList.toggle('open');
-                })
+        //     for (const dropdown of node.current.querySelectorAll(".custom-select-wrapper")) {
+        //         dropdown.addEventListener('click', ()=> {
+        //             dropdown.querySelector('.my-custom-select').classList.toggle('open');
+        //         })
                 
-            }
+        //     }
 
-            for (const option of node.current.querySelectorAll(".custom-choice")) {
-                option.addEventListener('click', () =>{
-                    if (!option.classList.contains('active')) {
-                        if( option.parentNode.querySelector('.custom-choice.active')){
-                         option.parentNode.querySelector('.custom-choice.active').classList.remove('active');}
-                         option.classList.add('active');
-                        // option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent; 
-                    }
-                })
-            }
+        //     for (const option of node.current.querySelectorAll(".custom-choice")) {
+        //         option.addEventListener('click', () =>{
+        //             if (!option.classList.contains('active')) {
+        //                 if( option.parentNode.querySelector('.custom-choice.active')){
+        //                  option.parentNode.querySelector('.custom-choice.active').classList.remove('active');}
+        //                  option.classList.add('active');
+        //                 // option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent; 
+        //             }
+        //         })
+        //     }
     
 
     }, [state.token]);
@@ -84,15 +84,15 @@ export const Home = (props) => {
 
 
 
-const scrollFunction = ()=> {
-    if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
-    document.getElementById("scrollnav").style.top = "0";
-    } else {
-    document.getElementById("scrollnav").style.top = "-150px";
-    }
-}
+// const scrollFunction = ()=> {
+//     if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
+//     document.getElementById("scrollnav").style.top = "0";
+//     } else {
+//     document.getElementById("scrollnav").style.top = "-150px";
+//     }
+// }
 
-window.onscroll = ()=>  {scrollFunction()};
+// window.onscroll = ()=>  {scrollFunction()};
 
 
 
@@ -115,7 +115,7 @@ return(
                 <h1 className="animate__animated animate__fadeInLeft">Every child deserves to learn.</h1>
                 <p className="animate__animated animate__fadeInLeft">Early intervention makes a difference in predicting a child’s success irrespective of their challenges. Let's help </p>
                 <br/>
-                <Link to={`/initial/`}>
+                <Link to={`/start-here/`}>
                 <a  className="btn btn-primary btn-lg skyblue curvebtn animate__animated animate__fadeInLeft my-2 my-sm-0 colorf" >Let us help.</a>
                 </Link>
                 </div>

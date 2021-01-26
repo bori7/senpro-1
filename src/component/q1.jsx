@@ -5,16 +5,16 @@ import mini_header_2 from '../static/assets/mini_header_2.png';
 // import {q1script} from './q1j.js';
 import * as auth from "../store/actions/auth";
 import {MyContext} from '../store/context/myContext';
-import {ResContext} from '../store/context/resultContext';
+// import {ResContext} from '../store/context/resultContext';
 
 
 export const Question1 = (props) => {
 
     const node = useRef();
    
-    const [initia, setInitia] = useState({});
+    // const [initia, setInitia] = useState({});
     const {state, dispatch} = useContext(MyContext)
-    const {resstate, resdispatch} = useContext(ResContext)
+    // const {resstate, resdispatch} = useContext(ResContext)
   
     useEffect(() => {
         auth.authCheckState(dispatch, props)
@@ -24,40 +24,40 @@ export const Question1 = (props) => {
             // if (resstate.child.id === undefined || resstate.child.id === null) {
             // props.history.push('/initial/');
             // }
-        node.current.addEventListener('click', (e)=>  {
-            for (const select of node.current.querySelectorAll('.custom-select')) {
-                if (!select.contains(e.target)) {
-                    select.classList.remove('open');
-                }
-            }
-        });
+        // node.current.addEventListener('click', (e)=>  {
+        //     for (const select of node.current.querySelectorAll('.custom-select')) {
+        //         if (!select.contains(e.target)) {
+        //             select.classList.remove('open');
+        //         }
+        //     }
+        // });
 
-        for (const option of node.current.querySelectorAll(".custom-option")) {
-            option.addEventListener('click', () =>  {
-                if (!option.classList.contains('selected')) {
-                    option.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
-                    option.classList.add('selected');
-                    option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent;
-                }
-            })   }
+        // for (const option of node.current.querySelectorAll(".custom-option")) {
+        //     option.addEventListener('click', () =>  {
+        //         if (!option.classList.contains('selected')) {
+        //             option.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
+        //             option.classList.add('selected');
+        //             option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent;
+        //         }
+        //     })   }
       
-            for (const dropdown of node.current.querySelectorAll(".custom-select-wrapper")) {
-                dropdown.addEventListener('click', ()=> {
-                    dropdown.querySelector('.my-custom-select').classList.toggle('open');
-                })
+        //     for (const dropdown of node.current.querySelectorAll(".custom-select-wrapper")) {
+        //         dropdown.addEventListener('click', ()=> {
+        //             dropdown.querySelector('.my-custom-select').classList.toggle('open');
+        //         })
                 
-            }
+        //     }
 
-            for (const option of node.current.querySelectorAll(".custom-choice")) {
-                option.addEventListener('click', () =>{
-                    if (!option.classList.contains('active')) {
-                        if( option.parentNode.querySelector('.custom-choice.active')){
-                         option.parentNode.querySelector('.custom-choice.active').classList.remove('active');}
-                         option.classList.add('active');
-                        // option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent; 
-                    }
-                })
-            }
+        //     for (const option of node.current.querySelectorAll(".custom-choice")) {
+        //         option.addEventListener('click', () =>{
+        //             if (!option.classList.contains('active')) {
+        //                 if( option.parentNode.querySelector('.custom-choice.active')){
+        //                  option.parentNode.querySelector('.custom-choice.active').classList.remove('active');}
+        //                  option.classList.add('active');
+        //                 // option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent; 
+        //             }
+        //         })
+        //     }
     //   if(alert){  document.addEventListener('load', fadeOutEffect)}
     //   else{ document.removeEventListener('load', fadeOutEffect);}
   
@@ -107,15 +107,15 @@ export const Question1 = (props) => {
 
 
 
-const scrollFunction = ()=> {
-    if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
-    document.getElementById("scrollnav").style.top = "0";
-    } else {
-    document.getElementById("scrollnav").style.top = "-150px";
-    }
-}
+// const scrollFunction = ()=> {
+//     if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
+//     document.getElementById("scrollnav").style.top = "0";
+//     } else {
+//     document.getElementById("scrollnav").style.top = "-150px";
+//     }
+// }
 
-window.onscroll = ()=>  {scrollFunction()};
+// window.onscroll = ()=>  {scrollFunction()};
 
 
 
@@ -404,9 +404,9 @@ window.onscroll = ()=>  {scrollFunction()};
         </div>
         </div>
         
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        {/* <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha512-3n19xznO0ubPpSwYCRRBgHh63DrV+bdZfHK52b1esvId4GsfwStQNPJFjeQos2h3JwCmZl0/LgLxSKMAI55hgw==" crossorigin="anonymous"></script>
-		
+		 */}
         </div>
 )}

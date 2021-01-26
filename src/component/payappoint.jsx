@@ -65,7 +65,7 @@ export const PayAppoint = (props) => {
              templateParams,
              "user_jDFiteMUy9NWNFehWpWQR"
            ).then(res => {
-            console.log('Email successfully sent!',res)
+            // console.log('Email successfully sent!',res)
         })
         .catch(err => console.error('There has been an error.  Here some thoughts on the error that occured:', err))
     

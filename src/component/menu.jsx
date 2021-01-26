@@ -33,20 +33,20 @@ import {ForumContext} from '../store/context/forumContext';
      
       if (state.error)
        { alert.show(state.error,{ type: 'error',});
-       console.log(state.error)
+      //  console.log(state.error)
         errorSuccess(dispatch)
     
       };
       if (resstate.error)
        { alert.show(resstate.error,{ type: 'error',});
-       console.log(resstate.error)
+      //  console.log(resstate.error)
        
         errorSuccess(resdispatch)
      
       };
       if ( forumstate.error)
        { alert.show(forumstate.error,{ type: 'error',});
-       console.log(forumstate.error)
+      //  console.log(forumstate.error)
         
         errorSuccess(forumdispatch)
       };
@@ -87,6 +87,7 @@ import {ForumContext} from '../store/context/forumContext';
         // // console.log(forumstate.comments)
     
     }
+
     const scrollFunction = ()=> {
       if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
       document.getElementById("scrollnav").style.top = "0";
@@ -96,6 +97,8 @@ import {ForumContext} from '../store/context/forumContext';
   }
   
   window.onscroll = ()=>  {scrollFunction()};
+
+
 return (
     <div className="container-fluid">
     {load? <div class="se-pre-con"></div>:""}

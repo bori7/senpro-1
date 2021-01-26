@@ -262,7 +262,7 @@ export const getGradedASNTS = (dispatch) => {
  
   //   // const assignments = res.data;
   //   dispatch(getGradedASNTListSuccess());
-    console.log()
+    // console.log()
     
    
 };
@@ -293,7 +293,7 @@ export const createGradedASNT = (asnt, dispatch) => {
       // res['title'] = asnt.title
       // res['tips'] = asnt.tips
 
-      dispatch(createGradedASNTListSuccess('Submitted', asnt));
+      dispatch(createGradedASNTListSuccess('Results Generated', asnt));
     // console.log(asnt)
       // dispatch(createGradedASNTListFail(err));
   

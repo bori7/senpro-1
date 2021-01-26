@@ -12,7 +12,7 @@ import * as auth from "../store/actions/auth";
 export const  Mental= (props) => {
 
     const node = useRef();
-    const todosPerPage = 1;
+    // const todosPerPage = 1;
     const [ activePage, setCurrentPage ] = useState( 1 );
 
     const {state, dispatch} = useContext(MyContext)
@@ -28,52 +28,53 @@ export const  Mental= (props) => {
             if (resstate.child.id === undefined || resstate.child.id === null) {
             props.history.push('/initial/');
             }
-        node.current.addEventListener('click', (e)=>  {
-        for (const select of node.current.querySelectorAll('.custom-select')) {
-        if (!select.contains(e.target)) {
-        select.classList.remove('open');
-        }
-        }
-        });
 
-        for (const option of node.current.querySelectorAll(".custom-option")) {
-        option.addEventListener('click', () =>  {
-        if (!option.classList.contains('selected')) {
-        option.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
-        option.classList.add('selected');
-        option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent;
-        }
-        })   }
+        // node.current.addEventListener('click', (e)=>  {
+        // for (const select of node.current.querySelectorAll('.custom-select')) {
+        // if (!select.contains(e.target)) {
+        // select.classList.remove('open');
+        // }
+        // }
+        // });
 
-        for (const dropdown of node.current.querySelectorAll(".custom-select-wrapper")) {
-        dropdown.addEventListener('click', ()=> {
-        dropdown.querySelector('.my-custom-select').classList.toggle('open');
-        })
+        // for (const option of node.current.querySelectorAll(".custom-option")) {
+        // option.addEventListener('click', () =>  {
+        // if (!option.classList.contains('selected')) {
+        // option.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
+        // option.classList.add('selected');
+        // option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent;
+        // }
+        // })   }
 
-        }
+        // for (const dropdown of node.current.querySelectorAll(".custom-select-wrapper")) {
+        // dropdown.addEventListener('click', ()=> {
+        // dropdown.querySelector('.my-custom-select').classList.toggle('open');
+        // })
 
-        for (const option of node.current.querySelectorAll(".custom-choice")) {
-        option.addEventListener('click', () =>{
-        if (!option.classList.contains('active')) {
-        if( option.parentNode.querySelector('.custom-choice.active')){
-        option.parentNode.querySelector('.custom-choice.active').classList.remove('active');}
-        option.classList.add('active');
-        // option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent; 
-        }
-        })
-        }
+        // }
+
+        // for (const option of node.current.querySelectorAll(".custom-choice")) {
+        // option.addEventListener('click', () =>{
+        // if (!option.classList.contains('active')) {
+        // if( option.parentNode.querySelector('.custom-choice.active')){
+        // option.parentNode.querySelector('.custom-choice.active').classList.remove('active');}
+        // option.classList.add('active');
+        // // option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent; 
+        // }
+        // })
+        // }
     
     }, [state.token]);
 
-const scrollFunction = ()=> {
-    if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
-    document.getElementById("scrollnav").style.top = "0";
-    } else {
-    document.getElementById("scrollnav").style.top = "-150px";
-    }
-}
+// const scrollFunction = ()=> {
+//     if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
+//     document.getElementById("scrollnav").style.top = "0";
+//     } else {
+//     document.getElementById("scrollnav").style.top = "-150px";
+//     }
+// }
 
-window.onscroll = ()=>  {scrollFunction()};
+// window.onscroll = ()=>  {scrollFunction()};
 
 const todos = [
     <div>
@@ -487,12 +488,12 @@ const todos = [
     if(c.checked){initial[c.name]=c.value}
     }
     setInitia(initial)
-    console.log(initia)
-    console.log(initial)
+    // console.log(initia)
+    // console.log(initial)
     if(activePage!==todos.length){
-    console.log( `active page was ${activePage }` );
+    // console.log( `active page was ${activePage }` );
     setCurrentPage( activePage+1 )
-    console.log( `active page is ${activePage+1 }` );
+    // console.log( `active page is ${activePage+1 }` );
 
     }else{
                        
@@ -538,12 +539,12 @@ const asnt = {
 
 const chilre = resstate.child
 chilre['testres'] = true
-console.log(chilre)
+// console.log(chilre)
 updateChild(chilre.id,chilre,state.token, resdispatch)
 
 createResult(state.token, asnt,resdispatch)
 createGradedASNT(asnt,resdispatch);
-console.log(asnt)
+// console.log(asnt)
 getChilds(state.userId.pk,state.token,resdispatch)
         // console.log(initial)
         // setInitia(initia)
