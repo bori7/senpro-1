@@ -43,7 +43,7 @@ const onSuccess = () => {
     to_name: state.username,
     subject: 'SENPRO ANALYSIS',
     message: message,
-    check:'check the website for your results',
+    check:'check the website for the contact of the '+props.name,
     reply_to: state.userId.email }
 
     window.emailjs.send(
@@ -55,7 +55,7 @@ const onSuccess = () => {
     
     alert.show('Check your e-mail for your Appointemt schedule',{type: 'success',});
     })
-    .catch(err => {console.error('There has been an error.  Here some thoughts on the error that occured:', err);
+    .catch(err => {
     alert.show('Payment Failed',{type: 'error',});
     })
     

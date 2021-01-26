@@ -1,33 +1,35 @@
-import React ,{useEffect, useState,useContext, useCallback, useRef}from "react";
+import React ,{useEffect, useContext,}from "react";
 import {MenuLayout} from './menu';
 import mini_header_2 from '../static/assets/mini_header_2.png';
+
 import {MyContext} from '../store/context/myContext';
 import {ResContext} from '../store/context/resultContext';
 import main_logo from '../static/assets/main-logo.png';
+
 import { getChilds} from "../store/actions/assignments";
 import { getResults} from "../store/actions/assignments";
 import * as auth from "../store/actions/auth";
+
+
 import {Pay} from './flutterwave';
-
-
 export const ResultDashboard = (props) => {
 
     const {resstate, resdispatch} = useContext(ResContext);
-  
+
     const {state, dispatch} = useContext(MyContext)
     const {explain, childs,child_id} = resstate;
-    const node = useRef();
+
   
   
     useEffect(() => {
         
-        auth.authCheckState(dispatch, props);
-        let user = JSON.parse(localStorage.getItem('user'));
-      
-        getChilds(user.userId.pk,user.token,resdispatch)
-   
+        auth.authCheckState(dispatch, props); 
+        getChilds(state.userId.pk,state.token,resdispatch)
    
     }, [state.token,explain]);
+
+
+
 
 
 var chilre = childs.filter(y=>y.testres)
@@ -36,18 +38,19 @@ const handleClick = (id,e) => {
     e.preventDefault();
     
     getResults(id,state.token, resdispatch)
-   
+  
     props.history.push("/result/");
 
 }
 
   return(
-        <div ref={node}>
+        <div>
        
+      
         <div className="jumbotron forum-header mini_header bgimg" style={{backgroundImage: {mini_header_2}}}>
            
             
-         
+          
         <div className="container-fluid">
         <MenuLayout/>
             <div className="row">
@@ -114,7 +117,6 @@ const handleClick = (id,e) => {
                 </div>
             </div>
 		</div>
-
-
+	
         </div>
 )}

@@ -29,6 +29,9 @@ export const Question1 = (props) => {
             initial["option6"] = e.target.option6.value
             initial["option7"] = e.target.option7.value
            
+
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;  
             props.history.push('/age/');
 
   }

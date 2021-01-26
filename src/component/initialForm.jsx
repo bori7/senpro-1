@@ -52,6 +52,8 @@ export const InitialForm = (props) => {
           
                 if(initial["option6"]==='no'){
                     actions.createChild(state.token, child,dispatch,resdispatch)
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;  
                     props.history.push('/q1/');
                 }else if(initial["option6"]==='yes'){
                     child["upfile"] = true

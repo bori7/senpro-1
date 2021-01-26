@@ -1,22 +1,21 @@
 
-import React ,{useContext,}from "react";
+import React ,{useContext}from "react";
 import {ResContext} from '../store/context/resultContext';
 import { updateChild} from "../store/actions/assignments";
 import {MyContext} from '../store/context/myContext';
 import { getResults} from "../store/actions/assignments";
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
 import { init } from 'emailjs-com';
-import { useAlert } from 'react-alert';
+import { useAlert } from 'react-alert'
 init("user_jDFiteMUy9NWNFehWpWQR");
 
 
 export const Pay = (props) => {
-
+  const alert = useAlert()
     const {resstate, resdispatch} = useContext(ResContext);
     const {title} = resstate;
     const {state, dispatch} = useContext(MyContext)
     const id = props.chill.id
-    const alert = useAlert()
   
    const config = {
     public_key: 'FLWPUBK_TEST-aa04e2b8c50a2d3dfce7742398f14203-X',
@@ -42,13 +41,17 @@ export const Pay = (props) => {
   config.customer.phonenumber = child.phone
   config.customer.name = child.name
 
+
+
 const onSuccess =  () => {
     
     updateChild(id,child,state.token, resdispatch)
     getResults(id,state.token, resdispatch)
-    
+   
 
-    setTimeout(function(){console.log('hello')},5000)
+    setTimeout(function(){
+      
+    },5000)
 
     var message = ''
     var u
@@ -77,12 +80,12 @@ const onSuccess =  () => {
     .catch(err => {console.error('There has been an error.  Here some thoughts on the error that occured:', err);
     alert.show('Payment Failed',{type: 'error',});
     })
-
+   
 }
 
   const fwConfig = {
     ...config,
-    text: 'Book Now!',
+    text: 'Pay Now!',
     className:"btn btn-warning deepblue curvebtn my-2 my-sm-0 margin-right colorf",
     callback: (response) => {
       

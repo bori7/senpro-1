@@ -153,10 +153,7 @@ const filteredForumsho = forumsho.filter(forum =>
     const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
     var currentForumsho     = filteredForumsho.slice( indexOfFirstTodo, indexOfLastTodo );
 
-    // const renderTodos = currentTodos.map( ( todo, index ) => {
-    // return <li key={ index }>{ todo }</li>;
-    // } );
-
+  
 
 const handlePageChange= (pageNumber)=> {
     
