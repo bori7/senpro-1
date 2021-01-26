@@ -63,12 +63,14 @@ export const authLogin = (username, password, dispatch) => {
         checkAuthTimeout(3600,dispatch);
       })
       .catch(err => {
-       
+        if(!err.response.data.non_field_errors[0]){
+          location.reload();
+        }
         if(err.response.data.non_field_errors[0].toString().includes('invalid token')){
           var seror = 'please reload the page and login again'
         }else{
-          // var seror=err.response.data.non_field_errors[0]
-          var seror='Incorrect Username or Password'}
+          var seror=err.response.data.non_field_errors[0]
+          seror+=' \nIncorrect Username or Password'}
         dispatch(authFail(seror));
       });
   };

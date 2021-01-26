@@ -30,7 +30,7 @@ export const Login = (props) => {
                 actions.authLogin(initial["option1"].toLowerCase(), initial["option2"],dispatch)
                 if (state.token){
             
-                    props.history.push("/initial/");
+                    props.history.push("/start-here/");
                 }
         }
 
