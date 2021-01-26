@@ -1,7 +1,7 @@
 import {useDropzone} from 'react-dropzone'
 import {MyContext} from '../store/context/myContext';
 import * as auth from "../store/actions/auth"; 
-import React ,{useEffect, useState, useContext, useRef, useCallback, useMemo}from "react";
+import React ,{useEffect, useState, useContext,useCallback, useMemo}from "react";
 import {MenuLayout} from './menu';
 import mini_header_2 from '../static/assets/mini_header_2.png';
 import request from "superagent";
@@ -60,7 +60,6 @@ export const MyDropzone = (props) => {
         acceptedFiles
       } = useDropzone({onDrop});
 
-    const node = useRef();
     const {state, dispatch} = useContext(MyContext)
   
   
@@ -76,8 +75,7 @@ export const MyDropzone = (props) => {
   ]);
 
   const handleSubmit = ()=>{
-    // console.log('yes')
-    // console.log(resstate.child_id);
+   
     if (acceptedFiles.length > 0){
       let formData = new FormData();
         axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
@@ -95,10 +93,9 @@ export const MyDropzone = (props) => {
           .post('/uploadFiles', formData)
 
           .then(res => {
-            //console.log(res)
+            
             props.history.push('/checkout/');
-            //alert('files submitted successfully, working on book appoitnment page as discussed');
-
+            
           })
         
       }
@@ -122,41 +119,8 @@ export const MyDropzone = (props) => {
       props.history.push('/initial/');
       }
     
-    // node.current.addEventListener('click', (e)=>  {
-    //     for (const select of node.current.querySelectorAll('.custom-select')) {
-    //         if (!select.contains(e.target)) {
-    //             select.classList.remove('open');
-    //         }
-    //     }
-    // });
-
-    // for (const option of node.current.querySelectorAll(".custom-option")) {
-    //     option.addEventListener('click', () =>  {
-    //         if (!option.classList.contains('selected')) {
-    //             option.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
-    //             option.classList.add('selected');
-    //             option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent;
-    //         }
-    //     })   }
-  
-    //     for (const dropdown of node.current.querySelectorAll(".custom-select-wrapper")) {
-    //         dropdown.addEventListener('click', ()=> {
-    //             dropdown.querySelector('.my-custom-select').classList.toggle('open');
-    //         })
-            
-    //     }
-
-    //     for (const option of node.current.querySelectorAll(".custom-choice")) {
-    //         option.addEventListener('click', () =>{
-    //             if (!option.classList.contains('active')) {
-    //                 if( option.parentNode.querySelector('.custom-choice.active')){
-    //                  option.parentNode.querySelector('.custom-choice.active').classList.remove('active');}
-    //                  option.classList.add('active');
-    //                 // option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent; 
-    //             }
-    //         })
-    //     }
-
+    
+ 
 
 
 }, [state.token]);
@@ -164,20 +128,11 @@ export const MyDropzone = (props) => {
 
 
 
-// const scrollFunction = ()=> {
-// if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
-// document.getElementById("scrollnav").style.top = "0";
-// } else {
-// document.getElementById("scrollnav").style.top = "-150px";
-// }
-// }
-
-// window.onscroll = ()=>  {scrollFunction()};
 
 
   return (
 
-    <div ref={node}>
+    <div>
         <div className="jumbotron forum-header mini_header bgimg" style={{backgroundImage: {mini_header_2}}}>
             <MenuLayout props = {props}/>
            

@@ -1,4 +1,4 @@
-import React ,{useEffect, useState, useContext,useCallback, useRef}from "react";
+import React ,{useEffect, useState, useContext}from "react";
 import {MenuLayout} from './menu';
 import mini_header_2 from '../static/assets/mini_header_2.png';
 import { createGradedASNT } from "../store/actions/results";
@@ -8,12 +8,12 @@ import * as auth from "../store/actions/auth";
 import {createResult}from "../store/actions/assignments";
 import { getChilds} from "../store/actions/assignments";
 import { updateChild} from "../store/actions/assignments";
-// import * as auth from "../store/actions/auth";
+
 
 export const  Behavior= (props) => {
 
-    const node = useRef();
-    const todosPerPage = 1;
+
+  
     const [ activePage, setCurrentPage ] = useState( 1 );
 
     const {state, dispatch} = useContext(MyContext)
@@ -29,51 +29,9 @@ export const  Behavior= (props) => {
             props.history.push('/initial/');
             }
 
-            // node.current.addEventListener('click', (e)=>  {
-            // for (const select of node.current.querySelectorAll('.custom-select')) {
-            // if (!select.contains(e.target)) {
-            // select.classList.remove('open');
-            // }
-            // }
-            // });
-
-            // for (const option of node.current.querySelectorAll(".custom-option")) {
-            // option.addEventListener('click', () =>  {
-            // if (!option.classList.contains('selected')) {
-            // option.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
-            // option.classList.add('selected');
-            // option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent;
-            // }
-            // })   }
-
-            // for (const dropdown of node.current.querySelectorAll(".custom-select-wrapper")) {
-            // dropdown.addEventListener('click', ()=> {
-            // dropdown.querySelector('.my-custom-select').classList.toggle('open');
-            // })
-
-            // }
-
-            // for (const option of node.current.querySelectorAll(".custom-choice")) {
-            // option.addEventListener('click', () =>{
-            // if (!option.classList.contains('active')) {
-            // if( option.parentNode.querySelector('.custom-choice.active')){
-            //     option.parentNode.querySelector('.custom-choice.active').classList.remove('active');}
-            //     option.classList.add('active');
-            // // option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent; 
-            // }
-            // })
-            // }
+    
     }, [state.token]);
 
-// const scrollFunction = ()=> {
-//     if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
-//     document.getElementById("scrollnav").style.top = "0";
-//     } else {
-//     document.getElementById("scrollnav").style.top = "-150px";
-//     }
-// }
-
-// window.onscroll = ()=>  {scrollFunction()};
 
 const todos = [
         <div>
@@ -444,12 +402,11 @@ const todos = [
         if(c.checked){initial[c.name]=c.value}
         }
         setInitia(initial)
-        // console.log(initia)
-        // console.log(initial)
+        
         if(activePage!==todos.length){
-        // console.log( `active page was ${activePage }` );
+       
         setCurrentPage( activePage+1 )
-        // console.log( `active page is ${activePage+1 }` );
+   
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;  
 
@@ -485,14 +442,14 @@ const todos = [
 
             const chilre = resstate.child
             chilre['testres'] = true
-            // console.log(chilre)
+         
             updateChild(chilre.id,chilre,state.token, resdispatch)
     
             createResult(state.token, asnt,resdispatch)
             createGradedASNT(asnt,resdispatch);
-            // console.log(asnt)
+           
             getChilds(state.userId.pk,state.token,resdispatch)
-        // setInitia(initia)
+      
         props.history.push('/childresult/');}
   }
   const handleReturn = e => {
@@ -502,8 +459,8 @@ const todos = [
   }
 
   return(
-        <div ref={node}>
-       {/* <div ref={node2} className="se-pre-con"></div> */}
+        <div >
+      
         <div className="jumbotron forum-header mini_header bgimg" style={{backgroundImage: {mini_header_2}}}>
             <MenuLayout/>
             
@@ -557,9 +514,6 @@ const todos = [
         </div>
         </div>
         
-        {/* <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha512-3n19xznO0ubPpSwYCRRBgHh63DrV+bdZfHK52b1esvId4GsfwStQNPJFjeQos2h3JwCmZl0/LgLxSKMAI55hgw==" crossorigin="anonymous"></script>
-		 */}
+       
         </div>
 )}

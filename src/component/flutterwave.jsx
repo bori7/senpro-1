@@ -1,6 +1,5 @@
 
-import React ,{useEffect, useState,useContext, useCallback, useRef}from "react";
-import * as auth from "../store/actions/auth";
+import React ,{useContext,}from "react";
 import {ResContext} from '../store/context/resultContext';
 import { updateChild} from "../store/actions/assignments";
 import {MyContext} from '../store/context/myContext';
@@ -43,13 +42,11 @@ export const Pay = (props) => {
   config.customer.phonenumber = child.phone
   config.customer.name = child.name
 
-//   if(props.amount){config.amount = props.amount}
-
 const onSuccess =  () => {
-    // console.log(child)
+    
     updateChild(id,child,state.token, resdispatch)
     getResults(id,state.token, resdispatch)
-    // console.log(resstate.title, id, resstate.child_id)
+    
 
     setTimeout(function(){console.log('hello')},5000)
 
@@ -74,13 +71,13 @@ const onSuccess =  () => {
     templateParams,
     "user_jDFiteMUy9NWNFehWpWQR"
     ).then(res => {
-    // console.log('Email successfully sent!',res)
+    
     alert.show('Check your e-mail for your Results',{type: 'success',});
     })
     .catch(err => {console.error('There has been an error.  Here some thoughts on the error that occured:', err);
     alert.show('Payment Failed',{type: 'error',});
     })
-    // props.history.push("/result/");
+
 }
 
   const fwConfig = {
@@ -88,7 +85,7 @@ const onSuccess =  () => {
     text: 'Book Now!',
     className:"btn btn-warning deepblue curvebtn my-2 my-sm-0 margin-right colorf",
     callback: (response) => {
-      //  console.log(response);
+      
        onSuccess();
       closePaymentModal() // this will close the modal programmatically
     },

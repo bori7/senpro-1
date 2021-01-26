@@ -1,8 +1,6 @@
-import React ,{useEffect, useState,useContext, useCallback, useRef}from "react";
+import React ,{useContext, }from "react";
 import {MyContext} from '../store/context/myContext';
-import * as emailjs from 'emailjs-com';
 import { useAlert } from 'react-alert';
-// import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
 import { init } from 'emailjs-com';
 init("user_jDFiteMUy9NWNFehWpWQR");
@@ -36,7 +34,6 @@ export const PayAppoint = (props) => {
     if(props.amount){config.amount = props.amount}
     if(props.name){config.customizations.description += props.name}
 
-// const handleFlutterPayment = useFlutterwave(config);
 
 const onSuccess = () => {
 
@@ -55,7 +52,7 @@ const onSuccess = () => {
     templateParams,
     "user_jDFiteMUy9NWNFehWpWQR"
     ).then(res => {
-    // console.log('Email successfully sent!',res)
+    
     alert.show('Check your e-mail for your Appointemt schedule',{type: 'success',});
     })
     .catch(err => {console.error('There has been an error.  Here some thoughts on the error that occured:', err);
@@ -70,9 +67,9 @@ const fwConfig = {
     text: 'Book Now!',
     className:"btn btn-warning deepblue curvebtn my-2 my-sm-0 margin-right colorf",
     callback: (response) => {
-      //  console.log(response);
+    
        onSuccess();
-      closePaymentModal() // this will close the modal programmatically
+      closePaymentModal()
     },
     onClose: () => {},
   };
@@ -80,20 +77,7 @@ const fwConfig = {
   return (
     <div className="App">
         <FlutterWaveButton {...fwConfig} />
-      {/* <button className="btn btn-warning deepblue curvebtn my-2 my-sm-0 margin-right colorf" 
-        onClick={() => {
-          handleFlutterPayment({
-            callback: (response) => {
-               console.log(response);
-               onSuccess();
-                closePaymentModal() // this will close the modal programmatically
-            },
-            onClose: () => {},
-          });
-        }}
-      >
-        Pay with Barter
-      </button> */}
+     
     </div>
   );
 }

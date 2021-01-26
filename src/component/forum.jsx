@@ -8,7 +8,6 @@ import {ForumContext} from '../store/context/forumContext';
 import { useAlert } from 'react-alert'
 import {capitalizeFirstLetter} from '../store/utility';
 import  {HOST_URL} from '../store/clientResult';
-// import { findDOMNode } from "react-dom";
 import Pagination from "react-js-pagination";
 import { Editor } from "@tinymce/tinymce-react";
 import ReactHtmlParser from 'react-html-parser';
@@ -36,8 +35,7 @@ const Forum = (props)=> {
     
 const getForum = (token,forumdispatch) => {
  
-    // forumdispatch(actions.getForumListStart());
-    // console.log(token)
+    
     axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
     axios.defaults.xsrfCookieName = "csrftoken";
     axios.defaults.headers = {
@@ -49,19 +47,15 @@ const getForum = (token,forumdispatch) => {
       .then(res => {
         const forums = res.data;
         setForumsho(forums)
-        // forumdispatch(actions.getForumListSuccess(forums));
-        // console.log(forums, res)
+    
       })
       .catch(err => {
-        // console.log(err)
-        // forumdispatch(actions.getForumListFail(err.response));
+    
       });
   };
 
   const getComments = (token,forumdispatch) => {
  
-    // forumdispatch(actions.getCommentsStart());
-    // console.log(token)
     axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
     axios.defaults.xsrfCookieName = "csrftoken";
     axios.defaults.headers = {
@@ -73,13 +67,10 @@ const getForum = (token,forumdispatch) => {
       .then(res => {
         const comments = res.data;
         setCome(comments)
-        // forumdispatch(actions.getCommentsSuccess( comments ));
-        // console.log( comments , res)
+      
       })
       .catch(err => {
-        // console.log(JSON.stringify(err))
-        // console.log(err)
-        // forumdispatch(actions.getCommentsFail(JSON.stringify(err.response)));
+    
       });
   };
     
@@ -97,70 +88,19 @@ const getForum = (token,forumdispatch) => {
             
             getComments(state.token, forumdispatch); }, 
             1000*18);
-        
-        // setForumsho(forumstate.forums)
-        // setCome(forumstate.comments)
-       
-       
-        // node.current.addEventListener('click', (e)=>  {
-        //     for (const select of node.current.querySelectorAll('.custom-select')) {
-        //         if (!select.contains(e.target)) {
-        //             select.classList.remove('open');
-        //         }
-        //     }
-        // });
-
-        // for (const option of node.current.querySelectorAll(".custom-option")) {
-        //     option.addEventListener('click', () =>  {
-        //         if (!option.classList.contains('selected')) {
-        //             option.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
-        //             option.classList.add('selected');
-        //             option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent;
-        //         }
-        //     })   }
       
-        //     for (const dropdown of node.current.querySelectorAll(".custom-select-wrapper")) {
-        //         dropdown.addEventListener('click', ()=> {
-        //             dropdown.querySelector('.my-custom-select').classList.toggle('open');
-        //         })
-                
-        //     }
-
-        //     for (const option of node.current.querySelectorAll(".custom-choice")) {
-        //         option.addEventListener('click', () =>{
-        //             if (!option.classList.contains('active')) {
-        //                 if( option.parentNode.querySelector('.custom-choice.active')){
-        //                  option.parentNode.querySelector('.custom-choice.active').classList.remove('active');}
-        //                  option.classList.add('active');
-        //                 // option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent; 
-        //             }
-        //         })
-        //     }
-        //     // console.log(state.token)
-            
-            // console.log(forumsho)
             return () => {clearInterval(foruminterval);
                         clearInterval(commentinterval)}
           
     }, []);
 
 
-    
 
-    // node.current.querySelector('#createsub').submit(function() {
-    //     node.current.querySelector('#create').modal().toggle();
-    //     });  
-    
-// const setcoment = (comment) =>setCome(comment)
-// const handlerFunction = (e,editor) => {
-//     e.preventDefault();
-//     console.log(e.target.value);
-//     }
-
+   
 const handleEditorChange =(content, editor)=>{
-    // console.log(content );
+   
     setEditorContent(content)
-    // console.log(editorcontent );
+
     }    
 
 const onSearchChange = event => {
@@ -173,7 +113,7 @@ const handleClick = (id,e) => {
     setToggle(!toggle)
     setCommentshow(id)
     getComments(state.token, forumdispatch)
-    // console.log(forumstate.comments)
+   
 
 }
 const comm  = {}
@@ -201,7 +141,6 @@ const handleAdd = (id,e) => {
     else{
         alert.show('You are not LoggedIn',{ type: 'error',})}
 
-    // console.log(forumstate.comments)
 
 }
 const filteredForumsho = forumsho.filter(forum =>
@@ -220,14 +159,11 @@ const filteredForumsho = forumsho.filter(forum =>
 
 
 const handlePageChange= (pageNumber)=> {
-    // console.log(`active page is ${pageNumber}`);
+    
     setCurrentPage( pageNumber);
   }
  
- // const handlePageChange = ( pageNumber ) => {
-    //     console.log( `active page is ${ pageNumber }` );
-    //     setCurrentPage( pageNumber )
-    //     };
+ 
     
 const handleSubmit = e => {
     const fom = {}
@@ -257,13 +193,9 @@ const handleSubmit = e => {
 
 
 
-//   var forumshow = forumstate.forums
- 
 
 return (
     <div ref={node}>
-
-            {/* <div class="se-pre-con"></div> */}
 		
         <div className="jumbotron forum-header bgimg">
         <MenuLayout/>
@@ -289,10 +221,7 @@ return (
                                         <h2>{filteredForumsho.length}</h2>
                                         <p>Threads</p>
                                     </div>
-                                    {/* <div className="stat-item red">
-                                        <h2>345</h2>
-                                        <p>Members</p>
-                                    </div> */}
+                                 
                                 </div>
                             </div>
                         </div>
@@ -317,11 +246,7 @@ return (
                     <div className="col-12">
                         <div className="content">
                             <h2>All Threads</h2>
-                            {/* <div className="filter-action">
-                                <p>Filter by</p>
-                                <select className="myselect"><option>Category</option></select>
-                            </div>
-                                */}
+                          
                         </div>
                     </div>
                 </div>
@@ -383,7 +308,6 @@ return (
                           
 
                                 <div className="form-group">
-                                    {/* <textarea  input className=" form-control" type="text" id = "option1" name = "option1" required /> */}
                                     <Editor
                                         apiKey='r5162qzwgi9cfe8kl1v4nlkwpqb9y1y15sncpe4tt0vdv3jl'
                                         initialValue={editorcontent}
@@ -392,8 +316,7 @@ return (
                                             toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | lists'
                                         }}
                                         onEditorChange={handleEditorChange}
-                                        // onSelectionChange={handlerFunction}
-                                        // outputFormat='text'
+                                      
                                     />
                                 </div>
                                 <div className="form-group" >
@@ -488,8 +411,7 @@ return (
                                     </div>   
                                     <div className="form-group">
                                         <label>Description</label>
-                                        {/* <textarea input className=" form-control" type="text" rows="10" id = "option3" name = "option3" required />
-                                     */}
+                                      
                                     <br/>
                                     <Editor
                                         
@@ -500,8 +422,7 @@ return (
                                             toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | lists'
                                         }}
                                         onEditorChange={handleEditorChange}
-                                        // onSelectionChange={handlerFunction}
-                                        // outputFormat='text'
+                                      
                                     />
 
                                     </div> 
@@ -524,9 +445,7 @@ return (
                         hideDisabled
                         itemClass="page-item"
                         linkClass="page-link"
-                        //  prevPageText={<i className='glyphicon glyphicon-menu-left'/>}
-                        //  nextPageText={<i className='glyphicon glyphicon-menu-right'/>}
-                        activePage={ activePage }
+                       activePage={ activePage }
                         itemsCountPerPage={ todosPerPage }
                         totalItemsCount={filteredForumsho.length }
                         pageRangeDisplayed={ 2 }

@@ -1,79 +1,15 @@
-import React ,{useEffect, useState,useContext, useCallback, useRef}from "react";
+import React from "react";
 import {MenuLayout} from './menu';
 import mini_header_2 from '../static/assets/mini_header_2.png';
-
-import {MyContext} from '../store/context/myContext';
-import {ResContext} from '../store/context/resultContext';
 import child from "../static/assets/child.jpg";
 import {Link } from "react-router-dom";
 
 
-export const Process = (props) => {
-
-    const node = useRef();
-    const todosPerPage = 1;
-    const [ activePage, setCurrentPage ] = useState( 1 );
-    const {state, dispatch} = useContext(MyContext)
-    const {resstate, resdispatch} = useContext(ResContext)
-    
-    const [initia, setInitia] = useState({});
-
-  
-    useEffect(() => {
-            // auth.authCheckState(dispatch, props)
-
-            // node.current.addEventListener('click', (e)=>  {
-            // for (const select of node.current.querySelectorAll('.custom-select')) {
-            // if (!select.contains(e.target)) {
-            // select.classList.remove('open');
-            // }
-            // }
-            // });
-
-            // for (const option of node.current.querySelectorAll(".custom-option")) {
-            // option.addEventListener('click', () =>  {
-            // if (!option.classList.contains('selected')) {
-            // option.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
-            // option.classList.add('selected');
-            // option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent;
-            // }
-            // })   }
-
-            // for (const dropdown of node.current.querySelectorAll(".custom-select-wrapper")) {
-            // dropdown.addEventListener('click', ()=> {
-            // dropdown.querySelector('.my-custom-select').classList.toggle('open');
-            // })
-
-            // }
-
-            // for (const option of node.current.querySelectorAll(".custom-choice")) {
-            // option.addEventListener('click', () =>{
-            // if (!option.classList.contains('active')) {
-            //     if( option.parentNode.querySelector('.custom-choice.active')){
-            //         option.parentNode.querySelector('.custom-choice.active').classList.remove('active');}
-            //         option.classList.add('active');
-            //     // option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent; 
-            // }
-            // })
-            // }
-    
-    }, [state.token]);
-
-// const scrollFunction = ()=> {
-//     if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
-//     document.getElementById("scrollnav").style.top = "0";
-//     } else {
-//     document.getElementById("scrollnav").style.top = "-150px";
-//     }
-// }
-
-// window.onscroll = ()=>  {scrollFunction()};
-
-
+export const Process = () => {
 
   return(
-        <div ref={node}>
-       {/* <div ref={node2} className="se-pre-con"></div> */}
+        <div >
+     
         <div className="jumbotron forum-header mini_header bgimg" style={{backgroundImage: {mini_header_2}}}>
             <MenuLayout/>
             
@@ -197,15 +133,9 @@ This allows technology to be used as a tool for breaking the barriers to accessi
 									
 								</div>
 							</div>
-					</div>
-				
+					</div>			
 				</div>
-			
-			
-		
-
 	</div>
-
-</div>
+	</div>
         </div>
 )}

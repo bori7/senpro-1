@@ -1,6 +1,6 @@
 
 
-import React ,{useEffect, useState, useContext, useRef}from "react";
+import React ,{useEffect,  useContext,}from "react";
 import {MenuLayout} from './menu';
 import header_1 from "../static/assets/header_1.jpg";
 import header_2 from '../static/assets/header_2.jpg';
@@ -28,76 +28,25 @@ import * as auth from "../store/actions/auth";
 
 
 
-//  <div class="se-pre-con"></div> 
       
 export const Home = (props) => {
 
-    const node = useRef();
-    // const node2 = useRef(0);
-    // const node3 = useRef();
 
-    // const [initia, setInitia] = useState({});
-    // const [error, setError] = useState(false);
     const {state, dispatch} = useContext(MyContext)
-    // const [alert, setAlert] = useState(false);
+   
 
     useEffect(() => {
         auth.authCheckState(dispatch, props);
-        // node.current.addEventListener('click', (e)=>  {
-        //     for (const select of node.current.querySelectorAll('.custom-select')) {
-        //         if (!select.contains(e.target)) {
-        //             select.classList.remove('open');
-        //         }
-        //     }
-        // });
-
-        // for (const option of node.current.querySelectorAll(".custom-option")) {
-        //     option.addEventListener('click', () =>  {
-        //         if (!option.classList.contains('selected')) {
-        //             option.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
-        //             option.classList.add('selected');
-        //             option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent;
-        //         }
-        //     })   }
-      
-        //     for (const dropdown of node.current.querySelectorAll(".custom-select-wrapper")) {
-        //         dropdown.addEventListener('click', ()=> {
-        //             dropdown.querySelector('.my-custom-select').classList.toggle('open');
-        //         })
-                
-        //     }
-
-        //     for (const option of node.current.querySelectorAll(".custom-choice")) {
-        //         option.addEventListener('click', () =>{
-        //             if (!option.classList.contains('active')) {
-        //                 if( option.parentNode.querySelector('.custom-choice.active')){
-        //                  option.parentNode.querySelector('.custom-choice.active').classList.remove('active');}
-        //                  option.classList.add('active');
-        //                 // option.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = option.textContent; 
-        //             }
-        //         })
-        //     }
-    
-
+ 
     }, [state.token]);
 
 
 
 
-// const scrollFunction = ()=> {
-//     if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
-//     document.getElementById("scrollnav").style.top = "0";
-//     } else {
-//     document.getElementById("scrollnav").style.top = "-150px";
-//     }
-// }
-
-// window.onscroll = ()=>  {scrollFunction()};
-
 
 
 return(
-    <div ref={node}>
+    <div >
         
 
 <div className="jumbotron home-slide">
@@ -120,7 +69,7 @@ return(
                 </Link>
                 </div>
         </div>
-        {/* <a href="#" className="scroller">Learn more below</a> */}
+    
     </div>
 </div>
 
@@ -265,7 +214,7 @@ return(
 
 
 
-{/* <!-- team moda section --> */}
+
 <div className="modal" tabindex="-1" role="dialog" id="laidemodal">
 <div className="modal-dialog" role="document">
 <div className="modal-content">
