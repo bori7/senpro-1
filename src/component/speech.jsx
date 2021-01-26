@@ -390,12 +390,14 @@ const todos = [
     if(c.checked){initial[c.name]=c.value}
     }
     setInitia(initial)
-    console.log(initia)
-    console.log(initial)
+    // console.log(initia)
+    // console.log(initial)
     if(activePage!==todos.length){
-    console.log( `active page was ${activePage }` );
+    // console.log( `active page was ${activePage }` );
     setCurrentPage( activePage+1 )
-    console.log( `active page is ${activePage+1 }` );
+    // console.log( `active page is ${activePage+1 }` );
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;  
 
     }else{
  
@@ -440,12 +442,12 @@ const todos = [
     
     const chilre = resstate.child
     chilre['testres'] = true
-    console.log(chilre)
+    // console.log(chilre)
     updateChild(chilre.id,chilre,state.token, resdispatch)
 
     createResult(state.token, asnt,resdispatch)
     createGradedASNT(asnt,resdispatch);
-    console.log(asnt)
+    // console.log(asnt)
     getChilds(state.userId.pk,state.token,resdispatch)
     props.history.push('/childresult/');}
   }

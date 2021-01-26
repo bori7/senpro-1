@@ -478,6 +478,8 @@ const todos =
             // console.log( `active page was ${activePage }` );
             setCurrentPage( activePage+1 )
             // console.log( `active page is ${activePage+1 }` );
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;              
 
         }else{
         
