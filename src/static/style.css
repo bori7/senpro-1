@@ -1045,6 +1045,7 @@ p.question{
     left: -17px;
 }
 
+
 .step__item-number:after {
     counter-increment: item;
     content: "0" counter(item);

@@ -1,9 +1,6 @@
 import axios from "axios";
 import * as actionTypes from "./actionTypes";
 import  {HOST_URL} from '../clientResult';
-import { init } from 'emailjs-com';
-
-init("user_jDFiteMUy9NWNFehWpWQR");
 
 export const authStart = () => {
   return {
@@ -109,10 +106,9 @@ export const authSignup = (
         checkAuthTimeout(360000,dispatch);
 
         window.emailjs.send(
-          'gmail',
+          'service_37tv5bq',
           'template_fkturqn',
            templateParams,
-           "user_jDFiteMUy9NWNFehWpWQR"
          ).then(res => {
         
       })

@@ -2,10 +2,8 @@ import React ,{useContext, }from "react";
 import {MyContext} from '../store/context/myContext';
 import { useAlert } from 'react-alert';
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
-import { init } from 'emailjs-com';
 import {capitalizeFirstLetter} from '../store/utility';
 
-init("user_jDFiteMUy9NWNFehWpWQR");
 
 export const PayAppoint = (props) => {
 
@@ -49,10 +47,9 @@ const onSuccess = () => {
     reply_to: state.userId.email }
 
     window.emailjs.send(
-    'gmail',
+    'service_37tv5bq',
     'template_fkturqn',
     templateParams,
-    "user_jDFiteMUy9NWNFehWpWQR"
     ).then(res => {
     
     alert.show('Check your e-mail for your Appointemt schedule',{type: 'success',});

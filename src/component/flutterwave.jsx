@@ -5,10 +5,9 @@ import { updateChild} from "../store/actions/assignments";
 import {MyContext} from '../store/context/myContext';
 import { getResults} from "../store/actions/assignments";
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
-import { init } from 'emailjs-com';
 import { useAlert } from 'react-alert'
 import {capitalizeFirstLetter} from '../store/utility';
-init("user_jDFiteMUy9NWNFehWpWQR");
+
 
 
 export const Pay = (props) => {
@@ -70,10 +69,9 @@ const onSuccess =  () => {
     }
 
     window.emailjs.send(
-    'gmail',
+    'service_37tv5bq',
     'template_q8uee8n',
     templateParams,
-    "user_jDFiteMUy9NWNFehWpWQR"
     ).then(res => {
     
     alert.show('Check your e-mail for your Results',{type: 'success',});

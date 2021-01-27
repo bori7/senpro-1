@@ -1,38 +1,46 @@
-.checkout-page {
+
+
+.pay-box{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+ transition: 0.3s;
+ border-radius: 10px;
+ 
+ color: #fff;
+ margin-bottom: 20px;
+
+ h3{
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+ }
+
+ h4{
+  font-weight: 1000
+ }
+
+ .curvebtn{
+  background-color: transparent;
+	border : 1px solid #fff !important;
+ }
+
+ 
+ &:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   
+  .curvebtn{
+    background-color: rgb(241, 206, 9);
+	  color: #fff !important;
+   }
 
-  .checkout-header {
-    width: 100%;
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid darkgrey;
-
-    .header-block {
-      text-transform: capitalize;
-      width: 23%;
-
-      &:last-child {
-        width: 8%;
-      }
-    }
+    
   }
 
-  .total {
-    margin-top: 30px;
-    margin-left: auto;
-    font-size: 36px;
-  }
+ 
+}
 
-  button {
-    margin-left: auto;
-    margin-top: 50px;
-  }
-
-  .test-warning {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 24px;
-    color: red;
+.profile-box {
+  h3 {
+  text-align: center;
+ 
   }
 }

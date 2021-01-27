@@ -309,9 +309,10 @@ return (
                                         apiKey='r5162qzwgi9cfe8kl1v4nlkwpqb9y1y15sncpe4tt0vdv3jl'
                                         initialValue={editorcontent}
                                         init={{
-                                            plugins: 'link image',
-                                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | lists'
-                                        }}
+                                            plugins: 'table lists wordcount emoticons' ,
+                                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright| numlist bullist| wordcount link emoticons | table tabledelete | tableprops tablerowprops tablecellprops tableinsertrowbefore tableinsertrowafter tabledeleterow tableinsertcolbefore tableinsertcolafter tabledeletecol',
+                                            table_sizing_mode: 'relative',
+                                          }}
                                         onEditorChange={handleEditorChange}
                                       
                                     />
@@ -415,8 +416,10 @@ return (
                                         apiKey='r5162qzwgi9cfe8kl1v4nlkwpqb9y1y15sncpe4tt0vdv3jl'
                                         initialValue={editorcontent}
                                         init={{
-                                            plugins: 'link image ',
-                                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | lists'
+                                            plugins: 'table lists wordcount emoticons' ,
+                                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright| numlist bullist| wordcount link emoticons | table tabledelete | tableprops tablerowprops tablecellprops tableinsertrowbefore tableinsertrowafter tabledeleterow tableinsertcolbefore tableinsertcolafter tabledeletecol',
+                                            table_sizing_mode: 'relative',
+
                                         }}
                                         onEditorChange={handleEditorChange}
                                       
