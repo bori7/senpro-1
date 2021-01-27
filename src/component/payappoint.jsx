@@ -1,12 +1,5 @@
-import React ,{useEffect, useState,useContext, useCallback, useRef}from "react";
-// import logo from './logo.svg';
-// import { usePaystackPayment, PaystackButton, PaystackConsumer } from 'react-paystack';
-// import * as auth from "../store/actions/auth";
-// import {ResContext} from '../store/context/resultContext';
-// import { updateChild} from "../store/actions/assignments";
+import React ,{useContext,}from "react";
 import {MyContext} from '../store/context/myContext';
-// import { getResults} from "../store/actions/assignments";
-// import * as emailjs from 'emailjs-com';
 import { useAlert } from 'react-alert';
 import { init } from 'emailjs-com';
 init("user_jDFiteMUy9NWNFehWpWQR");
@@ -34,10 +27,9 @@ const PaystackHookExample = ({config,onSuccess,onClose}) => {
 
 export const PayAppoint = (props) => {
     const alert = useAlert()
-//   const {resstate, resdispatch} = useContext(ResContext);
-//   const {title} = resstate;
+
   const {state, dispatch} = useContext(MyContext)
-// console.log(state.userId.email)
+
     if(state.userId){config.email = state.userId.email}
     
     if(props.amount){config.amount = props.amount*51000}
@@ -65,7 +57,7 @@ export const PayAppoint = (props) => {
              templateParams,
              "user_jDFiteMUy9NWNFehWpWQR"
            ).then(res => {
-            console.log('Email successfully sent!',res)
+            
         })
         .catch(err => console.error('There has been an error.  Here some thoughts on the error that occured:', err))
     

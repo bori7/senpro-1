@@ -3,9 +3,6 @@ import React, { useContext,useEffect } from "react";
 
  export const Header =()=>{
 
-
-
-	
 	return(
     <div>
 		    <meta charSet="utf-8"/>

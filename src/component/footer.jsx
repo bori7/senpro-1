@@ -8,6 +8,10 @@ export const Footer= () => (
         <div className="row">
             <div className="col-md-6">
                 <h3>Talk to Us</h3>
+<<<<<<< HEAD
+=======
+                <p>info@senproinitiative.org</p>
+>>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
                 <p >contact@senproinitiative.org</p>
                 <p style={{marginBttom: '30px'}}>+234 909 000 2364</p>
                 <h3>Visit Us</h3>

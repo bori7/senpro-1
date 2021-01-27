@@ -35,7 +35,7 @@ const errorSuccess = (state, action) => {
 
 
 const authStart = (state, action) => {
-  console.log('started')
+  
   return updateObject(state, {
     error: null,
     loading: true

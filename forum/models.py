@@ -13,7 +13,7 @@ from users.models import User
 class Forum(models.Model):
     user = models.ForeignKey(User,related_name='forum', on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
-    desc = models.TextField()
+    desc = models.TextField(null=False, blank=True, unique=False, default=' ')
     created_at = models.DateTimeField(auto_now_add=True)
     likes = models.IntegerField(null=False, blank=False, unique=False, default=0)
     sender = models.CharField(max_length=15,default='admin')
@@ -25,9 +25,9 @@ class Forum(models.Model):
 class Comment(models.Model):
     user = models.ForeignKey(User, related_name='comment',on_delete=models.CASCADE)
     forum = models.ForeignKey(Forum,related_name='comment_forum', on_delete=models.CASCADE)
-    desc = models.TextField()
+    desc = models.TextField(null=False, blank=False, unique=False, default=' ')
     created_at = models.DateTimeField(auto_now_add=True)    
-    likes = models.IntegerField(null=False, blank=False, unique=False,default=0)
+    likes = models.IntegerField(null=False, blank=True, unique=False,default=0)
     sender = models.CharField(max_length=15,default='admin')
 
     def __str__(self):

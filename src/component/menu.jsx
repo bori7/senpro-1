@@ -5,12 +5,10 @@ import main_logo from '../static/assets/main-logo.png';
 import banner_logo from "../static/assets/banner_logo.png";
 import * as actions from "../store/actions/auth";
 import {errorSuccess, messageSuccess} from "../store/actions/results";
-// import  '../../src/static/style.css';
 import {Link } from "react-router-dom";
 import { useAlert } from 'react-alert';
 import {ResContext} from '../store/context/resultContext';
 import {ForumContext} from '../store/context/forumContext';
-// import * as action from "../store/actions/results";
 
   export const MenuLayout = (props) => {
     const alert = useAlert()
@@ -21,8 +19,7 @@ import {ForumContext} from '../store/context/forumContext';
     const {resstate, resdispatch} = useContext(ResContext);
     const {forumstate, forumdispatch} = useContext(ForumContext);
     
-    // var errorMessage = null;
-    // var loader = null
+    
     useEffect(() => {
       
       const timer = setTimeout(() => {
@@ -33,20 +30,20 @@ import {ForumContext} from '../store/context/forumContext';
      
       if (state.error)
        { alert.show(state.error,{ type: 'error',});
-       console.log(state.error)
+   
         errorSuccess(dispatch)
     
       };
       if (resstate.error)
        { alert.show(resstate.error,{ type: 'error',});
-       console.log(resstate.error)
+  
        
         errorSuccess(resdispatch)
      
       };
       if ( forumstate.error)
        { alert.show(forumstate.error,{ type: 'error',});
-       console.log(forumstate.error)
+      
         
         errorSuccess(forumdispatch)
       };
@@ -77,16 +74,15 @@ import {ForumContext} from '../store/context/forumContext';
       const handleSignout= e => {
         e.preventDefault();
         actions.logout(dispatch)
-        // props.history.push('/login/');
+       
       }
     
       const handleClick = (e) => {
         e.preventDefault();
-        // action.getComments(state.token, forumdispatch)
-        // action.getForum(state.token, forumdispatch)
-        // // console.log(forumstate.comments)
+       
     
     }
+
     const scrollFunction = ()=> {
       if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
       document.getElementById("scrollnav").style.top = "0";
@@ -96,6 +92,8 @@ import {ForumContext} from '../store/context/forumContext';
   }
   
   window.onscroll = ()=>  {scrollFunction()};
+
+
 return (
     <div className="container-fluid">
     {load? <div class="se-pre-con"></div>:""}
@@ -204,13 +202,7 @@ return (
             Start Here
           </Link>
           </li>
-          {/**
-          <li className="nav-item animate__animated animate__fadeInLeft">
-          <Link className="nav-link" to={`/checkout/`}>
-            Bookings
-          </Link>
-          </li>
-           */}
+        
           <li className="nav-item animate__animated animate__fadeInLeft">
           <Link className="nav-link" to={`/childresult/`}>
           Test Results
@@ -252,7 +244,7 @@ return (
     
         </div>
     </div>
-        {/* {errorMessage} */}
+      
 
 </div>
 

@@ -14,7 +14,19 @@
 	text-align: center;
 	}
 
+.prestuff { 
 
+	margin: 15px; 
+	width: 75%;
+    /* height: 80%; */
+    padding: 10px;
+    overflow: auto;
+    /* font-size: 25px;
+    font-weight: 300; */
+	/* line-height: 10px; */
+	background-color: #fff;
+    border: 1px solid #777;
+}  
 .home-slide{
 	overflow: hidden;
   	position: relative;
@@ -1032,6 +1044,7 @@ p.question{
     opacity: 0;
     left: -17px;
 }
+
 
 .step__item-number:after {
     counter-increment: item;

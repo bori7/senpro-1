@@ -8,10 +8,16 @@ import {ForumContext} from '../store/context/forumContext';
 import { useAlert } from 'react-alert'
 import {capitalizeFirstLetter} from '../store/utility';
 import  {HOST_URL} from '../store/clientResult';
+<<<<<<< HEAD
 // import { findDOMNode } from "react-dom";
 import Pagination from "react-js-pagination";
 import { Editor } from "@tinymce/tinymce-react";
 
+=======
+import Pagination from "react-js-pagination";
+import { Editor } from "@tinymce/tinymce-react";
+import ReactHtmlParser from 'react-html-parser';
+>>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
 
 
 
@@ -19,12 +25,20 @@ const Forum = (props)=> {
 
     const node = useRef();
     
+<<<<<<< HEAD
     const todosPerPage = 4;
+=======
+    const todosPerPage = 10;
+>>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
     const [ activePage, setCurrentPage ] = useState( 1 );
     const alert = useAlert()
     const [forumsho, setForumsho] = useState([]);
     const [searchField, setSearchField] = useState('');
+<<<<<<< HEAD
     const [editorcontent, setEditorContent] = useState('');
+=======
+    const [editorcontent, setEditorContent] = useState(' ');
+>>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
     
 
     const [toggle, setToggle] = useState(false);
@@ -36,8 +50,7 @@ const Forum = (props)=> {
     
 const getForum = (token,forumdispatch) => {
  
-    // forumdispatch(actions.getForumListStart());
-    // console.log(token)
+    
     axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
     axios.defaults.xsrfCookieName = "csrftoken";
     axios.defaults.headers = {
@@ -49,19 +62,24 @@ const getForum = (token,forumdispatch) => {
       .then(res => {
         const forums = res.data;
         setForumsho(forums)
+<<<<<<< HEAD
         // forumdispatch(actions.getForumListSuccess(forums));
         // console.log(forums, res)
       })
       .catch(err => {
         // console.log(err)
         // forumdispatch(actions.getForumListFail(err.response));
+=======
+    
+      })
+      .catch(err => {
+    
+>>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
       });
   };
 
   const getComments = (token,forumdispatch) => {
  
-    // forumdispatch(actions.getCommentsStart());
-    // console.log(token)
     axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
     axios.defaults.xsrfCookieName = "csrftoken";
     axios.defaults.headers = {
@@ -73,6 +91,7 @@ const getForum = (token,forumdispatch) => {
       .then(res => {
         const comments = res.data;
         setCome(comments)
+<<<<<<< HEAD
         // forumdispatch(actions.getCommentsSuccess( comments ));
         // console.log( comments , res)
       })
@@ -80,6 +99,12 @@ const getForum = (token,forumdispatch) => {
         // console.log(JSON.stringify(err))
         // console.log(err)
         // forumdispatch(actions.getCommentsFail(JSON.stringify(err.response)));
+=======
+      
+      })
+      .catch(err => {
+    
+>>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
       });
   };
     
@@ -92,6 +117,7 @@ const getForum = (token,forumdispatch) => {
         const foruminterval = setInterval(function(){ 
             getForum(state.token, forumdispatch)
              }, 
+<<<<<<< HEAD
             1000*20);
         const commentinterval = setInterval(function(){ 
             
@@ -139,14 +165,22 @@ const getForum = (token,forumdispatch) => {
             // console.log(state.token)
             
             // console.log(forumsho)
+=======
+            1000*60);
+        const commentinterval = setInterval(function(){ 
+            
+            getComments(state.token, forumdispatch); }, 
+            1000*18);
+      
+>>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
             return () => {clearInterval(foruminterval);
                         clearInterval(commentinterval)}
           
     }, []);
 
 
-    
 
+<<<<<<< HEAD
     // node.current.querySelector('#createsub').submit(function() {
     //     node.current.querySelector('#create').modal().toggle();
     //     });  
@@ -161,6 +195,13 @@ const handleEditorChange =(content, editor)=>{
     // console.log(content );
     setEditorContent(content)
     // console.log(editorcontent );
+=======
+   
+const handleEditorChange =(content, editor)=>{
+   
+    setEditorContent(content)
+
+>>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
     }    
 
 const onSearchChange = event => {
@@ -173,7 +214,7 @@ const handleClick = (id,e) => {
     setToggle(!toggle)
     setCommentshow(id)
     getComments(state.token, forumdispatch)
-    // console.log(forumstate.comments)
+   
 
 }
 const comm  = {}
@@ -187,25 +228,27 @@ const handleAdd = (id,e) => {
         comm["forum"] = id
         comm["sender"] = state.userId.username
         actions.postComments(comm,state.token, forumdispatch)
-        getComments(state.token, forumdispatch)
-        getForum(state.token, forumdispatch)
+       
        
         const $ = window.$;
-        
         $('.forummodal').modal('hide');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
+
+        getComments(state.token, forumdispatch)
+        getForum(state.token, forumdispatch)
+        setEditorContent(' ')
     }
     else{
         alert.show('You are not LoggedIn',{ type: 'error',})}
 
-    // console.log(forumstate.comments)
 
 }
 const filteredForumsho = forumsho.filter(forum =>
     forum.title.toLowerCase().includes(searchField.toLowerCase())
   );
 
+<<<<<<< HEAD
 
               // Logic for displaying current todos
     const indexOfLastTodo  = activePage * todosPerPage;
@@ -226,6 +269,22 @@ const handlePageChange= (pageNumber)=> {
     //     console.log( `active page is ${ pageNumber }` );
     //     setCurrentPage( pageNumber )
     //     };
+=======
+
+              // Logic for displaying current todos
+    const indexOfLastTodo  = activePage * todosPerPage;
+    const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+    var currentForumsho     = filteredForumsho.slice( indexOfFirstTodo, indexOfLastTodo );
+
+  
+
+const handlePageChange= (pageNumber)=> {
+    
+    setCurrentPage( pageNumber);
+  }
+ 
+ 
+>>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
     
 const handleSubmit = e => {
     const fom = {}
@@ -238,12 +297,15 @@ const handleSubmit = e => {
         fom["sender"] = state.userId.username
         
         actions.postForum(fom,state.token,forumdispatch)
-        getComments(state.token, forumdispatch)
-        getForum(state.token, forumdispatch)
+       
         const $ = window.$;
         $('.forummodal').modal('hide');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
+        getComments(state.token, forumdispatch)
+        getForum(state.token, forumdispatch)
+
+        setEditorContent(' ')
     }
     else{
         alert.show('You are not LoggedIn',{ type: 'error',})}  
@@ -252,13 +314,9 @@ const handleSubmit = e => {
 
 
 
-//   var forumshow = forumstate.forums
- 
 
 return (
     <div ref={node}>
-
-            {/* <div class="se-pre-con"></div> */}
 		
         <div className="jumbotron forum-header bgimg">
         <MenuLayout/>
@@ -284,10 +342,7 @@ return (
                                         <h2>{filteredForumsho.length}</h2>
                                         <p>Threads</p>
                                     </div>
-                                    {/* <div className="stat-item red">
-                                        <h2>345</h2>
-                                        <p>Members</p>
-                                    </div> */}
+                                 
                                 </div>
                             </div>
                         </div>
@@ -312,11 +367,7 @@ return (
                     <div className="col-12">
                         <div className="content">
                             <h2>All Threads</h2>
-                            {/* <div className="filter-action">
-                                <p>Filter by</p>
-                                <select className="myselect"><option>Category</option></select>
-                            </div>
-                                */}
+                          
                         </div>
                     </div>
                 </div>
@@ -331,9 +382,13 @@ return (
         { currentForumsho.map(forum => (
                     <div className="" key ={forum.id}>
                         <div className="topic jumbotron">
-                            <div className="container-fluid">
+                            <div className="container">
                               <h4>{capitalizeFirstLetter(forum.title)}</h4>
+<<<<<<< HEAD
                               <p style={{fontSize: "20px"}}>{forum.desc}</p>
+=======
+                              <p  style={{fontSize: "17px"}}>{ReactHtmlParser(forum.desc)}</p>
+>>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
         
                               <div className="topic-meta">
                                   <div className="leftmeta">
@@ -353,8 +408,8 @@ return (
                                       
                                    
                                     <button className="btn btn-info" 
-                                    data-toggle="modal" data-target={`#mod${forum.id}`}>
-                                         <i className="fa fa-plus toggler"></i>
+                                            data-toggle="modal" data-target={`#mod${forum.id}`}>
+                                        <i className="fa fa-plus toggler"></i>
                                     </button>
                                   </div>
                               </div>
@@ -375,27 +430,46 @@ return (
                         </div>
                         <div className="modal-body">
                         <form onSubmit={(e) => handleAdd(forum.id, e)}>         
+<<<<<<< HEAD
                             <div className="topic-meta">
 
                                 <div className="col-md-9">
                                     {/* <textarea  input className=" form-control" type="text" id = "option1" name = "option1" required /> */}
+=======
+                          
+
+                                <div className="form-group">
+>>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
                                     <Editor
                                         apiKey='r5162qzwgi9cfe8kl1v4nlkwpqb9y1y15sncpe4tt0vdv3jl'
                                         initialValue={editorcontent}
                                         init={{
+<<<<<<< HEAD
                                             plugins: 'link image code',
                                             toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
                                         }}
                                         onEditorChange={handleEditorChange}
                                         // onSelectionChange={handlerFunction}
                                         outputFormat='text'
+=======
+                                            plugins: 'table lists wordcount emoticons' ,
+                                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright| numlist bullist| wordcount link emoticons | table tabledelete | tableprops tablerowprops tablecellprops tableinsertrowbefore tableinsertrowafter tabledeleterow tableinsertcolbefore tableinsertcolafter tabledeletecol',
+                                            table_sizing_mode: 'relative',
+                                          }}
+                                        onEditorChange={handleEditorChange}
+                                      
+>>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
                                     />
                                 </div>
                                 <div className="form-group" >
                                 <button type='submit' value='Submit' className="btn btn-info deepblue curvebtn my-2  colorf">Add
                                 </button>
                                 </div>               
+<<<<<<< HEAD
                             </div>
+=======
+                            
+>>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
                         </form>
                         </div>
 
@@ -410,9 +484,10 @@ return (
                          aria-labelledby="headingOne" data-parent="#accordion">
                                    
                                    <div className="jumbotron comment">
-                                       <div className="container">
+                                       <div className="container-fluid">
                                            <div className="row">
                                                <div className="col-12">
+<<<<<<< HEAD
                                               <div className="card-body">
                                                   <div className="">
                                                       <p style={{fontSize: "20px"}} >{comment.desc}</p>
@@ -421,19 +496,29 @@ return (
                                                           <p style={{fontSize: "12px",fontStyle:"italic"}}>{capitalizeFirstLetter(comment.sender)}</p>
 
                                                           { Math.abs(new Date() - new Date(comment.created_at))<= 1.2e+6 ? <p className="post-type new">New</p>:
+=======
+                                            <div className="card-body">
+                                                  <div className="container">
+                                                      <p className="prestuff" >
+                                                      {ReactHtmlParser(comment.desc)}
+                                                      </p>
+                                             
+                                               
+                                                    <div className="leftmeta">
+                                                          <p style={{fontSize: "12px",fontStyle:"italic"}}>{capitalizeFirstLetter(comment.sender)}</p>
+
+                                                          { (Math.abs(new Date() - new Date(comment.created_at)) <= 1.2e+6) ? <p className="post-type new">New</p>:
+>>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
                                                             <p className="post-type regular">Regular</p>
                                                           }
                                                           
                                                           <p style={{fontSize: "12px",fontStyle:"italic"}}>{(new Date(comment.created_at)).toLocaleDateString()} 
                                                         _{(new Date(comment.created_at)).toLocaleTimeString()}</p>
                                                       </div>
-                                                      <div className="leftmeta">
-                                                          
                                                       
-                                                      </div>
-                                                  </div>
+                                                  
+                                                    </div>
                                                 </div>
-                                              </div>
                                              </div>
                                          </div>
                                         </div>
@@ -483,20 +568,34 @@ return (
                                     </div>   
                                     <div className="form-group">
                                         <label>Description</label>
+<<<<<<< HEAD
                                         {/* <textarea input className=" form-control" type="text" rows="10" id = "option3" name = "option3" required />
                                      */}
+=======
+                                      
+>>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
                                     <br/>
                                     <Editor
                                         
                                         apiKey='r5162qzwgi9cfe8kl1v4nlkwpqb9y1y15sncpe4tt0vdv3jl'
                                         initialValue={editorcontent}
                                         init={{
+<<<<<<< HEAD
                                             plugins: 'link image code',
                                             toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
                                         }}
                                         onEditorChange={handleEditorChange}
                                         // onSelectionChange={handlerFunction}
                                         outputFormat='text'
+=======
+                                            plugins: 'table lists wordcount emoticons' ,
+                                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright| numlist bullist| wordcount link emoticons | table tabledelete | tableprops tablerowprops tablecellprops tableinsertrowbefore tableinsertrowafter tabledeleterow tableinsertcolbefore tableinsertcolafter tabledeletecol',
+                                            table_sizing_mode: 'relative',
+
+                                        }}
+                                        onEditorChange={handleEditorChange}
+                                      
+>>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
                                     />
 
                                     </div> 
@@ -519,12 +618,19 @@ return (
                         hideDisabled
                         itemClass="page-item"
                         linkClass="page-link"
+<<<<<<< HEAD
                         //  prevPageText={<i className='glyphicon glyphicon-menu-left'/>}
                         //  nextPageText={<i className='glyphicon glyphicon-menu-right'/>}
                         activePage={ activePage }
                         itemsCountPerPage={ todosPerPage }
                         totalItemsCount={filteredForumsho.length }
                         pageRangeDisplayed={ 3 }
+=======
+                       activePage={ activePage }
+                        itemsCountPerPage={ todosPerPage }
+                        totalItemsCount={filteredForumsho.length }
+                        pageRangeDisplayed={ 2 }
+>>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
                         onChange={ handlePageChange }
                         />
                 </div> 

@@ -1,17 +1,17 @@
 
-import React ,{useEffect, useState,useContext, useCallback, useRef}from "react";
-import * as auth from "../store/actions/auth";
+import React ,{useContext}from "react";
 import {ResContext} from '../store/context/resultContext';
 import { updateChild} from "../store/actions/assignments";
 import {MyContext} from '../store/context/myContext';
 import { getResults} from "../store/actions/assignments";
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
-import { init } from 'emailjs-com';
-init("user_jDFiteMUy9NWNFehWpWQR");
+import { useAlert } from 'react-alert'
+import {capitalizeFirstLetter} from '../store/utility';
+
 
 
 export const Pay = (props) => {
-
+  const alert = useAlert()
     const {resstate, resdispatch} = useContext(ResContext);
     const {title} = resstate;
     const {state, dispatch} = useContext(MyContext)
@@ -41,15 +41,17 @@ export const Pay = (props) => {
   config.customer.phonenumber = child.phone
   config.customer.name = child.name
 
-//   if(props.amount){config.amount = props.amount}
+
 
 const onSuccess =  () => {
-    // console.log(child)
+    
     updateChild(id,child,state.token, resdispatch)
     getResults(id,state.token, resdispatch)
-    console.log(resstate.title, id, resstate.child_id)
+   
 
-    setTimeout(function(){console.log('hello')},5000)
+    setTimeout(function(){
+      
+    },5000)
 
     var message = ''
     var u
@@ -59,7 +61,7 @@ const onSuccess =  () => {
 
     let templateParams = {
     from_name: 'SENPRO',
-    to_name: state.username,
+    to_name: capitalizeFirstLetter(state.username),
     subject: 'SENPRO ANALYSIS',
     message: message,
     check:'check the website for your results',
@@ -67,26 +69,26 @@ const onSuccess =  () => {
     }
 
     window.emailjs.send(
-    'gmail',
+    'service_37tv5bq',
     'template_q8uee8n',
     templateParams,
     "user_jDFiteMUy9NWNFehWpWQR"
     ).then(res => {
-    console.log('Email successfully sent!',res)
+    
     alert.show('Check your e-mail for your Results',{type: 'success',});
     })
     .catch(err => {console.error('There has been an error.  Here some thoughts on the error that occured:', err);
     alert.show('Payment Failed',{type: 'error',});
     })
-    // props.history.push("/result/");
+   
 }
 
   const fwConfig = {
     ...config,
-    text: 'Book Now!',
+    text: 'Pay Now!',
     className:"btn btn-warning deepblue curvebtn my-2 my-sm-0 margin-right colorf",
     callback: (response) => {
-       console.log(response);
+      
        onSuccess();
       closePaymentModal() // this will close the modal programmatically
     },

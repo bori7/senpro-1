@@ -1,8 +1,6 @@
 import axios from "axios";
 import * as actionTypes from "./actionTypes";
 import  {HOST_URL} from '../clientResult';
-import { init } from 'emailjs-com';
-init("user_jDFiteMUy9NWNFehWpWQR");
 
 export const authStart = () => {
   return {
@@ -59,16 +57,21 @@ export const authLogin = (username, password, dispatch) => {
         };
         localStorage.setItem("user", JSON.stringify(user));
         dispatch(authSuccess(user,res));
-        // console.log(res.data)
+      
         checkAuthTimeout(3600,dispatch);
       })
       .catch(err => {
-        console.log(err.response.data)
-        if(err.response.data.non_field_errors[0].toString().includes('invalid token')){
-          var seror = 'please reload the page and login again'
-        }else{var seror=err.response.data.non_field_errors[0]}
+        if(!err.response.data.non_field_errors){
+          window.location.reload();
+        }
+        else {
+          if(err.response.data.non_field_errors[0].toString().toLowerCase().includes('invalid token')){
+          var seror = 'Please reload the page and login again'
+        }else{
+          var seror=err.response.data.non_field_errors[0]
+          seror+=' \nIncorrect Username or Password'}
         dispatch(authFail(seror));
-      });
+      }});
   };
 
 
@@ -98,32 +101,32 @@ export const authSignup = (
           expirationDate: new Date(new Date().getTime() + 360000 * 1000)
         };
         localStorage.setItem("user", JSON.stringify(user));
-        console.log(user)
+   
         dispatch(authSuccess(user));
         checkAuthTimeout(360000,dispatch);
 
         window.emailjs.send(
-          'gmail',
+          'service_37tv5bq',
           'template_fkturqn',
            templateParams,
            "user_jDFiteMUy9NWNFehWpWQR"
          ).then(res => {
-          console.log('Email successfully sent!',res)
+        
       })
       .catch(err => console.error('There has been an error.  Here some thoughts on the error that occured:', err))
   
       })
       .catch(err => {
-        console.log(err.response.data)
+        
         var errd=""
         if(err.response.data){
         Object.entries(err.response.data).forEach(
           ([key, value]) => (errd += value+'\n'))
         }else{
-          errd = 'Unable to signup, please try again.'
+          errd = 'Incorrect Username or Password'
         }
 
-          console.log(errd)
+     
         dispatch(authFail(errd));
         
         
@@ -145,17 +148,17 @@ export const authCheckState = (dispatch, props) => {
       }
     } else {
       const expirationDate = new Date(user.expirationDate);
-      // console.log('here')
+      
       if (expirationDate <= new Date()) {
         logout(dispatch);
         props.history.push('/login/');
       } else {
         dispatch(authSuccess(user));
-          // console.log(props.location)
+         
           if (props.location.pathname == '/login/'){
             if (localStorage.getItem('next') != 'false'){
               props.history.push(localStorage.getItem('next'));
-              localStorage.setItem('next',false)
+              localStorage.setItem('next','/')
             }else{
             props.history.push('/initial/');
             }

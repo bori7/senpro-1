@@ -1,97 +1,9 @@
 import axios from "axios";
 import * as actionTypes from "./actionTypes";
-// import  {cart_item} from '../clientResult';
 import  {HOST_URL} from '../clientResult';
 
-const getASNTListStart = () => {
-  return {
-    type: actionTypes.GET_ASSIGNMENT_LIST_START
-  };
-};
 
-const getASNTListSuccess = assignments => {
-  return {
-    type: actionTypes.GET_ASSIGNMENTS_LIST_SUCCESS,
-    cartItem :assignments
-  };
-};
 
-const getASNTListFail = error => {
-  return {
-    type: actionTypes.GET_ASSIGNMENTS_LIST_FAIL,
-    error: error
-  };
-};
-
-// export const getASNTS = (token,dispatch) => {
-  
-//     dispatch(getASNTListStart());
-//      axios.defaults.headers = {
-//       "Content-Type": "application/json",
-//       Authorization: `Token ${token}`
-//     };
-    
-//      axios
-//       .get("/assignments/")
-//       .then(res => {
-//         const assignments = res.data;
-//         console.log(token,assignments);
-//         dispatch(getASNTListSuccess(assignments));
-//       })
-//       .catch(err => {
-//         dispatch(getASNTListFail(err.response.data.message));
-//       });
-      
-  
-// };
-
-// export const getASNTS = (dispatch) => {
-  
-//   dispatch(getASNTListStart());
-   
-//   dispatch(getASNTListSuccess(cart_item['cartitem']));
-//   console.log(cart_item['cartitem'])
-    
-// };
-
-const getASNTDetailStart = () => {
-  return {
-    type: actionTypes.GET_ASSIGNMENT_DETAIL_START
-  };
-};
-
-const getASNTDetailSuccess = assignment => {
-  return {
-    type: actionTypes.GET_ASSIGNMENT_DETAIL_SUCCESS,
-    assignment
-  };
-};
-
-const getASNTDetailFail = error => {
-  return {
-    type: actionTypes.GET_ASSIGNMENT_DETAIL_FAIL,
-    error: error
-  };
-};
-
-export const getASNTSDetail = (token, id, dispatch) => {
-  
-    // dispatch(getASNTDetailStart());
-    // axios.defaults.headers = {
-    //   "Content-Type": "application/json",
-    //   Authorization: `Token ${token}`
-    // };
-    //  axios
-    //   .get(`/assignments/${id}/`)
-    //   .then(res => {
-    //     const assignment = res.data;
-    //     dispatch(getASNTDetailSuccess(assignment));
-    //     console.log(token,assignment);
-    //   })
-    //   .catch(err => {
-    //     dispatch(getASNTDetailFail(err.response.data.message));
-    //   });
-};
 
 const createASNTStart = () => {
   return {
@@ -132,7 +44,7 @@ const updateChildSuccess = (res) => {
   return {
     type: actionTypes.UPDATE_CHILD_SUCCESS,
     child_id:res.id,
-    message :'Payment Successful'
+    message :'Successful'
   };
 };
 
@@ -183,13 +95,6 @@ const createResultSuccess=(result) => {
   };
 };
 
-const createASNTFail = error => {
-  return {
-    type: actionTypes.CREATE_ASSIGNMENT_FAIL,
-    error: error
-  };
-};
-
 const createResultFail = error => {
   return {
     type: actionTypes.CREATE_RESULT_FAIL,
@@ -224,15 +129,15 @@ const createChildFail = error => {
 export const createASNT = (cart,dispatch) => {
  
   dispatch(createASNTStart());
-  // cart_item['cartitem'] = cart
+  
       dispatch(createASNTSuccess('Submitted', cart));
-    console.log(cart)
+ 
 
 };
 
   
 export const getChilds = (parent,token,dispatch) => {
-  // console.log( parent)
+  
   dispatch(getChildsStart());
   axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
   axios.defaults.xsrfCookieName = "csrftoken";
@@ -245,10 +150,10 @@ export const getChilds = (parent,token,dispatch) => {
     .then(res => {
       const childs = res.data;
       dispatch(getChildsSuccess( childs));
-      console.log( childs , res)
+      
     })
     .catch(err => {
-      console.log(err)
+     
       dispatch(getChildsFail(err.response.data));
     });
 };
@@ -256,7 +161,7 @@ export const getChilds = (parent,token,dispatch) => {
 export const createChild = (token, child, dispatch,dispatch2) => {
  
     dispatch(createChildStart());
-    console.log(token,child)
+    
     axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
     axios.defaults.xsrfCookieName = "csrftoken";
     axios.defaults.headers = {
@@ -266,14 +171,12 @@ export const createChild = (token, child, dispatch,dispatch2) => {
   axios
       .post(`${HOST_URL}/clients/childs/`, child)
       .then(res => {
-        console.log(res)
-        console.log(res.data)
+        
         dispatch2(createChildSuccess(res.data));
 
       })
       .catch(err => {
-        console.log(err.response.request.responseText)
-        // dispatch(createChildFail(err.response.request.responseText));
+        
       });
   
 };
@@ -282,7 +185,7 @@ export const createChild = (token, child, dispatch,dispatch2) => {
 export const updateChild = (id,child, token, dispatch) => {
   
   dispatch(updateChildStart());
-  console.log(token,child)
+  
   axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
   axios.defaults.xsrfCookieName = "csrftoken";
   axios.defaults.headers = {
@@ -292,14 +195,13 @@ export const updateChild = (id,child, token, dispatch) => {
 axios
     .put(`${HOST_URL}/clients/childs/${id}/`, child)
     .then(res => {
-      // console.log(res)
-      console.log(res.data)
+     
       dispatch(updateChildSuccess(res.data));
-      // props.history.push("/result/");
+     
 
     })
     .catch(err => {
-      console.log(err)
+     
       dispatch(updateChildFail(err.response));
       
     });
@@ -310,7 +212,7 @@ axios
 export const createResult = (token, result, dispatch) => {
  
     dispatch(createResultStart());
-    console.log(token,result)
+   
     axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
     axios.defaults.xsrfCookieName = "csrftoken";
     axios.defaults.headers = {
@@ -328,12 +230,12 @@ export const createResult = (token, result, dispatch) => {
       axios
       .post(`${HOST_URL}/clients/results/`, reso)
       .then(res => {
-        console.log(res)
+        
         dispatch(createResultSuccess(res.data));
         
       })
       .catch(err => {
-        console.log(err.response.request.responseText)
+        
         dispatch(createResultFail(err.response.request.responseText));
       });
     }
@@ -344,7 +246,7 @@ export const createResult = (token, result, dispatch) => {
 export const getResults = (child,token,dispatch) => {
  
   dispatch(getResultsStart());
-  console.log(token)
+ 
   axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
   axios.defaults.xsrfCookieName = "csrftoken";
   axios.defaults.headers = {
@@ -365,10 +267,10 @@ export const getResults = (child,token,dispatch) => {
         result.tip.push(x.tip)
       }              
       dispatch(getResultsSuccess(result,child));
-      console.log( results , res, result)
+      
     })
     .catch(err => {
-      console.log(err)
+     
       dispatch(getResultsFail(err.response.data));
     });
 };

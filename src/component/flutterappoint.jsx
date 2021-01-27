@@ -1,11 +1,9 @@
-import React ,{useEffect, useState,useContext, useCallback, useRef}from "react";
+import React ,{useContext, }from "react";
 import {MyContext} from '../store/context/myContext';
-import * as emailjs from 'emailjs-com';
 import { useAlert } from 'react-alert';
-// import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
-import { init } from 'emailjs-com';
-init("user_jDFiteMUy9NWNFehWpWQR");
+import {capitalizeFirstLetter} from '../store/utility';
+
 
 export const PayAppoint = (props) => {
 
@@ -36,30 +34,30 @@ export const PayAppoint = (props) => {
     if(props.amount){config.amount = props.amount}
     if(props.name){config.customizations.description += props.name}
 
-// const handleFlutterPayment = useFlutterwave(config);
 
 const onSuccess = () => {
 
     var message = "You have been scheduled to meet with the "+props.name
     let templateParams = {
     from_name: 'SENPRO',
-    to_name: state.username,
+    to_name: capitalizeFirstLetter( state.username) ,
     subject: 'SENPRO ANALYSIS',
     message: message,
-    check:'check the website for your results',
+    check:'check the website for the contact of the '+props.name,
     reply_to: state.userId.email }
 
     window.emailjs.send(
-    'gmail',
+    'service_37tv5bq',
     'template_fkturqn',
     templateParams,
     "user_jDFiteMUy9NWNFehWpWQR"
     ).then(res => {
-    console.log('Email successfully sent!',res)
+    // console.log(res)
     alert.show('Check your e-mail for your Appointemt schedule',{type: 'success',});
     })
-    .catch(err => {console.error('There has been an error.  Here some thoughts on the error that occured:', err);
-    alert.show('Payment Failed',{type: 'error',});
+    .catch(err => {
+      // console.log(err)
+    alert.show('Email not sent',{type: 'error',});
     })
     
     
@@ -70,9 +68,9 @@ const fwConfig = {
     text: 'Book Now!',
     className:"btn btn-warning deepblue curvebtn my-2 my-sm-0 margin-right colorf",
     callback: (response) => {
-       console.log(response);
+    
        onSuccess();
-      closePaymentModal() // this will close the modal programmatically
+      closePaymentModal()
     },
     onClose: () => {},
   };
@@ -80,20 +78,7 @@ const fwConfig = {
   return (
     <div className="App">
         <FlutterWaveButton {...fwConfig} />
-      {/* <button className="btn btn-warning deepblue curvebtn my-2 my-sm-0 margin-right colorf" 
-        onClick={() => {
-          handleFlutterPayment({
-            callback: (response) => {
-               console.log(response);
-               onSuccess();
-                closePaymentModal() // this will close the modal programmatically
-            },
-            onClose: () => {},
-          });
-        }}
-      >
-        Pay with Barter
-      </button> */}
+     
     </div>
   );
 }
