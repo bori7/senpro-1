@@ -39,7 +39,7 @@ return (
     <div >
 
         <div className="jumbotron forum-header mini_header bgimg" style={{backgroundImage: {mini_header_2}}}>
-<<<<<<< HEAD
+
         <MenuLayout/>
         <br/>
         <br/>
@@ -53,22 +53,7 @@ return (
         <div className="row">
             <div className="col-12">	
             <h1>Book An Appointment </h1>
-=======
-            <MenuLayout/>
-            <br/>
-            <br/>
-            <br/><br/>
-            <br/>
-            <br/>
-            <br/><br/>
-            <div className="container-fluid">
-            <div className="row">
-            <div className="col-md-12">
-            <div className="row">
-                <div className="col-12">	
-                    <h1>Book an Appointment</h1>
-                </div>
->>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
+
             </div>
 
             </div>
@@ -114,22 +99,3 @@ return (
 )}
 
 
-{/* <div class="col-md-5">
-                                <ul class="summary">
-                                <li style={{fontSize: '19px', color: 'black', fontWeight: 500}}>{x.name} </li>
-                                </ul>
-                                
-                            </div>
-
-                            <div class="col-md-3 ">
-                                <ul class="summary ">
-                                <li class="btn-info"> {x.price} </li>
-                                </ul>
-                                
-                            </div>
-
-                            <div class="col-md-4">
-                                <ul key={professionals.indexOf(x)+1}  className='summary'>
-                                    <PayAppoint amount={x.amount} name={x.name}/>    
-                                </ul>
-                            </div>  */}

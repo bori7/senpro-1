@@ -21,10 +21,7 @@
     "react-cookie-consent": "^6.2.1",
     "react-dom": "^17.0.1",
     "react-dropzone": "^11.2.4",
-<<<<<<< HEAD
-=======
     "react-html-parser": "^2.0.2",
->>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
     "react-js-pagination": "^3.0.3",
     "react-paystack": "^3.0.3",
     "react-router-dom": "^5.2.0",

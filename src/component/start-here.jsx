@@ -126,11 +126,7 @@ This allows technology to be used as a tool for breaking the barriers to accessi
 								}
 								{state.token  &&
                                 <Link className="btn btn-primary btn-lg skyblue curvebtn animate__animated animate__fadeInLeft my-2 my-sm-0 colorf" style={{width: '100%'}} to={`/initial/`}>
-<<<<<<< HEAD
                                     Get Started
-=======
-                                   Take Assessment
->>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
                                 </Link>
 								}
 									
