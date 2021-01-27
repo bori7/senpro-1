@@ -27,7 +27,6 @@ export const ResultDashboard = (props) => {
         
         auth.authCheckState(dispatch, props);
         let user = JSON.parse(localStorage.getItem('user'));
-        console.log(user['userId'])
         getChilds(user.userId.pk,user.token,resdispatch)
    
         // console.log(state.userId.pk,state.token)
@@ -85,7 +84,7 @@ const handleClick = (id,e) => {
     e.preventDefault();
     console.log(resstate.explain, id, resstate.child_id)
     getResults(id,state.token, resdispatch)
-    console.log(resstate.explain, id, resstate.child_id)
+    
     props.history.push("/result/");
 
 }

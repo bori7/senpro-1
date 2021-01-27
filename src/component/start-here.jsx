@@ -82,7 +82,7 @@ window.onscroll = ()=>  {scrollFunction()};
 					<div class="col-md-12">
 						<div class="row">
 							<div class="col-12">	
-								<h1>Our Process</h1>
+								<h1>Start Here</h1>
                                
 							</div>
 						</div>
@@ -183,19 +183,27 @@ This allows technology to be used as a tool for breaking the barriers to accessi
 							<div class="row">
 
 								<div class="col-lg-6">
-                                <Link className="btn btn-primary btn-lg skyblue curvebtn animate__animated animate__fadeInLeft my-2 my-sm-0 colorf" style={{width: '100%'}} to={`/initial/`}>
-                                    Start Here
+								{!state.token  &&
+                                <Link className="btn btn-primary btn-lg skyblue curvebtn animate__animated animate__fadeInLeft my-2 my-sm-0 colorf" style={{width: '100%'}} to={`/signup/`}>
+                                    Get Started
                                 </Link>
+								}
+								{state.token  &&
+                                <Link className="btn btn-primary btn-lg skyblue curvebtn animate__animated animate__fadeInLeft my-2 my-sm-0 colorf" style={{width: '100%'}} to={`/initial/`}>
+                                    Get Started
+                                </Link>
+								}
 									
 								</div>
 							
-								<div class="col-lg-6">
+								{/**<div class="col-lg-6">
                                 <Link className="btn btn-primary btn-lg deepblue curvebtn animate__animated animate__fadeInLeft my-2 my-sm-0 colorf" style={{width: '100%'}} to={`/checkout/`}>
                                    Book An Appointment
-                                </Link>
+  </Link>
 									
 									
 								</div>
+								 **/}
 							</div>
 					</div>
 				

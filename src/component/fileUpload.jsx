@@ -7,6 +7,7 @@ import mini_header_2 from '../static/assets/mini_header_2.png';
 import request from "superagent";
 import {ResContext} from '../store/context/resultContext';
 import axios from "axios";
+import {Link } from "react-router-dom";
 
 const baseStyle = {
     flex: 1,
@@ -211,6 +212,10 @@ window.onscroll = ()=>  {scrollFunction()};
 
                 <button  onClick={handleSubmit} className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">Book An Appointment
                                 </button>
+                                 
+                                <Link className="btn btn-primary  skyblue curvebtn  my-2 my-sm-0 colorf" to={`/initial/`}>
+                                    Previous
+                                </Link>
                 </div>    
             </div>
         </div>

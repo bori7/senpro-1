@@ -153,7 +153,7 @@ export const Login = (props) => {
                        
                         <div className="row" style={{justifyContent: 'center'}}>
                            
-                        <div className="col-4 step-control" style={{justifyContent: 'flex-end'}}>
+                        <div className="col-9 step-control" style={{justifyContent: 'flex-end'}}>
             
                             <button type="submit" value="Submit" style={{width: '100%'}} className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">Login
                             </button> 
@@ -168,9 +168,9 @@ export const Login = (props) => {
                         
                         <div className="row" style={{marginTop : '10px' , justifyContent: 'center'}}>
                             
-                            <div className="col-4 step-control" style={{justifyContent: 'flex-end'}}>
+                            <div className="col-9 step-control" style={{justifyContent: 'flex-end'}}>
             
-                            <button onClick = {handleReturn} style={{width: '100%', marginTop : '20px'}} className="btn btn-secondary deepblue curvebtn my-2 my-sm-0 colorf">Register
+                            <button onClick = {handleReturn} style={{width: '100%', marginTop : '20px'}} className="btn btn-secondary deepblue curvebtn my-2 my-sm-0 colorf">Get Started
                             </button>
             
                         </div>

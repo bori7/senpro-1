@@ -67,7 +67,7 @@ export const CheckOut = (props) => {
     }, [state.token]);
 
 
-const professionals = [ {name:"Counsellor 1",price:'$75/hr',amount:75},
+const professionals = [ {name:"Counsellor",price:'$75/hr',amount:75},
                         {name:"Behavioral Analyst",price:'$100/hr',amount:100},
                         {name:"Technical Psychologist",price:'$75/hr',amount:75},
                         {name:"Clinical Psychologist",price:'$200/hr',amount:200},
@@ -114,7 +114,7 @@ props.history.goBack();
         <div className="col-md-12">
         <div className="row">
             <div className="col-12">	
-            <h1>Meet a Professional</h1>
+            <h1>Book An Appointment </h1>
             </div>
         </div>
 

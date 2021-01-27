@@ -31,7 +31,9 @@ export const SignUp = (props) => {
 
 
         if(state.token){
-            props.history.push('/');}
+            props.history.push('/');
+        
+        }
        
         node.current.addEventListener('click', (e)=>  {
             for (const select of node.current.querySelectorAll('.custom-select')) {
@@ -232,7 +234,7 @@ const handleSubmit = e => {
 
                         <div class="row" style={{justifyContent: 'center'}}>
                            
-                        <div className="col-4 step-control" style={{justifyContent: 'flex-end'}}>
+                        <div className="col-9 step-control" style={{justifyContent: 'flex-end'}}>
             
                         <button type="submit" value="Submit" style={{width: '100%'}} className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">SignUp
                                 </button>

@@ -8,8 +8,7 @@ export const Footer= () => (
         <div className="row">
             <div className="col-md-6">
                 <h3>Talk to Us</h3>
-                <p>info@senproinitiative.org</p>
-                <p >contact@sendproinitiative.org</p>
+                <p >contact@senproinitiative.org</p>
                 <p style={{marginBttom: '30px'}}>+234 909 000 2364</p>
                 <h3>Visit Us</h3>
                 <p>Address : H163, Road 48, Victoria Garden City, Lekki-Epe Expressway, Lagos.</p>
