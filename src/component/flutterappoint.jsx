@@ -50,12 +50,14 @@ const onSuccess = () => {
     'service_37tv5bq',
     'template_fkturqn',
     templateParams,
+    "user_jDFiteMUy9NWNFehWpWQR"
     ).then(res => {
-    
+    // console.log(res)
     alert.show('Check your e-mail for your Appointemt schedule',{type: 'success',});
     })
     .catch(err => {
-    alert.show('Payment Failed',{type: 'error',});
+      // console.log(err)
+    alert.show('Email not sent',{type: 'error',});
     })
     
     

@@ -72,6 +72,7 @@ const onSuccess =  () => {
     'service_37tv5bq',
     'template_q8uee8n',
     templateParams,
+    "user_jDFiteMUy9NWNFehWpWQR"
     ).then(res => {
     
     alert.show('Check your e-mail for your Results',{type: 'success',});
