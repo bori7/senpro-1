@@ -36,17 +36,12 @@ const professionals = [ {name:"Counsellor",price:'$75/hr',amount:75},
 
 return (
 
-    <div >
+    <div>
 
         <div className="jumbotron forum-header mini_header bgimg" style={{backgroundImage: {mini_header_2}}}>
 
         <MenuLayout/>
-        <br/>
-        <br/>
-        <br/><br/>
-        <br/>
-        <br/>
-        <br/><br/>
+       
         <div className="container-fluid">
         <div className="row">
         <div className="col-md-12">
@@ -59,6 +54,7 @@ return (
             </div>
             </div>
             </div>
+        </div>
         </div>
         <div className="jumbotron bg-white ">
 			<div className="container">
@@ -74,8 +70,8 @@ return (
                             <div className="justify-content-between profile-box-blue 
                             d-flex flex-column pay-box align-items-center py-3" 
                             style={{height: '200px'}}>
-                                <h3 style={{color: 'black'}} >{x.name} </h3>
-                                <h2 style={{color: '#0CB8AF'}}> {x.price} </h2>
+                                <h3  >{x.name} </h3>
+                                <h2 > {x.price} </h2>
                                 <a key={professionals.indexOf(x)+1}  >
                                     <PayAppoint amount={x.amount} name={x.name}/>    
                                 </a>
@@ -84,18 +80,22 @@ return (
                         ) 
                     }
             </div>
+            <div class="row">
+                <div className="col-12 step-control">
+                    <button onClick = {handleReturn}
+                    className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">Previous
+                    </button>
+                </div>
+            </div>
         </div>
 		
-            <div className="col-12 step-control">
-                <button onClick = {handleReturn}
-                className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">Previous
-                </button>
-            </div>
-            <br/> <br/>
+            
+            
        
     
     </div>
 </div>
+
 )}
 
 

@@ -23,14 +23,9 @@ export const ResultDashboard = (props) => {
   
     useEffect(() => {
         
-<<<<<<< HEAD
         auth.authCheckState(dispatch, props);
         let user = JSON.parse(localStorage.getItem('user'));
         getChilds(user.userId.pk,user.token,resdispatch)
-=======
-        auth.authCheckState(dispatch, props); 
-        getChilds(state.userId.pk,state.token,resdispatch)
->>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
    
     }, [state.token,explain]);
 
@@ -44,11 +39,7 @@ const handleClick = (id,e) => {
     e.preventDefault();
     
     getResults(id,state.token, resdispatch)
-<<<<<<< HEAD
     
-=======
-  
->>>>>>> f95c6958bc544264b9766e9d980dfa76c9df41eb
     props.history.push("/result/");
 
 }

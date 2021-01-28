@@ -1,12 +1,13 @@
-import React from "react";
+import React, {useEffect, useContext,} from "react";
 import {MenuLayout} from './menu';
 import mini_header_2 from '../static/assets/mini_header_2.png';
 import child from "../static/assets/child.jpg";
 import {Link } from "react-router-dom";
+import {MyContext} from '../store/context/myContext';
 
 
 export const Process = () => {
-
+	const {state, dispatch} = useContext(MyContext)
   return(
         <div >
      

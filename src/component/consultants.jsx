@@ -59,7 +59,7 @@ export const  Consultants= () => {
 						</div>
 						<div className="col-md-4">
 								<a href="#"  data-toggle="modal" data-target="#emma">
-									<div className="profile-box profile-box-blue">
+									<div className="profile-box profile-box-skyblue">
 										<img src={emma} style={{borderRadius: '50%', width: '200px', height: '200px'}}/>
 										<h3>Mr Emmanuel Olajitan</h3>
 									</div>
@@ -71,7 +71,7 @@ export const  Consultants= () => {
 							<div className="col-md-4"></div>
 							<div className="col-md-4">
 							<a href="#"  data-toggle="modal" data-target="#isa">
-								<div className="profile-box profile-box-skyblue">
+								<div className="profile-box profile-box-blue">
 									<img src={isa} style={{borderRadius: '50%', width: '200px', height: '200px'}}/>
 									<h3>Mrs Joy Isa</h3>
 								</div>
