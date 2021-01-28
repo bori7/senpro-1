@@ -1,14 +1,16 @@
 import React ,{useContext, }from "react";
 import {MyContext} from '../store/context/myContext';
+import {ResContext} from '../store/context/resultContext';
 import { useAlert } from 'react-alert';
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
 import {capitalizeFirstLetter} from '../store/utility';
-
+import * as actions from "../store/actions/assignments";
 
 export const PayAppoint = (props) => {
 
     const alert = useAlert()
     const {state, dispatch} = useContext(MyContext)
+    const {resstate, resdispatch} = useContext(ResContext)
 
   const config = {
     public_key: 'FLWPUBK_TEST-aa04e2b8c50a2d3dfce7742398f14203-X',
@@ -22,7 +24,7 @@ export const PayAppoint = (props) => {
       name: 'joel ugwumadu',
     },
     customizations: {
-      title: 'Consultancy Payment',
+      title: 'Senpro Consultancy Payment',
       description: 'Session with a ',
       logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
     },
@@ -34,6 +36,12 @@ export const PayAppoint = (props) => {
     if(props.amount){config.amount = props.amount}
     if(props.name){config.customizations.description += props.name}
 
+const appnt = {
+                user: state.userId.pk,
+                professional: props.name,
+                amount: props.amount,
+              }
+              // console.log(appnt)
 
 const onSuccess = () => {
 
@@ -53,6 +61,7 @@ const onSuccess = () => {
     "user_jDFiteMUy9NWNFehWpWQR"
     ).then(res => {
     // console.log(res)
+    actions.createAppointment(state.token,appnt,resdispatch)
     alert.show('Check your e-mail for your Appointemt schedule',{type: 'success',});
     })
     .catch(err => {

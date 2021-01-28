@@ -8,7 +8,6 @@ import {ForumContext} from '../store/context/forumContext';
 import { useAlert } from 'react-alert'
 import {capitalizeFirstLetter} from '../store/utility';
 import  {HOST_URL} from '../store/clientResult';
-
 import Pagination from "react-js-pagination";
 import { Editor } from "@tinymce/tinymce-react";
 import ReactHtmlParser from 'react-html-parser';
@@ -276,8 +275,11 @@ return (
                                   <div className="leftmeta">
                                       
                                       <p>
-                                        <i key ={forum.id} className="btn btn-black fa fa-comment" style={{fontSize:'18px'}} onClick={(e) => handleClick(forum.id, e)}></i> 
-                                      {come.filter(x=> x.forum==forum.id).length} Comments
+                                        <i key ={forum.id} 
+                                        className={ (come.filter(x=> x.forum==forum.id).length >0)? "btn btn-dark fa fa-comment": "btn btn-secondary fa fa-comment"}
+                                        style={{fontSize:'18px'}} onClick={(e) => handleClick(forum.id, e)}>
+
+                                        </i> {come.filter(x=> x.forum==forum.id).length}  Comments
                                       </p>
                                       
                                    
@@ -312,7 +314,7 @@ return (
                                         initialValue={editorcontent}
                                         init={{
                                             plugins: 'table lists wordcount emoticons' ,
-                                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright| numlist bullist| wordcount link emoticons | table tabledelete | tableprops tablerowprops tablecellprops tableinsertrowbefore tableinsertrowafter tabledeleterow tableinsertcolbefore tableinsertcolafter tabledeletecol',
+                                            toolbar: 'undo redo | bold italic | alignleft aligncenter | numlist bullist| wordcount link emoticons | table  |',
                                             table_sizing_mode: 'relative',
                                           }}
                                         onEditorChange={handleEditorChange}
@@ -419,9 +421,7 @@ return (
                                         initialValue={editorcontent}
                                         init={{
                                             plugins: 'table lists wordcount emoticons' ,
-                                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright| numlist bullist| wordcount link emoticons | table tabledelete | tableprops tablerowprops tablecellprops tableinsertrowbefore tableinsertrowafter tabledeleterow tableinsertcolbefore tableinsertcolafter tabledeletecol',
-                                            table_sizing_mode: 'relative',
-
+                                            toolbar: 'undo redo | bold italic | alignleft aligncenter| numlist bullist| wordcount link emoticons | table |',
                                         }}
                                         onEditorChange={handleEditorChange}
                                       

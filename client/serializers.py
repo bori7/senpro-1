@@ -1,7 +1,7 @@
 from rest_framework import serializers
 # from django.contrib.auth import get_user_model
 from users.models import User
-from .models import Child, Client, Result
+from .models import Child, Client, Result,Appointment
 
 # User = get_user_model()
 
@@ -33,4 +33,10 @@ class ResultSerializer(serializers.ModelSerializer):
         model = Result
         fields = ('__all__')
 
+class AppointmentSerializer(serializers.ModelSerializer):
+    # child = StringSerializer(many=False)
+    
+    class Meta:
+        model = Appointment
+        fields = ('__all__')
  

@@ -5,6 +5,8 @@ from phonenumber_field.modelfields import PhoneNumberField
 from users.models import User
 #AppUser = get_user_model()
 
+
+
 class Client(models.Model):
     user = models.OneToOneField(
         User, on_delete=models.CASCADE)
@@ -45,5 +47,20 @@ class Result(models.Model):
 class Files(models.Model):
     child = models.ForeignKey(Child, on_delete=models.CASCADE)
     file = models.FileField()
+
+    def __str__(self):
+        return self.child.name
+
+class Appointment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    professional = models.CharField(max_length=25)
+    amount = models.CharField(max_length=5)
+    completed = models.BooleanField(default=False) 
+    timestamp = models.DateTimeField(auto_now_add=True)
+    
+
+    def __str__(self):
+        return self.user.username
+    
 
 

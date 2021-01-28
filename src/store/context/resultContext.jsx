@@ -18,7 +18,8 @@ const initialState = {
   child:{},
   results:[],
   childs:[],
-  child_id:0
+  child_id:0,
+  appointment:{}
 };
 
 const messageSuccess = (state, action) => {
@@ -154,6 +155,31 @@ const createChildFail = (state, action) => {
   });
 };
 
+const createAppointmentStart = (state, action) => {
+  return updateObject(state, {
+    error: null,
+    loading: true
+  });
+};
+
+const createAppointmentSuccess = (state, action) => {
+  return updateObject(state, {
+    error: null,
+    loading: false,
+    appointment:action.appointment,
+   
+  });
+};
+
+const createAppointmentFail = (state, action) => {
+  return updateObject(state, {
+    error: action.error,
+    loading: false,
+    
+  });
+};
+
+
 const getChildsStart = (state, action) => {
   return updateObject(state, {
     error: null,
@@ -241,7 +267,14 @@ const reducer = (state, action) => {
       case actionTypes.CREATE_CHILD_SUCCESS:
         return createChildSuccess(state, action);
       case actionTypes.CREATE_CHILD_FAIL:
-        return createChildFail(state, action); 
+        return createChildFail(state, action);
+        
+      case actionTypes.CREATE_APPOINTMENT_START:
+        return createAppointmentStart(state, action);
+      case actionTypes.CREATE_APPOINTMENT_SUCCESS:
+        return createAppointmentSuccess(state, action);
+      case actionTypes.CREATE_APPOINTMENT_FAIL:
+        return createAppointmentFail(state, action);   
 
         case actionTypes.CREATE_RESULT_START:
       return createResultStart(state, action);

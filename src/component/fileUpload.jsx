@@ -109,7 +109,7 @@ export const MyDropzone = (props) => {
 
   const files = acceptedFiles.map(file => (
     <li key={file.path}>
-      {file.path} - {file.size} bytes
+      {file.path} - {(file.size/1024).toFixed(1)} kbytes
     </li>
   ));
 
@@ -120,15 +120,8 @@ export const MyDropzone = (props) => {
       props.history.push('/initial/');
       }
     
-    
- 
-
 
 }, [state.token]);
-
-
-
-
 
 
   return (
@@ -159,20 +152,25 @@ export const MyDropzone = (props) => {
                         <input {...getInputProps()} />
                         <p>Drag 'n' drop some files here, or click to select files</p>
                     </div>
+                    <br/>
                     <aside>
                         <h4>Files</h4>
                         <ul>{files}</ul>
                     </aside>
                     <p className="questions text-danger col-md-9">{errorState}</p>
 
-                <button  onClick={handleSubmit} className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">Book An Appointment
+                                <button  onClick={handleSubmit} 
+                                className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">
+                                Book An Appointment
                                 </button>
-                                 
-                                <Link className="btn btn-primary  skyblue curvebtn  my-2 my-sm-0 colorf" to={`/initial/`}>
+            </div>               
+                </div>    
+                <br/><br/>
+                                <Link className="btn btn-secondary deepblue  curvebtn  my-2 my-sm-0 colorf" 
+                                    style ={{float:'left'}}
+                                    to={`/initial/`}>
                                     Previous
                                 </Link>
-                </div>    
-            </div>
         </div>
 
     </div>

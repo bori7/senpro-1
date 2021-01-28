@@ -164,7 +164,7 @@ export const InitialForm = (props) => {
                             <br/>
                             <br/>
                         <div className="col-12 step-control">
-                                <button onClick={handleReturn} className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">Previous
+                                <button onClick={handleReturn} className="btn btn-secondary deepblue curvebtn my-2 my-sm-0 colorf">Previous
                                 </button>
                                 <button type="submit" value="Submit" className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">Next
                                 </button>

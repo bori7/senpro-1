@@ -29,7 +29,7 @@ urlpatterns = [
     path('clients/', include('client.urls')),
     path('uploadFiles', UploadFiles.as_view()),
     path('community/', include('forum.urls')),
-     path('consultants', Consultant.as_view()),
+    path('consultants', Consultant.as_view()),
    
 ]
 

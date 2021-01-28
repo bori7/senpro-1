@@ -16,6 +16,13 @@ const createChildStart = () => {
     type: actionTypes.CREATE_CHILD_START
   };
 };
+
+const createAppointmentStart = () => {
+  return {
+    type: actionTypes.CREATE_APPOINTMENT_START
+  };
+};
+
 const getChildsStart = () => {
   return {
     type: actionTypes.GET_CHILDS_START
@@ -71,6 +78,15 @@ const createChildSuccess=(res) => {
     
   };
 };
+
+const createAppointmentSuccess=(res) => {
+  return {
+    type: actionTypes.CREATE_APPOINTMENT_SUCCESS,
+    appointment:res,
+    
+  };
+};
+
 const getChildsSuccess=(res) => {
   return {
     type: actionTypes.GET_CHILDS_SUCCESS,
@@ -125,12 +141,19 @@ const createChildFail = error => {
   };
 };
 
+const createAppointmentFail = error => {
+  return {
+    type: actionTypes.CREATE_APPOINTMENT_FAIL,
+    error: error
+  };
+};
+
 
 export const createASNT = (cart,dispatch) => {
  
   dispatch(createASNTStart());
   
-      dispatch(createASNTSuccess('Submitted', cart));
+  dispatch(createASNTSuccess('Submitted', cart));
  
 
 };
@@ -176,10 +199,34 @@ export const createChild = (token, child, dispatch,dispatch2) => {
 
       })
       .catch(err => {
-        
+        dispatch2(createChildFail(err.response));
       });
   
 };
+
+export const createAppointment = (token, appointment, dispatch) => {
+ 
+  dispatch(createAppointmentStart());
+  
+  axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+  axios.defaults.xsrfCookieName = "csrftoken";
+  axios.defaults.headers = {
+    "Content-Type": "application/json",
+    Authorization: `Token ${token}`
+  };
+axios
+    .post(`${HOST_URL}/clients/appointments/`, appointment)
+    .then(res => {
+      
+      dispatch(createAppointmentSuccess(res.data));
+
+    })
+    .catch(err => {
+      dispatch(createAppointmentFail(err.response));
+    });
+
+};
+
 
 
 export const updateChild = (id,child, token, dispatch) => {
@@ -197,7 +244,6 @@ axios
     .then(res => {
      
       dispatch(updateChildSuccess(res.data));
-     
 
     })
     .catch(err => {

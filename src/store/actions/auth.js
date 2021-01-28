@@ -102,7 +102,7 @@ export const authSignup = (
         };
         localStorage.setItem("user", JSON.stringify(user));
    
-        dispatch(authSuccess(user));
+        dispatch(authSuccess(user,res));
         checkAuthTimeout(360000,dispatch);
 
         window.emailjs.send(
@@ -154,7 +154,6 @@ export const authCheckState = (dispatch, props) => {
         props.history.push('/login/');
       } else {
         dispatch(authSuccess(user));
-         
           if (props.location.pathname == '/login/'){
             if (localStorage.getItem('next') != 'false'){
               props.history.push(localStorage.getItem('next'));

@@ -6,8 +6,8 @@ from rest_framework.status import (
     HTTP_400_BAD_REQUEST
 )
 
-from .models import Child, Client, Result, Files
-from .serializers import ChildSerializer, ClientSerializer, ResultSerializer
+from .models import Child, Appointment, Result, Files
+from .serializers import ChildSerializer, AppointmentSerializer, ResultSerializer
 from rest_framework.authentication import SessionAuthentication
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
@@ -25,7 +25,15 @@ class ChildViewSet(viewsets.ModelViewSet):
     ordering_fields = ['timestamp']
     queryset = Child.objects.all()
 
-  
+
+class AppointmentViewSet(viewsets.ModelViewSet):
+    serializer_class = AppointmentSerializer
+    authentication_classes = [ SessionAuthentication,]
+    permission_classes = (permissions.AllowAny, )
+    filter_backends = [DjangoFilterBackend,filters.OrderingFilter]
+    # filterset_fields = ['parent']
+    ordering_fields = ['timestamp']
+    queryset = Appointment.objects.all()  
 
 
 class ResultViewSet(viewsets.ModelViewSet):

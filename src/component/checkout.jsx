@@ -73,7 +73,7 @@ return (
                                 <h3  >{x.name} </h3>
                                 <h2 > {x.price} </h2>
                                 <a key={professionals.indexOf(x)+1}  >
-                                    <PayAppoint amount={x.amount} name={x.name}/>    
+                                    <PayAppoint amount={x.amount} name={x.name} />    
                                 </a>
                             </div>
                         </div>
