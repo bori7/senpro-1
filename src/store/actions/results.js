@@ -8,6 +8,21 @@ const getGradedASNTListStart = () => {
   };
 };
 
+const getGradedASNTListSuccess = res=> {
+  return {
+    type: actionTypes.GET_GRADED_ASSIGNMENTS_LIST_SUCCESS,
+    res: res
+  };
+};
+
+const getGradedASNTListFail = error => {
+  return {
+    type: actionTypes.GET_GRADED_ASSIGNMENTS_LIST_FAIL,
+    error: error,
+    
+  };
+};
+
 const getForumListStart = () => {
   return {
     type: actionTypes.GET_FORUM_LIST_START
@@ -34,12 +49,6 @@ const postForumStart = () => {
 
 
 
-const getGradedASNTListSuccess = res=> {
-  return {
-    type: actionTypes.GET_GRADED_ASSIGNMENTS_LIST_SUCCESS,
-    res: res
-  };
-};
 
 
 const getForumListSuccess = forums => {
@@ -82,13 +91,7 @@ export const errorSuccess = (dispatch) => {
   })
 };
 
-const getGradedASNTListFail = error => {
-  return {
-    type: actionTypes.GET_GRADED_ASSIGNMENTS_LIST_FAIL,
-    error: error,
-    
-  };
-};
+
 
 const getForumListFail = error => {
   return {
@@ -136,10 +139,10 @@ const createGradedASNTListSuccess = (message,res) => {
   };
 };
 
-const createGradedASNTListFail = error => {
+const createGradedASNTListFail = () => {
   return {
     type: actionTypes.CREATE_GRADED_ASSIGNMENTS_LIST_FAIL,
-    error: error,
+
   };
 };
 
@@ -163,7 +166,7 @@ export const getForum = (token,dispatch) => {
       })
       .catch(err => {
    
-        dispatch(getForumListFail(err.response));
+        dispatch(getForumListFail('Loading... Forum failed'));
       });
   };
 
@@ -209,8 +212,9 @@ export const postComments = (comm,token,dispatch) => {
     
     })
     .catch(err => {
-    
-      dispatch(postCommentsFail(JSON.stringify(err.response)));
+     
+      // JSON.stringify(err.response)
+      dispatch(postCommentsFail( 'Loading... comments failed'));
     });
 };
 
@@ -232,23 +236,19 @@ export const postForum = (fom,token,dispatch) => {
     
     })
     .catch(err => {
-     
-      dispatch(postForumFail(err.response.request.responseText));
+      // err.response.request.responseText
+      dispatch(postForumFail('Failed to create topic'));
     });
 };
 
-export const getGradedASNTS = (dispatch) => {
- 
- 
-   
-};
 
 export const createGradedASNT = (asnt, dispatch) => {
   
   dispatch(createGradedASNTListStart());
     
+  dispatch(createGradedASNTListSuccess('Results Generated', asnt));
 
-      dispatch(createGradedASNTListSuccess('Results Generated', asnt));
+  dispatch(createGradedASNTListFail());
     
   
 };

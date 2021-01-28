@@ -65,7 +65,7 @@ export const authLogin = (username, password, dispatch) => {
           window.location.reload();
         }
         else {
-          if(err.response.data.non_field_errors[0].toString().toLowerCase().includes('invalid token')){
+          if(err.response.data.non_field_errors[0].toLowerCase().includes('invalid token')){
           var seror = 'Please reload the page and login again'
         }else{
           var seror=err.response.data.non_field_errors[0]
@@ -113,21 +113,24 @@ export const authSignup = (
          ).then(res => {
         
       })
-      .catch(err => console.error('There has been an error.  Here some thoughts on the error that occured:', err)
+      .catch(err =>{
+        //  console.error('There has been an error.  Here some thoughts on the error that occured:', err)
+      }
       )
   
       })
       .catch(err => {
         
         var errd=""
-        if(err.response.data){
+        if(err.response.data.non_field_errors[0].toLowerCase().includes('invalid token')){
+          var seror = 'Please reload the page and login again'
+        }
+        else if(err.response.data){
         Object.entries(err.response.data).forEach(
           ([key, value]) => (errd += value+'\n'))
         }else{
           errd = 'Incorrect Username or Password'
         }
-
-     
         dispatch(authFail(errd));
         
         

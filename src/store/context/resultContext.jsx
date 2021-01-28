@@ -77,7 +77,6 @@ const createGradedASNTListSuccess = (state, action) => {
 
 const createGradedASNTListFail = (state, action) => {
   return updateObject(state, {
-    error: action.error,
     loading: false
   });
 };
