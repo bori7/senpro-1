@@ -113,7 +113,8 @@ export const authSignup = (
          ).then(res => {
         
       })
-      .catch(err => console.error('There has been an error.  Here some thoughts on the error that occured:', err))
+      .catch(err => console.error('There has been an error.  Here some thoughts on the error that occured:', err)
+      )
   
       })
       .catch(err => {

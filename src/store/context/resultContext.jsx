@@ -62,7 +62,6 @@ const createGradedASNTListStart = (state, action) => {
   return updateObject(state, {
     error: null,
     loading: true,
-    message:null,
   });
 };
 
@@ -79,7 +78,6 @@ const createGradedASNTListSuccess = (state, action) => {
 const createGradedASNTListFail = (state, action) => {
   return updateObject(state, {
     error: action.error,
-    message:null,
     loading: false
   });
 };
@@ -118,7 +116,7 @@ const updateChildSuccess = (state, action) => {
   return updateObject(state, {
     error: null,
     loading: false,
-    message: action.message,
+    // message: action.message,
     child_id:action.child_id
   });
 };
@@ -141,9 +139,10 @@ const createChildStart = (state, action) => {
 const createChildSuccess = (state, action) => {
   return updateObject(state, {
     error: null,
-    loading: false,
     child:action.child,
-    child_id:action.child.id
+    child_id:action.child.id,
+    loading: false,
+    message:'Welcome '+ action.child.name,
   });
 };
 
@@ -214,7 +213,8 @@ const createResultSuccess = (state, action) => {
   return updateObject(state, {
     error: null,
     loading: false,
-    result:action.result
+    result:action.result,
+    message:'Result created'
   });
 };
 

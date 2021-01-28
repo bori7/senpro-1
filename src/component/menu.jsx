@@ -25,7 +25,7 @@ import {ForumContext} from '../store/context/forumContext';
       const timer = setTimeout(() => {
         
         setLoad(false)
-      }, 1500);
+      }, 2000);
 
      
       if (state.error)
@@ -67,6 +67,7 @@ import {ForumContext} from '../store/context/forumContext';
       };
   
       return () => clearTimeout(timer);
+
       }, [state.token, state.error, state.message,
          resstate.error, resstate.message,
          forumstate.error, forumstate.message,]) 
@@ -96,18 +97,20 @@ import {ForumContext} from '../store/context/forumContext';
 
 return (
     <div className="container-fluid">
-    {load? <div class="se-pre-con"></div>:""}
+     {load? <div className="se-pre-con"></div>:null}
     
-  {(loading || resdispatch.loading|| forumdispatch.loading)? <div class="se-pre-con"></div> : ''}
-  
+  {(loading || resdispatch.loading|| forumdispatch.loading)? <div className="se-pre-con"></div> : null}
+
+ 
+
     <div className="row">
         <div className="col-12">
 
 
     <nav className="navbar navbar-expand-lg navbar-light fixed-top scroller-nav" id="scrollnav">
       <a className="navbar-brand " href="/"><img style={{width: "150px"}}  className="banner_logo" src={main_logo} alt = {"main_logo"}/></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
       </button>
 
       <div className="collapse navbar-collapse" id="navbarTogglerDemo01">

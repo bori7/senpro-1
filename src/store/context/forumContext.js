@@ -39,7 +39,7 @@ const getForumListSuccess = (state, action) => {
     forums: action.forums,
     error: null,
     loading: false,
-    message:null,
+    
   });
 };
 
@@ -63,7 +63,6 @@ const getCommentsStart = (state, action) => {
       comments: action.comments,
       error: null,
       loading: false,
-      message:null,
     });
   };
   

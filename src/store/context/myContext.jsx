@@ -48,7 +48,8 @@ const authSuccess = (state, action) => {
     username: action.user.username,
     userId: action.user.userId,
     error: null,
-    loading: false
+    loading: false,
+    // message:'Welcome '+action.user.username
   });
 };
 
