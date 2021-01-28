@@ -18,7 +18,7 @@ const initialState = {
   child:{},
   results:[],
   childs:[],
-  child_id:0,
+  child_id:null,
   appointment:{}
 };
 

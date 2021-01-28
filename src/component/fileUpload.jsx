@@ -89,7 +89,7 @@ export const MyDropzone = (props) => {
         acceptedFiles.forEach(file => {
           formData.append(file.name, file);
           })
-      formData.append('childId', resstate.child.id)
+      formData.append('childId', resstate.child_id)
       axios
           .post('/uploadFiles', formData)
 
@@ -97,6 +97,8 @@ export const MyDropzone = (props) => {
             
             props.history.push('/checkout/');
             
+          }).catch(err => {
+            // setError(err)
           })
         
       }
@@ -116,6 +118,7 @@ export const MyDropzone = (props) => {
 
   useEffect(() => {
     auth.authCheckState(dispatch, props);
+
     if (resstate.child_id === undefined ||resstate.child_id === null) {
       props.history.push('/initial/');
       }

@@ -37,7 +37,7 @@ export const PayAppoint = (props) => {
     if(props.name){config.customizations.description += props.name}
 
 const appnt = {
-                user: state.userId.pk,
+                user: props.pk,
                 professional: props.name,
                 amount: props.amount,
               }

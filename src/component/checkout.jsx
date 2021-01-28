@@ -11,11 +11,14 @@ export const CheckOut = (props) => {
     
     
     const {state, dispatch} = useContext(MyContext);
+    var pk = ''
+    if(state.userId){pk = state.userId.pk}
 
     useEffect(() => {
     auth.authCheckState(dispatch, props);
-  
-    }, [state.token]);
+    // if(!pk){
+    //     pk = state.userId.pk}
+    }, [state.token,]);
 
 
 const professionals = [ {name:"Counsellor",price:'$75/hr',amount:75},
@@ -73,7 +76,7 @@ return (
                                 <h3  >{x.name} </h3>
                                 <h2 > {x.price} </h2>
                                 <a key={professionals.indexOf(x)+1}  >
-                                    <PayAppoint amount={x.amount} name={x.name} />    
+                                    <PayAppoint amount={x.amount} name={x.name} pk={pk}/>    
                                 </a>
                             </div>
                         </div>
