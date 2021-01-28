@@ -40,6 +40,7 @@ const baseStyle = {
 export const MyDropzone = (props) => {
 
     const [errorState, setError] = useState('')
+    const [fileLoad, setFileload] = useState(false)
     const onDrop = useCallback(acceptedFiles => {
         function onDrop(acceptedFiles) {
             
@@ -94,15 +95,17 @@ export const MyDropzone = (props) => {
             props.history.push('/initial/');
             }   
       formData.append('childId', resstate.child_id)
+      setFileload(true)
       axios
           .post('/uploadFiles', formData)
 
           .then(res => {
-            
+            setFileload(false)
             props.history.push('/checkout/');
             
           }).catch(err => {
-            // setError(err)
+            setFileload(false)
+            setError('File not Uploaded')
           })
         
       }
@@ -122,9 +125,6 @@ export const MyDropzone = (props) => {
 
   useEffect(() => {
     auth.authCheckState(dispatch, props);
-
-   
-    
 
 }, [state.token,resstate.child_id]);
 

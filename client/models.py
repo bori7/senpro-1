@@ -47,10 +47,12 @@ class Result(models.Model):
 class Files(models.Model):
     child = models.ForeignKey(Child, on_delete=models.CASCADE)
     file = models.FileField()
+    timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.child.name
-
+       
+        return  "{} {}".format(self.child.name, str(self.timestamp))
+    
 class Appointment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     professional = models.CharField(max_length=25)
