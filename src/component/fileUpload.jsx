@@ -112,6 +112,7 @@ export const MyDropzone = (props) => {
           .then(res => {
             setFileload(false)
             if(!fileLoad){
+              alert.show('File uploaded',{ type: 'success',})
               props.history.push('/checkout/');
             }
             
