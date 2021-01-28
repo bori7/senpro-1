@@ -8,6 +8,8 @@ import request from "superagent";
 import {ResContext} from '../store/context/resultContext';
 import axios from "axios";
 import {Link } from "react-router-dom";
+import { useAlert } from 'react-alert';
+import ReactLoading from 'react-loading';
 
 const baseStyle = {
     flex: 1,
@@ -40,7 +42,9 @@ const baseStyle = {
 export const MyDropzone = (props) => {
 
     const [errorState, setError] = useState('')
+    const alert = useAlert()
     const [fileLoad, setFileload] = useState(false)
+
     const onDrop = useCallback(acceptedFiles => {
         function onDrop(acceptedFiles) {
             
@@ -53,6 +57,7 @@ export const MyDropzone = (props) => {
       }, [])
 
     const {resstate, resdispatch} = useContext(ResContext);  
+
     const {
         getRootProps,
         getInputProps,
@@ -77,7 +82,11 @@ export const MyDropzone = (props) => {
   ]);
 
   const handleSubmit = ()=>{
-   
+
+    if (resstate.child_id === undefined ||resstate.child_id === null) {
+      alert.show('Please re-register you child',{ type: 'info',})
+        props.history.push('/initial/');
+        } 
     if (acceptedFiles.length > 0){
       let formData = new FormData();
         axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
@@ -92,6 +101,7 @@ export const MyDropzone = (props) => {
           })
 
         if (resstate.child_id === undefined ||resstate.child_id === null) {
+          alert.show('Please re-register you child',{ type: 'info',})
             props.history.push('/initial/');
             }   
       formData.append('childId', resstate.child_id)
@@ -101,7 +111,10 @@ export const MyDropzone = (props) => {
 
           .then(res => {
             setFileload(false)
-            props.history.push('/checkout/');
+            if(!fileLoad){
+              props.history.push('/checkout/');
+            }
+            
             
           }).catch(err => {
             setFileload(false)
@@ -118,7 +131,7 @@ export const MyDropzone = (props) => {
 
   const files = acceptedFiles.map(file => (
     <li key={file.path}>
-      {file.path} - {(file.size/1024).toFixed(1)} kbytes
+      {file.path} - {(file.size/1024/1024).toFixed(3)} MB
     </li>
   ));
 
@@ -160,7 +173,16 @@ export const MyDropzone = (props) => {
                     <br/>
                     <aside>
                         <h4>Files</h4>
-                        <ul>{files}</ul>
+                        <div>
+                            <ul>{files}</ul>
+                            <br/>
+                            { fileLoad ?
+                              <ReactLoading type={'bars'} color={'#0ef134e1'} height={'8%'} width={'5%'} /> 
+                              : null
+                            }
+                            
+                        </div>
+
                     </aside>
                     <p className="questions text-danger col-md-9">{errorState}</p>
 

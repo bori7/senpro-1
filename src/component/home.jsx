@@ -215,12 +215,12 @@ return(
 
 
 
-<div className="modal" tabindex="-1" role="dialog" id="laidemodal">
+<div className="modal" tabIndex="-1" role="dialog" id="laidemodal">
 <div className="modal-dialog" role="document">
 <div className="modal-content">
   <div className="modal-header">
     <h5 className="modal-title" style={{fontWeight: "700"}}><img src={laide} alt = {"laide"}width="30px;"/> Laide Oyekanmi</h5>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -240,12 +240,12 @@ return(
 </div>
 
 
-<div className="modal" tabindex="-1" role="dialog" id="tosin">
+<div className="modal" tabIndex="-1" role="dialog" id="tosin">
 <div className="modal-dialog" role="document">
 <div className="modal-content">
   <div className="modal-header">
     <h5 className="modal-title" style={{fontWeight: "700"}}><img src={tosin} alt = {"tosin"} width="30px"/> Mrs. Tosin Babalola</h5>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -266,12 +266,12 @@ return(
 </div>
 </div>
 
-<div className="modal" tabindex="-1" role="dialog" id="akin">
+<div className="modal" tabIndex="-1" role="dialog" id="akin">
 <div className="modal-dialog" role="document">
 <div className="modal-content">
   <div className="modal-header">
     <h5 className="modal-title" style={{fontWeight: "700"}}><img src={akin} alt = {"akin"} width="30px;"/>Godman Akinlabi</h5>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
