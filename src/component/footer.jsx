@@ -16,7 +16,7 @@ export const Footer= () => (
             </div>
             <div className="col-md-6" style={{textAlign: 'right'}}>
                 <img style={{width: '200px'}} className="banner_logo" src={banner_logo} alt = {"banner_logo"}/>
-                <p>@ 2021  SendPro. All rights reserved.</p>
+                <p>@ 2021  SenPro. All rights reserved.</p>
             </div>
         </div>
     </div>

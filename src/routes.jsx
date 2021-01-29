@@ -27,7 +27,7 @@ import {ResultDashboard} from './component/resultdashboard';
 import {Services} from './component/services';
 import {Resources} from './component/resources';
 import {Process} from './component/start-here';
-// import {ResContextProvider} from '../src/store/context/resultContext'
+import {Privacy} from './component/privacy';
 
 
 const BaseRouter = () => (
@@ -62,6 +62,8 @@ const BaseRouter = () => (
     <Route exact path="/services/" component={Services} />
     <Route exact path="/resources/" component={Resources} />
     <Route exact path="/start-here/" component={Process} />
+    <Route exact path="/privacy/" component={Privacy} />
+
   </div>
 );
 

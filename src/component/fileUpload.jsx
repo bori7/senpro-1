@@ -175,12 +175,14 @@ export const MyDropzone = (props) => {
                     <aside>
                         <h4>Files</h4>
                         <div>
-                            <ul>{files}</ul>
+                            {files}
                             <br/>
                             { fileLoad ?
-                              <ReactLoading type={'bars'} color={'#0ef134e1'} height={'8%'} width={'5%'} /> 
+                              <ReactLoading type={'bars'} color={'#0ef134e1'} height={'5%'} width={'10%'} /> 
                               : null
                             }
+                            
+                           
                             
                         </div>
 
@@ -191,15 +193,21 @@ export const MyDropzone = (props) => {
                                 className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">
                                 Book An Appointment
                                 </button>
-            </div>               
-                </div>    
-                <br/><br/>
-                                <Link className="btn btn-secondary deepblue  curvebtn  my-2 my-sm-0 colorf" 
+                              
+                               
+            </div>  
+            <br/>   
+            <div>
+                            <Link className="btn btn-secondary deepblue  curvebtn  my-2 my-sm-0 colorf" 
                                     style ={{float:'left'}}
                                     to={`/initial/`}>
                                     Previous
-                                </Link>
-        </div>
+                                </Link>  
+                                </div>           
+                </div>    
+                
+                                
+              </div>
 
     </div>
   )
