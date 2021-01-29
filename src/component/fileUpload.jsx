@@ -188,11 +188,15 @@ export const MyDropzone = (props) => {
 
                     </aside>
                     <p className="questions text-danger col-md-9">{errorState}</p>
-
+                    { !fileLoad ?
                                 <button  onClick={handleSubmit} 
                                 className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">
                                 Book An Appointment
                                 </button>
+                                : null
+                      }
+                             
+
                               
                                
             </div>  
