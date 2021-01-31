@@ -24,8 +24,11 @@ export const ResultDashboard = (props) => {
     useEffect(() => {
         
         auth.authCheckState(dispatch, props);
-        let user = JSON.parse(localStorage.getItem('user'));
+        let user = JSON.parse(localStorage.getItem('user'))
+        if (user){
+        
         getChilds(user.userId.pk,user.token,resdispatch)
+        }
    
     }, [state.token,explain]);
 
