@@ -129,7 +129,7 @@ STATIC_ROOT = os.path.join(BASE_DIR,'build', "static")
 MEDIA_URL = '/media/'
 MEDIA_ROOT =  os.path.join(BASE_DIR,"media")
 
-SITE_ID = 5
+SITE_ID = 4
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
