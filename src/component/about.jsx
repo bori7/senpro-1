@@ -194,5 +194,102 @@ export const About = (props) => {
 
 </div>
 
-	</div>
+
+
+<div className="modal" tabIndex="-1" role="dialog" id="laidemodal">
+<div className="modal-dialog" role="document">
+<div className="modal-content">
+  <div className="modal-header">
+    <h5 className="modal-title" style={{fontWeight: "700"}}><img src={laide} alt = {"laide"}width="30px;"/> Laide Oyekanmi</h5>
+    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div className="modal-body">
+    <p>Laide Oyekanmi is an Inclusion Specialist with many years of helping children manage learning challenges. After years of teaching students in the general education stream, she decided to teach children with special education needs. Getting a Master of Arts degree in Teacher Education (Special Education concentration for children with high incidence disabilities) was a step in further pursuing her passion. </p>
+    <h3 className="primary-header ">Degrees</h3>
+    <ul  className="">
+        <li>BSc Biological Sciences (University of West Georgia, USA)</li>
+        <li>Master of Arts in Education (University of Bath, UK)</li>
+        <li>M.A.T. Special Education Concentration for Children with High Incidences (University of West Georgia, USA)</li>
+        <li>Ed. D: Leadership in Special Populations (University of Houston, USA)</li>
+    </ul>
+  </div>
+ 
+</div>
+</div>
+</div>
+
+
+<div className="modal" tabIndex="-1" role="dialog" id="tosin">
+<div className="modal-dialog" role="document">
+<div className="modal-content">
+  <div className="modal-header">
+    <h5 className="modal-title" style={{fontWeight: "700"}}><img src={tosin} alt = {"tosin"} width="30px"/> Mrs. Tosin Babalola</h5>
+    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div className="modal-body">
+    <p>Tosin Babalola is a trained professional with a strong passion for empowering parents by partnering with them and other professionals to work directly with hundreds of children that may be considered to have special needs as well as learning disorders with the aim of ensuring that each child succeeds and reaches their full potential.   </p>
+    <h3 className="primary-header ">Degrees</h3>
+    <ul  className="">
+        <li>BSc: Human Resource Management(University of Lagos)</li>
+        <li>MSc: Special Educational Needs (Inclusive & Psychological </li>
+        <li>Perspectives)(University of Roehampton, UK)</li>
+        <li>Certified Autism Specialist (IBCCES UNIVERSITY)</li>
+        <li>Ph.D. in Educational Psychology(University of Leicester)</li>
+        <li>ASSOCIATIONS REGISTERED IN: British Psychological Society UK, International Board of Credentialing Standards</li>
+    </ul>
+  </div>
+ 
+</div>
+</div>
+</div>
+
+<div className="modal" tabIndex="-1" role="dialog" id="akin">
+<div className="modal-dialog" role="document">
+<div className="modal-content">
+  <div className="modal-header">
+    <h5 className="modal-title" style={{fontWeight: "700"}}><img src={akin} alt = {"akin"} width="30px;"/>Godman Akinlabi</h5>
+    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div className="modal-body">
+    <p>Godman Akinlabi is the Lead Pastor of The <a href="https://elevationng.org/" target="_blank" style={{fontWeight: 'bold' , color: '##222c89'}}>Elevation Church</a>,
+     Lagos which started in 2010 with a God-given mandate to make greatness common. 
+    He is also a seasoned and highly sought-after speaker, trainer, author and consultant who has taught and inspired
+     people in conferences and churches around
+the world.</p>
+<p>He is the visionary behind several initiatives, outreaches and conferences such as the Pistis Foundation,
+ a non-profit 
+organisation established to be a model provider of empowerment opportunities for the economically challenged with its'
+
+ focus areas on education, health and shelter; a Prison Ministry which has been focused on contributing to the rehabilitation and welfare of inmates through medical and surgical interventions, facility and amenities renovation, provision of basic supplies and establishing a scholarship fund for inmate education. Some of these initiatives have also 
+ received awards and recognitions from government parastatals in education, prisons and other sectors. He is also the convener of the Vantage Forum, an annual business & economic outlook event; and Business Roundtable which are both initiatives that help to empower persons in business, the workforce and in government. Under his leadership, there have
+  been other social initiatives such as Elevate 200 (E200), a weekly outreach now in its 8th year, that is focused on feeding, training and empowering the less privileged, as well as several large scale Soup Kitchens and free medical outreaches for the less privileged that have held all over Lagos state. The “Ubomi” project, in collaboration with 
+  reputable health care specialists, provides free medical and surgical services to over 3500 persons annually.
+  </p>
+  <p>
+The Pistis Foundation has several projects underway which include, constructing a single-sex school to provide basic and secondary education to 240 boys, awarding academic scholarships to 65 children, piloting a welfare system which will start with taking in 16 street kids into a shelter while providing all services of a functional home to them. 
+Godman was part of the 2018 Class of Strategic Perspectives in Non-profit Management program of the Harvard University (SPNM18). He is happily married to Bolarinwa and they have two beautiful daughters and live in Lagos, Nigeria.
+</p>
+    <h3 className="primary-header ">Degrees</h3>
+    <ul  className="">
+        <li>BSc: Mining Engineering (FUTA)</li>
+        <li>Master of Arts: International Law and Diplomacy(Unilag)</li>
+        <li>MBA: Manchester Business School</li>
+        <li>AFFILIATIONS: Harvard Business School</li>
+        
+    </ul>
+  </div>
+ 
+</div>
+</div>
+</div>
+    
+        </div>
+
+	
 )}
