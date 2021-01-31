@@ -54,19 +54,46 @@ return(
     <div className="home-slide-item" style={{backgroundImage: `url(${header_2})`}}></div>
     <div className="home-slide-item" style={{backgroundImage: `url(${header_3})`}}></div>
     <div className="home-slide-item" style={{backgroundImage: `url(${header_4})`}}></div>
-    <div className="home-slide-item" style={{backgroundImage: `url(${header_5})`}}></div>
+    {/**<div className="home-slide-item" style={{backgroundImage: `url(${header_5})`}}></div>**/}
 
     
     <MenuLayout/>
     <div className="container-fluid banner-body">
         <div className="row">
             <div className="col-md-5">
-                <h1 className="animate__animated animate__fadeInLeft">Every child deserves to learn.</h1>
-                <p className="animate__animated animate__fadeInLeft">Early intervention makes a difference in predicting a child’s success irrespective of their challenges. Let's help </p>
-                <br/>
-                <Link to={`/start-here/`}>
+                <div class="home-text-wrapper">
+                    <div className="home-text-item text1">
+                            <h1 className="   ">Every child deserves to learn.</h1>
+                            <Link to={`/start-here/`}>
                 <a  className="btn btn-primary btn-lg skyblue curvebtn animate__animated animate__fadeInLeft my-2 my-sm-0 colorf" >Let us help.</a>
                 </Link>
+                    </div>
+                    <div class="home-text-item">
+                        <h1 className="">Early intervention makes a difference in predicting</h1>
+                        <p> a child’s success irrespective of their challenges</p>
+                        <Link to={`/start-here/`}>
+                <a  className="btn btn-primary btn-lg skyblue curvebtn animate__animated animate__fadeInLeft my-2 my-sm-0 colorf" >Let us help.</a>
+                </Link>
+                    </div>
+                    <div class="home-text-item">
+                        <h1 className="">SEN Pro seeks to bridge the gap </h1>
+                        <p>between SEN professionals  and the SEN community by ensuring that professionals are easily accessible</p>
+                        <Link to={`/start-here/`}>
+                <           a  className="btn btn-primary btn-lg skyblue curvebtn animate__animated animate__fadeInLeft my-2 my-sm-0 colorf" >Access Here</a>
+                        </Link>
+                    </div>
+                    <div class="home-text-item">
+                        <h1 className="">At SEN Pro we provide hope and help to members  </h1>
+                        <p> of the SEN community by offering guidance, assessments, intervention and quality care.</p>
+                        <Link to={`/start-here/`}>
+                <a  className="btn btn-primary btn-lg skyblue curvebtn animate__animated animate__fadeInLeft my-2 my-sm-0 colorf" >Find out how.</a>
+                </Link>
+                    </div>
+                 
+                    </div>
+                
+                <br/>
+                
                 </div>
         </div>
     

@@ -17,6 +17,7 @@ export const Footer= () => (
             <div className="col-md-6" style={{textAlign: 'right'}}>
                 <img style={{width: '200px'}} className="banner_logo" src={banner_logo} alt = {"banner_logo"}/>
                 <p>@ 2021  SenPro. All rights reserved.</p>
+                <a href="/privacy/" style={{color: "#fff"}}>Privacy Policy</a>
             </div>
         </div>
     </div>
