@@ -76,14 +76,14 @@ return(
                 </Link>
                     </div>
                     <div class="home-text-item">
-                        <h1 className="">SEN Pro seeks to bridge the gap </h1>
+                        <h1 className="">SENPRO seeks to bridge the gap </h1>
                         <p>between SEN professionals  and the SEN community by ensuring that professionals are easily accessible</p>
                         <Link to={`/start-here/`}>
                 <           a  className="btn btn-primary btn-lg skyblue curvebtn animate__animated animate__fadeInLeft my-2 my-sm-0 colorf" >Access Here</a>
                         </Link>
                     </div>
                     <div class="home-text-item">
-                        <h1 className="">At SEN Pro we provide hope and help to members  </h1>
+                        <h1 className="">At SENPRO we provide hope and help to members  </h1>
                         <p> of the SEN community by offering guidance, assessments, intervention and quality care.</p>
                         <Link to={`/start-here/`}>
                 <a  className="btn btn-primary btn-lg skyblue curvebtn animate__animated animate__fadeInLeft my-2 my-sm-0 colorf" >Find out how.</a>
