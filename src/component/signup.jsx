@@ -133,7 +133,7 @@ const handleSubmit = e => {
                 <div className="col-md-12">
                     <div className="row">
                         <div className="col-12 text-center">	
-                            <h1>Sign Up</h1>
+                            <h1>Get Started</h1>
                         </div>
                     </div>
                     
@@ -192,7 +192,7 @@ const handleSubmit = e => {
                            
                         <div className="col-9 step-control" style={{justifyContent: 'flex-end'}}>
             
-                        <button type="submit" value="Submit" style={{width: '100%'}} className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">SignUp
+                        <button type="submit" value="Submit" style={{width: '100%'}} className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">Get Started
                                 </button>
             
                         </div>

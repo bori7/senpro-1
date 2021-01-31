@@ -121,7 +121,7 @@ return (
           About Us
           </Link>
           </li>
-          <li className="nav-item animate__animated animate__fadeInLeft">
+          <li className="nav-item ">
           <Link className="nav-link" to={`/services/`}>
             Services
           </Link>
@@ -177,10 +177,10 @@ return (
 
     <nav className="banner-nav navbar navbar-expand-lg navbar-light ">
       <a className="navbar-brand animate__animated animate__fadeInLeft" href="/"><img className="banner_logo" src={banner_logo} alt = {"banner_logo_1"}/></a>
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      {/**<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
-
+      **/}
       <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul className="navbar-nav mr-auto">
           

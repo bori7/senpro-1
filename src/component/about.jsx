@@ -1,7 +1,9 @@
 import React from "react";
 import {MenuLayout} from './menu';
 import mini_header_2 from '../static/assets/mini_header_2.png';
-
+import tosin from "../static/assets/tosin.png";
+import laide from "../static/assets/laide.png";
+import akin from "../static/assets/akin.png";
 
 export const About = (props) => {
 
@@ -151,6 +153,46 @@ export const About = (props) => {
 		</div>
 
 	</div>
+
+	<div className="jumbotron  bg-white">
+<div className="container">
+    <div className="row">
+        <div className="col-12 text-center" style={{marginBottom: "20px"}}>
+            <h2 className="header primary-header">Meet Our Team</h2>
+        </div>
+    </div>
+    <div className="row">
+
+        <div className="col-md-4">
+            <a href="#"  data-toggle="modal" data-target="#tosin">
+                <div className="profile-box profile-box-red">
+                    <img src={tosin} alt = {"tosin"}/>
+                    <h3>Tosin Babalola</h3>
+                </div>
+            </a>
+        </div>
+        <div className="col-md-4">
+            <a href="#"  data-toggle="modal" data-target="#laidemodal">
+                <div className="profile-box profile-box-skyblue">
+                    <img src={laide} alt = {"laide"}/>
+                    <h3>Laide Oyekanmi</h3>
+                </div>
+            </a>
+        </div>
+        <div className="col-md-4">
+            <a href="#"  data-toggle="modal" data-target="#akin">
+                <div className="profile-box profile-box-blue">
+                    <img src={akin} alt = {"akin"}/>
+                    <h3>Godman Akinlabi</h3>
+                </div>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
 
 	</div>
 )}
