@@ -200,7 +200,7 @@ export const MyDropzone = (props) => {
                               
                                
             </div>  
-            <br/>   
+              <br/>
             <div>
                             <Link className="btn btn-secondary deepblue  curvebtn  my-2 my-sm-0 colorf" 
                                     style ={{float:'left'}}

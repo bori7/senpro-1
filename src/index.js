@@ -19,9 +19,6 @@ const options = {
     backgroundRepeat:'no-repeat',
     position:'fixed',
     top:'15%',
-
-    
-
   }
 
 }

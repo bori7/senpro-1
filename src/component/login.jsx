@@ -3,6 +3,7 @@ import {MenuLayout} from './menu';
 import mini_header_2 from '../static/assets/mini_header_2.png';
 import {MyContext} from '../store/context/myContext';
 import * as actions from "../store/actions/auth";
+import {Link } from "react-router-dom";
 
 export const Login = (props) => {
 
@@ -110,8 +111,13 @@ export const Login = (props) => {
                             <button onClick = {handleReturn} style={{width: '100%', marginTop : '20px'}} className="btn btn-secondary deepblue curvebtn my-2 my-sm-0 colorf">Get Started
                             </button>
             
-                        </div>
+                            </div>
                        
+                        </div>
+
+                        <div className="row"  style={{marginTop : '20px', justifyContent: 'center'}}>
+                        
+                            <div className="text-center col-9"><p><Link  to={`/resetpassword/`} >Forgot Password?</Link></p></div>
                         </div>
                         
                     </form>
