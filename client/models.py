@@ -59,8 +59,9 @@ class Appointment(models.Model):
     amount = models.CharField(max_length=5)
     completed = models.BooleanField(default=False) 
     timestamp = models.DateTimeField(auto_now_add=True)
+    note = models.TextField(null=True, blank=True, unique=False)
+    time_held = models.DateTimeField(null=True, blank=True, unique=False)
     
-
     def __str__(self):
         return self.user.username
     

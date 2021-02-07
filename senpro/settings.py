@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 import django_heroku
-
+from datetime import timedelta
 
 
 # Configure app for Heroku deployment
@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'django_filters',
      'client',
      'users',
+      'djoser',
     
 ]
 
@@ -128,13 +129,16 @@ STATIC_ROOT = os.path.join(BASE_DIR,'build', "static")
 MEDIA_URL = '/media/'
 MEDIA_ROOT =  os.path.join(BASE_DIR,"media")
 
-SITE_ID = 1
+SITE_ID = 4
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
+        
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
 }
 CSRF_COOKIE_NAME = "csrftoken"
@@ -191,9 +195,21 @@ AUTH_PASSWORD_VALIDATORS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'senproinitiative.confirm@gmail.com'
+EMAIL_HOST_PASSWORD = 'senproreset'
+EMAIL_USE_TLS = True
+
+    
 
 
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('JWT',),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    }
 
 CORS_ALLOW_CREDENTIALS = True
 
@@ -203,5 +219,11 @@ CORS_ORIGIN_ALLOW_ALL = True
 #     'http://localhost:3000', 'http://127.0.0.1:8000',  'http://127.0.0.1:3000'
 # )
 
-
+DJOSER = {
+    'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
+    'SEND_CONFIRMATION_EMAIL':True,
+    'SET_PASSWORD_RETYPE':True,
+    'PASSWORD_RESET_CONFIRM_URL':'resetpasswordconfirm/{uid}/{token}',
+    
+}
 # from .settings_local import *
