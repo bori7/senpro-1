@@ -20,6 +20,15 @@ export const Footer= () => (
                 <a href="/privacy/" style={{color: "#fff"}}>Privacy Policy</a>
             </div>
         </div>
+        <div className="row">
+            <div class="col-12">
+                <ul class="socials">
+                    <li><a href="https://web.facebook.com/senproinitiative"><i className="fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/senproinitiative"><i className="fa fa-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/senproinitiative/"><i className="fa fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
     </div>
     </div>
 )

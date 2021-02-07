@@ -50,7 +50,7 @@ export const Services = () => {
 				</div>
 				<div class="col-md-4 ser-col">
 					<img class="img-responsive" src={assessments}/>
-					<h2>Assessments</h2>
+					<h2>Assessments (Identification and diagnosis)</h2>
 				</div>
 				<div class="col-md-4 ser-col">
 					<img class="img-responsive" src={community}/>
@@ -72,7 +72,7 @@ export const Services = () => {
 				</div>
 				<div class="col-md-4 ser-col">
 					<img class="img-responsive" src={early_intervention}/>
-					<h2>Early Intervention</h2>
+					<h2>Early Intervention (including Speech, Behavior, Counselling, Occupational therapy)</h2>
 				</div>
 				
 				

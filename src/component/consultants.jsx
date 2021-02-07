@@ -22,7 +22,7 @@ export const  Consultants= () => {
 						<div className="row">
 							<div className="col-12">	
 								<h1>Our Consultants</h1>
-								<p style={{color: '#fff'}}>Here are some resources to help in different areas of child development</p>
+								<p style={{color: '#fff'}}>Let our seasoned professionals help you.</p>
 							</div>
 						</div>
 						
