@@ -26,5 +26,6 @@ yarn-debug.log*
 yarn-error.log*
 
 /env
+/.env
 /.vscode
 /senpro/settings_local.py
