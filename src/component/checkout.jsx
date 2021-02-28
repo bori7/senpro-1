@@ -18,6 +18,7 @@ export const CheckOut = (props) => {
     auth.authCheckState(dispatch, props);
     // if(!pk){
     //     pk = state.userId.pk}
+  
     }, [state.token,]);
 
 

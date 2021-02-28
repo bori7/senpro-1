@@ -310,7 +310,7 @@ return (
 
                                 <div className="form-group">
                                     <Editor
-                                        apiKey='r5162qzwgi9cfe8kl1v4nlkwpqb9y1y15sncpe4tt0vdv3jl'
+                                        apiKey={`${process.env.Api_Key}`}
                                         initialValue={editorcontent}
                                         init={{
                                             plugins: 'table lists wordcount emoticons' ,
@@ -417,7 +417,7 @@ return (
                                     <br/>
                                     <Editor
                                         
-                                        apiKey='r5162qzwgi9cfe8kl1v4nlkwpqb9y1y15sncpe4tt0vdv3jl'
+                                        apiKey={`${process.env.Api_Key}`}
                                         initialValue={editorcontent}
                                         init={{
                                             plugins: 'table lists wordcount emoticons' ,

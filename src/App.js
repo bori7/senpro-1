@@ -1,5 +1,6 @@
 import React, {useEffect}  from "react";
 // import {MenuLayout } from './component/menu';
+
 import {Footer } from './component/footer';
 import {MyContextProvider} from './store/context/myContext';
 
@@ -9,6 +10,7 @@ import BaseRouter from "./routes";
 import {ForumContextProvider} from '../src/store/context/forumContext';
 import {ResContextProvider} from '../src/store/context/resultContext';
 import CookieConsent, { Cookies } from "react-cookie-consent";
+
 
 const tawkTo = require("tawkto-react");
 

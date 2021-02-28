@@ -7,6 +7,7 @@ import { getResults} from "../store/actions/assignments";
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
 import { useAlert } from 'react-alert'
 import {capitalizeFirstLetter} from '../store/utility';
+// import dotenv from  'dotenv'
 
 
 
@@ -18,7 +19,7 @@ export const Pay = (props) => {
     const id = props.chill.id
   
    const config = {
-    public_key: 'FLWPUBK_TEST-aa04e2b8c50a2d3dfce7742398f14203-X',
+    public_key: `${process.env.REACT_APP_PUBLIC_KEY}`,
     tx_ref: Date.now(),
     amount: 200,
     currency: 'USD',
