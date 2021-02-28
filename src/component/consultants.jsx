@@ -94,7 +94,7 @@ export const  Consultants= () => {
 							</div>
 							<div className="col-md-4">
 							<a href="#"  data-toggle="modal" data-target="#helen">
-								<div className="profile-box profile-box-blue">
+								<div className="profile-box profile-box-skyblue">
 									<img src={helen} style={{borderRadius: '50%', width: '200px', height: '200px'}}/>
 									<h3>Mrs Helen Obiageli Oshikoya</h3>
 								</div>
@@ -105,7 +105,7 @@ export const  Consultants= () => {
 					<div className="row" style={{marginTop: "20px"}}>
 							<div className="col-md-4">
 								<a href="#"  data-toggle="modal" data-target="#busola">
-									<div className="profile-box profile-box-skyblue">
+									<div className="profile-box profile-box-blue">
 										<img src={busola} style={{borderRadius: '50%', width: '200px', height: '200px'}}/>
 										<h3>Mrs Busola Olumuyiwa </h3>
 									</div>
@@ -113,7 +113,7 @@ export const  Consultants= () => {
 							</div>
 							<div className="col-md-4">
 							<a href="#"  data-toggle="modal" data-target="#adegbajo">
-								<div className="profile-box profile-box-blue">
+								<div className="profile-box profile-box-skyblue">
 									<img src={adegbajo} style={{borderRadius: '50%', width: '200px', height: '200px'}}/>
 									<h3>Adegbajo Odedina</h3>
 								</div>
@@ -148,7 +148,7 @@ export const  Consultants= () => {
 							</div>
 							<div className="col-md-4">
 							<a href="#"  data-toggle="modal" data-target="#laide">
-								<div className="profile-box profile-box-blue">
+								<div className="profile-box profile-box-red">
 									<img src={laide1} style={{borderRadius: '50%', width: '200px', height: '200px'}}/>
 									<h3>Mrs Laide Oyekanmi</h3>
 								</div>
