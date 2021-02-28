@@ -1,7 +1,13 @@
-import React from "react";
+import React, {useEffect} from "react";
 import banner_logo from "../static/assets/banner_logo.png";
 import  '../../src/static/style.css';
-export const Footer= () => (
+
+
+export const Footer= () => {
+    
+  
+
+    return(
   
 <div className="jumbotron blueimage bgimg footer">
     <div className="container">
@@ -31,4 +37,5 @@ export const Footer= () => (
         </div>
     </div>
     </div>
-)
+    )
+}

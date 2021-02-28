@@ -8,10 +8,11 @@ from rest_framework.status import (
 
 from .models import Child, Appointment, Result, Files
 from .serializers import ChildSerializer, AppointmentSerializer, ResultSerializer
-from rest_framework.authentication import SessionAuthentication
+from rest_framework.authentication import SessionAuthentication, TokenAuthentication
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
 from rest_framework.views import APIView
+from rest_framework import generics
 import pdb
 
 
@@ -28,10 +29,10 @@ class ChildViewSet(viewsets.ModelViewSet):
 
 class AppointmentViewSet(viewsets.ModelViewSet):
     serializer_class = AppointmentSerializer
-    authentication_classes = [ SessionAuthentication,]
-    permission_classes = (permissions.AllowAny, )
+    authentication_classes = [TokenAuthentication,  SessionAuthentication]
+    permission_classes = (permissions.IsAuthenticated,)
     filter_backends = [DjangoFilterBackend,filters.OrderingFilter]
-    # filterset_fields = ['parent']
+    filterset_fields = ['status', 'consultant']
     ordering_fields = ['timestamp']
     queryset = Appointment.objects.all()  
 

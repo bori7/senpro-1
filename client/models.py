@@ -61,6 +61,9 @@ class Appointment(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     note = models.TextField(null=True, blank=True, unique=False)
     time_held = models.DateTimeField(null=True, blank=True, unique=False)
+    consultant = models.IntegerField(null=True, blank=True)
+    status = models.CharField(max_length=200, default='paid')
+    appointment_date = models.DateTimeField(null=True, blank=True)
     
     def __str__(self):
         return self.user.username

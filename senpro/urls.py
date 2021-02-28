@@ -21,16 +21,20 @@ from client.views import UploadFiles
 from django.conf import settings
 from django.conf.urls.static import static
 
+def trigger_error(request):
+    division_by_zero = 1 / 0
+
+
+
 urlpatterns = [
+    path('sentry-debug/', trigger_error),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    
     path('rest-auth/', include('rest_auth.urls')),
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
     path('clients/', include('client.urls')),
     path('uploadFiles', UploadFiles.as_view()),
     path('community/', include('forum.urls')),
-    # path('consultants', Consultant.as_view()),
     path('rest-auth/', include('djoser.urls')),
     path('rest-auth/', include('djoser.urls.jwt')),
    
