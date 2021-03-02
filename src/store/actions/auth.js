@@ -106,7 +106,7 @@ export const authSignup = (
         checkAuthTimeout(360000,dispatch);
 
         window.emailjs.send(
-          'service_37tv5bq',
+          'gmail',
           'template_fkturqn',
            templateParams,
            "user_jDFiteMUy9NWNFehWpWQR"
