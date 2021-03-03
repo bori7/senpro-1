@@ -61,6 +61,7 @@ const onSuccess = () => {
     "user_jDFiteMUy9NWNFehWpWQR"
     ).then(res => {
     // console.log(res)
+    actions.createAppointment(state.token,appnt,resdispatch)
     
     alert.show('Check your e-mail for your Appointemt schedule',{type: 'success',});
     })
@@ -69,7 +70,7 @@ const onSuccess = () => {
     alert.show('Email not sent',{type: 'error',});
     })
 
-    actions.createAppointment(state.token,appnt,resdispatch)
+    
     
     
 }
