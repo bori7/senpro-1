@@ -34,7 +34,7 @@ class ResultSerializer(serializers.ModelSerializer):
         fields = ('__all__')
 
 class AppointmentSerializer(serializers.ModelSerializer):
-    # child = StringSerializer(many=False)
+    user_id = serializers.RelatedField(source='user', read_only=True)
     
     class Meta:
         model = Appointment
