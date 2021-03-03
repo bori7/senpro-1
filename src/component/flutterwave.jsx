@@ -70,7 +70,7 @@ const onSuccess =  () => {
     }
 
     window.emailjs.send(
-    'service_37tv5bq',
+    'gmail',
     'template_q8uee8n',
     templateParams,
     "user_jDFiteMUy9NWNFehWpWQR"
