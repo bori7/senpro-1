@@ -13,7 +13,7 @@ export const PayAppoint = (props) => {
     const {resstate, resdispatch} = useContext(ResContext)
 
   const config = {
-    public_key: 'FLWPUBK-b1ec033b346ee09e8ee85d8d68580d78-X',//`${process.env.REACT_APP_PUBLIC_KEY}`,
+    public_key: `${process.env.REACT_APP_PUBLIC_KEY}`,
     tx_ref: Date.now(),
     amount: 100,
     currency: 'USD',
