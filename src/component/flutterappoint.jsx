@@ -40,6 +40,7 @@ const appnt = {
                 user: props.pk,
                 professional: props.name,
                 amount: props.amount,
+                user_id: props.pk
               }
               // console.log(appnt)
 
