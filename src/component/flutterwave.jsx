@@ -57,7 +57,7 @@ const onSuccess =  () => {
     var message = ''
     var u
     for (u of title){
-    message += u + " " +"\n" + " "
+    message += "<p>"+u+"</p>"+ " " +"\n" + " "
     }
 
     let templateParams = {

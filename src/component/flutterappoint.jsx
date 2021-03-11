@@ -64,7 +64,7 @@ const onSuccess = () => {
     // console.log(res)
     actions.createAppointment(state.token,appnt,resdispatch)
     
-    alert.show('Check your e-mail for your Appointemt schedule',{type: 'success',});
+    //alert.show('Check your e-mail for your Appointemt schedule',{type: 'success',});
     })
     .catch(err => {
       // console.log(err)
@@ -81,7 +81,9 @@ const fwConfig = {
     text: 'Book Now!',
     className:"btn btn-warning deepblue curvebtn my-2 my-sm-0 margin-right colorf",
     callback: (response) => {
-    
+
+      console.log(response)
+      
        onSuccess();
       closePaymentModal()
     },

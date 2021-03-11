@@ -1116,4 +1116,13 @@ p.question{
 .forum-header h1 {
     font-size: 50px;
 }
+
+.fc-button-group{
+	margin-left: 0px !important;
+	margin-top: 20px  ;
+}
+
+.fc table {
+	font-size: 0.7em  !important;
+}
 }

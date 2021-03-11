@@ -80,11 +80,11 @@ const handleClick = (id,e) => {
                         <br/><br/><br/>
                         {chilre.length!==0 ?
                        <div class="row">
-                           <div class="col-md-6">
+                           <div class="col-md-6 col-xs-6">
                                 <h4 class="form-title">Surveys</h4>
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 col-xs-6">
                                 <h4 class="form-title">Results</h4>
                             </div>
                        </div>:""}

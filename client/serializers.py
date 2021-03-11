@@ -26,6 +26,14 @@ class ChildSerializer(serializers.ModelSerializer):
         fields = ('__all__')
 
 
+class UserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ('email', 'id')
+
+
+
 class ResultSerializer(serializers.ModelSerializer):
     # child = StringSerializer(many=False)
     
@@ -34,10 +42,11 @@ class ResultSerializer(serializers.ModelSerializer):
         fields = ('__all__')
 
 class AppointmentSerializer(serializers.ModelSerializer):
-    user_id = serializers.RelatedField(source='user', read_only=True)
+    user_email = serializers.CharField(read_only=True, source="user.email")
     
     class Meta:
         model = Appointment
         fields = ('__all__')
-        depth = 1
+        
+ 
  
