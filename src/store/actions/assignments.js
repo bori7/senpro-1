@@ -204,7 +204,7 @@ export const createChild = (token, child, dispatch,dispatch2) => {
   
 };
 
-export const createAppointment = (token, appointment, dispatch) => {
+export const createAppointment = (token, appointment, dispatch, props) => {
  
   dispatch(createAppointmentStart());
   
@@ -214,12 +214,13 @@ export const createAppointment = (token, appointment, dispatch) => {
     "Content-Type": "application/json",
     Authorization: `Token ${process.env.REACT_APP_Api_Key}`
   };
-axios
+return axios
     .post(`${HOST_URL}/clients/appointments/`, appointment)
     .then(res => {
-      
+      console.log(res)
       dispatch(createAppointmentSuccess(res.data));
-
+      return res
+     
     })
     .catch(err => {
       dispatch(createAppointmentFail(err.response));

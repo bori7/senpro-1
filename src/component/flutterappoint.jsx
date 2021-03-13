@@ -5,12 +5,14 @@ import { useAlert } from 'react-alert';
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
 import {capitalizeFirstLetter} from '../store/utility';
 import * as actions from "../store/actions/assignments";
+import { useHistory } from "react-router-dom";
 
 export const PayAppoint = (props) => {
 
     const alert = useAlert()
     const {state, dispatch} = useContext(MyContext)
     const {resstate, resdispatch} = useContext(ResContext)
+    const history = useHistory();
 
   const config = {
     public_key: `${process.env.REACT_APP_PUBLIC_KEY}`,
@@ -62,10 +64,12 @@ const onSuccess = () => {
     "user_jDFiteMUy9NWNFehWpWQR"
     ).then(res => {
     // console.log(res)
-    actions.createAppointment(state.token,appnt,resdispatch)
+    actions.createAppointment(state.token,appnt,resdispatch, props)
+    .then(res => history.push(`/manage-appointment/`))
     
-    //alert.show('Check your e-mail for your Appointemt schedule',{type: 'success',});
+   
     })
+    .then()
     .catch(err => {
       // console.log(err)
     alert.show('Email not sent',{type: 'error',});
@@ -82,10 +86,10 @@ const fwConfig = {
     className:"btn btn-warning deepblue curvebtn my-2 my-sm-0 margin-right colorf",
     callback: (response) => {
 
-      console.log(response)
       
+        closePaymentModal()
        onSuccess();
-      closePaymentModal()
+
     },
     onClose: () => {},
   };
