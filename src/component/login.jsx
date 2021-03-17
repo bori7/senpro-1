@@ -29,10 +29,15 @@ export const Login = (props) => {
                 initial["option2"] = e.target.option2.value
 
                 actions.authLogin(initial["option1"].toLowerCase(), initial["option2"],dispatch)
-                if (state.token){
+                .then(user => {
+                    console.log(state.token)
+                    if (state.token){
             
-                    props.history.push("/start-here/");
-                }
+                        props.history.push("/start-here/");
+                    }
+
+                })
+               
         }
 
   const handleReturn = e => {

@@ -129,7 +129,7 @@ STATIC_ROOT = os.path.join(BASE_DIR,'build', "static")
 MEDIA_URL = '/media/'
 MEDIA_ROOT =  os.path.join(BASE_DIR,"media")
 
-SITE_ID = 4
+SITE_ID = 3
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
@@ -194,13 +194,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'senproinitiative.confirm@gmail.com'
-EMAIL_HOST_PASSWORD = 'senproreset'
-EMAIL_USE_TLS = True
 
     
 
@@ -226,5 +219,7 @@ DJOSER = {
     'PASSWORD_RESET_CONFIRM_URL':'resetpasswordconfirm/{uid}/{token}',
     
 }
-# from .settings_local import *
+
+DEFAULT_FROM_EMAIL = 'info@senproinitiative.org'
+from .settings_local import *
 

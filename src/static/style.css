@@ -250,7 +250,7 @@
 }
 
 body{
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', sans-serif !important;
 }
 
 .dot-line{
@@ -840,6 +840,10 @@ p.question{
 		
 	}
 
+	.doctor h3{
+		font-size: 12px !important
+	}
+
 	.banner-nav{
 		display: none !important;
 	}
@@ -1112,9 +1116,23 @@ p.question{
 	  color : #fff;
   }
 
+.doctor:hover .overlay, .selected.overlay{
+	position: absolute;
+	background-color: rgba(0,0,0,0.2);
+	height: 100%;
+	width: 100%
+}
+
+
+
 @media screen and (max-width: 768px){
 .forum-header h1 {
     font-size: 50px;
+}
+
+.fc .fc-toolbar {
+   
+    flex-direction: column;
 }
 
 .fc-button-group{

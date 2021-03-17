@@ -30,7 +30,8 @@ import {Process} from './component/start-here';
 import {Privacy} from './component/privacy';
 import {ResetPassword} from './component/resetPassword';
 import {ResetPasswordConfirm} from './component/resetPasswordConfirm';
-import {AppointmentForm} from './component/appointment'
+import {AppointmentForm} from './component/appointment';
+import {ThankYou} from './component/thankyou'
 
 
 const BaseRouter = () => (
@@ -66,7 +67,8 @@ const BaseRouter = () => (
     <Route exact path="/resources/" component={Resources} />
     <Route exact path="/start-here/" component={Process} />
     <Route exact path="/privacy/" component={Privacy} />
-    <Route exact path="/manage-appointment/" component={AppointmentForm} />
+    <Route exact path="/manage-appointment/:id" component={AppointmentForm} />
+    <Route exact path="/thank-you" component={ThankYou} />
 
     <Route exact path="/resetpassword/" component={ResetPassword} />
     <Route path="/resetpasswordconfirm/:uid/:token" component={ResetPasswordConfirm} />

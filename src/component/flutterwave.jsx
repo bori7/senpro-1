@@ -48,6 +48,7 @@ const onSuccess =  () => {
     
     updateChild(id,child,state.token, resdispatch)
     getResults(id,state.token, resdispatch)
+
    
 
     setTimeout(function(){
@@ -57,7 +58,7 @@ const onSuccess =  () => {
     var message = ''
     var u
     for (u of title){
-    message += "<p>"+u+"</p>"+ " " +"\n" + " "
+    message += "Thank you for the recent payment you have made to us. You can now login to the website to view the result of your survey!."
     }
 
     let templateParams = {

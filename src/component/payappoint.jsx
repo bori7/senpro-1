@@ -37,8 +37,6 @@ export const PayAppoint = (props) => {
         config,
         text: 'Paystack Button Implementation',
         onSuccess: () => 
-
-        
         {
 
             var message = "You have been scheduled to meet with the "+props.name

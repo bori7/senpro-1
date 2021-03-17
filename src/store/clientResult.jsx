@@ -1,2 +1,2 @@
 
-export const HOST_URL = "http://localhost:9000"
+export const HOST_URL = "http://localhost:8000"

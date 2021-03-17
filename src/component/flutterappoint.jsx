@@ -48,32 +48,49 @@ const appnt = {
 
 const onSuccess = () => {
 
-    var message = "You have been scheduled to meet with the "+props.name
+    var message = "Thank you for the recent payment you have made to us. You will notified through email on further updates. Thanks"
     let templateParams = {
     from_name: 'SENPRO',
     to_name: capitalizeFirstLetter( state.username) ,
-    subject: 'SENPRO ANALYSIS',
+    subject: 'Payment Recieved',
     message: message,
     check:'check the website for the contact of the '+props.name,
     reply_to: state.userId.email }
 
     window.emailjs.send(
-    'gmail',
+    'service_1u7opk2',
     'template_fkturqn',
     templateParams,
     "user_jDFiteMUy9NWNFehWpWQR"
     ).then(res => {
     // console.log(res)
     actions.createAppointment(state.token,appnt,resdispatch, props)
-    .then(res => history.push(`/manage-appointment/`))
+    .then(res => history.push(`/manage-appointment/${res.data.id}`))
     
    
     })
-    .then()
+    
     .catch(err => {
       // console.log(err)
     alert.show('Email not sent',{type: 'error',});
     })
+
+
+    var message = "An application has just been submitted on SENPRO. Please login to the consultant to review"
+    let templateParams2 = {
+    from_name: 'SENPRO',
+    to_name: 'Admin' ,
+    subject: 'Appointment Request Submitted',
+    message: message,
+    check:'check the website for the contact of the '+props.name,
+    reply_to: 'contact@senproinitiative.org' }
+
+    window.emailjs.send(
+    'service_1u7opk2',
+    'template_fkturqn',
+    templateParams2,
+    "user_jDFiteMUy9NWNFehWpWQR"
+    )
 
     
     

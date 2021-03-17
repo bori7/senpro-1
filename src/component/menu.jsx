@@ -128,7 +128,7 @@ return (
           </li>
         <li className="nav-item ">
         <Link className="nav-link" to={`/consultants/`}>
-            SenPro Consultants
+            Consultants
           </Link>
           </li>
         <li className="nav-item ">
@@ -197,7 +197,7 @@ return (
           </li>
           <li className="nav-item animate__animated animate__fadeInLeft">
         <Link className="nav-link" to={`/consultants/`}>
-            SenPro Consultants
+            Consultants
           </Link>
           </li>
           <li className="nav-item animate__animated animate__fadeInLeft">

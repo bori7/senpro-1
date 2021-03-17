@@ -58,7 +58,10 @@ export const authLogin = (username, password, dispatch) => {
         localStorage.setItem("user", JSON.stringify(user));
         dispatch(authSuccess(user,res));
       
+
         checkAuthTimeout(3600,dispatch);
+        return user
+        
       })
       .catch(err => {
         if(!err.response.data.non_field_errors){
