@@ -121,7 +121,7 @@ This allows technology to be used as a tool for breaking the barriers to accessi
 
 								<div class="col-lg-6">
 								{!state.token  &&
-                                <Link className="btn btn-primary btn-lg skyblue curvebtn animate__animated animate__fadeInLeft my-2 my-sm-0 colorf" style={{width: '100%'}} to={`/signup/`}>
+                                <Link className="btn btn-primary btn-lg skyblue curvebtn animate__animated animate__fadeInLeft my-2 my-sm-0 colorf" style={{width: '100%'}} to={`/initial/`}>
                                     Get Started
                                 </Link>
 								}
