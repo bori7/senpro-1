@@ -212,7 +212,7 @@ export const createAppointment = (token, appointment, dispatch, props) => {
   axios.defaults.xsrfCookieName = "csrftoken";
   axios.defaults.headers = {
     "Content-Type": "application/json",
-    Authorization: `Token ${process.env.REACT_APP_Api_Key}`
+   //Authorization: `Token ${process.env.REACT_APP_Api_Key}`
   };
 return axios
     .post(`${HOST_URL}/clients/appointments/`, appointment)

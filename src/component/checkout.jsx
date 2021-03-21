@@ -24,7 +24,7 @@ export const CheckOut = (props) => {
 
 const professionals = [ {name:"Counsellor",price:'$75/hr',amount:75},
                         {name:"Behavioral Analyst",price:'$100/hr',amount:100},
-                        {name:"One More",price:'$200/hr',amount:75},
+                        {name:"Educational Psychologist",price:'$200/hr',amount:75},
                         {name:"Clinical Psychologist",price:'$75/hr',amount:200},
                         {name:"Advocate",price:'$75/hr',amount:75},
                         {name:"Paediatrician",price:'$150/hr',amount:150},
