@@ -30,7 +30,7 @@ class ChildViewSet(viewsets.ModelViewSet):
 class AppointmentViewSet(viewsets.ModelViewSet):
     serializer_class = AppointmentSerializer
     authentication_classes = [TokenAuthentication,  SessionAuthentication]
-    permission_classes = (permissions.AllowAny,)#
+    permission_classes = (permissions.AllowAny,)
     filter_backends = [DjangoFilterBackend,filters.OrderingFilter]
     filterset_fields = ['status', 'consultant']
     ordering_fields = ['timestamp']
