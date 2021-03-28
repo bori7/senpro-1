@@ -59,8 +59,8 @@ export const ThankYou = (props) => {
                     <div className="row">
                         <div className="col-md-12 text-center">
                         <h4 className="form-title ">Thank You!</h4>
-                        <p>Check you email for updates from us</p>
-                        <Link className="btn btn-primary deepblue curvebtn " to={`/forum/`}>Check Out Our Forum</Link>
+                        <p>Check your email for updates from us</p>
+                        <Link className="btn btn-primary deepblue curvebtn " to={`/forum/`}>Please check out our Forum</Link>
                         </div>
 
 

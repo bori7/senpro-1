@@ -221,5 +221,13 @@ DJOSER = {
 }
 
 DEFAULT_FROM_EMAIL = 'info@senproinitiative.org'
+
+
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 from .settings_local import *
 

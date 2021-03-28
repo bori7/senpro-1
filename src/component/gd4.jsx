@@ -150,8 +150,8 @@ question_list.forEach( x => {
 
             if (initial["option5"] === 'yes' ){
             tit.push('Consult one of our highly skilled speech pathologists and occupational therapists at your earliest convenience. ')
-            exp.push('Consult one of our highly skilled speech pathologists and occupational therapists at your earliest convenience. ')
-            tip.push('Consult one of our highly skilled speech pathologists and occupational therapists at your earliest convenience. ')
+            exp.push(' ')
+            tip.push('')
             }
 
             if (initial["option7"] === 'no'){
@@ -198,11 +198,22 @@ question_list.forEach( x => {
             
             updateChild(chilre.id,chilre,state.token, resdispatch)
     
-            createResult(state.token, asnt,resdispatch)
+            
             createGradedASNT(asnt,resdispatch);
          
             getChilds(state.userId.pk,state.token,resdispatch)
-            props.history.push('/childresult/');}
+            createResult(state.token, asnt,resdispatch).then(
+                res => {props.history.push('/childresult/')}
+            )
+            
+            
+            
+            
+            
+            ;}
+
+
+            
   }
 
   const handleReturn = e => {

@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from main.views import Consultant
 from django.views.generic import TemplateView
-from client.views import UploadFiles
+from client.views import UploadFiles, SendRegistrationEmail, CreateResults, SendPaymentEmail, SendPaymentAppointmentEmail, SendAppointmentEmail
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -37,7 +37,11 @@ urlpatterns = [
     path('community/', include('forum.urls')),
     path('rest-auth/', include('djoser.urls')),
     path('rest-auth/', include('djoser.urls.jwt')),
-   
+    path('send_registration_email', SendRegistrationEmail.as_view()),
+    path('send_payment_email', SendPaymentEmail.as_view()),
+    path('send_appointment_email', SendAppointmentEmail.as_view()),
+    path('send_appointment_pay', SendPaymentAppointmentEmail.as_view()),
+    path('result/create', CreateResults.as_view()),  
 ]
 
 if settings.DEBUG:

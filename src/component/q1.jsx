@@ -180,7 +180,7 @@ export const Question1 = (props) => {
                                 <p className="question">If yes, please state which professional:</p>
                             </div>
                             <div className="col-md-3">
-                            <input input className="question-input form-control" type="text" id = "option7"name = "option7" required />
+                            <input input className="question-input form-control" type="text" id = "option7"name = "option7"  />
                             
                             </div>
                         </div>

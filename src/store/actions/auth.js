@@ -44,7 +44,7 @@ export const authLogin = (username, password, dispatch) => {
   
     return axios
       .post(`${HOST_URL}/rest-auth/login/`, {
-        username: username,
+        email : username,
         password: password
       })
       .then(res => {
@@ -72,7 +72,7 @@ export const authLogin = (username, password, dispatch) => {
           var seror = 'Please reload the page and login again'
         }else{
           var seror=err.response.data.non_field_errors[0]
-          seror+=' \nIncorrect Username or Password'}
+          seror+=' '}
         dispatch(authFail(seror));
       }});
   };
@@ -84,7 +84,8 @@ export const authSignup = (
   password1,
   password2,
  dispatch,
- templateParams
+ templateParams,
+ props
 ) => {
   
     dispatch(authStart());
@@ -108,12 +109,8 @@ export const authSignup = (
         dispatch(authSuccess(user,res));
         checkAuthTimeout(360000,dispatch);
 
-        window.emailjs.send(
-          'gmail',
-          'template_fkturqn',
-           templateParams,
-           "user_jDFiteMUy9NWNFehWpWQR"
-         ).then(res => {
+        fetch(`${HOST_URL}/send_registration_email?email=${templateParams.reply_to}&username=${templateParams.to_name}`)
+         .then(res => {
         
       })
       .catch(err =>{
@@ -124,17 +121,14 @@ export const authSignup = (
       })
       .catch(err => {
         
-        var errd=""
-        if(err.response.data.non_field_errors[0].toLowerCase().includes('invalid token')){
-          var seror = 'Please reload the page and login again'
-        }
-        else if(err.response.data){
-        Object.entries(err.response.data).forEach(
-          ([key, value]) => (errd += value+'\n'))
-        }else{
-          errd = 'Incorrect Username or Password'
-        }
+        let errd = 'Username or email has already been used'
         dispatch(authFail(errd));
+        props.history.push(
+        {
+        pathname: '/signup/',
+        state: { error: errd }
+        }
+        );
         
         
       });

@@ -1,4 +1,4 @@
-import React ,{useEffect, useContext} from "react";
+import React ,{useEffect, useContext, useState} from "react";
 import {MenuLayout} from './menu';
 import mini_header_2 from '../static/assets/mini_header_2.png';
 import {MyContext} from '../store/context/myContext';
@@ -7,10 +7,12 @@ import * as auth from "../store/actions/auth";
 import './checkout.styles.scss';
 
 
+
 export const CheckOut = (props) => {
     
     
     const {state, dispatch} = useContext(MyContext);
+    const [load, setLoad] = useState(false)
     var pk = ''
     if(state.userId){pk = state.userId.pk}
 
@@ -32,15 +34,20 @@ const professionals = [ {name:"Counsellor",price:'$75/hr',amount:75},
                         ]
 
 
-    const handleReturn = e => {
-            e.preventDefault();
+   const toggleLoadState = () =>{
+     
+        setLoad(!load)
+   }
 
-            props.history.goBack();
-            }
+   const setModal = () => {
+       setLoad(false)
+   }
+
 
 return (
 
     <div>
+         {load? <div className="se-pre-con"></div>:null}
 
         <div className="jumbotron forum-header mini_header bgimg" style={{backgroundImage: {mini_header_2}}}>
 
@@ -76,21 +83,15 @@ return (
                             style={{height: '200px'}}>
                                 <h3  >{x.name} </h3>
                                 <h2 > {x.price} </h2>
-                                <a key={professionals.indexOf(x)+1}  >
-                                    <PayAppoint amount={x.amount} name={x.name} pk={pk}/>    
+                                <a key={professionals.indexOf(x)+1} onClick={toggleLoadState}  >
+                                    <PayAppoint closeModal={setModal} amount={x.amount} name={x.name} pk={pk}/>    
                                 </a>
                             </div>
                         </div>
                         ) 
                     }
             </div>
-            <div class="row">
-                <div className="col-12 step-control">
-                    <button onClick = {handleReturn}
-                    className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">Previous
-                    </button>
-                </div>
-            </div>
+          
         </div>
 		
             

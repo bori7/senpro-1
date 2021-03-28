@@ -29,39 +29,39 @@ import {ForumContext} from '../store/context/forumContext';
 
      
       if (state.error)
-       { alert.show(state.error,{ type: 'error',});
+       { //alert.show(state.error,{ type: 'error',});
    
         errorSuccess(dispatch)
     
       };
       if (resstate.error)
-       { alert.show(resstate.error,{ type: 'error',});
+       { //alert.show(resstate.error,{ type: 'error',});
   
        
         errorSuccess(resdispatch)
      
       };
       if ( forumstate.error)
-       { alert.show(forumstate.error,{ type: 'error',});
+       { //alert.show(forumstate.error,{ type: 'error',});
       
         
         errorSuccess(forumdispatch)
       };
 
       if (state.message) { 
-         alert.show(state.message,{ type: 'info',})
+         //alert.show(state.message,{ type: 'info',})
         messageSuccess(dispatch)
       
       };
 
       if ( resstate.message ) { 
-        alert.show(resstate.message,{ type: 'info',})
+        //alert.show(resstate.message,{ type: 'info',})
         
         messageSuccess(resdispatch)
      
       };
       if (forumstate.message) { 
-       alert.show(forumstate.message,{ type: 'info',})
+       //alert.show(forumstate.message,{ type: 'info',})
        
         messageSuccess(forumdispatch)
       };

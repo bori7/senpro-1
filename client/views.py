@@ -13,7 +13,11 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
 from rest_framework.views import APIView
 from rest_framework import generics
+from django.template.loader import render_to_string
 import pdb
+import requests
+from django.utils.html import strip_tags
+from django.conf import settings
 
 
 class ChildViewSet(viewsets.ModelViewSet):
@@ -62,7 +66,102 @@ class UploadFiles(APIView):
         return Response({})
 
 
+class SendRegistrationEmail(APIView):
+    authentication_classes = [ SessionAuthentication,]
+    permission_classes = (permissions.AllowAny, )
 
+    def get(self, request):
+        to_email = request.GET.get('email')
+        username = request.GET.get('username')
+        message = render_to_string('registration.html', {'username': username})
+        resp = send_mail_task(message, [to_email], 'Successful Registration')
+        return Response({'message': resp.text})
+
+
+class SendPaymentEmail(APIView):
+
+    authentication_classes = [ SessionAuthentication,]
+    permission_classes = (permissions.AllowAny, )
+
+    def get(self, request):
+        to_email = request.GET.get('email')
+        child = request.GET.get('child')
+        try:
+            survey = Child.objects.get(id=child)
+            if not survey.paid:#dont send email if not paid
+                return Response(status=HTTP_400_BAD_REQUEST)
+        except Child.DoesNotExist:
+            return Response(status=HTTP_400_BAD_REQUEST)
+        results = Result.objects.filter(child_id=child)
+        message = render_to_string('result.html', {'request': request, 'results': results}) 
+        resp = send_mail_task(message, [to_email], 'Your Result Is Now Available')
+        return Response({'message': resp.text})
+
+
+class SendAppointmentEmail(APIView):
+
+    authentication_classes = [ SessionAuthentication,]
+    permission_classes = (permissions.AllowAny, )
+
+    def get(self, request):
+        appointment_id = request.GET.get('id')
+        try:
+            appointment = Appointment.objects.get(pk=appointment_id)
+            if not appointment.availability:
+                return Response(status=HTTP_400_BAD_REQUEST)
+        except Appointment.DoesNotExist:
+            return Response(status=HTTP_400_BAD_REQUEST)
+        message = render_to_string('appointment-email.html', {'request': request, 'start_date': appointment.user_prefered_time, 'consultant_name': appointment.consultant_name}) 
+        resp = send_mail_task(message, [appointment.user.email, appointment.consultant_email, 'toluwani.career@gmail.com'], 'Senpro Appointment Details')
+        return Response({'message': resp.text})
+
+
+class SendPaymentAppointmentEmail(APIView):
+    authentication_classes = [ SessionAuthentication,]
+    permission_classes = (permissions.AllowAny, )
+
+    def get(self, request):
+        appointment_id = request.GET.get('id')
+        try:
+            appointment = Appointment.objects.get(pk=appointment_id)
+            
+        except Appointment.DoesNotExist:
+            return Response(status=HTTP_400_BAD_REQUEST)
+
+        message = render_to_string('appointment-payt.html', {'request': request, 'app_id': appointment_id}) 
+        resp = send_mail_task(message, [appointment.user.email], 'Payment Successful')
+        return Response({'message': resp.text})
+
+
+
+
+    
+
+
+def send_mail_task(message,  to_email, subject, from_email='support@senproinitiative.org'):
+    resp =  requests.post(
+		'https://api.elasticemail.com/v2/email/send',
+		data={"from": "%s"%from_email,
+			"to": to_email,
+			"subject": subject,
+			"bodyText":strip_tags(message),
+            'bodyHtml': message,
+            'apiKey' : settings.ELASTICEMAIL_API_KEY
+
+        }
+            )
+    return resp
+
+
+class CreateResults(APIView):
+    authentication_classes = [ SessionAuthentication,]
+    permission_classes = (permissions.AllowAny,  )
+
+    def post(self, request):
+        results = request.data
+        for result in results:
+            Result.objects.create(title=result['title'], child_id=result['child'], explain=result['explain'], tip=result['tip'])
+        return Response()
 
 
 

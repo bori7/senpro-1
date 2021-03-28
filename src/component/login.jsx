@@ -76,11 +76,12 @@ export const Login = (props) => {
                     
                     <form onSubmit={handleSubmit}>
                     
-                    <p className="questions text-danger col-md-9">{error}</p>
+                   
                         <div className="row questions" style={{justifyContent: 'center'}}>
                             
                             <div className="col-md-9">
-                            <input input className="question-input form-control" placeholder="Username" type="text" id = "option1" name = "option1" required />
+                            <p className="questions text-danger col-md-9">{error}</p>
+                            <input input className="question-input form-control" placeholder="Email" type="email" id = "option1" name = "option1" required />
                             
                             </div>
                         </div>

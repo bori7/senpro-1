@@ -914,7 +914,7 @@ p.question{
 	.question-box {
     justify-content: flex-start;
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 
@@ -1143,4 +1143,28 @@ p.question{
 .fc table {
 	font-size: 0.7em  !important;
 }
+}
+
+.answer-title {
+	font-weight: bold
+}
+
+.answer-container{
+		border-bottom: 2px solid #d63c78;
+}
+
+.divider{
+	border-bottom: 2px solid #24a9b3;
+}
+h4{
+	font-size: 1.2rem  !important;
+}
+
+.overlay-page{
+	position: fixed;
+	top: 0px;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(255, 255, 255, 0.5);
+	z-index: 10;
 }

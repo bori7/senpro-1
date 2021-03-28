@@ -6,6 +6,7 @@ import * as actions from "../store/actions/auth";
 import { Divider, Card } from '@material-ui/core'; 
 import { useAlert } from 'react-alert'
 import {capitalizeFirstLetter} from '../store/utility';
+import { useLocation } from "react-router-dom";
 
 
 export const SignUp = (props) => {
@@ -15,16 +16,21 @@ export const SignUp = (props) => {
   
     const [error, setError] = useState('');
     const {state,dispatch} = useContext(MyContext)
+    const location = useLocation();
+
+    
 
      const [stat, setStat] = useState({ input: {},
         errors: {}});
   
     useEffect(() => {
 
-        if (state.error)
-      { setError(state.error);
        
-    
+      { 
+          if (location.state?.error){
+              setError(location.state.error)
+          }
+       
      };
 
 
@@ -36,7 +42,7 @@ export const SignUp = (props) => {
      
 
      
-    }, [ state.token]);
+    }, [ ]);
 
    
 
@@ -110,9 +116,9 @@ const handleSubmit = e => {
                     reply_to: initial["option2"] }
                 
                 actions.authSignup( initial["option1"].toLowerCase(), initial["option2"],
-                    initial["option3"],initial["option4"],dispatch, templateParams)
+                    initial["option3"],initial["option4"],dispatch, templateParams, props)
                 if(state.token){
-                    alert.show('Welcome')
+                   
                     props.history.push('/');
                 }else{
                     props.history.push("/initial/");
@@ -150,10 +156,10 @@ const handleSubmit = e => {
 
                     
                     <form onSubmit={handleSubmit}>
-                    <p className="questions text-danger col-md-9">{error}</p>
                         <div className="row questions" style={{justifyContent: 'center'}}>
                             
                             <div className="col-md-9">
+                            <p className="questions text-danger col-md-9">{error}</p>
                             <input input className="question-input form-control" placeholder="Username" type="text" id = "option1" name = "option1" required />
                             
                             </div>

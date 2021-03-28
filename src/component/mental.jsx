@@ -189,13 +189,15 @@ chilre['testres'] = true
 // console.log(chilre)
 updateChild(chilre.id,chilre,state.token, resdispatch)
 
-createResult(state.token, asnt,resdispatch)
+createResult(state.token, asnt,resdispatch).then(
+    res => {props.history.push('/childresult/')}
+)
 createGradedASNT(asnt,resdispatch);
 // console.log(asnt)
 getChilds(state.userId.pk,state.token,resdispatch)
         // console.log(initial)
         // setInitia(initia)
-        props.history.push('/childresult/');}
+}
   }
 
   const handleReturn = e => {

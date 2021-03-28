@@ -27,7 +27,7 @@ export const PayAppoint = (props) => {
     },
     customizations: {
       title: 'Senpro Consultancy Payment',
-      description: 'Session with a ',
+
       logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
     },
   };
@@ -56,41 +56,15 @@ const onSuccess = () => {
     message: message,
     check:'check the website for the contact of the '+props.name,
     reply_to: state.userId.email }
-
-    window.emailjs.send(
-    'service_1u7opk2',
-    'template_fkturqn',
-    templateParams,
-    "user_jDFiteMUy9NWNFehWpWQR"
-    ).then(res => {
-    // console.log(res)
-    actions.createAppointment(state.token,appnt,resdispatch, props)
-    .then(res => history.push(`/manage-appointment/${res.data.id}`))
-    
-   
-    })
-    
-    .catch(err => {
-      // console.log(err)
-    alert.show('Email not sent',{type: 'error',});
-    })
-
-
-    var message = "An application has just been submitted on SENPRO. Please login to the consultant to review"
-    let templateParams2 = {
-    from_name: 'SENPRO',
-    to_name: 'Admin' ,
-    subject: 'Appointment Request Submitted',
-    message: message,
-    check:'check the website for the contact of the '+props.name,
-    reply_to: 'contact@senproinitiative.org' }
-
-    window.emailjs.send(
-    'service_1u7opk2',
-    'template_fkturqn',
-    templateParams2,
-    "user_jDFiteMUy9NWNFehWpWQR"
+    actions.createAppointment(state.token,appnt,resdispatch, props).then(
+      res => {
+        props.closeModal()
+        
+        history.push(`/manage-appointment/${res.data.id}`)
+      }
     )
+    var message = "An application has just been submitted on SENPRO. Please login to the consultant to review"
+    
 
     
     
@@ -104,11 +78,13 @@ const fwConfig = {
     callback: (response) => {
 
       
-        closePaymentModal()
+      closePaymentModal()
        onSuccess();
 
     },
-    onClose: () => {},
+    onClose: () => { 
+      props.closeModal()
+    },
   };
 
   return (

@@ -168,12 +168,14 @@ export const getChilds = (parent,token,dispatch) => {
     "Content-Type": "application/json",
     Authorization: `Token ${token}`
   };
-  axios
+  return axios
     .get(`${HOST_URL}/clients/childs/?parent=${parent}&ordering=-timestamp`)
     .then(res => {
-      const childs = res.data;
+      let childs = res.data;
+     
       dispatch(getChildsSuccess( childs));
-      
+      console.log(res.data)
+      return res.data
     })
     .catch(err => {
      
@@ -258,7 +260,6 @@ axios
 
 export const createResult = (token, result, dispatch) => {
  
-    dispatch(createResultStart());
    
     axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
     axios.defaults.xsrfCookieName = "csrftoken";
@@ -267,6 +268,7 @@ export const createResult = (token, result, dispatch) => {
       Authorization: `Token ${token}`
     };
     var x 
+    let results = []
     for(x of result.title){
       var reso = {
         title: x,
@@ -274,18 +276,19 @@ export const createResult = (token, result, dispatch) => {
         tip: result.tip[result.title.indexOf(x)],
         child: result.child
     }
-      axios
-      .post(`${HOST_URL}/clients/results/`, reso)
-      .then(res => {
-        
-        dispatch(createResultSuccess(res.data));
-        
-      })
+
+    results.push(reso)
+    
+      
+    }
+
+    return axios
+      .post(`${HOST_URL}/result/create`, results)
+      
       .catch(err => {
         
-        dispatch(createResultFail(err.response.request.responseText));
+        
       });
-    }
   
   
 };
@@ -300,7 +303,8 @@ export const getResults = (child,token,dispatch) => {
     "Content-Type": "application/json",
     Authorization: `Token ${token}`
   };
-  axios
+  
+  return axios
     .get(`${HOST_URL}/clients/results/?child=${child}`)
     .then(res => {
       const results = res.data;
@@ -314,6 +318,8 @@ export const getResults = (child,token,dispatch) => {
         result.tip.push(x.tip)
       }              
       dispatch(getResultsSuccess(result,child));
+
+      return result
       
     })
     .catch(err => {

@@ -7,6 +7,7 @@ import { getResults} from "../store/actions/assignments";
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
 import { useAlert } from 'react-alert'
 import {capitalizeFirstLetter} from '../store/utility';
+import  {HOST_URL} from '../store/clientResult';
 // import dotenv from  'dotenv'
 
 
@@ -21,7 +22,7 @@ export const Pay = (props) => {
    const config = {
     public_key: `${process.env.REACT_APP_PUBLIC_KEY}`,
     tx_ref: Date.now(),
-    amount: 200,
+    amount: 25,
     currency: 'USD',
     payment_options: 'card,mobilemoney,ussd',
     customer: {
@@ -37,7 +38,7 @@ export const Pay = (props) => {
   };
 
   const child = props.chill
-  child.paid = true
+  
   config.customer.email = child.email
   config.customer.phonenumber = child.phone
   config.customer.name = child.name
@@ -45,44 +46,15 @@ export const Pay = (props) => {
 
 
 const onSuccess =  () => {
+    child.paid = true
     
     updateChild(id,child,state.token, resdispatch)
-    getResults(id,state.token, resdispatch)
-
-   
-
-    setTimeout(function(){
-      
-    },5000)
-
-    var message = ''
-    var u
-    for (u of title){
-    message += "Thank you for the recent payment you have made to us. You can now login to the website to view the result of your survey!."
-    }
-
-    let templateParams = {
-    from_name: 'SENPRO',
-    to_name: capitalizeFirstLetter(state.username),
-    subject: 'SENPRO ANALYSIS',
-    message: message,
-    check:'check the website for your results',
-    reply_to: child.email 
-    }
-
-    window.emailjs.send(
-    'gmail',
-    'template_q8uee8n',
-    templateParams,
-    "user_jDFiteMUy9NWNFehWpWQR"
-    ).then(res => {
+    getResults(id,state.token, resdispatch).
+    then(res => {
+      fetch(`${HOST_URL}/send_payment_email?email=${child.email}&child=${child.id}`) 
+      props.closeModal()
     
-    alert.show('Check your e-mail for your Results',{type: 'success',});
-    })
-    .catch(err => {console.error('There has been an error.  Here some thoughts on the error that occured:', err);
-    alert.show('Payment Failed',{type: 'error',});
-    })
-   
+    })   
 }
 
   const fwConfig = {
@@ -90,11 +62,15 @@ const onSuccess =  () => {
     text: 'Pay Now!',
     className:"btn btn-warning deepblue curvebtn my-2 my-sm-0 margin-right colorf",
     callback: (response) => {
+     
+      onSuccess(); 
+      closePaymentModal();
+     
       
-       onSuccess();
-      closePaymentModal() // this will close the modal programmatically
     },
-    onClose: () => {},
+    onClose: () => {
+      props.closeModal()
+    },
   };
 
   return (

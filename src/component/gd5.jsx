@@ -240,13 +240,16 @@ question_list.forEach( x => {
                 // console.log(chilre)
                 updateChild(chilre.id,chilre,state.token, resdispatch)
         
-                createResult(state.token, asnt,resdispatch)
+                createResult(state.token, asnt,resdispatch).then(
+                res => {props.history.push('/childresult/')}
+            )
                 createGradedASNT(asnt,resdispatch);
                 // console.log(asnt)
                 getChilds(state.userId.pk,state.token,resdispatch)
+            }
                             
         // setInitia(initia)
-        props.history.push('/childresult/');}
+       
   }
 
   const handleReturn = e => {

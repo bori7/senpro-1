@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, useRef} from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
 import { MenuLayout } from './menu';
 import mini_header_2 from '../static/assets/mini_header_2.png';
 import { MyContext } from '../store/context/myContext';
@@ -14,6 +14,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { HOST_URL } from '../store/clientResult';
 import { useHistory } from "react-router-dom";
+import loading from "../static/assets/loading.gif";
 
 
 
@@ -46,27 +47,43 @@ export const AppointmentForm = (props) => {
         setDoctor(id)
         setAvailability([])
         fetch(`${process.env.REACT_APP_CONSULTANT_URL}/api/availability?doctor=${id}`).then(res => res.json())
-            .then(res => setAvailability(res.map(item => {
-                return {title: 'Free', start: item.start_datetime, end: item.end_datetime}
+            .then(res => {setAvailability(res.map(item => {
+                return { title: 'Choose Slot', start: item.start_datetime, id: item.pk }
             
-            })))
+             }))
+            if (res.length == 0){
+                alert('The doctor you have chosen is not currently avaialable');
+            }
+            }
+ 
+             )
     }
 
-    const updateAppointment = () => {
-        let appointment_date = inputRef.current.value;
-       
-        console.log(selectedDoctor, appointment_date)
+    const submitAppointment = (clickInfo) => {
 
-        if (!appointment_date || !selectedDoctor){
-            setError('You need to select a doctor and choose a preferred appointment date')
-            return true
+
+        console.log(clickInfo.event.id)
+        console.log(clickInfo.event.title)
+        var r = window.confirm(`Are you sure the chosen date and time is suitable for you`);
+        if (r == true) {
+            fetch(`${HOST_URL}/clients/appointments/${props.match.params.id}/`, { method: "PATCH", headers: { "Content-type": "application/json" }, body: JSON.stringify({
+                 consultant: selectedDoctor,
+                  user_prefered_time: clickInfo.event.start, 
+                  availability :  clickInfo.event.id,
+                  consultant_name : `${doctors.filter(item => item.id == selectedDoctor)[0]?.first_name} ${doctors.filter(item => item.id == selectedDoctor)[0]?.last_name}`,
+                  consultant_email : doctors.filter(item => item.id == selectedDoctor)[0]?.first_name.email
+                }) })
+                .then(
+                    res => { res.json()
+                    fetch(`${HOST_URL}/send_appointment_email?id=${props.match.params.id}`)
+                    }
+                ).then(
+                    res => history.push('/thank-you')
+                )
+        } else {
+            return false
         }
-        fetch(`${HOST_URL}/clients/appointments/${props.match.params.id}/`, {  method: "PATCH",  headers: {    "Content-type": "application/json"  },  body: JSON.stringify({    consultant: selectedDoctor, user_prefered_time: appointment_date  })})
-        .then(
-            res => res.json()
-        ).then(
-            res => history.push('/thank-you')
-        )
+       
 
 
     }
@@ -77,19 +94,19 @@ export const AppointmentForm = (props) => {
                 .then(
                     res => {
                         const user = JSON.parse(localStorage.getItem("user"));
-                        
-                        if (user){
 
-                        if (res.user === user.userId.pk) {
-                            setApplication(res)
-                        } else {
-                            history.push('/')
+                        if (user) {
+
+                            if (res.user === user.userId.pk) {
+                                setApplication(res)
+                            } else {
+                                history.push('/')
+                            }
+                            return res.professional
                         }
-                        return res.professional
-                    }
-                    else{
-                        history.push('/login/')
-                    }
+                        else {
+                            history.push('/login/')
+                        }
                     }
 
                 )
@@ -127,6 +144,8 @@ export const AppointmentForm = (props) => {
                 </div>
             </div>
 
+           
+
             <div className="jumbotron bg-white">
                 <div className="container-fluid">
                     <div className="row">
@@ -138,7 +157,7 @@ export const AppointmentForm = (props) => {
 
                     </div>
                     <div className="row">
-                    <div className="col-md-5">
+                        <div className="col-md-5">
                             <div class="row">
                                 <div className="col-md-12 mt-4">
                                     <h4 className="form-title">Choose Doctor</h4>
@@ -153,7 +172,7 @@ export const AppointmentForm = (props) => {
                                         <a href="#" data-toggle="modal" data-target="#emma">
 
                                             <div className="profile-box doctor p-2" style={{ width: '100%', height: 'auto' }}>
-                                                <div className={`overlay ${selectedDoctor == item.id ? 'selected' : ''}`}  doctor_id={item.id} onClick={selectDoctor}></div>
+                                                <div className={`overlay ${selectedDoctor == item.id ? 'selected' : ''}`} doctor_id={item.id} onClick={selectDoctor}></div>
                                                 <img src={`${process.env.REACT_APP_CONSULTANT_URL}${item.pic}`} style={{ borderRadius: '50%', width: '100%', height: 'auto' }} />
                                                 <h3 style={{ color: '#000', 'fontSize': '15px' }}>{item.first_name} {item.last_name}</h3>
 
@@ -172,20 +191,16 @@ export const AppointmentForm = (props) => {
                             <div class="row">
                                 <div className="col-md-12 mt-4">
                                     <h4 className="form-title">Set Appointment Time</h4>
-                                    <p class="mb-1">Plase set appointment based on the availability of the doctor. </p>
-                                    <p>The appointment can still be reviewd, you will notified of any changes</p>
+                                    <p class="mb-1">Please choose a time slot that is suitable for you to hold the session </p>
+                                    <p>The appointment can still be reviewed, you will notified of any changes</p>
                                 </div>
-                                <div class="col-md-12 mt-2 form-group">
-                                    <input ref={inputRef} input className="question-input form-control" type="datetime-local" id="option4" name="option4" required />
-
-                                </div>
-
+                                
                                 <div class="col-md-12 mt-2 form-group">
 
-                                    <button onClick={updateAppointment} class="btn btn-primary deepblue curvebtn form-control">Submit</button>
+
 
                                 </div>
-                                <p style={{color: 'red'}}>{error}</p>
+                                <p style={{ color: 'red' }}>{error}</p>
 
 
                             </div>
@@ -202,19 +217,27 @@ export const AppointmentForm = (props) => {
                                         right: "dayGridMonth,timeGridWeek,timeGridDay",
                                     }}
                                     editable={true}
-                                    plugins={[dayGridPlugin,  timeGridPlugin, interactionPlugin]}
-                                    initialView="dayGridMonth"
+                                    plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+                                    initialView="timeGridWeek"
                                     events={availability}
                                     editable={true}
                                     allDay={false}
                                     timeZone="UTC"
+                                    eventClick={submitAppointment}
                                 />
 
                             }
 
+                            {availability.length == 0 &&
+                                <div class="text-center">
+                                    <img src={loading}/>
+                                </div>
+                            
+                            }
+
                         </div>
 
-                     
+
                     </div>
 
                 </div>

@@ -203,13 +203,15 @@ question_list.forEach( x => {
         
         updateChild(chilre.id,chilre,state.token, resdispatch)
 
-        createResult(state.token, asnt,resdispatch)
+        createResult(state.token, asnt,resdispatch).then(
+            res => {props.history.push('/childresult/')}
+        )
         createGradedASNT(asnt,resdispatch);
         
     
         getChilds(state.userId.pk,state.token,resdispatch)
        
-        props.history.push('/childresult/');}
+        }
         
   }
 
