@@ -107,8 +107,6 @@ class SendAppointmentEmail(APIView):
         appointment_id = request.GET.get('id')
         try:
             appointment = Appointment.objects.get(pk=appointment_id)
-            if appointment.availability:
-                return Response(status=HTTP_400_BAD_REQUEST)
         except Appointment.DoesNotExist:
             return Response(status=HTTP_400_BAD_REQUEST)
         message = render_to_string('appointment-email.html', {'request': request, 'start_date': appointment.user_prefered_time, 'consultant_name': appointment.consultant_name}) 
