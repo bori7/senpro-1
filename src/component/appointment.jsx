@@ -71,7 +71,7 @@ export const AppointmentForm = (props) => {
                   user_prefered_time: clickInfo.event.start, 
                   availability :  clickInfo.event.id,
                   consultant_name : `${doctors.filter(item => item.id == selectedDoctor)[0]?.first_name} ${doctors.filter(item => item.id == selectedDoctor)[0]?.last_name}`,
-                  consultant_email : doctors.filter(item => item.id == selectedDoctor)[0]?.first_name.email
+                  consultant_email : doctors.filter(item => item.id == selectedDoctor)[0]?.email
                 }) })
                 .then(
                     res => { res.json()
