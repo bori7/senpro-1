@@ -157,7 +157,7 @@ question_list.forEach( x => {
 
                 if (initial["option6"] === 'no' && initial["option7"] === 'no'&& initial["option10"] === 'no'){
                 tit.push('Your child may have challenges with balance and/or coordination. ')
-                exp.push('Consult one of our highly skilled occupational therapists to schedule an appointment.')
+                exp.push('This may be symptomatic of gravitational insecurity, Consult one of our highly skilled occupational therapists to schedule an appointment.')
                 tip.push('Have your child practice walking on a beam with you, initially providing support, and gradually fading the support.')
                 }
 
@@ -173,7 +173,7 @@ question_list.forEach( x => {
                 }                  
                 if (initial["option11"] === 'no' && initial["option12"] === 'no'){
                 tit.push('Your child may have challenges with hand-eye coordination. ')
-                exp.push(' Consult one of our highly skilled physiotherapists to schedule an appointment. ')
+                exp.push('This may be symptomatic of ocular-motor deficiencies, Consult one of our highly skilled physiotherapists to schedule an appointment. ')
                 tip.push('Have your child thread through two large beads and gradually increase the number of beads (use large beads to prevent choking hazards and to reduce the level of difficulty).')
                 }  
                 if (initial["option13"] === 'no' && initial["option16"] === 'no'){
@@ -189,13 +189,13 @@ question_list.forEach( x => {
                 }
                 if (initial["option15"] === 'no' && initial["option17"] === 'no'){
                 tit.push('Your child may have difficulty focusing on given tasks for a specified time due to a short attention span.  ')
-                exp.push('Consult one of our highly skilled occupational therapists to schedule an appointment.')
+                exp.push('This may impact cognition thus affecting learning and overall confidence, Consult one of our highly skilled occupational therapists to schedule an appointment.')
                 tip.push('Reduce screen time and choose simple interest-based puzzles. Gradually increase the complexity of the puzzle. High-end Montessori influenced practical life activities will also be beneficial. ')
                 }
                 if (initial["option19"] === 'no' ){
                 tit.push('Your child may have challenges understanding the world they live in and being able to interact with the world socially.')
                 exp.push('Consult one of our highly skilled educational psychologists and behavioral analysts to schedule an appointment. ')
-                tip.push('Play an array of games including large puzzles, ‘Go Fishing’, sorting, and sequencing games')}
+                tip.push('Observe your child as he/she plays, then join your child by imitating your child using your own toy. Finally, show your child a new pretend play action and then, give him/her a chance to copy the pretend play')}
 
                 const asnt = {
                 title: tit,
@@ -266,8 +266,7 @@ question_list.forEach( x => {
 
                             <br/> <br/>
                         <div className="col-12 step-control">
-                                <button onClick = {handleReturn} className="btn btn-secondary deepblue curvebtn my-2 my-sm-0 colorf">Change Age
-                                </button>
+                                
                                 {activePage==todos.length?<button type="submit" value="Submit" className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">Submit
                                 </button>:<button type="submit" value="Submit" className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">Next
                                 </button>}

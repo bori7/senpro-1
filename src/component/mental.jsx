@@ -165,14 +165,14 @@ question_list.forEach( x => {
         if (initial["option14"] === 'yes' || initial["option15"] === 'yes' ||
         initial["option16"] === 'yes'|| initial["option17"]=== 'yes'){
         tit.push('Consult with our highly skilled educational psychologists and clinical licensed psychologists. ')
-        exp.push('Consult with our highly skilled educational psychologists and clinical licensed psychologists. ')
+        exp.push(' ')
         tip.push('Make an appointment with our highly skilled educational psychologists and licensed clinical psychologists as soon as possible.')
     }
 
     if (initial["option18"] === 'yes' || initial["option19"] === 'yes' ||
     initial["option20"] === 'yes'){
     tit.push('Consult with our highly skilled educational psychologists and licensed clinical psychologists. ')
-    exp.push('Consult with our highly skilled educational psychologists and licensed clinical psychologists. ')
+    exp.push('')
     tip.push('Make an appointment with our highly skilled educational psychologists and licensed clinical psychologists as soon as possible. ')
 }
 

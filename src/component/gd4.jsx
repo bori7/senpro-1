@@ -139,7 +139,8 @@ question_list.forEach( x => {
 
             if (initial["option2"] === 'no' && initial["option3"] === 'no'){
             tit.push('Your child may have difficulty with articulation. ')
-            exp.push('Make a list of challenging target sounds and go over these one at a time with your child. Look in the mirror with your child while enunciating and making these sounds.')
+            exp.push('This may be symptomatic of broader deficiencies resulting in communication disorders. Consult one of our highly skilled speech pathologists for further guidance. ')
+            tip.push('Make a list of challenging target sounds and go over these one at a time with your child. Look in the mirror with your child while enunciating and making these sounds.')
             }
 
             if (initial["option4"] === 'no' && initial["option6"] === 'no'){
@@ -262,8 +263,7 @@ question_list.forEach( x => {
                        
                         <br/> <br/>
                         <div className="col-12 step-control">
-                                <button onClick = {handleReturn} className="btn btn-secondary deepblue curvebtn my-2 my-sm-0 colorf">Change Age
-                                </button>
+                                
                                 {activePage==todos.length?<button type="submit" value="Submit" className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">Submit
                                 </button>:<button type="submit" value="Submit" className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">Next
                                 </button>}

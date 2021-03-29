@@ -145,8 +145,8 @@ question_list.forEach( x => {
         }else{
 
                 if([initial["option1"],initial["option2"],initial["option3"],initial["option4"]].filter(x=>x==='yes').length>=2){
-                tit.push('Your child may have challenges with spelling as a result of deficits in phonological awareness, auditory processing, or visual perception. ')
-                exp.push('These may also affect reading. Consult with our highly skilled educational psychologists. Click here to book an appointment.')
+                tit.push('Your child may have challenges with spelling  ')
+                exp.push('These might be as a result of deficits in phonological awareness, auditory processing, or visual perception.These may also affect reading. Consult with our highly skilled educational psychologists.')
                 tip.push('Avoid trying to teach spelling the conventional way. Use other senses when spelling like tracing in the sand or molding letters.') 
                 }
                 if (initial["option5"] === 'yes' || initial["option6"] === 'yes'){
@@ -159,7 +159,7 @@ question_list.forEach( x => {
                 initial["option9"] === 'yes'|| initial["option10"] === 'yes'){
                 tit.push('Your child may have challenges with processing the order of letters and words. ')
                 exp.push('There might be deficits in language processing skills and comprehension (fluid reasoning, crystallized intelligence, and memory). Consult with our highly skilled educational psychologists. ')
-                tip.push('Read interest-based books and even graphic novels at the child’s reading level. Print words on colored paper and read with a regular ruler or with colored reading rulers. Engage in interpretive reading. (You can find an explanation on how to do this here.)')
+                tip.push('Read interest-based books and even graphic novels at the child’s reading level. Print words on colored paper and read with a regular ruler or with colored reading rulers. Engage in interpretive reading. ')
                 }
 
                 if (initial["option11"] === 'yes' ){

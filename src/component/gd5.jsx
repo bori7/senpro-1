@@ -156,8 +156,8 @@ question_list.forEach( x => {
             }
 
             if (initial["option6"] === 'no'){
-            tit.push('Your child may be displaying symptoms of echolalia which may be symptomatic of broader deficiencies in expressive language.')
-            exp.push(' Consult one of our highly skilled speech pathologists for further guidance.')
+            tit.push('Your child may be displaying symptoms of echolalia ')
+            exp.push(' This may be symptomatic of broader deficiencies in expressive language. Consult one of our highly skilled speech pathologists for further guidance.')
             tip.push('Book an appointment with a speech pathologist as soon as you can')
             }
             if (initial["option7"] === 'no'){
@@ -207,13 +207,13 @@ question_list.forEach( x => {
 
             if (initial["option16"] === 'no' ){
             tit.push('Your child may have difficulty with nonverbal intelligence as well as showing symptoms of emotional or behavioral disorders. ')
-            exp.push('This may impact cognition thus affecting learning and overall confidence. Consult one of our highly skilled educational psychologists to schedule an appointment. ')
+            exp.push('This may impact cognition thus affecting learning and overall confidence. ')
             tip.push('Book an appointment with an educational psychologist as soon as you can.')
             }      
 
             if (initial["option17"] === 'no' ){
             tit.push('Your child may have difficulty with perception. ')
-            exp.push('This may impact cognition thus affecting learning and overall confidence. Consult one of our highly skilled educational psychologists to schedule an appointment.')
+            exp.push('This may impact cognition thus affecting learning and overall confidence. ')
             tip.push('Book an appointment with an educational psychologist as soon as you can.')
             }      
             if (initial["option18"] === 'no' ){
@@ -300,8 +300,7 @@ question_list.forEach( x => {
 
                         <br/><br/>
                         <div className="col-12 step-control">
-                                <button onClick = {handleReturn} className="btn btn-secondary deepblue curvebtn my-2 my-sm-0 colorf">Change Age
-                                </button>
+                                
                                 {activePage==todos.length?<button type="submit" value="Submit" className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">Submit
                                 </button>:<button type="submit" value="Submit" className="btn btn-primary deepblue curvebtn my-2 my-sm-0 colorf">Next
                                 </button>}
