@@ -56,7 +56,7 @@ export const ResetPasswordConfirm = (props) => {
           })
           .catch(err => {
         //  console.log(err)
-        alert.show('Password not changed',{ type: 'error',})
+        alert.show('Password must have at least 8 character',{ type: 'error',})
           
         }
         );
