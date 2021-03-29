@@ -1130,6 +1130,10 @@ p.question{
     font-size: 50px;
 }
 
+ol.nav-item{
+	padding-left: 20px;
+}
+
 .fc .fc-toolbar {
    
     flex-direction: column;
