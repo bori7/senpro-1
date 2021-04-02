@@ -18,6 +18,7 @@ import pdb
 import requests
 from django.utils.html import strip_tags
 from django.conf import settings
+from pyzoom import ZoomClient
 
 
 class ChildViewSet(viewsets.ModelViewSet):
@@ -109,9 +110,23 @@ class SendAppointmentEmail(APIView):
             appointment = Appointment.objects.get(pk=appointment_id)
         except Appointment.DoesNotExist:
             return Response(status=HTTP_400_BAD_REQUEST)
+        client = ZoomClient(settings.ZOOM_API_KEY, settings.ZOOM_SECRET)
+        meeting = client.meetings.create_meeting('SENPRO Meeting', start_time=appointment.user_prefered_time.isoformat(), duration_min=60, password='senpro1233')
+        appointment.zoom_join_url = meeting.join_url
+        appointment.zoom_start_url = meeting.start_url
+        appointment.save()
         message = render_to_string('appointment-email.html', {'request': request, 'start_date': appointment.user_prefered_time, 'consultant_name': appointment.consultant_name}) 
-        resp = send_mail_task(message, [appointment.user.email, appointment.consultant_email, 'admin@senproinitiative.org'], 'Senpro Appointment Details')
+        resp = send_mail_task(message, [appointment.user.email], 'Senpro Appointment Details')
+        sendConsultantEmail(appointment.user.username, appointment.user_prefered_time, meeting.join_url, appointment.consultant_name, appointment.consultant_email, request)
         return Response({'message': resp.text})
+
+
+def sendConsultantEmail(client, start_date, meeting_link, consultant_name, consultant_email, request):
+    message = render_to_string('consultant-email.html', {'request': request, 'start_date': start_date, 'consultant_name': consultant_name, 'client': client, 'meeting_link': meeting_link}) 
+    resp = send_mail_task(message, [consultant_email, 'admin@senproinitiative.org'], 'Consultant Email Setup')
+    return Response({'message': resp.text})
+
+
 
 
 class SendPaymentAppointmentEmail(APIView):
@@ -144,7 +159,8 @@ def send_mail_task(message,  to_email, subject, from_email='support@senproinitia
 			"subject": subject,
 			"bodyText":strip_tags(message),
             'bodyHtml': message,
-            'apiKey' : settings.ELASTICEMAIL_API_KEY
+            'apiKey' : settings.ELASTICEMAIL_API_KEY,
+            'fromName' : 'SENPro'
 
         }
             )

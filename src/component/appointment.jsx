@@ -15,10 +15,6 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { HOST_URL } from '../store/clientResult';
 import { useHistory } from "react-router-dom";
 import loading from "../static/assets/loading.gif";
-
-
-
-
 export const AppointmentForm = (props) => {
 
 
@@ -160,7 +156,7 @@ export const AppointmentForm = (props) => {
                         <div className="col-md-5">
                             <div class="row">
                                 <div className="col-md-12 mt-4">
-                                    <h4 className="form-title">Choose Doctor</h4>
+                                    <h4 className="form-title">Choose Consultant</h4>
                                 </div>
                             </div>
                             <div class="row mt-3">

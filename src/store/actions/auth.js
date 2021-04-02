@@ -120,13 +120,18 @@ export const authSignup = (
   
       })
       .catch(err => {
-        
-        let errd = 'Username or email has already been used'
-        dispatch(authFail(errd));
+        console.log(err.response.data)
+        let errors_obj = err.response.data;
+        let errors = ''
+        for (const property in errors_obj) {
+            errors = errors + errors_obj[property][0] + '\n \n '
+        }
+        let errd = errors
+        dispatch(authFail(errors));
         props.history.push(
         {
         pathname: '/signup/',
-        state: { error: errd }
+        state: { error: errors }
         }
         );
         

@@ -71,7 +71,7 @@ return (
 			<div className="container">
                 <div className="row">
                     <div className="col-12 text-center" style={{marginBottom: '20px'}}>
-                    <h2 class="header primary-header">Pay for a Session</h2> 
+                    <h2 class="header primary-header">Book An Appointment</h2> 
                     </div>
                 </div>
         

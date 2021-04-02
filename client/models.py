@@ -69,6 +69,8 @@ class Appointment(models.Model):
     user_prefered_time = models.DateTimeField(null=True, blank=True)
     consultant_name = models.CharField(max_length=200, null=True)
     consultant_email = models.CharField(max_length=200, null=True)
+    zoom_join_url = models.TextField(null=True)
+    zoom_start_url = models.TextField(null=True)
 
     def __str__(self):
         return self.user.username
