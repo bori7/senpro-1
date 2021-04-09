@@ -96,10 +96,10 @@ export const Consultants = () => {
 							</a>
 						</div>
 						<div className="col-md-4">
-							<a href="#" data-toggle="modal" data-target="#helen">
+							<a href="#" data-toggle="modal" data-target="#emma">
 								<div className="profile-box profile-box-skyblue">
-									<img src={helen} style={{ borderRadius: '50%', width: '200px', height: '200px' }} />
-									<h3>Mrs Helen Obiageli Oshikoya</h3>
+									<img src={emma} style={{ borderRadius: '50%', width: '200px', height: '200px' }} />
+									<h3>Mr Emmanuel Olajitan</h3>
 								</div>
 							</a>
 						</div>
@@ -142,24 +142,10 @@ export const Consultants = () => {
 								</div>
 							</a>
 						</div>
-						<div className="col-md-4">
-							<a href="#" data-toggle="modal" data-target="#remilekun">
-								<div className="profile-box profile-box-blue">
-									<img src={remilekun} style={{ borderRadius: '50%', width: '200px', height: '200px' }} />
-									<h3>Mrs Remilekun Durojaiye</h3>
-								</div>
-							</a>
-						</div>
 						
 						
-						<div className="col-md-4">
-							<a href="#" data-toggle="modal" data-target="#emma">
-								<div className="profile-box profile-box-skyblue">
-									<img src={emma} style={{ borderRadius: '50%', width: '200px', height: '200px' }} />
-									<h3>Mr Emmanuel Olajitan</h3>
-								</div>
-							</a>
-						</div>
+						
+						
 					</div>
 
 				</div>
