@@ -30,7 +30,7 @@ export const  Speech= (props) => {
     }, [state.token]);
 
     const question_list = [ {
-        title:'SECTION 1 - ARTICULATION',
+        title:'SECTION 1 ',
         questions:[
            '1.	Does your child mispronounce or leave off sounds in words?	',
            '2.	Can strangers understand your child 90% of the time? ',
@@ -38,7 +38,7 @@ export const  Speech= (props) => {
         ]
         },
         {
-       title:'SECTION 2 - RECEPTIVE SPEECH AND VOICE',
+       title:'SECTION 2',
        questions:[
            '3.	Does your child comprehend age/ grade appropriate vocabulary? ',
            '4.	Does your child have difficulty following spoken directions? ',
@@ -49,7 +49,7 @@ export const  Speech= (props) => {
        ]
        },
        {
-       title:'SECTION 3 - SPEECH RATE/FLUENCY AND PRAGMATIC LANGUAGE',
+       title:'SECTION 3 ',
        questions:[
            '9.	Does your child stutter frequently when speaking? ',
            "10.	Does your child use ‘um’, ‘uh’, ‘you know’, ‘a’, excessively when speaking? ",
@@ -58,7 +58,7 @@ export const  Speech= (props) => {
        ]
        },
        {
-        title:'SECTION 4 - EXPRESSIVE LANGUAGE',
+        title:'SECTION 4 ',
         questions:[
             '13.	Does your child use made-up words which are almost inappropriate, (for example, ‘window worker man’)? ',
             '14.	Does your child have problems sequencing events and ideas appropriately?',

@@ -127,7 +127,7 @@ const handleClick = (id,e) => {
                     <div className="col-12 text-center">
                         <img src={main_logo} alt = {"main_logo"} style={{width: '200px'}}/>
 
-                        <p class="text-left">Please note that a payment of $25 is required to view results. Thank you</p>
+                        <p class="text-left">Thank you for filling this questionnaire. Please note that a payment of $25 will be required to view results. Thank you.</p>
                         
                         {surveys.length !==0 ?
                        

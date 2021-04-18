@@ -6,8 +6,8 @@ from rest_framework.status import (
     HTTP_400_BAD_REQUEST
 )
 
-from .models import Child, Appointment, Result, Files
-from .serializers import ChildSerializer, AppointmentSerializer, ResultSerializer
+from .models import Child, Appointment, Result, Files, Client
+from .serializers import ChildSerializer, AppointmentSerializer, ResultSerializer, ClientSerializer
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
@@ -19,6 +19,15 @@ import requests
 from django.utils.html import strip_tags
 from django.conf import settings
 from pyzoom import ZoomClient
+
+
+class ClientViewSet(viewsets.ModelViewSet):
+    serializer_class = ClientSerializer
+    authentication_classes = [TokenAuthentication]
+    permission_classes = (permissions.AllowAny,)
+    filter_backends = [DjangoFilterBackend,filters.OrderingFilter]
+    queryset = Client.objects.all() 
+
 
 
 class ChildViewSet(viewsets.ModelViewSet):
@@ -39,7 +48,9 @@ class AppointmentViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend,filters.OrderingFilter]
     filterset_fields = ['status', 'consultant']
     ordering_fields = ['timestamp']
-    queryset = Appointment.objects.all()  
+    queryset = Appointment.objects.all() 
+
+
 
 
 class ResultViewSet(viewsets.ModelViewSet):
@@ -115,18 +126,21 @@ class SendAppointmentEmail(APIView):
         appointment.zoom_join_url = meeting.join_url
         appointment.zoom_start_url = meeting.start_url
         appointment.save()
-        message = render_to_string('appointment-email.html', {'request': request, 'start_date': appointment.user_prefered_time, 'consultant_name': appointment.consultant_name}) 
+        message = render_to_string('appointment-email.html', {'request': request, 'start_date': appointment.user_prefered_time, 'consultant_name': appointment.consultant_name, 'ctimezone': appointment.user_timezone}) 
         resp = send_mail_task(message, [appointment.user.email], 'Senpro Appointment Details')
-        sendConsultantEmail(appointment.user.username, appointment.user_prefered_time, meeting.join_url, appointment.consultant_name, appointment.consultant_email, request)
+        sendConsultantEmail(appointment.user.username, appointment.user_prefered_time, meeting.join_url, appointment.consultant_name, appointment.consultant_email, request, appointment.consultant_timezone)
         return Response({'message': resp.text})
 
 
-def sendConsultantEmail(client, start_date, meeting_link, consultant_name, consultant_email, request):
-    message = render_to_string('consultant-email.html', {'request': request, 'start_date': start_date, 'consultant_name': consultant_name, 'client': client, 'meeting_link': meeting_link}) 
+def sendConsultantEmail(client, start_date, meeting_link, consultant_name, consultant_email, request, timezone):
+    message = render_to_string('consultant-email.html', {'request': request, 'start_date': start_date, 'consultant_name': consultant_name, 'client': client, 'meeting_link': meeting_link, 'ctimezone': timezone}) 
     resp = send_mail_task(message, [consultant_email, 'admin@senproinitiative.org'], 'Consultant Email Setup')
     return Response({'message': resp.text})
 
 
+
+
+    
 
 
 class SendPaymentAppointmentEmail(APIView):
@@ -178,7 +192,29 @@ class CreateResults(APIView):
         return Response()
 
 
+class GetlastTimeZone(APIView):
+    authentication_classes = [ SessionAuthentication,]
+    permission_classes = (permissions.AllowAny,  )
 
+    def get(self, request):
+        user_id = request.GET.get('user_id')
+        current_app_id = request.GET.get('app_id')
+        apps = Appointment.objects.filter(user_id=user_id).exclude(id=current_app_id).order_by('-id')
+        if apps.exists():
+            return Response(data={
+                'timezone' : apps[0].user_timezone 
+            })
+        else:
+            return Response(data={
+                'timezone' : 'Africa/Lagos' 
+            })
+
+
+
+
+
+
+    
 
 
 

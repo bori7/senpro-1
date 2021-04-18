@@ -13,6 +13,7 @@ import laide1 from "../static/assets/laide1.png";
 import remilekun from "../static/assets/remilekun.png";
 import tolulope from "../static/assets/tolulope.png";
 import whitney from "../static/assets/whitney.png";
+import wonder from "../static/assets/wonder.jpg";
 
 
 export const Consultants = () => {
@@ -73,12 +74,12 @@ export const Consultants = () => {
 								</div>
 							</a>
 						</div>
-						
+
 
 					</div>
 
 					<div className="row" style={{ marginTop: "20px" }}>
-						
+
 						<div className="col-md-4">
 							<a href="#" data-toggle="modal" data-target="#laide">
 								<div className="profile-box profile-box-red">
@@ -130,7 +131,7 @@ export const Consultants = () => {
 								</div>
 							</a>
 						</div>
-						
+
 					</div>
 
 					<div className="row" style={{ marginTop: "20px" }}>
@@ -142,10 +143,36 @@ export const Consultants = () => {
 								</div>
 							</a>
 						</div>
-						
-						
-						
-						
+						<div className="col-md-4">
+							<a href="#" data-toggle="modal" data-target="#wonder">
+								<div className="profile-box profile-box-red">
+									<img src={wonder} style={{ borderRadius: '50%', width: '200px', height: '200px' }} />
+									<h3>WONDER MODUPE OLUSINA</h3>
+								</div>
+							</a>
+						</div>
+						<div className="col-md-4">
+							<a href="#" data-toggle="modal" data-target="#imade">
+								<div className="profile-box profile-box-skyblue">
+									<img src='/static/assets/imade.jpg' style={{ borderRadius: '50%', width: '200px', height: '200px' }} />
+									<h3>Imade Omokaro-Ajayi </h3>
+								</div>
+							</a>
+						</div>
+
+
+
+
+					</div>
+					<div className="row" style={{ marginTop: "20px" }}>
+						<div className="col-md-4">
+							<a href="#" data-toggle="modal" data-target="#monsurat">
+								<div className="profile-box profile-box-skyblue">
+									<img src='/static/assets/monsurat.jpg' style={{ borderRadius: '50%', width: '200px', height: '200px' }} />
+									<h3>MONSURAT ABIMBOLA ADESANYA</h3>
+								</div>
+							</a>
+						</div>
 					</div>
 
 				</div>
@@ -342,7 +369,7 @@ export const Consultants = () => {
 					<div className="modal-content">
 						<div className="modal-header">
 							<h5 className="modal-title" style={{ fontWeight: "700" }}>
-								<img src="/static/assets/adegbajo.png" width="30px;" /> Mrs. Adegbajo Odedina</h5>
+								<img src="/static/assets/adegbajo.png" width="30px;" /> Mr. Adegbajo Odedina</h5>
 							<button type="button" className="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
@@ -376,6 +403,140 @@ export const Consultants = () => {
 							<p>
 								Remilekun is one of a few physiotherapists in Lagos who is Board certified in Biofeedback for the pelvic floor dysfunctions. She has worked in a variety of settings during the course of her career including but not limited to pelvic floor rehabilitation, orthopaedics and Pediatrics (children with special needs). She is the clinical director for Special Olympics Funfitness   Nigeria, the physiotherapy screening arm of the healthy athletes program. She also works as a private practitioner and is the owner of Taforehab Pelvic and Orthopedic Wellness Clinic. Remilekun  also works as a locum physiotherapist for the Child and Adolescent Center, Oshodi Annex, Federal Neuropsychiatric Hospital, Yaba.
 					</p>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div className="modal" tabindex="-1" role="dialog" id="helen">
+				<div className="modal-dialog" role="document">
+					<div className="modal-content">
+						<div className="modal-header">
+							<h5 className="modal-title" style={{ fontWeight: "700" }}>
+								<img src="/static/assets/helen.png" width="30px;" /> Mrs. Helen Obiageli Oshikoya</h5>
+							<button type="button" className="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div className="modal-body">
+							<p>
+								Helen Obiageli Oshikoya is the founder / CEO of Nobelova Gradani PsychoEducational Services. She is a member of the Nigerian Psychological Association and a Member of the Association of Behaviour Analysis of Nigeria ( ABAN) . She is also a registered member of the  British Psychological Society and Chartered Institute of Educational Assessors in the United Kingdom ( University of Hertfordshire).
+						</p>
+							<p>
+								Helen is an Advanced Certified Autism Specialist registered with the International Board of Credentialing and Continuing Education Standards (IBCCES), USA and a Qualified Autism Service Practitioner –Supervisor registered with the The Qualified Applied Behavior Analysis Credentialing Board (QABA).  She is also one of  the  International Training Providers with IBCCES and also the Nigeria representative of the Exceptional Child Vector Solution USA: an online training platform for Teachers in the area of Special Educational Needs. Nobelova currently has trained over 700 teachers, 56 ABA Early Intervention Specialists as well as 10 certified with the IBCCES credentialing board.
+						</p>
+							<p>
+								As of date Nobelova has screened close to 12 thousand children across Nigeria and 80% of these children are now receiving Early Intervention Services across all states of the federation. Helen's CHILD-P and Find Child Initiative was recognised as she was nominated as one of the 60 most Influential Women in Nigeria an Award by Business Day Newspaper in 2020, and she was also nominated by the Committee of Women for Africa, UK in 2017.
+					</p>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div className="modal" tabindex="-1" role="dialog" id="busola">
+				<div className="modal-dialog" role="document">
+					<div className="modal-content">
+						<div className="modal-header">
+							<h5 className="modal-title" style={{ fontWeight: "700" }}>
+								<img src="/static/assets/busola.png" width="30px;" /> Mrs. Busola Olumuyiwa</h5>
+							<button type="button" className="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div className="modal-body">
+							<p>
+								Busola Olamuyiwa (MSC. Applied Psychology (PSI), Dip. Cognitive Behaviour Therapy, B.A Honours in Psychology, British Psychological Society (BPS) Verified Test User: Occupational and Personality, and Director Unforsaken House of Hephzibah (UHOH).
+						</p>
+							<p>
+								Busola received her MSC in Applied Psychology and BA Honours in Psychology from Dublin Business School of Psychology specializing in clinical and organizational psychology. She has 10 years’ experience as a consultant, researcher and psychotherapist within Ireland and Nigeria. She is a member of the Psychological Society of Ireland (PSI), and qualified as a registered British Psychological Society (BPS) Test User (Occupational and personality).
+						</p>
+							<p>
+								Busola is well experienced in managing the following disorders: depression and anxiety, Schizophrenia, Neurological disorders (Autism, ADHD and other related disorders), addictive behaviours, challenging behavioural issues, organizational psychology (Employee Assistant Program EAP), and individual and family therapy. She has been a speaker and facilitator on several mental health training workshops. She has worked with organization, hospitals, schools, and religious bodies to train on mental health some of her clients including New Cross Exploration & Production Limited, CS Advance Microfinance Bank, Meadow Hall, Lakeshore Cancer Centre, Dennis Ashley Wellness Clinic, The Learning Place School Lekki, and First Cardiology Clinic Ikoyi amongst others.
+					</p>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div className="modal" tabindex="-1" role="dialog" id="adegbajo">
+				<div className="modal-dialog" role="document">
+					<div className="modal-content">
+						<div className="modal-header">
+							<h5 className="modal-title" style={{ fontWeight: "700" }}>
+								<img src="/static/assets/adegbajo.png" width="30px;" /> Mr. Adegbajo Odedina</h5>
+							<button type="button" className="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div className="modal-body">
+							<p>
+								Adegbajo is a Paediatric Consultant with many years of experience as a Paediatrician. He is a  Fellow of the National Postgraduate Medical College of Nigeria. He started his career as a Senior Medical Officer at Mother and Child. His work at the Lagos State University Hospital further exposed him to various paediatric diseases further broadening his skills and increasing his depth of expertise as a Paediatrician. Presently, Adegbajo is a Consultant Paediatrician with Reddington Hospitals.
+						</p>
+							<p>
+								Adegbajo is committed to delivering quality healthcare to vulnerable children. He wrote an article on the prevalence and clinical correlates of intraventricular haemorrhage among preterm neonates in Lagos. His work with neonates over the years equips him with requisite skills to identify numerous challenges, including developmental challenges in children.
+					</p>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div className="modal" tabindex="-1" role="dialog" id="imade">
+				<div className="modal-dialog" role="document">
+					<div className="modal-content">
+						<div className="modal-header">
+							<h5 className="modal-title" style={{ fontWeight: "700" }}>
+								<img src="/static/assets/imade.jpg" width="30px;" />Imade Omokaro-Ajayi Cert.MRCSLT, HCPCreg</h5>
+							<button type="button" className="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div className="modal-body">
+							<p>
+								Imade is a Highly Specialist Paediatric Speech and Language Therapist, with a PGDip qualification from Greenwich and Christ Church Canterbury University in 2009 as a Speech and Language Therapist and is currently working with the National Health Service (NHS) in the UK and families in parts of Africa. She also holds a Health Care Professionals Council (HCPC) license to practice and is a full member of the Royal College of Speech and Language Therapist (RCSLT). Imade also holds a BA (Hons) in Communication Studies and Legal Method (University of London and East London University 1994-1998).
+								</p>
+							<p>Imade is a skilled and effective clinician with expertise in a wide range of speech disorders, language and social communication disorder. She also possesses extensive experience in working with young adults and the elderly living with dementia. Imade has experience working with clients in early years, mainstream, primary and secondary school, language units (Resource Provisions) and further education.
+							Imade has undertaken a wide range of post qualification training courses and undertakes
+							regular continuing professional development activities. She provides formal and informal
+							training and workshops to a range of education staff, parents/carers and other professionals
+							within the paediatric and adult setting. She provides supervision and mentoring to junior staff
+							and to student Speech and language therapists.
+							Imade has completed training courses in Early Years settings, complex needs, using a
+							variety of approaches in therapy, including Makaton signing, PECS (Picture Exchange
+							Communication System), Michael Palin- Stammer, Talk Tools, The Nuffield Dyspraxia Programme, Parent-Child Interaction, Cued Articulation, Sign-along, Colourful Semantics, Auditory Processing Disorder, Attention Autism, Stutter/Stammering, Placement Educators course, Elkan course- Primary 5-11’s.
+							</p>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div className="modal" tabindex="-1" role="dialog" id="wonder">
+				<div className="modal-dialog" role="document">
+					<div className="modal-content">
+						<div className="modal-header">
+							<h5 className="modal-title" style={{ fontWeight: "700" }}>
+								<img src="/static/assets/wonder.jpg" width="30px;" />WONDER MODUPE OLUSINA Cert.MRCSLT, HCPCreg</h5>
+							<button type="button" className="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div className="modal-body">
+							<p>
+								Wonder is a Public Sector Personnel, with experience on disability projects in parts of Africa and UK; and looking to changing the narrative around disabilities in Nigeria and Africa as whole. She is passionate and committed to raising awareness of an
+								inclusive society for people with special needs and the elderly. She has also worked in
+								partnership with state government and independent charities to train and organise
+								events to raise awareness of disability in UK and Nigeria.
+								Wonder holds a BSc in Speech and Language Therapy from City University, London (2019), Wonder currently works as a Speech and Language Therapist working with Adults with Dementia and Cognitive Impairments in United Kingdom. She is a member of the Royal College of Speech and Language Therapists; and the Health Care Professionals Council, (HCPC) UK.
+
+								</p>
+							<p>Wonder also holds other qualifications which include a Bachelor of Education in Political Science from University of Benin (1989), a Master of Science degree in Project Management from Robert Gordon University, Aberdeen (2007). Wonder started her career in the Civil Service in 1991 working in different areas within the Employment service and then
+							moved to the National Health Service in 2007 working in different areas of the NHS,
+							in the Community, Hospital and in the Office She is a proficient communicator, with strong interpersonal and customer facing skills, with vast experience of working in various teams on different projects and an appetite to learn new things.
+							</p>
 						</div>
 
 					</div>
@@ -463,6 +624,45 @@ export const Consultants = () => {
 							<p>
 								‘Laide has facilitated many training sessions including those on Customer Service in Schools, Managing Difficult Parents, Classroom Management, Teaching the British Curriculum, and Merging the British and Nigerian Curriculum effectively. She is a certified tutor with The College Reading and Learning Association; and a certified teacher in the states of Georgia and Texas in the US.She is married to her husband of over thirteen years, and they are blessed with two boys.
 					</p>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div className="modal" tabindex="-1" role="dialog" id="monsurat">
+				<div className="modal-dialog" role="document">
+					<div className="modal-content">
+						<div className="modal-header">
+							<h5 className="modal-title" style={{ fontWeight: "700" }}>
+								<img src="/static/assets/monsurat.jpg" width="30px;" /> MONSURAT ABIMBOLA ADESANYA Cert.MRCSLT, HCPCreg</h5>
+							<button type="button" className="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div className="modal-body">
+							<p>
+								Monsurat is an enthusiastic and motivated Speech and Language Therapist, with a  PGDip qualification in Speech and Language Therapy from City University, London (2006). She also holds a Health Care Professionals Council (HCPC) license to practice and is a full member of the Royal College of Speech and Language Therapist (RCSLT). She has post qualification experience of working within the National Health Service (NHS) with school age children and their families. She is accomplished in ensuring that the service provided is
+								integrated, evidence based and delivered in accordance with care pathways/protocols and
+								responsive to the needs of local population.
+								Monsurat also holds a BA (Hons) in Accounting and Financial Management from University of Essex (1989 – 1992), an MSc in Information Management in Business form South Bank University (2003).
+								Monsurat has a range of interchangeable skills, both clinical and management, gained through many years of working. She currently works in a community-based service as
+								a Speech and Language Therapist.
+								Monsurat also has significant experience of working and communicating effectively with
+								children and young people with learning disabilities, as well as challenging behaviour and
+								mental health needs. She understands the impairments associated with Autistic Spectrum
+								Disorder (ASD) and has experienced a variety of challenging behaviour associated with ASD
+								and children with Emotional/behavioural difficulties.
+								She is confident and articulate, gives formal and informal training to groups of professionals
+								including teaching staff, community nurses and family workers as part of her job.
+								Monsurat is very competent and constantly eager to continuously develop her skills as a
+								speech and language therapist so she is always willing to undertake relevant advanced
+								training that will improve and enhance her skills.
+								Her career goals are to develop, implement and evaluate specialist teaching packages within
+								the UK and in parts of Africa as well as contribute to the
+								children and young people’s service in developing, testing out and implementing new ways of working.
+							</p>
+
+
 						</div>
 
 					</div>

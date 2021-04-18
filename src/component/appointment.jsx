@@ -15,6 +15,12 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { HOST_URL } from '../store/clientResult';
 import { useHistory } from "react-router-dom";
 import loading from "../static/assets/loading.gif";
+import TimezonePicker from 'react-bootstrap-timezone-picker';
+import 'react-bootstrap-timezone-picker/dist/react-bootstrap-timezone-picker.min.css';
+import { useStyletron } from 'baseui';
+import momentPlugin from '@fullcalendar/moment'
+
+
 export const AppointmentForm = (props) => {
 
 
@@ -28,8 +34,10 @@ export const AppointmentForm = (props) => {
     const history = useHistory();
     const [selectedDoctor, setDoctor] = useState(null);
     const [availability, setAvailability] = useState([]);
+    const [timezone, setTimezone] = useState(Intl.DateTimeFormat().resolvedOptions().timeZone)
     const [error, setError] = useState('')
     const inputRef = useRef(null)
+    const [css] = useStyletron();
 
     useEffect(() => {
         auth.authCheckState(dispatch, props);
@@ -38,40 +46,51 @@ export const AppointmentForm = (props) => {
     }, [state.token]);
 
 
+
     const selectDoctor = (ev) => {
         let id = ev.target.getAttribute('doctor_id')
         setDoctor(id)
         setAvailability([])
         fetch(`${process.env.REACT_APP_CONSULTANT_URL}/api/availability?doctor=${id}`).then(res => res.json())
-            .then(res => {setAvailability(res.map(item => {
-                return { title: 'Choose Slot', start: item.start_datetime, id: item.pk }
-            
-             }))
-            if (res.length == 0){
-                alert('The doctor you have chosen is not currently avaialable');
+            .then(res => {
+                setAvailability(res.map(item => {
+                    return { title: 'Choose Slot', start: item.start_datetime, id: item.pk, timezone: item.timezone }
+
+                }))
+                if (res.length == 0) {
+                    alert('The doctor you have chosen is not currently avaialable');
+                }
             }
-            }
- 
-             )
+
+            )
     }
+
+
 
     const submitAppointment = (clickInfo) => {
 
 
-        console.log(clickInfo.event.id)
-        console.log(clickInfo.event.title)
+       
         var r = window.confirm(`Are you sure the chosen date and time is suitable for you`);
         if (r == true) {
-            fetch(`${HOST_URL}/clients/appointments/${props.match.params.id}/`, { method: "PATCH", headers: { "Content-type": "application/json" }, body: JSON.stringify({
-                 consultant: selectedDoctor,
-                  user_prefered_time: clickInfo.event.start, 
-                  availability :  clickInfo.event.id,
-                  consultant_name : `${doctors.filter(item => item.id == selectedDoctor)[0]?.first_name} ${doctors.filter(item => item.id == selectedDoctor)[0]?.last_name}`,
-                  consultant_email : doctors.filter(item => item.id == selectedDoctor)[0]?.email
-                }) })
+            let consultant_timezone = availability.filter(item => item.id == +clickInfo.event.id)[0].timezone
+            console.log(clickInfo.event.start.toUTCString())
+            
+             fetch(`${HOST_URL}/clients/appointments/${props.match.params.id}/`, {
+                method: "PATCH", headers: { "Content-type": "application/json" }, body: JSON.stringify({
+                    consultant: selectedDoctor,
+                    user_prefered_time: clickInfo.event.start,
+                    availability: clickInfo.event.id,
+                    user_timezone: timezone,
+                    consultant_name: `${doctors.filter(item => item.id == selectedDoctor)[0]?.first_name} ${doctors.filter(item => item.id == selectedDoctor)[0]?.last_name}`,
+                    consultant_email: doctors.filter(item => item.id == selectedDoctor)[0]?.email,
+                    consultant_timezone: availability.filter(item => item.id == clickInfo.event.id)[0]?.timezone
+                })
+            })
                 .then(
-                    res => { res.json()
-                    fetch(`${HOST_URL}/send_appointment_email?id=${props.match.params.id}`)
+                    res => {
+                        res.json()
+                        fetch(`${HOST_URL}/send_appointment_email?id=${props.match.params.id}`)
                     }
                 ).then(
                     res => history.push('/thank-you')
@@ -79,7 +98,7 @@ export const AppointmentForm = (props) => {
         } else {
             return false
         }
-       
+
 
 
     }
@@ -115,10 +134,7 @@ export const AppointmentForm = (props) => {
         }
     }
 
-
-
-
-
+    const handleChange = (newValue) => setTimezone(newValue)
 
 
     return (
@@ -140,7 +156,7 @@ export const AppointmentForm = (props) => {
                 </div>
             </div>
 
-           
+
 
             <div className="jumbotron bg-white">
                 <div className="container-fluid">
@@ -186,14 +202,14 @@ export const AppointmentForm = (props) => {
 
                             <div class="row">
                                 <div className="col-md-12 mt-4">
-                                    <h4 className="form-title">Set Appointment Time</h4>
+                                    <h4 className="form-title">Set Appointment Time({timezone})</h4>
                                     <p class="mb-1">Please choose a time slot that is suitable for you to hold the session </p>
                                     <p>The appointment can still be reviewed, you will notified of any changes</p>
                                 </div>
-                                
-                                <div class="col-md-12 mt-2 form-group">
 
+                                <div class="col-md-12 mt-2 form-group" >
 
+                                   
 
                                 </div>
                                 <p style={{ color: 'red' }}>{error}</p>
@@ -213,12 +229,12 @@ export const AppointmentForm = (props) => {
                                         right: "dayGridMonth,timeGridWeek,timeGridDay",
                                     }}
                                     editable={true}
-                                    plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-                                    initialView="timeGridWeek"
+                                    plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin,momentPlugin ]}
+                                    initialView="dayGridMonth"
                                     events={availability}
                                     editable={true}
                                     allDay={false}
-                                    timeZone="UTC"
+                                    timeZone='local'
                                     eventClick={submitAppointment}
                                 />
 
@@ -226,9 +242,9 @@ export const AppointmentForm = (props) => {
 
                             {availability.length == 0 &&
                                 <div class="text-center">
-                                    <img src={loading}/>
+                                    <img src={loading} />
                                 </div>
-                            
+
                             }
 
                         </div>

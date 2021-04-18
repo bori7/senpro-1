@@ -10,10 +10,13 @@ from users.models import User
 class Client(models.Model):
     user = models.OneToOneField(
         User, on_delete=models.CASCADE)
+    timezone = models.CharField(default='Africa/Lagos', max_length=200)
   
 
     def __str__(self):
         return self.user.username
+
+
 
 
 class Child(models.Model):
@@ -71,6 +74,9 @@ class Appointment(models.Model):
     consultant_email = models.CharField(max_length=200, null=True)
     zoom_join_url = models.TextField(null=True)
     zoom_start_url = models.TextField(null=True)
+    user_timezone = models.CharField(max_length=200, default='Africa/Lagos')
+    consultant_timezone = models.CharField(max_length=200, default='Africa/Lagos')
+
 
     def __str__(self):
         return self.user.username

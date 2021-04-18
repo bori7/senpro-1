@@ -229,5 +229,14 @@ ACCOUNT_USERNAME_REQUIRED = False
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+TIME_ZONE = 'UTC'
+
+
+USE_I18N = True
+
+USE_L10N = True
+
+USE_TZ = True
+
 from .settings_local import *
 

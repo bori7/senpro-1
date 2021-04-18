@@ -1,3 +1,4 @@
+{% load tz %}
 <!doctype html>
 <html>
 
@@ -378,7 +379,10 @@
 
                                             <p>An appointment has been set up for you. The details are:</p>
                                             <p><strong>Client</strong> : {{client}}</p>
+                                            {% timezone ctimezone %}
                                             <p><strong>Time</strong> : {{start_date}}</p>
+                                            {% endtimezone %}
+
                                             <p><strong>Meeting Link</strong>: {{meeting_link}} </p>
 
 

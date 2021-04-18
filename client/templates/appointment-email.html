@@ -1,3 +1,4 @@
+{% load tz %}
 <!doctype html>
 <html>
 
@@ -375,7 +376,7 @@
                                         <td>
                                             <p>Hello {{request.user.username}} !</p>
 
-
+                                            {% timezone ctimezone %}
                                             <p>Your appointment has now been scheduled for <strong>{{start_date}}</strong> with <strong>{{consultant_name}}</strong>
                                             </p><p>We look forward to meeting with you then. If for any reason you need to
                                                 reschedule or cancel, kindly send us an email at
@@ -388,6 +389,7 @@
                                                 </p>
 
                                             </p>
+                                            {% endtimezone %}
 
 
 

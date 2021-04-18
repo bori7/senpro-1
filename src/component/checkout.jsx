@@ -24,13 +24,16 @@ export const CheckOut = (props) => {
     }, [state.token,]);
 
 
-const professionals = [ {name:"Counsellor",price:'$75/hr',amount:75},
-                        {name:"Behavioral Analyst",price:'$100/hr',amount:100},
-                        {name:"Educational Psychologist",price:'$200/hr',amount:75},
-                        {name:"Clinical Psychologist",price:'$75/hr',amount:200},
-                        {name:"Advocate",price:'$75/hr',amount:75},
-                        {name:"Paediatrician",price:'$150/hr',amount:150},
-                        {name:"Speech Therapist",price:'$200/hr',amount:200}
+const professionals = [
+                        {name:"Behaviour Assessment",price:'$400/hr',amount:400},
+                        {name:"Speech Therapy",price:'$100/hr',amount:100},
+                        {name:"Paediatrician",price:'$125/hr',amount:125},
+                        {name:"Speech Accessment",price:'$150/hr',amount:150},
+                        {name:"Educational Accessor",price:'$300/hr',amount:300},
+                        {name:"Behaviour Therapy",price:'$100/hr',amount:100},
+                        {name:"Academic Intervention",price:'$50/hr',amount:50},
+                        {name:"Physical Therapy",price:'$75/hr',amount:75},
+
                         ]
 
 
