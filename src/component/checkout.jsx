@@ -33,6 +33,8 @@ const professionals = [
                         {name:"Behaviour Therapy",price:'$100/hr',amount:100},
                         {name:"Academic Intervention",price:'$50/hr',amount:50},
                         {name:"Physical Therapy",price:'$75/hr',amount:75},
+                        {name:"Advocate",price:'$75/hr',amount:75},
+                        {name:"Counsellor",price:'$75/hr',amount:75},
 
                         ]
 
