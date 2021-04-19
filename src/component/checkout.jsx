@@ -25,16 +25,16 @@ export const CheckOut = (props) => {
 
 
 const professionals = [
-                        {name:"Behaviour Assessment",price:'$400/hr',amount:400},
-                        {name:"Speech Therapy",price:'$100/hr',amount:100},
-                        {name:"Paediatrician",price:'$125/hr',amount:125},
-                        {name:"Speech Accessment",price:'$150/hr',amount:150},
-                        {name:"Educational Accessor",price:'$300/hr',amount:300},
-                        {name:"Behaviour Therapy",price:'$100/hr',amount:100},
-                        {name:"Academic Intervention",price:'$50/hr',amount:50},
-                        {name:"Physical Therapy",price:'$75/hr',amount:75},
-                        {name:"Advocate",price:'$75/hr',amount:75},
-                        {name:"Counsellor",price:'$75/hr',amount:75},
+                        {name:"Behaviour Assessment",price:'$400/hr',amount:400, slug:'behaviour-assessment'},
+                        {name:"Speech Therapy",price:'$100/hr',amount:100, slug: 'speech-therapy'},
+                        {name:"Paediatrician",price:'$125/hr',amount:125, slug: 'paediatrician'},
+                        {name:"Speech Accessment",price:'$150/hr',amount:150, slug: 'speech-accessment'},
+                        {name:"Educational Accessor",price:'$300/hr',amount:300, slug: 'educational-accesssor'},
+                        {name:"Behaviour Therapy",price:'$100/hr',amount:100, slug: 'behaviour-therapy'},
+                        {name:"Academic Intervention",price:'$50/hr',amount:50, slug: 'academic-intervention'},
+                        {name:"Physical Therapy",price:'$75/hr',amount:75, slug: 'physical-therapy'},
+                        {name:"Advocate",price:'$75/hr',amount:75, slug: 'advocate'},
+                        {name:"Counsellor",price:'$75/hr',amount:75, slug: 'counsellor'},
 
                         ]
 
@@ -89,7 +89,7 @@ return (
                                 <h3  >{x.name} </h3>
                                 <h2 > {x.price} </h2>
                                 <a key={professionals.indexOf(x)+1} onClick={toggleLoadState}  >
-                                    <PayAppoint closeModal={setModal} amount={x.amount} name={x.name} pk={pk}/>    
+                                    <PayAppoint closeModal={setModal} amount={x.amount} name={x.slug} pk={pk}/>    
                                 </a>
                             </div>
                         </div>
