@@ -185,7 +185,7 @@ export const AppointmentForm = (props) => {
 
                                             <div className="profile-box doctor p-2" style={{ width: '100%', height: 'auto' }}>
                                                 <div className={`overlay ${selectedDoctor == item.id ? 'selected' : ''}`} doctor_id={item.id} onClick={selectDoctor}></div>
-                                                <img src={`${process.env.REACT_APP_CONSULTANT_URL}${item.pic}`} style={{ borderRadius: '50%', width: '100%', height: 'auto' }} />
+                                                <div style={{width: '100%', height: '200px', overflowY: 'hidden'}}><img src={`${process.env.REACT_APP_CONSULTANT_URL}${item.pic}`} style={{ borderRadius: '50%', width: '100%', height: 'auto' }} /></div>
                                                 <h3 style={{ color: '#000', 'fontSize': '15px' }}>{item.first_name} {item.last_name}</h3>
 
                                             </div>
