@@ -14,7 +14,8 @@ import remilekun from "../static/assets/remilekun.png";
 import tolulope from "../static/assets/tolulope.png";
 import whitney from "../static/assets/whitney.png";
 import wonder from "../static/assets/wonder.jpg";
-
+import imade from "../static/assets/imade.jpg";
+import monsurat from "../static/assets/monsurat.jpg";
 
 export const Consultants = () => {
 
@@ -154,7 +155,7 @@ export const Consultants = () => {
 						<div className="col-md-4">
 							<a href="#" data-toggle="modal" data-target="#imade">
 								<div className="profile-box profile-box-skyblue">
-									<img src='/static/assets/imade.jpg' style={{ borderRadius: '50%', width: '200px', height: '200px' }} />
+									<img src={imade} style={{ borderRadius: '50%', width: '200px', height: '200px' }} />
 									<h3>Imade Omokaro-Ajayi </h3>
 								</div>
 							</a>
@@ -168,7 +169,7 @@ export const Consultants = () => {
 						<div className="col-md-4">
 							<a href="#" data-toggle="modal" data-target="#monsurat">
 								<div className="profile-box profile-box-skyblue">
-									<img src='/static/assets/monsurat.jpg' style={{ borderRadius: '50%', width: '200px', height: '200px' }} />
+									<img src={monsurat} style={{ borderRadius: '50%', width: '200px', height: '200px' }} />
 									<h3>MONSURAT ABIMBOLA ADESANYA</h3>
 								</div>
 							</a>
@@ -489,7 +490,7 @@ export const Consultants = () => {
 					<div className="modal-content">
 						<div className="modal-header">
 							<h5 className="modal-title" style={{ fontWeight: "700" }}>
-								<img src="/static/assets/imade.jpg" width="30px;" />Imade Omokaro-Ajayi Cert.MRCSLT, HCPCreg</h5>
+								<img src={imade} width="30px;" />Imade Omokaro-Ajayi Cert.MRCSLT, HCPCreg</h5>
 							<button type="button" className="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
@@ -519,7 +520,7 @@ export const Consultants = () => {
 					<div className="modal-content">
 						<div className="modal-header">
 							<h5 className="modal-title" style={{ fontWeight: "700" }}>
-								<img src="/static/assets/wonder.jpg" width="30px;" />WONDER MODUPE OLUSINA Cert.MRCSLT, HCPCreg</h5>
+								<img src={wonder} width="30px;" />WONDER MODUPE OLUSINA Cert.MRCSLT, HCPCreg</h5>
 							<button type="button" className="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
@@ -634,7 +635,7 @@ export const Consultants = () => {
 					<div className="modal-content">
 						<div className="modal-header">
 							<h5 className="modal-title" style={{ fontWeight: "700" }}>
-								<img src="/static/assets/monsurat.jpg" width="30px;" /> MONSURAT ABIMBOLA ADESANYA Cert.MRCSLT, HCPCreg</h5>
+								<img src={monsurat} width="30px;" /> MONSURAT ABIMBOLA ADESANYA Cert.MRCSLT, HCPCreg</h5>
 							<button type="button" className="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
