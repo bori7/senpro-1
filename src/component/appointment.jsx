@@ -202,7 +202,7 @@ export const AppointmentForm = (props) => {
 
                             <div class="row">
                                 <div className="col-md-12 mt-4">
-                                    <h4 className="form-title">Set Appointment Time({timezone})</h4>
+                                    <h4 className="form-title">Set Appointment Time(Africa/Lagos)</h4>
                                     <p class="mb-1">Please choose a time slot that is suitable for you to hold the session </p>
                                     <p>The appointment can still be reviewed, you will notified of any changes</p>
                                 </div>
@@ -234,7 +234,7 @@ export const AppointmentForm = (props) => {
                                     events={availability}
                                     editable={true}
                                     allDay={false}
-                                    timeZone='local'
+                                    timeZone='utc'
                                     eventClick={submitAppointment}
                                 />
 

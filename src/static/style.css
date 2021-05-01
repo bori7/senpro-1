@@ -825,7 +825,7 @@ p.question{
 
 .step-control{
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 }
 
 .step-control button{

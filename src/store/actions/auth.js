@@ -161,7 +161,7 @@ export const authCheckState = (dispatch, props) => {
       } else {
         dispatch(authSuccess(user));
           if (props.location.pathname == '/login/'){
-            if (localStorage.getItem('next') != 'false'){
+            if (localStorage.getItem('next') != 'false' && !localStorage.getItem('next')  ){
               props.history.push(localStorage.getItem('next'));
               localStorage.setItem('next','/')
             }else{
