@@ -22,7 +22,7 @@ export const Pay = (props) => {
    const config = {
     public_key: `${process.env.REACT_APP_PUBLIC_KEY}`,
     tx_ref: Date.now(),
-    amount: 25,
+    amount: 1,
     currency: 'USD',
     payment_options: 'card,mobilemoney,ussd',
     customer: {
@@ -36,6 +36,8 @@ export const Pay = (props) => {
       logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
     },
   };
+
+  console.log(config.public_key)
 
   const child = props.chill
   
