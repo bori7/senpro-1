@@ -129,9 +129,11 @@ const updateChildFail = (state, action) => {
 
 
 const createChildStart = (state, action) => {
+  console.log(action)
   return updateObject(state, {
     error: null,
-    loading: true
+    loading: true,
+    dob: action.D_O_B
   });
 };
 

@@ -311,7 +311,7 @@ return (
                                 <div className="form-group">
                                     <Editor
                                         apiKey={`${process.env.Api_Key}`}
-                                        initialValue={editorcontent}
+                                        value={editorcontent}
                                         init={{
                                             plugins: 'table lists wordcount emoticons' ,
                                             toolbar: 'undo redo | bold italic | alignleft aligncenter | numlist bullist| wordcount link emoticons | table  |',

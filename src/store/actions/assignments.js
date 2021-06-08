@@ -11,9 +11,10 @@ const createASNTStart = () => {
   };
 };
 
-const createChildStart = () => {
+const createChildStart = (dob) => {
   return {
-    type: actionTypes.CREATE_CHILD_START
+    type: actionTypes.CREATE_CHILD_START,
+    D_O_B: dob
   };
 };
 
@@ -185,7 +186,7 @@ export const getChilds = (parent,token,dispatch) => {
 
 export const createChild = (token, child, dispatch,dispatch2) => {
  
-    dispatch(createChildStart());
+    
     
     axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
     axios.defaults.xsrfCookieName = "csrftoken";
@@ -198,6 +199,8 @@ export const createChild = (token, child, dispatch,dispatch2) => {
       .then(res => {
         
         dispatch2(createChildSuccess(res.data));
+
+        dispatch2(createChildStart(child.D_O_B));
 
       })
       .catch(err => {
