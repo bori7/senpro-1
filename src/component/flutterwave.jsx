@@ -13,18 +13,16 @@ import  {HOST_URL} from '../store/clientResult';
 
 
 export const Pay = (props) => {
-  const alert = useAlert()
+  
     const {resstate, resdispatch} = useContext(ResContext);
-    const {title} = resstate;
     const {state, dispatch} = useContext(MyContext)
     const id = props.chill.id
   
    const config = {
-    public_key: `${process.env.REACT_APP_PUBLIC_KEY}`,
+    public_key: 'FLWPUBK_TEST-aa04e2b8c50a2d3dfce7742398f14203-X',//`${process.env.REACT_APP_PUBLIC_KEY}`,
     tx_ref: Date.now(),
-    amount: 2,
-    currency: 'USD',
-    payment_options: 'card,mobilemoney,ussd',
+    amount: 20,
+    currency: 'NGN',
     customer: {
       email: 'user@gmail.com',
       phonenumber: '07064586146',
@@ -37,7 +35,7 @@ export const Pay = (props) => {
     },
   };
 
-  console.log(config.public_key)
+ 
 
   const child = props.chill
   
@@ -64,11 +62,9 @@ const onSuccess =  () => {
     text: 'Pay Now!',
     className:"btn btn-warning deepblue curvebtn my-2 my-sm-0 margin-right colorf",
     callback: (response) => {
-     
+      console.log(response)
       onSuccess(); 
       closePaymentModal();
-     
-      
     },
     onClose: () => {
       props.closeModal()
