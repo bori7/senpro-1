@@ -6,6 +6,8 @@ import React, { useReducer, createContext } from "react";
 
 export const ResContext = createContext();
 
+
+
 const initialState = {
   explain: [],
   title: [],
@@ -19,7 +21,8 @@ const initialState = {
   results:[],
   childs:[],
   child_id:null,
-  appointment:{}
+  appointment:{},
+  rate: {}
 };
 
 const messageSuccess = (state, action) => {

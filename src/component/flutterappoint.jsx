@@ -15,10 +15,10 @@ export const PayAppoint = (props) => {
     const history = useHistory();
 
   const config = {
-    public_key: `${process.env.REACT_APP_PUBLIC_KEY}`,
+    public_key: 'FLWPUBK_TEST-1afe530682da3dfa991142ac5df907c1-X',//`${process.env.REACT_APP_PUBLIC_KEY}`,
     tx_ref: Date.now(),
     amount: 100,
-    currency: 'USD',
+    currency: 'NGN',
     payment_options: 'card,mobilemoney,ussd',
     customer: {
       email: 'user@gmail.com',
@@ -34,8 +34,9 @@ export const PayAppoint = (props) => {
 
     if(state.userId){config.customer.email = state.userId.email}
     if(state.username){config.customer.name = state.username}
+   
 
-    if(props.amount){config.amount = props.amount}
+    if(props.amount){config.amount = Math.ceil((props.amount/props.rate)*1.25)}
     if(props.name){config.customizations.description += props.name}
 
 const appnt = {

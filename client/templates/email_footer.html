@@ -8,9 +8,11 @@
         </td>
       </tr>
       <tr>
+        {% if request %}
         <td class="content-block powered-by">
           Powered by <a href="{{ request.scheme }}://{{ request.get_host }}">Senpro</a>.
         </td>
+        {% endif %}
       </tr>
     </table>
   </div>

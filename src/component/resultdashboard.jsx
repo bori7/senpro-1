@@ -21,6 +21,7 @@ export const ResultDashboard = (props) => {
     const {state, dispatch} = useContext(MyContext)
     const [surveys, setSurvey] = useState([])
     const [load, setLoad] = useState(false)
+    const [rate, setRate] = useState(null)
     
     useEffect(() => {
         
@@ -36,7 +37,7 @@ export const ResultDashboard = (props) => {
         )  
         
         getChilds(user.userId.pk,user.token,resdispatch)
-        
+        getRate()
         
         }
    
@@ -49,6 +50,11 @@ export const ResultDashboard = (props) => {
 
    const setModal = () => {
        setLoad(false)
+   }
+
+   const getRate = () => {
+    fetch('http://data.fixer.io/api/latest?access_key=863f53ae1710e89a24528fa2feb59e3a&base=NGN&symbols=USD')
+    .then(resp => resp.json()).then(res => setRate(res.rates['USD']))
    }
 
 
@@ -127,7 +133,7 @@ const handleClick = (id,e) => {
                     <div className="col-12 text-center">
                         <img src={main_logo} alt = {"main_logo"} style={{width: '200px'}}/>
 
-                        <p class="text-center">Thank you for filling this questionnaire. Please note that a payment of $1 will be required to view results. Thank you.</p>
+                        <p class="text-center">Thank you for filling this questionnaire. Please note that a payment of <span class="font-weight-bold">$25</span> will be required to view results. Thank you.</p>
                         
                         {surveys.length !==0 ?
                        
@@ -141,7 +147,7 @@ const handleClick = (id,e) => {
                             </div>
                        </div>:""}
                        
-                       {surveys.length != 0 ? (surveys.map( item => 
+                       {surveys.length != 0 && rate ? (surveys.map( item => 
                        
                        <div key={item.id}  class="row">
                            
@@ -159,7 +165,7 @@ const handleClick = (id,e) => {
                                     View result
                                     </button>
                                     </ul>) :(<div key={item.id} onClick={toggleLoadState}  className='total'>
-                                    <Pay chill={item} closeModal={setModal} />    
+                                    <Pay chill={item} closeModal={setModal} rate={rate} />    
                                             </div>) }       
 
                                 </div>

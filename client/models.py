@@ -30,6 +30,7 @@ class Child(models.Model):
     paid = models.BooleanField(default=False) 
     upfile = models.BooleanField(default=False) 
     testres = models.BooleanField(default=False) 
+
     
     def __str__(self):
         return self.name
@@ -76,6 +77,8 @@ class Appointment(models.Model):
     zoom_start_url = models.TextField(null=True)
     user_timezone = models.CharField(max_length=200, default='Africa/Lagos')
     consultant_timezone = models.CharField(max_length=200, default='Africa/Lagos')
+    meeting_id = models.CharField(max_length=200, null=True)
+    reminder_sent = models.BooleanField(default=False)
 
 
     def __str__(self):

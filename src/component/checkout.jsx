@@ -12,15 +12,14 @@ export const CheckOut = (props) => {
     
     
     const {state, dispatch} = useContext(MyContext);
-    const [load, setLoad] = useState(false)
+    const [load, setLoad] = useState(false);
+    const [rate, setRate] = useState(null)
     var pk = ''
     if(state.userId){pk = state.userId.pk}
 
     useEffect(() => {
     auth.authCheckState(dispatch, props);
-    // if(!pk){
-    //     pk = state.userId.pk}
-  
+    getRate()
     }, [state.token,]);
 
 
@@ -34,7 +33,7 @@ const professionals = [
                         {name:"Academic Intervention",price:'$50/hr',amount:50, slug: 'academic-intervention'},
                         {name:"Physical Therapy",price:'$75/hr',amount:75, slug: 'physical-therapy'},
                         {name:"Advocate",price:'$75/hr',amount:75, slug: 'advocate'},
-                        {name:"Counsellor",price:'$75/hr',amount:1, slug: 'counsellor'},
+                        {name:"Counsellor",price:'$75/hr',amount:5, slug: 'counsellor'},
 
                         ]
 
@@ -42,6 +41,11 @@ const professionals = [
    const toggleLoadState = () =>{
      
         setLoad(!load)
+   }
+
+   const getRate = () => {
+    fetch('http://data.fixer.io/api/latest?access_key=863f53ae1710e89a24528fa2feb59e3a&base=NGN&symbols=USD')
+    .then(resp => resp.json()).then(res => setRate(res.rates?.USD))
    }
 
    const setModal = () => {
@@ -81,7 +85,7 @@ return (
                 </div>
         
             <div className="row">
-                    {professionals.map(x => 
+                    {rate ?  professionals.map(x => 
                         <div key={professionals.indexOf(x)+1} className="col-lg-3 col-md-4">
                             <div className="justify-content-between profile-box-blue 
                             d-flex flex-column pay-box align-items-center py-3" 
@@ -89,11 +93,11 @@ return (
                                 <h3  >{x.name} </h3>
                                 <h2 > {x.price} </h2>
                                 <a key={professionals.indexOf(x)+1} onClick={toggleLoadState}  >
-                                    <PayAppoint closeModal={setModal} amount={x.amount} name={x.slug} pk={pk}/>    
+                                    <PayAppoint rate={rate} closeModal={setModal} amount={x.amount} name={x.slug} pk={pk}/>    
                                 </a>
                             </div>
                         </div>
-                        ) 
+                        ) : ''
                     }
             </div>
           

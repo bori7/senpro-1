@@ -19,7 +19,9 @@ import requests
 from django.utils.html import strip_tags
 from django.conf import settings
 from pyzoom import ZoomClient
-
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 class ClientViewSet(viewsets.ModelViewSet):
     serializer_class = ClientSerializer
@@ -90,6 +92,24 @@ class SendRegistrationEmail(APIView):
         return Response({'message': resp.text})
 
 
+@csrf_exempt
+def my_webhook_view(request):
+  # Retrieve the request's body
+  fb = json.loads(request.body)
+  if fb['event'] == 'charge.completed':
+      data = fb['data']
+      ph = data['customer']['phone_number']
+      payt_type, value = ph.split('-')
+      if payt_type == 'result':
+        try:
+            child = Child.objects.get(id=value)
+            child.paid = True
+            child.save()
+            resp = send_pyt_email(child.email, child.id, request)
+        except Child.DoesNotExist:
+            pass
+  return HttpResponse(status=200)
+
 class SendPaymentEmail(APIView):
 
     authentication_classes = [ SessionAuthentication,]
@@ -98,17 +118,21 @@ class SendPaymentEmail(APIView):
     def get(self, request):
         to_email = request.GET.get('email')
         child = request.GET.get('child')
-        try:
-            survey = Child.objects.get(id=child)
-            if not survey.paid:#dont send email if not paid
-                return Response(status=HTTP_400_BAD_REQUEST)
-        except Child.DoesNotExist:
-            return Response(status=HTTP_400_BAD_REQUEST)
-        results = Result.objects.filter(child_id=child)
-        message = render_to_string('result.html', {'request': request, 'results': results}) 
-        resp = send_mail_task(message, [to_email], 'Your Result Is Now Available')
+        resp = send_pyt_email(to_email, child, request)
         return Response({'message': resp.text})
 
+
+def send_pyt_email(to_email, child, request):
+    try:
+        survey = Child.objects.get(id=child)
+        if not survey.paid:#dont send email if not paid
+            return False
+    except Child.DoesNotExist:
+        return False
+    results = Result.objects.filter(child_id=child)
+    message = render_to_string('result.html', {'request': request, 'results': results}) 
+    resp = send_mail_task(message, [to_email], 'Your Result Is Now Available')
+    return resp
 
 class SendAppointmentEmail(APIView):
 
@@ -125,10 +149,11 @@ class SendAppointmentEmail(APIView):
         meeting = client.meetings.create_meeting('SENPRO Meeting', start_time=appointment.user_prefered_time.isoformat(), duration_min=60, password='senpro1233')
         appointment.zoom_join_url = meeting.join_url
         appointment.zoom_start_url = meeting.start_url
+        appointment.meeting_id = meeting.id
         appointment.save()
-        message = render_to_string('appointment-email.html', {'request': request, 'start_date': appointment.user_prefered_time, 'consultant_name': appointment.consultant_name, 'ctimezone': appointment.user_timezone}) 
+        message = render_to_string('appointment-email.html', {'request': request, 'start_date': appointment.user_prefered_time, 'consultant_name': appointment.consultant_name, 'ctimezone': appointment.user_timezone, 'joinurl': meeting.join_url}) 
         resp = send_mail_task(message, [appointment.user.email], 'Senpro Appointment Details')
-        sendConsultantEmail(appointment.user.username, appointment.user_prefered_time, meeting.join_url, appointment.consultant_name, appointment.consultant_email, request, appointment.consultant_timezone)
+        sendConsultantEmail(appointment.user.username, appointment.user_prefered_time, meeting.start_url, appointment.consultant_name, appointment.consultant_email, request, appointment.consultant_timezone)
         return Response({'message': resp.text})
 
 

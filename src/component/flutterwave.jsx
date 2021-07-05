@@ -19,14 +19,16 @@ export const Pay = (props) => {
     const id = props.chill.id
   
    const config = {
-    public_key: 'FLWPUBK_TEST-aa04e2b8c50a2d3dfce7742398f14203-X',//`${process.env.REACT_APP_PUBLIC_KEY}`,
+    public_key:'FLWPUBK_TEST-1afe530682da3dfa991142ac5df907c1-X', //`${process.env.REACT_APP_PUBLIC_KEY}`,
     tx_ref: Date.now(),
-    amount: 20,
+    payment_options: 'card,mobilemoney,ussd',
+    amount: (25/props.rate)*1.25,
     currency: 'NGN',
     customer: {
       email: 'user@gmail.com',
-      phonenumber: '07064586146',
+      phone_number: '07064586146',
       name: 'joel ugwumadu',
+      test: 'test',
     },
     customizations: {
       title: 'Senpro Results',
@@ -40,21 +42,16 @@ export const Pay = (props) => {
   const child = props.chill
   
   config.customer.email = child.email
-  config.customer.phonenumber = child.phone
+  config.customer.phone_number =  `result-${child.id}`
   config.customer.name = child.name
+ 
 
 
 
 const onSuccess =  () => {
     child.paid = true
-    
-    updateChild(id,child,state.token, resdispatch)
-    getResults(id,state.token, resdispatch).
-    then(res => {
-      fetch(`${HOST_URL}/send_payment_email?email=${child.email}&child=${child.id}`) 
-      props.closeModal()
-    
-    })   
+    getResults(id,state.token, resdispatch)
+    props.closeModal()
 }
 
   const fwConfig = {
@@ -62,7 +59,7 @@ const onSuccess =  () => {
     text: 'Pay Now!',
     className:"btn btn-warning deepblue curvebtn my-2 my-sm-0 margin-right colorf",
     callback: (response) => {
-      console.log(response)
+      
       onSuccess(); 
       closePaymentModal();
     },
