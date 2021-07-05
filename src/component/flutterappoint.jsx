@@ -15,7 +15,7 @@ export const PayAppoint = (props) => {
     const history = useHistory();
 
   const config = {
-    public_key: 'FLWPUBK_TEST-1afe530682da3dfa991142ac5df907c1-X',//`${process.env.REACT_APP_PUBLIC_KEY}`,
+    public_key: `${process.env.REACT_APP_PUBLIC_KEY}`,
     tx_ref: Date.now(),
     amount: 100,
     currency: 'NGN',

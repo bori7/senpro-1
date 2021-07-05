@@ -19,10 +19,10 @@ export const Pay = (props) => {
     const id = props.chill.id
   
    const config = {
-    public_key:'FLWPUBK_TEST-1afe530682da3dfa991142ac5df907c1-X', //`${process.env.REACT_APP_PUBLIC_KEY}`,
+    public_key:`${process.env.REACT_APP_PUBLIC_KEY}`,
     tx_ref: Date.now(),
     payment_options: 'card,mobilemoney,ussd',
-    amount: (25/props.rate)*1.25,
+    amount: (process.env.REACT_APP_PRICE_MEETING/props.rate)*1.25,
     currency: 'NGN',
     customer: {
       email: 'user@gmail.com',
