@@ -44,7 +44,7 @@ const professionals = [
    }
 
    const getRate = () => {
-    fetch('http://data.fixer.io/api/latest?access_key=863f53ae1710e89a24528fa2feb59e3a&base=NGN&symbols=USD')
+    fetch('https://data.fixer.io/api/latest?access_key=863f53ae1710e89a24528fa2feb59e3a&base=NGN&symbols=USD')
     .then(resp => resp.json()).then(res => setRate(res.rates?.USD))
    }
 
