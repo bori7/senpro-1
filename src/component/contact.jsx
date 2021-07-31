@@ -45,7 +45,7 @@ export const Contact = (props) => {
 
         fetch(`${HOST_URL}/send_contact_email`, requestOptions)
             .then(response => response.json())
-            .then(result => alert('Thanks!, We have received your message, we reach back to you.'))
+            .then(result => {alert('Thanks!, We have received your message, we reach back to you.')})
             .catch(error => console.log('error', error));
 
     }
