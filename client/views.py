@@ -22,9 +22,8 @@ from pyzoom import ZoomClient
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
-import jwt
-import uuid
-import datetime
+
+
 
 class ClientViewSet(viewsets.ModelViewSet):
     serializer_class = ClientSerializer
