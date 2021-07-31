@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from main.views import Consultant
 from django.views.generic import TemplateView
-from client.views import UploadFiles, SendRegistrationEmail, CreateResults, SendPaymentEmail, SendPaymentAppointmentEmail, SendAppointmentEmail, GetlastTimeZone, my_webhook_view
+from client.views import UploadFiles, SendRegistrationEmail, CreateResults, SendPaymentEmail, SendPaymentAppointmentEmail, SendContactEmail, SendAppointmentEmail, GetlastTimeZone, my_webhook_view
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -43,7 +43,8 @@ urlpatterns = [
     path('send_appointment_pay', SendPaymentAppointmentEmail.as_view()),
     path('result/create', CreateResults.as_view()),  
     path('get_last_timezone', GetlastTimeZone.as_view()),
-    path('receive_payt', my_webhook_view)
+    path('receive_payt', my_webhook_view),
+    path('send_contact_email', SendContactEmail.as_view()),
 ]
 
 if settings.DEBUG:

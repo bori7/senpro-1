@@ -22,6 +22,9 @@ from pyzoom import ZoomClient
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
+import jwt
+import uuid
+import datetime
 
 class ClientViewSet(viewsets.ModelViewSet):
     serializer_class = ClientSerializer
@@ -134,6 +137,39 @@ def send_pyt_email(to_email, child, request):
     resp = send_mail_task(message, [to_email], 'Your Result Is Now Available')
     return resp
 
+class SendContactEmail(APIView):
+    authentication_classes = [ ]
+    permission_classes = (permissions.AllowAny, )
+
+
+    def post(self,request):
+        data = request.body
+        message_obj = json.loads(data)
+        
+        try:
+            message = render_to_string('contact.html', {'request': request, **message_obj})
+            resp = send_mail_task(message, ['contact@senproinitiative.org', 'abiodun.toluwanii@gmail.com'], 'Your Result Is Now Available')
+
+        except KeyError:
+            pass
+        return Response()
+
+
+def generate(expires=10000):
+    url = "https://api.eyeson.team/rooms"
+
+    payload={'name': 'SenPro Meeting',
+    'user[name]': 'Senpro'}
+    files=[
+
+    ]
+    headers = {
+    'Authorization': settings.EYES_ON_API
+    }
+
+    response = requests.request("POST", url, headers=headers, data=payload, files=files)
+    return response.json()
+
 class SendAppointmentEmail(APIView):
 
     authentication_classes = [ SessionAuthentication,]
@@ -145,11 +181,15 @@ class SendAppointmentEmail(APIView):
             appointment = Appointment.objects.get(pk=appointment_id)
         except Appointment.DoesNotExist:
             return Response(status=HTTP_400_BAD_REQUEST)
-        client = ZoomClient(settings.ZOOM_API_KEY, settings.ZOOM_SECRET)
-        meeting = client.meetings.create_meeting('SENPRO Meeting', start_time=appointment.user_prefered_time.isoformat(), duration_min=60, password='senpro1233')
-        appointment.zoom_join_url = meeting.join_url
-        appointment.zoom_start_url = meeting.start_url
-        appointment.meeting_id = meeting.id
+        meeting = generate()
+
+
+        #client = ZoomClient(settings.ZOOM_API_KEY, settings.ZOOM_SECRET)
+        #meeting = client.meetings.create_meeting('SENPRO Meeting', start_time=appointment.user_prefered_time.isoformat(), duration_min=60, password='senpro1233')
+        appointment.zoom_join_url = meeting['links']['guest_join']
+        appointment.zoom_start_url = meeting['links']['gui']
+        appointment.meeting_id = meeting['room']['id']
+
         appointment.save()
         message = render_to_string('appointment-email.html', {'request': request, 'start_date': appointment.user_prefered_time, 'consultant_name': appointment.consultant_name, 'ctimezone': appointment.user_timezone, 'joinurl': meeting.join_url}) 
         resp = send_mail_task(message, [appointment.user.email], 'Senpro Appointment Details')

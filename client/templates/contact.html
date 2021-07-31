@@ -1,4 +1,3 @@
-{% load tz %}
 <!doctype html>
 <html>
 
@@ -175,10 +174,10 @@
 
         .btn a {
             background-color: #ffffff;
-            border: solid 1px #FF8E00;
+            border: solid 1px #222c89;
             border-radius: 5px;
             box-sizing: border-box;
-            color: #FF8E00;
+            color: #222c89;
             cursor: pointer;
             display: inline-block;
             font-size: 14px;
@@ -190,12 +189,12 @@
         }
 
         .btn-primary table td {
-            background-color: #FF8E00;
+            background-color: #222c89;
         }
 
         .btn-primary a {
-            background-color: #FF8E00;
-            border-color: #FF8E00;
+            background-color: #222c89;
+            border-color: #222c89;
             color: #ffffff;
         }
 
@@ -358,7 +357,7 @@
 </head>
 
 <body class="">
-    <span class="preheader"> Appointment Details</span>
+    <span class="preheader">SenPro Survey Result </span>
     <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
         <tr>
             <td>&nbsp;</td>
@@ -375,26 +374,43 @@
                                     <tr>
                                         <td>
                                             <img class="img-responsive" src="{{ request.scheme }}://{{ request.get_host }}/static/assets/main-logo.png"/>
-                                            <p>Hello {{consultant_name}}</p>
+                                            <p>Hello Admin ,</p>
 
 
-                                            <p>An appointment has been set up for you. The details are:</p>
-                                            <p><strong>Client</strong> : {{client}}</p>
+                                            <p>
+                                                A contact form was just filled on the website, see below for the details
+
+                                            </p>
                                            
-                                            <p><strong>Time</strong> : {{start_date}}</p>
-                                            <p><strong>Timezone</strong> : Africa/Lagos</p>
 
-                                            <p><strong>Meeting Link</strong>:Will be shared right before the meeting </p>
+                                            <h3 style="font-weight: bold; margin-bottom: 10px;">Contact Form Details</h3>
 
-
-                                            <p>Please ensure that you are logged in for the meeting at least 5 minutes before the meeting is scheduled to start. We appreciate your professionalism and complaince with our values.</p>
+                                          
+                                            
 
 
-                                                <p>If there is additional information available about the client, it will be shared with you via our secure server.</p>
-                                                
-                                                <p>If you have to reschedule or cancel this apppointment, please contact our administrator on admin@senproinitiative.org</p>
+                                           
+                                            <p><strong>Name: {{name}}</strong></p>
+                                                <hr style="border-width: 1px; border-color: black;">
 
-                                                <p>Thank You</p>
+                                                <p><strong>Email: {{email}}</strong></p>
+                                                <hr style="border-width: 1px; border-color: black;">
+
+                                                <p><strong>Phone: {{phone}}</strong></p>
+                                                <hr style="border-width: 1px; border-color: black;">
+
+
+                                                <p><strong>Message: {{message}}</strong></p>
+                                                <hr style="border-width: 1px; border-color: black;">
+
+                                         
+
+
+                                           
+
+                                           
+
+
 
 
 

@@ -32,6 +32,7 @@ export const Footer= () => {
                     <li><a href="https://web.facebook.com/senproinitiative"><i className="fa fa-facebook"></i></a></li>
                     <li><a href="https://twitter.com/senproinitiative"><i className="fa fa-twitter"></i></a></li>
                     <li><a href="https://www.instagram.com/senproinitiative/"><i className="fa fa-instagram"></i></a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
             </div>
         </div>

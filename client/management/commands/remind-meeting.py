@@ -3,6 +3,7 @@ from django.utils import timezone
 from client.models import Appointment
 from django.utils import timezone
 from client.support import send_reminder_email
+from client.views import send_pyt_email
 import pdb
 import pytz
 from datetime import datetime, timedelta  
@@ -25,3 +26,4 @@ class Command(BaseCommand):
                send_reminder_email(tx.id)
                tx.reminder_sent = True
                tx.save()
+        
