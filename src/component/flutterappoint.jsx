@@ -36,7 +36,7 @@ export const PayAppoint = (props) => {
     if(state.username){config.customer.name = state.username}
    
 
-    if(props.amount){config.amount = Math.ceil((props.amount/props.rate)*1.25)}
+    if(props.amount){config.amount = Math.ceil((props.amount/props.rate)*1.40)}
     if(props.name){config.customizations.description += props.name}
 
 const appnt = {

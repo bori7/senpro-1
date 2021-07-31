@@ -22,7 +22,7 @@ export const Pay = (props) => {
     public_key:`${process.env.REACT_APP_PUBLIC_KEY}`,
     tx_ref: Date.now(),
     payment_options: 'card,mobilemoney,ussd',
-    amount: (process.env.REACT_APP_PRICE_MEETING/props.rate)*1.25,
+    amount: (process.env.REACT_APP_PRICE_MEETING/props.rate)*1.40,
     currency: 'NGN',
     customer: {
       email: 'user@gmail.com',
