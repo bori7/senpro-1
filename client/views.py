@@ -147,7 +147,7 @@ class SendContactEmail(APIView):
         
         try:
             message = render_to_string('contact.html', {'request': request, **message_obj})
-            resp = send_mail_task(message, ['contact@senproinitiative.org', 'abiodun.toluwanii@gmail.com'], 'Your Result Is Now Available')
+            resp = send_mail_task(message, ['contact@senproinitiative.org', 'abiodun.toluwanii@gmail.com'], 'SenPrp Contact Form')
 
         except KeyError:
             pass
