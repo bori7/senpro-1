@@ -190,9 +190,9 @@ class SendAppointmentEmail(APIView):
         appointment.meeting_id = meeting['room']['id']
 
         appointment.save()
-        message = render_to_string('appointment-email.html', {'request': request, 'start_date': appointment.user_prefered_time, 'consultant_name': appointment.consultant_name, 'ctimezone': appointment.user_timezone, 'joinurl': meeting.join_url}) 
+        message = render_to_string('appointment-email.html', {'request': request, 'start_date': appointment.user_prefered_time, 'consultant_name': appointment.consultant_name, 'ctimezone': appointment.user_timezone, 'joinurl': meeting['links']['guest_join']}) 
         resp = send_mail_task(message, [appointment.user.email], 'Senpro Appointment Details')
-        sendConsultantEmail(appointment.user.username, appointment.user_prefered_time, meeting.start_url, appointment.consultant_name, appointment.consultant_email, request, appointment.consultant_timezone)
+        sendConsultantEmail(appointment.user.username, appointment.user_prefered_time, meeting['links']['gui'], appointment.consultant_name, appointment.consultant_email, request, appointment.consultant_timezone)
         return Response({'message': resp.text})
 
 
