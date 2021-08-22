@@ -79,7 +79,9 @@ class Appointment(models.Model):
     consultant_timezone = models.CharField(max_length=200, default='Africa/Lagos')
     meeting_id = models.CharField(max_length=200, null=True)
     reminder_sent = models.BooleanField(default=False)
-
+    host_started = models.BooleanField(default=False)
+    host_url = models.URLField(null=True)
+    guest_url = models.URLField(null=True)
 
     def __str__(self):
         return self.user.username

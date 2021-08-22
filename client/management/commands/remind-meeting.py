@@ -21,8 +21,7 @@ class Command(BaseCommand):
            days, seconds = diff.days, diff.seconds
            hours = days * 24 + seconds // 3600
            
-           if hours < 2 and not tx.reminder_sent and hours >= 0:
-               
+           if hours < 2 and not tx.reminder_sent:
                send_reminder_email(tx.id)
                tx.reminder_sent = True
                tx.save()

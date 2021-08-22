@@ -20,8 +20,12 @@ from django.utils.html import strip_tags
 from django.conf import settings
 from pyzoom import ZoomClient
 from django.http import HttpResponse
+import random
 from django.views.decorators.csrf import csrf_exempt
+from django.views import View
 import json
+from django.http import HttpResponseRedirect, Http404
+from django.urls import reverse
 
 
 
@@ -169,6 +173,33 @@ def generate(expires=10000):
     response = requests.request("POST", url, headers=headers, data=payload, files=files)
     return response.json()
 
+class MeetingLink(View):
+
+    def get(self, request, *args, **kwargs):
+        host = request.GET.get('host')
+        passwd = request.GET.get('passwd')
+        try:
+            appointment = Appointment.objects.get(pk=request.GET.get('id'))   
+        except Appointment.DoesNotExist:
+            raise Http404()
+        if appointment.meeting_id != passwd:
+            raise Http404()
+        meeting = generate()
+
+        if host:
+            appointment.host_url = meeting['links']['gui']
+            appointment.guest_url = meeting['links']['guest_join']
+            appointment.host_started = True
+            appointment.save()
+            return HttpResponseRedirect(meeting['links']['gui'])
+
+        else:
+            if appointment.host_started:
+                return HttpResponseRedirect(appointment.guest_url)
+            else:
+                raise Http404('Host has not started meeting')
+
+
 class SendAppointmentEmail(APIView):
 
     authentication_classes = [ SessionAuthentication,]
@@ -180,19 +211,16 @@ class SendAppointmentEmail(APIView):
             appointment = Appointment.objects.get(pk=appointment_id)
         except Appointment.DoesNotExist:
             return Response(status=HTTP_400_BAD_REQUEST)
-        meeting = generate()
-
-
-        #client = ZoomClient(settings.ZOOM_API_KEY, settings.ZOOM_SECRET)
-        #meeting = client.meetings.create_meeting('SENPRO Meeting', start_time=appointment.user_prefered_time.isoformat(), duration_min=60, password='senpro1233')
-        appointment.zoom_join_url = meeting['links']['guest_join']
-        appointment.zoom_start_url = meeting['links']['gui']
-        appointment.meeting_id = meeting['room']['id']
-
+        passwd = random.randint(1111,9999)
+        appointment.meeting_id = passwd
+        consultant_url = request.build_absolute_uri(reverse('meeting_link')) + '?host=1&passwd=%s&id=%s' %(passwd, appointment.id)
+        guest_url = request.build_absolute_uri(reverse('meeting_link')) + '?passwd=%s&id=%s' %(passwd, appointment.id)
+        appointment.zoom_start_url = consultant_url
+        appointment.zoom_join_url = guest_url
         appointment.save()
-        message = render_to_string('appointment-email.html', {'request': request, 'start_date': appointment.user_prefered_time, 'consultant_name': appointment.consultant_name, 'ctimezone': appointment.user_timezone, 'joinurl': meeting['links']['guest_join']}) 
+        message = render_to_string('appointment-email.html', {'request': request, 'start_date': appointment.user_prefered_time, 'consultant_name': appointment.consultant_name, 'ctimezone': appointment.user_timezone, 'joinurl': guest_url}) 
         resp = send_mail_task(message, [appointment.user.email], 'Senpro Appointment Details')
-        sendConsultantEmail(appointment.user.username, appointment.user_prefered_time, meeting['links']['gui'], appointment.consultant_name, appointment.consultant_email, request, appointment.consultant_timezone)
+        sendConsultantEmail(appointment.user.username, appointment.user_prefered_time, consultant_url , appointment.consultant_name, appointment.consultant_email, request, appointment.consultant_timezone)
         return Response({'message': resp.text})
 
 
@@ -200,11 +228,6 @@ def sendConsultantEmail(client, start_date, meeting_link, consultant_name, consu
     message = render_to_string('consultant-email.html', {'request': request, 'start_date': start_date, 'consultant_name': consultant_name, 'client': client, 'meeting_link': meeting_link, 'ctimezone': timezone}) 
     resp = send_mail_task(message, [consultant_email, 'admin@senproinitiative.org'], 'Consultant Email Setup')
     return Response({'message': resp.text})
-
-
-
-
-    
 
 
 class SendPaymentAppointmentEmail(APIView):
@@ -222,11 +245,6 @@ class SendPaymentAppointmentEmail(APIView):
         message = render_to_string('appointment-payt.html', {'request': request, 'app_id': appointment_id}) 
         resp = send_mail_task(message, [appointment.user.email], 'Payment Successful')
         return Response({'message': resp.text})
-
-
-
-
-    
 
 
 def send_mail_task(message,  to_email, subject, from_email='support@senproinitiative.org'):
