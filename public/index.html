@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-      <meta
-      name="description"
-      content="The SEN Professionals Initiative is a not-for-profit non-governmental organization, whose aim is to provide hope and help to members of the SEN community by bringing together  and making accessible 
-      highly trained and experienced professionals in the field of special education"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="The SEN Professionals Initiative is a not-for-profit non-governmental organization, whose aim is to provide hope and help to members of the SEN community by bringing together  and making accessible 
+      highly trained and experienced professionals in the field of special education" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css" integrity="sha512-3g+prZHHfmnvE1HBLwUnVuunaPOob7dpksI7/v6UnF/rnKGwHf/GdEq9K7iEN7qTtW+S0iivTcGpeTBqqB04wA==" crossorigin="anonymous" />
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css"
+    integrity="sha512-3g+prZHHfmnvE1HBLwUnVuunaPOob7dpksI7/v6UnF/rnKGwHf/GdEq9K7iEN7qTtW+S0iivTcGpeTBqqB04wA=="
+    crossorigin="anonymous" />
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -26,18 +26,29 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>SenPro</title>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-        <script type="text/javascript">
-        (function() {
-        emailjs.init("user_jDFiteMUy9NWNFehWpWQR");
-        })();
-        </script>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
+  <title>SenPro</title>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init("user_jDFiteMUy9NWNFehWpWQR");
+    })();
+  </script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B3F4NQNC3E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-B3F4NQNC3E');
+  </script>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -47,91 +58,97 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
-    </script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
+  </script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha512-3n19xznO0ubPpSwYCRRBgHh63DrV+bdZfHK52b1esvId4GsfwStQNPJFjeQos2h3JwCmZl0/LgLxSKMAI55hgw==" crossorigin="anonymous"></script>
-   		<script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
-    <script src="https://cdn.tiny.cloud/1/r5162qzwgi9cfe8kl1v4nlkwpqb9y1y15sncpe4tt0vdv3jl/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-  
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
+    integrity="sha512-3n19xznO0ubPpSwYCRRBgHh63DrV+bdZfHK52b1esvId4GsfwStQNPJFjeQos2h3JwCmZl0/LgLxSKMAI55hgw=="
+    crossorigin="anonymous"></script>
+  <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+  <script src="https://cdn.tiny.cloud/1/r5162qzwgi9cfe8kl1v4nlkwpqb9y1y15sncpe4tt0vdv3jl/tinymce/5/tinymce.min.js"
+    referrerpolicy="origin"></script>
+
 
   <script>
 
-    window.closeModal = function (identifier){
+    window.closeModal = function (identifier) {
       $(identifier).modal('hide');
     };
 
-   {% comment %} document.querySelector('#createsub').submit(function() {
-            document.querySelector('#create').modal().toggle();
-            });  
-        {% endcomment %}
-    $(document).ready(function(){
-       
-        $(window).on('load',function() {
-          $(".se-pre-con").fadeOut("slow");
-          
-        });
+    {% comment %} document.querySelector('#createsub').submit(function () {
+      document.querySelector('#create').modal().toggle();
+    });
+    {% endcomment %}
+    $(document).ready(function () {
 
-        
+      $(window).on('load', function () {
+        $(".se-pre-con").fadeOut("slow");
 
-        for (const dropdown of document.querySelectorAll(".custom-select-wrapper")) {
-          dropdown.addEventListener('click', function() {
-              this.querySelector('.my-custom-select').classList.toggle('open');
-          })
-        }
+      });
 
-        for (const option of document.querySelectorAll(".custom-option")) {
-        option.addEventListener('click', function() {
-        if (!this.classList.contains('selected')) {
+
+
+      for (const dropdown of document.querySelectorAll(".custom-select-wrapper")) {
+        dropdown.addEventListener('click', function () {
+          this.querySelector('.my-custom-select').classList.toggle('open');
+        })
+      }
+
+      for (const option of document.querySelectorAll(".custom-option")) {
+        option.addEventListener('click', function () {
+          if (!this.classList.contains('selected')) {
             this.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
             this.classList.add('selected');
             this.closest('.my-custom-select').querySelector('.custom-select__trigger span').textContent = this.textContent;
-        }
+          }
         })
 
 
-        }
-        window.addEventListener('click', function(e) {
+      }
+      window.addEventListener('click', function (e) {
         for (const select of document.querySelectorAll('.custom-select')) {
-        if (!select.contains(e.target)) {
+          if (!select.contains(e.target)) {
             select.classList.remove('open');
-        }
-        }
-        });
-
-
-
-
-
-        // Add minus icon for collapse element which is open by default
-			        $(".collapse.show").each(function(){
-			        	$(this).prev(".topic").find(".toggler").addClass("fa-minus").removeClass("fa-plus");
-			        });
-			        
-              {% comment %} $('#createsub').submit(function() {
-              $('#create').modal().toggle();
-              });  {% endcomment %}
-			        // Toggle plus minus icon on show hide of collapse element
-			        $(".collapse").on('show.bs.collapse', function(){
-			        	$(this).prev(".topic").find(".toggler").removeClass("fa-plus").addClass("fa-minus");
-			        }).on('hide.bs.collapse', function(){
-			        	$(this).prev(".topic").find(".toggler").removeClass("fa-minus").addClass("fa-plus");
-			        });
-			    });
-
-        
-        function scrollFunction() {
-          if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
-            document.getElementById("scrollnav").style.top = "0";
-          } else {
-            document.getElementById("scrollnav").style.top = "-150px";
           }
         }
-        window.onscroll = function() {scrollFunction()};
+      });
+
+
+
+
+
+      // Add minus icon for collapse element which is open by default
+      $(".collapse.show").each(function () {
+        $(this).prev(".topic").find(".toggler").addClass("fa-minus").removeClass("fa-plus");
+      });
+
+      {% comment %} $('#createsub').submit(function () {
+        $('#create').modal().toggle();
+      }); {% endcomment %}
+      // Toggle plus minus icon on show hide of collapse element
+      $(".collapse").on('show.bs.collapse', function () {
+        $(this).prev(".topic").find(".toggler").removeClass("fa-plus").addClass("fa-minus");
+      }).on('hide.bs.collapse', function () {
+        $(this).prev(".topic").find(".toggler").removeClass("fa-minus").addClass("fa-plus");
+      });
+    });
+
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
+        document.getElementById("scrollnav").style.top = "0";
+      } else {
+        document.getElementById("scrollnav").style.top = "-150px";
+      }
+    }
+    window.onscroll = function () { scrollFunction() };
 
   </script>
-  </body>
+</body>
+
 </html>
