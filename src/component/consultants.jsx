@@ -344,7 +344,7 @@ export const Consultants = () => {
 					<div className="modal-content">
 						<div className="modal-header">
 							<h5 className="modal-title" style={{ fontWeight: "700" }}>
-								<img src="/static/assets/busola.png" width="30px;" /> Mrs. Busola Olamuyiwa</h5>
+								<img src="/static/assets/busola.png" width="30px;  " /> Mrs. Busola Olamuyiwa</h5>
 							<button type="button" className="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
