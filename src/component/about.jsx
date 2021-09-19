@@ -34,7 +34,7 @@ export const About = (props) => {
 			<div class="row">
 				<div class="col-12">
 						<p>
-						SENPRO Initiative is the vision of two SEN Professionals who have over 20 combined years of experience not just as professionals but as mothers who have had children who at some point, needed special needs intervention. 
+						SENPRO Initiative is the vision of two SEN Professionals who have over 20 combined years of experience not just as professionals but as parents who have had children who at some point, needed special needs intervention. 
 						</p>
 						<p>
 						Research has proven that early intervention makes a difference in predicting a child’s success and ability to live a fully functional life irrespectively of their gifts or challenges. However, this success is sometimes linked to the quality of the professional. Statistics have, however, shown that these professionals are in a deficit across the globe. These deficits are doubled in Africa, where SEN is still negatively influenced by religious and cultural biases. These, coupled with the low-income index has created a community where unskilled personnel can exploit helpless parents who are uninformed and in a desperate search for hope and clear directions. 

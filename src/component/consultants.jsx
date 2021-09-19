@@ -112,7 +112,7 @@ export const Consultants = () => {
 							<a href="#" data-toggle="modal" data-target="#busola">
 								<div className="profile-box profile-box-blue">
 									<img src={busola} style={{ borderRadius: '50%', width: '200px', height: '200px' }} />
-									<h3>Mrs Busola Olumuyiwa </h3>
+									<h3>Mrs Busola Olamuyiwa </h3>
 								</div>
 							</a>
 						</div>
@@ -344,7 +344,7 @@ export const Consultants = () => {
 					<div className="modal-content">
 						<div className="modal-header">
 							<h5 className="modal-title" style={{ fontWeight: "700" }}>
-								<img src="/static/assets/busola.png" width="30px;" /> Mrs. Busola Olumuyiwa</h5>
+								<img src="/static/assets/busola.png" width="30px;" /> Mrs. Busola Olamuyiwa</h5>
 							<button type="button" className="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
